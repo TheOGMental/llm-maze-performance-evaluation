@@ -1,0 +1,101 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{tabularx}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\title{Evaluating the Maze-Solving Capabilities of Pretrained Language Models\\
+{\footnotesize MATH598B Final Project Proposal}}
+\author{\IEEEauthorblockN{Gabriel Del Castillo}
+\IEEEauthorblockA{\textit{Department of Computer Science} \\
+\textit{Colorado School of Mines}\\
+Golden, CO, USA \\
+gdelcastillo@mines.edu}
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Project Description}
+
+I found the idea of evaluating existing large language models based on their ability to solve mazes to be quite interesting. From rats, to children, to AI models, testing a subject's ability to solve a maze has been used in several research studies throughout the last century, typically as a measure for intelligence or cognitive abilities \cite{ext1, ext2, ext3}. Thus, with all the talk about artificial intelligence --- and especially large language models --- being \textit{the future} \cite{art1, art2}, it follows that said models should be tested in this manner as well.
+
+For my project, I plan on building on the work by Ivanitskiy et al. \cite{int1} to generate solvable maze configurations, each of which will be provided to a number of pretrained language models through API requests. To determine whether the solution provided by the language model is correct or not, these will be verified by either the solution found in \cite{int1} (in cases with a unique solution), or a breadth-first search (BFS) solver (in cases with multiple solutions. All incorrect solutions (or replies detailing the model's inability to solve the maze) will be manually analyzed to discover failure patterns.
+
+The list of models to be evaluated has not been explicitly defined yet; however, it will be divided into three categories of models --- open source (e.g., Groq's Qwen 2.5 32B, DeepSeek's r1), open weights (e.g., Mistral's Nemo) and proprietary models (e.g. OpenAI's gpt-4, Anthropic's Claude 3). Each prompt will consist of the following question, along with an ASCII representation of the maze.
+
+\begin{center}
+\textbf{``For the following maze, given a start point (denoted by an S), a goal (denoted by an X), and inaccessible areas (denoted by \# characters), please provide a path going from start to end."}
+\end{center}
+
+The specific wording of the prompt, along with the representation fo the maze, are potential avenues for further research in this project. The maze-dataset package published by \cite{int1} includes ASCII, pixel image, and token-based representations of any given maze. Each of these would be provided to a language model, and their corresponding responses would be compared accordingly.
+
+Table \ref{table:timeline} provides a rough estimate of the tasks to be completed, as well as completion dates for each one. Granted, these are just estimates and are subject to change as issues are found and tasks are completed. All dates were listed with an assumed final project submission date of April 30th, 2025.
+
+\section{Minimum Viable Example}
+\begin{enumerate}
+    \item[\textbf{1.}] Select a language model to evaluate from \cite{ext4}.
+    \item[\textbf{2.}] Obtain a valid API key for the selected model, along with an example maze from \cite{int1} with a single, unique solution.
+    \item[\textbf{3.}] Set up a coding project with the required libraries, dependencies, and environment variables.
+    \item[\textbf{4.}] Write the necessary code for providing the model with the maze and aforementioned prompt.
+    \item[\textbf{5.}] Manually compare the model's response to the actual solution, as detailed in \cite{int1}.
+\end{enumerate}
+I estimate the total amount of time this process will take is 3 hours, even when accounting for the possibility of roadblocks.
+
+\begin{table}[t!]
+    \begin{center}
+        \begin{tabular}{ |c|c|c| }
+            \hline
+            \textbf{Task} & \textbf{Completion Date} \\
+            \hline
+            Initial Setup & 04/04/25\\ 
+            \hline
+            Evaluation Code Implementation & 04/13/25\\
+            \hline
+            Paper Draft & 04/20/25 \\
+            \hline
+            Final Touch-Ups \& Report & 04/29/25\\
+            \hline
+        \end{tabular}
+    \caption{Rough Timeline}
+    \label{table:timeline}
+    \end{center}
+\end{table}
+
+\section{Hypotheses}
+\begin{enumerate}
+    \item[\textbf{H1:}] \textit{Model performance scales at minimum linearly with parameter count}
+    \item[\textbf{H2:}] \textit{Distribution type --- open source, open weights, proprietary --- has minimal effect on model performance}
+\end{enumerate}
+
+\section{Proposed Method}
+To test my hypotheses, a variety of models will be selected from those listed in \cite{ext4}, including various parameter counts and an approximately equal number of models across each distribution type previously established. As detailed previously, the prompt \& mazes the models are given will remain constant and serve as the control throughout the experiment. In turn, the responses of these models will be recorded and observed on a basis of correctness. Every correct solution to the maze provided will contribute positively to the "success rate" of a model. On the other hand, an incorrect solution, or inability to provide a solution all-together, negatively impacts the aforementioned success rate and will be manually analyzed for potential trends. 
+
+I expect to find that a mix of correct and incorrect solutions, including a few instances where a model is unable to provide any solution at all. To account for the unlikely instance where the models selected provide correct answers exclusively, constraints may be added to the original message, by way of the prompt (e.g., limiting the number of moves, asking the model to go through inaccessible areas) or the maze (e.g., providing unsolvable maze configurations).
+
+\section{LLM Usage}
+
+The primary way that I used language models throughout the writing of this proposal was to find references to relevant literature for using maze-solving as a way to measure intelligence. A transcript of this usage can be found here: https://claude.ai/share/9628e541-21d3-403f-a631-3b430a388034
+
+\begin{thebibliography}{00}
+\bibitem{ext1} E. C. Tolman, "Cognitive Maps in Rats and Men," Psychol. Rev., vol. 55, no. 4, pp. 189-208, Jul. 1948.
+\bibitem{ext2} J. Piaget and B. Inhelder, "The Child's Conception of Space," Int. J. Psychol., vol. 2, no. 3, pp. 241-242, 1967.
+\bibitem{ext3} Path-finding Algorithms: A. Stentz, "Optimal and Efficient Path Planning for Partially Known Environments," in IEEE International Conference on Robotics and Automation, 1994, pp. 3310-3317.
+\bibitem{ext4} “LLM Index | Promptmetheus,” Promptmetheus, Mar. 13, 2025. https://promptmetheus.com/resources/llm-index (accessed Mar. 26, 2025).
+
+\bibitem{art1} A. Gawrylewski, “The AI Future Is Here,” Scientific American, Mar. 04, 2025. https://www.scientificamerican.com/article/the-ai-future-is-here/
+\bibitem{art2} Mucci, Tim. “The Future of AI: Trends Shaping the next 10 Years.” Ibm.com, 11 Oct. 2024, www.ibm.com/think/insights/artificial-intelligence-future.
+
+\bibitem{int1} M. I. Ivanitskiy et al., "A Configurable Library for Generating and Manipulating Maze Datasets," arXiv:2309.10498 [cs.LG], Sep. 2023.
+\end{thebibliography}
+
+\end{document}
