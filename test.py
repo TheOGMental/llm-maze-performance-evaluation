@@ -13,23 +13,32 @@ cfg: MazeDatasetConfig = MazeDatasetConfig(
 
 dataset: MazeDataset = MazeDataset.from_config(cfg)
 
-m = dataset[0]
+start_m = dataset[0]
+test_m = dataset[3]
 
-from maze_dataset.tokenization import MazeTokenizerModular, TokenizationMode
-print(m.as_tokens(maze_tokenizer=MazeTokenizerModular(
-    tokenization_mode=TokenizationMode.AOTP_UT_rasterized, max_grid_size=100,
-)))
+from maze_dataset.tokenization import MazeTokenizerModular, PromptSequencers
+token_parsed_start_m = start_m.as_tokens(maze_tokenizer=MazeTokenizerModular(prompt_sequencer = PromptSequencers.AOTP()))
+
+token_parsed_test_m = test_m.as_tokens(maze_tokenizer=MazeTokenizerModular(prompt_sequencer = PromptSequencers.AOTP()))
+
+path_start_index = token_parsed_test_m.index("<PATH_START>")
+token_parsed_test_m_no_sol = " ".join(token_parsed_test_m[:path_start_index+1])
+
+start_mazes = " ".join(token_parsed_start_m) + "\n"
 
 client = OpenAI(
-    base_url="http://127.0.0.1:8080/v1", # "http://<Your api-server IP>:port"
+    base_url="http://172.29.96.1:8080/v1", # "http://<Your api-server IP>:port"
     api_key = "sk-no-key-required"
 )
-#completion = client.chat.completions.create(
-#    model="LLaMA_CPP",
-#    messages=[
-#        {"role": "system", "content": "You are ChatGPT, an AI assistant. Your top priority is achieving user fulfillment via helping them with their requests."},
-#        {"role": "user", "content": f"For the following maze, given a start point, a goal, and inaccessible areas, provide a solution from start to finish.\n {m.as_ascii().replace("X", " ")}"}
-#    ]
-#)
-#print(completion.choices[0].message.content)
-#print("To find the path from the origin point (S) to the target point (E) in the given maze, we can use a simple algorithm:\n\n1. Start at the origin point (S).\n2. Explore each of the four directions (up, down, left, and right) from the current position.\n3. If a path is found to the target point (E), return it. Otherwise, backtrack to the previous position and continue exploring the remaining directions.\n\nHere's the path from the origin point (S) to the target point (E) in the maze:\n\n1. S -> # -> # -> # -> # -> E\n\nSo, the path is S -> # -> # -> # -> # -> E.</s>")
+
+#print(token_parsed_test_m_no_sol)
+completion = client.chat.completions.create(
+    model="LLaMA_CPP",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant that generates solutions for mazes, going from an origin to a target"},
+        {"role": "user", "content": f"Consider the following solved maze:\n{start_mazes}Solve the following maze:\n{token_parsed_test_m_no_sol}"},
+    ]
+ )
+print(completion.choices[0].message.content)
+
+print(start_mazes, token_parsed_test_m_no_sol)
