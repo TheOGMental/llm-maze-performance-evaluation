@@ -14,11 +14,13 @@
 
 \title{Evaluating the Maze-Solving Capabilities of Pretrained Language Models\\
 {\footnotesize MATH598B Final Project Proposal}}
-\author{\IEEEauthorblockN{Gabriel Del Castillo}
+\author{\IEEEauthorblockN{Gabriel Del Castillo\IEEEauthorrefmark{1}, Nate Webster\IEEEauthorrefmark{2}}
 \IEEEauthorblockA{\textit{Department of Computer Science} \\
 \textit{Colorado School of Mines}\\
 Golden, CO, USA \\
-gdelcastillo@mines.edu}
+\IEEEauthorrefmark{1}gdelcastillo@mines.edu,
+\IEEEauthorrefmark{2}nwebster@mines.edu
+}
 }
 
 \begin{document}
@@ -27,9 +29,9 @@ gdelcastillo@mines.edu}
 
 \section{Project Description}
 
-I found the idea of evaluating existing large language models based on their ability to solve mazes to be quite interesting. From rats, to children, to AI models, testing a subject's ability to solve a maze has been used in several research studies throughout the last century, typically as a measure for intelligence or cognitive abilities \cite{ext1, ext2, ext3}. Thus, with all the talk about artificial intelligence --- and especially large language models --- being \textit{the future} \cite{art1, art2}, it follows that said models should be tested in this manner as well.
+We found the idea of evaluating existing large language models based on their ability to solve mazes to be quite interesting. From rats, to children, to AI models, testing a subject's ability to solve a maze has been used in several research studies throughout the last century, typically as a measure for intelligence or cognitive abilities \cite{ext1, ext2, ext3}. Thus, with all the talk about artificial intelligence --- and especially large language models --- being \textit{the future} \cite{art1, art2}, it follows that said models should be tested in this manner as well.
 
-For my project, I plan on building on the work by Ivanitskiy et al. \cite{int1} to generate solvable maze configurations, each of which will be provided to a number of pretrained language models through API requests. To determine whether the solution provided by the language model is correct or not, these will be verified by either the solution found in \cite{int1} (in cases with a unique solution), or a breadth-first search (BFS) solver (in cases with multiple solutions. All incorrect solutions (or replies detailing the model's inability to solve the maze) will be manually analyzed to discover failure patterns.
+For our project, we plan on building on the work by Ivanitskiy et al. \cite{int1} to generate solvable maze configurations, each of which will be provided to a number of pretrained language models through API requests. To determine whether the solution provided by the language model is correct or not, these will be verified by either the solution found in \cite{int1} (in cases with a unique solution), or a breadth-first search (BFS) solver (in cases with multiple solutions). All incorrect solutions (or replies detailing the model's inability to solve the maze) will be manually analyzed to discover failure patterns.
 
 The list of models to be evaluated has not been explicitly defined yet; however, it will be divided into three categories of models --- open source (e.g., Groq's Qwen 2.5 32B, DeepSeek's r1), open weights (e.g., Mistral's Nemo) and proprietary models (e.g. OpenAI's gpt-4, Anthropic's Claude 3). Each prompt will consist of the following question, along with an ASCII representation of the maze.
 
