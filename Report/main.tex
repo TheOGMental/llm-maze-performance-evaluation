@@ -12,8 +12,7 @@
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
-\title{Evaluating the Maze-Solving Capabilities of Pretrained Language Models\\
-{\footnotesize MATH598B Final Project Proposal}}
+\title{Evaluating the Maze-Solving Capabilities of Pretrained Language Models}
 \author{\IEEEauthorblockN{Gabriel Del Castillo\IEEEauthorrefmark{1}, Nate Webster\IEEEauthorrefmark{2}}
 \IEEEauthorblockA{\textit{Department of Computer Science} \\
 \textit{Colorado School of Mines}\\
@@ -27,16 +26,24 @@ Golden, CO, USA \\
 
 \maketitle
 
-\section{Project Description}
+\begin{abstract}
+  % To be completed before final submission  
+\end{abstract}
 
-We found the idea of evaluating existing large language models based on their ability to solve mazes to be quite interesting. From rats, to children, to AI models, testing a subject's ability to solve a maze has been used in several research studies throughout the last century, typically as a measure for intelligence or cognitive abilities \cite{ext1, ext2, ext3}. Thus, with all the talk about artificial intelligence --- and especially large language models --- being \textit{the future} \cite{art1, art2}, it follows that said models should be tested in this manner as well.
+\section{Introduction}
 
-For our project, we plan on building on the work by Ivanitskiy et al. \cite{int1} to generate solvable maze configurations, each of which will be provided to a number of pretrained language models through API requests. To determine whether the solution provided by the language model is correct or not, these will be verified by either the solution found in \cite{int1} (in cases with a unique solution), or a breadth-first search (BFS) solver (in cases with multiple solutions). All incorrect solutions (or replies detailing the model's inability to solve the maze) will be manually analyzed to discover failure patterns.
+Large Language Models (LLMs) such as GPT-4 and LlaMa 3 are able to produce remarkably accurate results when faced with various natural language processing tasks~\cite{}. As the scale and reach of these models have expanded, so has the focus on developing benchmarks to measure the limits and capabilities of LLMs~\cite{}. However, there has been little research examining how pretrained language models handle maze solving tasks, along with identifying possible common failure patterns. The ability to solve maze-like structures has long served as a way to evaluate the cognitive and algorithmic performance of various subjects, with research ranging from rodent navigation~\cite{tolman}, to spatial understanding in infants~\cite{piaget}, to path planning for robotic systems~\cite{stentz}.
+
+Motivated by this, as well as the prospect of integrating LLMs into physical robotic agents capable of speech, we analyze the responses of four different language models after being prompted with one of several solvable maze configurations, evaluate the validity and optimality of these answers, and measure if parameter count, model distribution type, or maze representation have an impact on task performance.
+
+\section{OLD PROPOSAL STARTS HERE}
+
+For our project, we plan on building on the work by Ivanitskiy et al.~\cite{int1} to generate solvable maze configurations, each of which will be provided to a number of pretrained language models through API requests. To determine whether the solution provided by the language model is correct or not, these will be verified by either the solution found in \cite{int1} (in cases with a unique solution), or a breadth-first search (BFS) solver (in cases with multiple solutions). All incorrect solutions (or replies detailing the model's inability to solve the maze) will be manually analyzed to discover failure patterns.
 
 The list of models to be evaluated has not been explicitly defined yet; however, it will be divided into three categories of models --- open source (e.g., Groq's Qwen 2.5 32B, DeepSeek's r1), open weights (e.g., Mistral's Nemo) and proprietary models (e.g. OpenAI's gpt-4, Anthropic's Claude 3). Each prompt will consist of the following question, along with an ASCII representation of the maze.
 
 \begin{center}
-\textbf{``For the following maze, given a start point (denoted by an S), a goal (denoted by an X), and inaccessible areas (denoted by \# characters), please provide a path going from start to end."}
+\textbf{``For the following maze, given a start point (denoted by an S), a goal (denoted by an X), and inaccessible areas (denoted by \# characters), please provide a path going from start to end''}
 \end{center}
 
 The specific wording of the prompt, along with the representation fo the maze, are potential avenues for further research in this project. The maze-dataset package published by \cite{int1} includes ASCII, pixel image, and token-based representations of any given maze. Each of these would be provided to a language model, and their corresponding responses would be compared accordingly.
@@ -89,9 +96,9 @@ I expect to find that a mix of correct and incorrect solutions, including a few 
 The primary way that I used language models throughout the writing of this proposal was to find references to relevant literature for using maze-solving as a way to measure intelligence. A transcript of this usage can be found here: https://claude.ai/share/9628e541-21d3-403f-a631-3b430a388034
 
 \begin{thebibliography}{00}
-\bibitem{ext1} E. C. Tolman, "Cognitive Maps in Rats and Men," Psychol. Rev., vol. 55, no. 4, pp. 189-208, Jul. 1948.
-\bibitem{ext2} J. Piaget and B. Inhelder, "The Child's Conception of Space," Int. J. Psychol., vol. 2, no. 3, pp. 241-242, 1967.
-\bibitem{ext3} Path-finding Algorithms: A. Stentz, "Optimal and Efficient Path Planning for Partially Known Environments," in IEEE International Conference on Robotics and Automation, 1994, pp. 3310-3317.
+\bibitem{tolman} E. C. Tolman, "Cognitive Maps in Rats and Men," Psychol. Rev., vol. 55, no. 4, pp. 189-208, Jul. 1948.
+\bibitem{piaget} J. Piaget and B. Inhelder, "The Child's Conception of Space," Int. J. Psychol., vol. 2, no. 3, pp. 241-242, 1967.
+\bibitem{stentz} Path-finding Algorithms: A. Stentz, "Optimal and Efficient Path Planning for Partially Known Environments," in IEEE International Conference on Robotics and Automation, 1994, pp. 3310-3317.
 \bibitem{ext4} “LLM Index | Promptmetheus,” Promptmetheus, Mar. 13, 2025. https://promptmetheus.com/resources/llm-index (accessed Mar. 26, 2025).
 
 \bibitem{art1} A. Gawrylewski, “The AI Future Is Here,” Scientific American, Mar. 04, 2025. https://www.scientificamerican.com/article/the-ai-future-is-here/
