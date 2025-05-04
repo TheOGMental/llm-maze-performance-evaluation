@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1746231156.48753 "/home/gdelcastillo/School/MATH598B/final_project/llm-maze-performance-evaluation/Report/main.tex" "main.pdf" "main" 1746231156.84317 0
-  "/etc/texmf/web2c/texmf.cnf" 1745360243.77944 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/gdelcastillo/School/MATH598B/final_project/llm-maze-performance-evaluation/Report/main.tex" 1746231156.25999 8409 206a08d1615e5d9448dd3b5823a0afa1 ""
+["pdflatex"] 1746377767.09965 "/home/gdelcastillo/School/MATH598B/final_project/llm-maze-performance-evaluation/Report/main.tex" "main.pdf" "main" 1746377767.51467 0
+  "/etc/texmf/web2c/texmf.cnf" 1744687366.12137 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/gdelcastillo/School/MATH598B/final_project/llm-maze-performance-evaluation/Report/main.tex" 1746377766.35597 5224 09dd8454b67d099b45e54cdfb666d73e ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -73,13 +73,14 @@
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty" 1698869629 12667 e4b5eb11e4b7239e6c8a52bbe074a6c6 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty" 1698869629 7147 d45559f8a31b8c53ada0640516660003 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1700082560 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1745360844.16443 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1745360968 8214757 be58064dc793ab2ad1d6c0f14b6a8d74 ""
-  "main.aux" 1746231156.79659 1282 6af7b63695912aeedf4d444bdf1f8d86 "pdflatex"
-  "main.tex" 1746231156.25999 8409 206a08d1615e5d9448dd3b5823a0afa1 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1744688866.78134 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1744689007 8214188 668a58118b77b2e2b268c973764869ae ""
+  "main.aux" 1746377767.46597 1165 9a1818008473350eb668080f689cc138 "pdflatex"
+  "main.tex" 1746377766.35597 5224 09dd8454b67d099b45e54cdfb666d73e ""
   (generated)
   "main.aux"
   "main.log"
