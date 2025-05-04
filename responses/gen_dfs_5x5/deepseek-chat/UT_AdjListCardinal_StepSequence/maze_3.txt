@@ -85,4 +85,4 @@ This path is valid because:
 ### Final Path:
 (0,1) SOUTH (1,1) SOUTH (1,2) SOUTH (1,4) WEST (0,4)
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

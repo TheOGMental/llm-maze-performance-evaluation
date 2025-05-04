@@ -39,4 +39,4 @@ The adjacency list provided shows the connections between cells in the maze. Her
 
 This path successfully connects the origin (1, 0) to the target (0, 2) using the given adjacency list.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

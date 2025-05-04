@@ -47,4 +47,4 @@ If the target is indeed (4, 0), the maze has no valid path to it. Please verify 
 
 If the target is (4, 0), no path exists.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

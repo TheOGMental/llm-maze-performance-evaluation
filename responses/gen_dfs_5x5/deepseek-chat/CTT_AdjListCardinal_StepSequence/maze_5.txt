@@ -77,4 +77,4 @@ Given the adjacency list is incomplete, the correct path is likely:
 ### Final Path:
 (3, 1) NORTH (3, 2) NORTH (3, 3) NORTH (2, 3) NORTH (1, 2) SOUTH (1, 4)
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

@@ -91,4 +91,4 @@ The path from `S` to `E` is:
 ```
 (Here, the path is marked with `.` for clarity, though the actual maze does not show these markers.)
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

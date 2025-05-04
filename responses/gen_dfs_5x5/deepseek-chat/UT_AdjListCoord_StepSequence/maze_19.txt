@@ -18,4 +18,4 @@ So, the path is:
 Here is the path in the required format:
 <PATH_START> (1,0) (2,0) (3,0) (4,0) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

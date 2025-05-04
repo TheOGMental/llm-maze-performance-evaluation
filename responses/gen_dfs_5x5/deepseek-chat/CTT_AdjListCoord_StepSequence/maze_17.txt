@@ -31,4 +31,4 @@ Starting from (4, 4):
 ### Final Path:
 <PATH_START> (4, 4) (4, 3) (3, 3) (3, 2) (4, 2) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

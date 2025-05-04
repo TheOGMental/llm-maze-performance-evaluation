@@ -50,4 +50,4 @@ Now we've reached the target (4, 0).
 Here is the path:
 (1, 0) SOUTH (2, 0) SOUTH (2, 1) SOUTH (2, 2) SOUTH (3, 3) NORTH (2, 3) EAST (3, 4) SOUTH (4, 4) WEST (4, 3) WEST (4, 2) WEST (4, 0)
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

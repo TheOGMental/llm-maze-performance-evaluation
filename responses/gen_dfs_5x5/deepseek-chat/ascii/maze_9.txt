@@ -87,4 +87,4 @@ The simplest path is:
 
 This is the shortest path from `S` to `E`.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

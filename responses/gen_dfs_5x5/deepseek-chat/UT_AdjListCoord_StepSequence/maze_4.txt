@@ -59,4 +59,4 @@ No backtracking or invalid moves are present, and the path reaches the target.
 ### Answer:
 <PATH_START> (2,3) (2,2) (1,2) (1,1) (0,1) (0,0) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

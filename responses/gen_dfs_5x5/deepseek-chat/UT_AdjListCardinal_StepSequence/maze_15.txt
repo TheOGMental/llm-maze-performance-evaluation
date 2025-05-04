@@ -55,4 +55,4 @@ Thus, the path is:
 (1,0) NORTH (1,2)
 ```
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

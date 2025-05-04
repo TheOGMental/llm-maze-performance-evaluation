@@ -44,4 +44,4 @@ The maze is represented by the following adjacency list:
 
 This path successfully navigates from the origin (4, 0) to the target (2, 0).
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

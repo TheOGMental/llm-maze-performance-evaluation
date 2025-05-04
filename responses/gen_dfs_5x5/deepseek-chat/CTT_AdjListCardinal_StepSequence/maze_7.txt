@@ -31,4 +31,4 @@ To find a path from the origin (1, 1) to the target (2, 1) in the given maze, le
 ### Path:
 (1, 1) SOUTH (3, 0) NORTH (2, 1)
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

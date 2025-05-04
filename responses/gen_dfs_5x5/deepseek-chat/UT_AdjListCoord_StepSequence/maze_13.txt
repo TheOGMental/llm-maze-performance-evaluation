@@ -16,4 +16,4 @@ So, the shortest path is:
 Here's the path in the required format:
 <PATH_START> (0,2) (1,2) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

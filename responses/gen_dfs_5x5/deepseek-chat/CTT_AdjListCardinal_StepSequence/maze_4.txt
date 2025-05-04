@@ -40,4 +40,4 @@ Starting from the origin (2, 3):
 
 This path successfully navigates from the origin (2, 3) to the target (0, 0).
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

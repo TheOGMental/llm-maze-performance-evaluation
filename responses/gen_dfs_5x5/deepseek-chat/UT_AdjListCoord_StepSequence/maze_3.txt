@@ -61,4 +61,4 @@ Upon reviewing, there is a shorter path:
 The initial path is correct given the adjacency list. Here it is again for clarity:
 (0,1) → (1,1) → (2,1) → (2,0) → (3,0) → (4,0) → (4,1) → (3,1) → (3,2) → (2,2) → (1,2) → (1,3) → (0,3) → (0,4)
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

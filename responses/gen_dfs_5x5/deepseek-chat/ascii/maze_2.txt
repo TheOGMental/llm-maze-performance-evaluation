@@ -126,4 +126,4 @@ However, looking at the maze again, the correct path is:
 ###########
 ```
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

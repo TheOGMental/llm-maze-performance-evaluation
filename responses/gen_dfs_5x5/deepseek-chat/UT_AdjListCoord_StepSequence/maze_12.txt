@@ -29,4 +29,4 @@ To find a path from the origin (4,3) to the target (3,2) in the given maze, we c
 
 This path successfully navigates from the origin (4,3) to the target (3,2) using the given connections in the maze.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

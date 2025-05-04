@@ -80,4 +80,4 @@ Given the ambiguity in the adjacency list, the most likely valid path is:
 ### Final Path:
 (2,1) WEST (2,0) EAST (2,3) EAST (2,4) NORTH (1,4)
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

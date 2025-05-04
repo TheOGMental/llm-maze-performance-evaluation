@@ -25,4 +25,4 @@ Thus, the path from the origin to the target is:
 Here is the path in the required format:
 <PATH_START> (1,0) (0,0) (0,1) (0,2) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

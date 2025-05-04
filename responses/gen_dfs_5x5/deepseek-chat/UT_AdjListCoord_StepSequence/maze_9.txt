@@ -18,4 +18,4 @@ Thus, the shortest path is directly from (2,4) to (3,4).
 ### Path:
 <PATH_START> (2,4) (3,4) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

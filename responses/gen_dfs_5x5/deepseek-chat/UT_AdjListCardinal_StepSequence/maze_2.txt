@@ -107,4 +107,4 @@ Based on the adjacency list and the connections, the path from `(1,0)` to `(0,2)
 
 This sequence follows the given adjacency list and successfully reaches the target from the origin.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

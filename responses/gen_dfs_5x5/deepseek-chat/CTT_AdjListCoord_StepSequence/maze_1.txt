@@ -99,4 +99,4 @@ Here's the path formatted as requested:
 
 <PATH_START> ( 2 , 1 ) ( 2 , 0 ) ( 3 , 0 ) ( 4 , 0 ) ( 4 , 1 ) ( 3 , 1 ) ( 3 , 2 ) ( 3 , 3 ) ( 2 , 3 ) ( 2 , 4 ) ( 1 , 4 ) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

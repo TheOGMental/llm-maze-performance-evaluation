@@ -14,4 +14,4 @@ To find a path from the origin (1, 3) to the target (0, 3) in the given maze, we
 Here is the path:
 <PATH_START> (1, 3) EAST (1, 4) NORTH (0, 4) WEST (0, 3) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

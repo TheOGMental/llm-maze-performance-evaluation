@@ -37,4 +37,4 @@ To find a path from the origin (0, 2) to the target (3, 1) in the given maze, we
 ### Path in Required Format:
 <PATH_START> (0, 2) (1, 2) (2, 2) (3, 2) (4, 2) (4, 1) (3, 1) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

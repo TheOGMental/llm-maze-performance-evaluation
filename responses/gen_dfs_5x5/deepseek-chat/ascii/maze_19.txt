@@ -76,4 +76,4 @@ DDDDD
 ```
 The path is straightforward: just move down five times from `S` to reach `E`.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

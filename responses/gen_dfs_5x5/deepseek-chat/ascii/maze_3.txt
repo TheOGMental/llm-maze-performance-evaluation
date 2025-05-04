@@ -83,4 +83,4 @@ To solve the given maze, we'll find a path from the origin `S` to the target `E`
 ```
 (The path is marked with `.` for clarity.)
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

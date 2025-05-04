@@ -57,4 +57,4 @@ This path is valid based on the given adjacency list. Here is the formatted path
 ### Path:
 (0, 0) SOUTH (1, 1) EAST (1, 2) EAST (2, 2) EAST (3, 2) SOUTH (3, 4) NORTH (2, 4) NORTH (1, 4) NORTH (0, 3) EAST (0, 4)
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

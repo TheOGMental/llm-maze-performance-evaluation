@@ -351,4 +351,4 @@ To solve the given maze, we'll start from the origin (S) and find a path to the 
    - Move **right** to (4, 5).
    - Move **up** to (3,
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

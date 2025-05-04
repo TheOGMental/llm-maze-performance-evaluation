@@ -22,4 +22,4 @@ Here is the valid path:
 
 <PATH_START> (4, 4) NORTH (3, 4) WEST (3, 3) WEST (3, 2) SOUTH (4, 2) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

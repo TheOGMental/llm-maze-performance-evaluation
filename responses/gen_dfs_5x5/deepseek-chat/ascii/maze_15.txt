@@ -80,4 +80,4 @@ The path from `S` to `E` is:
 
 The path is a straight line to the right from `S` to `E`.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

@@ -14,4 +14,4 @@ This is a very short path since the origin and target are directly connected. He
 
 <PATH_START> (0, 2) (1, 2) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

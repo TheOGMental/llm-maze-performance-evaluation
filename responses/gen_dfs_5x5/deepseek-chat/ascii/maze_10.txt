@@ -76,4 +76,4 @@ The path from S to E is as follows (using coordinates (row, column)):
 
 This path successfully navigates from the origin (S) to the target (E) without hitting any walls.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

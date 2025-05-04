@@ -14,4 +14,4 @@ To find a path from the origin (2, 4) to the target (3, 4) in the given maze, we
 Thus, the shortest path is:
 <PATH_START> (2, 4) (3, 4) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

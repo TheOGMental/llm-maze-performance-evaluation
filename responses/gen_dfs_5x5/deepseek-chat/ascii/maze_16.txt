@@ -118,4 +118,4 @@ Here’s the maze with the path marked as `P`:
 
 The path moves right from `S`, then down, right, down, right, down, right, down, right, up, up, up, right, and finally right to `E`.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

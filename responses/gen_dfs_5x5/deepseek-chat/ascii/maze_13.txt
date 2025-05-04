@@ -125,4 +125,4 @@ The path from `S` to `E` is:
 - Left (to 4,6)
 - Left (to 4,5) — `E`
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

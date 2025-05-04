@@ -15,4 +15,4 @@ This gives us the following path:
 
 <PATH_START> (1, 0) (1, 1) (1, 2) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

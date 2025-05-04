@@ -29,4 +29,4 @@ Upon re-examining, I see that (1,3) is directly connected to (0,3), which is the
 Thus, the path is:
 <PATH_START> (1,3) (0,3) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T
