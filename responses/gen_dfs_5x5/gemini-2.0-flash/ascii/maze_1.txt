@@ -1,0 +1,53 @@
+INPUT:
+###########
+#         #
+# #########
+#        E#
+######### #
+#  S# #   #
+# ##### ###
+# #     # #
+# # #######
+#   # # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#         #
+# #########
+#        E#
+#########X#
+#XXS# #XXX#
+#X#####X###
+#X#XXXXX# #
+#X#X#######
+#XXX# # # #
+###########
+
+OUTPUT:
+Here's a solution path from S to E for the given maze.  I'll represent the path using 'X' characters.
+
+```
+###########
+#         #
+# #########
+#XXXXXXX E#
+#########X#
+#  S# #XXX#
+# #####X###
+# #     X# #
+# # #######
+#   # # # #
+###########
+```
+
+**Explanation of the Path:**
+
+1.  Start at 'S'.
+2.  Move right several steps
+3.  Move upwards several steps
+4.  Move right to E.
+
+This path avoids all walls ('#') and leads directly from the start to the end.
+
+HUMAN VERIFICATION:

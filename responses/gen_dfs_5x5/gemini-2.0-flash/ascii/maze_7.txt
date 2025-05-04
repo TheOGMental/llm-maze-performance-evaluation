@@ -1,0 +1,49 @@
+INPUT:
+###########
+#   # # # #
+# # #######
+# #S# # # #
+# # #######
+# #E# # # #
+# # #######
+# # # # # #
+# # # #####
+# #   # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#   # # # #
+# # #######
+# #S# # # #
+# #X#######
+# #E# # # #
+# # #######
+# # # # # #
+# # # #####
+# #   # # #
+###########
+
+OUTPUT:
+Here's a solution path from S to E for the given maze:
+
+```
+###########
+#   # # # #
+# # #######
+# #S# # # #
+# #*#######
+# #*# # # #
+# #*#######
+# #*# # # #
+# #*# # ####
+# #***# # #
+###########
+```
+
+**Explanation of the path:**
+
+The path goes down from S, and then goes down from there until it can go to the left where the target is.
+
+
+HUMAN VERIFICATION:

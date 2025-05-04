@@ -1,0 +1,60 @@
+INPUT:
+###########
+# # #  E  #
+### # ### #
+# #   # # #
+######### #
+# # #     #
+##### #####
+#   #     #
+# # ##### #
+# #S      #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # #  EXX#
+### # ###X#
+# #   # #X#
+#########X#
+# # #XXXXX#
+#####X#####
+#   #XXXXX#
+# # #####X#
+# #SXXXXXX#
+###########
+
+OUTPUT:
+Here's one possible path from S (Start) to E (End) in the provided maze:
+
+```
+###########
+# # #  E  #
+### # ### #
+# #   # # #
+######### #
+# # #     #
+##### #####
+#   #     #
+# # ##### #
+# #S......#
+###########
+```
+
+**Explanation:**
+
+The path follows the open spaces in the maze. Here's a step-by-step description:
+
+1.  **Start (S):** Begin at the 'S' location.
+2.  Move right along the bottom row until you reach the second last position in the row.
+3.  Move up one row
+4.  Move left until you reach the first column
+5.  Move up one row
+6.  Move right until you reach the last column
+7.  Move up one row
+8.  Move left until you reach the fifth position in the row
+9.  Move up one row to reach the end position
+
+This path ensures that you only travel through valid open spaces and reach the designated 'E' (End) point.
+
+HUMAN VERIFICATION:

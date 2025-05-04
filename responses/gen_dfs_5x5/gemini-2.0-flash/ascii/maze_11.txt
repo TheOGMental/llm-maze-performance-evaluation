@@ -1,0 +1,53 @@
+INPUT:
+###########
+#    S# # #
+# ### #####
+#   # # # #
+### # #####
+#   # # # #
+# ### #####
+# #E# # # #
+### # #####
+# #   # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#    S# # #
+# ###X#####
+#   #X# # #
+### #X#####
+#   #X# # #
+# ###X#####
+# #E#X# # #
+###X#X#####
+# #XXX# # #
+###########
+
+OUTPUT:
+Here's a solution path from S (start) to E (end) in the given maze:
+
+```
+###########
+#    S# # #
+# ### #####
+#   # # # #
+### # #####
+#  ># # # #
+# ### #####
+# #E# # # #
+### # #####
+# #   # # #
+###########
+```
+
+**Path:**
+
+1.  Start at S
+2.  Move East (right) 3 times
+3.  Move South (down) 5 times
+4.  Move West (left) 2 times to reach E.
+
+
+
+HUMAN VERIFICATION:

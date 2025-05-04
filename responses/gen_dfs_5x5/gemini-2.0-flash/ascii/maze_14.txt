@@ -1,0 +1,49 @@
+INPUT:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#E  #  S  #
+# # ##### #
+# #       #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#EXX#  SXX#
+# #X#####X#
+# #XXXXXXX#
+###########
+
+OUTPUT:
+Here's one possible path from E (End) to S (Start) in the maze:
+
+```
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#E>>>>>>>>#
+# # #####>#
+# #       >#
+###########
+```
+
+**Explanation:**
+
+The path goes right from E, avoiding the walls, until it reaches the right side of the maze.
+
+
+HUMAN VERIFICATION:

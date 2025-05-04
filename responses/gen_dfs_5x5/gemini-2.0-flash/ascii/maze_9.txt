@@ -1,0 +1,44 @@
+INPUT:
+###########
+# # #     #
+### # ### #
+# #   #   #
+####### ###
+# # # # #S#
+####### # #
+# # # # #E#
+####### # #
+# # # #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # #     #
+### # ### #
+# #   #   #
+####### ###
+# # # # #S#
+####### #X#
+# # # # #E#
+####### # #
+# # # #   #
+###########
+
+OUTPUT:
+Here's the solution to the maze, represented by a series of moves (N=North, S=South, E=East, W=West):
+
+**Path:**
+
+SSSSWWWWNNNNNEEEEEENNNNNWWWWSSSSSS
+
+**Explanation:**
+
+1.  **SSSS:** Move South four times from the origin (S) to the second row.
+2.  **WWWW:** Move West four times to the left side of the maze.
+3.  **NNNNN:** Move North five times to the top of the maze.
+4.  **EEEEE:** Move East five times.
+5.  **NNNNN:** Move North five times.
+6.  **WWWW:** Move West four times to the left side of the maze.
+7.  **SSSSSS:** Move South six times to the target (E).
+
+HUMAN VERIFICATION:

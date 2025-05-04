@@ -1,0 +1,10 @@
+INPUT:
+<ADJLIST_START> ( 1 , 1 ) <--> NORTH ( 0 , 4 ) <--> SOUTH ( 2 , 2 ) <--> NORTH ( 2 , 4 ) <--> NORTH ( 0 , 1 ) <--> WEST ( 0 , 3 ) <--> WEST ( 0 , 3 ) <--> EAST ( 1 , 1 ) <--> EAST ( 2 , 3 ) <--> WEST ( 2 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 2 , 3 ) <ORIGIN_END> <TARGET_START> ( 0 , 0 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 2 , 3 ) WEST ( 2 , 2 ) NORTH ( 1 , 2 ) WEST ( 1 , 1 ) NORTH ( 0 , 1 ) WEST ( 0 , 0 ) <PATH_END>
+
+OUTPUT:
+There is no path from (2,3) to (0,0) in the maze. The provided adjacency list does not describe a maze where such a path exists.
+
+HUMAN VERIFICATION:

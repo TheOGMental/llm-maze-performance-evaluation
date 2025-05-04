@@ -1,0 +1,44 @@
+INPUT:
+###########
+# #S# #  E#
+### ### # #
+# # #   # #
+### # ### #
+#   # #   #
+# ### # ###
+# #   # # #
+# # ### ###
+#   #   # #
+###########
+
+EXPECTED SOLUTION:
+###########
+# #S# #XXE#
+###X###X# #
+# #X#XXX# #
+###X#X### #
+#XXX#X#   #
+#X###X# ###
+#X#XXX# # #
+#X#X### ###
+#XXX#   # #
+###########
+
+OUTPUT:
+Here's a solution path for the maze, represented by 'X' characters:
+
+```
+###########
+# #S# #XXE#
+### ###X# #
+# # # X # #
+### #X### #
+#   #X#   #
+# ###X# ###
+# #   X# # #
+# # ###X###
+#   #   X# #
+###########
+```
+
+HUMAN VERIFICATION:

@@ -1,0 +1,52 @@
+INPUT:
+###########
+# # # #E  #
+####### # #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # #E  #
+#######X# #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+
+OUTPUT:
+Here's a solution path for the maze, represented by a sequence of moves (N=North, S=South, E=East, W=West):
+
+**Path:**
+
+S E E E E E N N W W W S S S E E E E N N W W S S E E N N W W S S E E E E N N W W S S E E N N W W
+
+**Explanation:**
+
+*   Start at S
+*   Go South (S), then East until the end
+*   Go North twice (N N), then West until you can't
+*   Go South thrice (S S S) then East until you can't
+*   Go North twice (N N), then West until you can't
+*   Go South twice (S S), then East twice
+*   Go North twice (N N), then West twice
+*   Go South twice (S S), then East twice
+*   Go North twice (N N), then West twice
+*   Go South twice (S S), then East four times
+*   Go North twice (N N), then West twice
+*   Go South twice (S S), then East twice
+*   Go North twice (N N), then West twice until you reach the E
+
+This path guides you from the 'S' to the 'E' in the maze, avoiding walls.
+
+HUMAN VERIFICATION:

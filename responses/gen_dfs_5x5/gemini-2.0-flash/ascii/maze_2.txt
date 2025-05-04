@@ -1,0 +1,42 @@
+INPUT:
+###########
+#    E    #
+# ####### #
+#S  #   # #
+### # ### #
+# # # #   #
+##### # ###
+# # # # # #
+##### # ###
+# # #   # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#XXXXE    #
+#X####### #
+#S  #   # #
+### # ### #
+# # # #   #
+##### # ###
+# # # # # #
+##### # ###
+# # #   # #
+###########
+
+OUTPUT:
+Here's a path from S to E in the provided maze:
+
+1.  **Start (S):** `#S  #   # #`
+2.  Right, Right:`#  S #   # #`
+3.  Up: `# #S#   # #`
+4.  Up: `#  ES   #`
+5.  Left, Left, Left, Left: `#E    S    #`
+6.  Left: `#    E    #`
+
+Therefore, the final answer is:
+```
+Right, Right, Up, Up, Left, Left, Left, Left, Left
+```
+
+HUMAN VERIFICATION:

@@ -1,0 +1,52 @@
+INPUT:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # #E    #
+# ### ### #
+#     #S  #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # #EXXXX#
+# ### ###X#
+#     #SXX#
+###########
+
+OUTPUT:
+Here's a solution path from S to E:
+
+```
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # #E    #
+# ### ### #
+#>>>>>#S^^#
+###########
+```
+
+**Explanation:**
+
+*   `>` indicates a move to the right.
+*   `^` indicates a move upwards.
+
+The path starts at 'S', goes right until it encounters the '#' symbol, then it goes up twice to reach 'E'.
+
+
+HUMAN VERIFICATION:

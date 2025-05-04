@@ -1,0 +1,44 @@
+INPUT:
+###########
+# # #     #
+# ### #####
+# # #     #
+# ####### #
+#E# # # # #
+# ####### #
+# # #   # #
+# ### # # #
+#S    #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # #     #
+# ### #####
+# # #     #
+# ####### #
+#E# # # # #
+#X####### #
+#X# #   # #
+#X### # # #
+#S    #   #
+###########
+
+OUTPUT:
+Here's a solution path for the maze, represented by a series of moves (U=Up, D=Down, L=Left, R=Right), starting from the 'S' (Start) and ending at the 'E' (End):
+
+**Path:**
+
+UUURRRUUUUULLLLLDDLLLLUUUURRRRRRDDDDLLLLLLUUURRRDDDD
+
+**Explanation:**
+
+1.  **UUURRRUUUU** (From S to the upper empty lane)
+2.  **LLLLDDLLLL** (To the left end of the lane, then to the middle empty lane)
+3.  **UUUURRRRRR** (To the right side of the lane)
+4.  **DDDDLLLLLL** (To the left end of the lane)
+5.  **UUURRRDDDD** (To the end)
+
+This path guides you from 'S' to 'E' without hitting any walls.
+
+HUMAN VERIFICATION:

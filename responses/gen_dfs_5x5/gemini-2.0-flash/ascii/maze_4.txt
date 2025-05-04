@@ -1,0 +1,61 @@
+INPUT:
+###########
+#E  #     #
+### ##### #
+# #   # # #
+##### ### #
+# # #  S  #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#EXX#     #
+###X##### #
+# #XXX# # #
+#####X### #
+# # #XXS  #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+
+OUTPUT:
+Here's one possible solution path from E to S in the given maze:
+
+```
+###########
+#E>>#     #
+###>##### #
+# # v ># # #
+#####v### #
+# # # vvS  #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+```
+
+**Explanation:**
+
+*   **E**: Marks the starting point.
+*   **S**: Marks the ending point.
+*   **\>**: Indicates movement to the right.
+*   **v**: Indicates movement downwards.
+
+**Complete Path:**
+
+1.  Start at **E**.
+2.  Move Right twice.
+3.  Move Down Once.
+4.  Move Right Once.
+5.  Move Down Once.
+6.  Move Down Twice.
+7.  Reach **S**.
+
+HUMAN VERIFICATION:

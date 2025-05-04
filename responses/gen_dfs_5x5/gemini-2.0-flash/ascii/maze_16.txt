@@ -1,0 +1,59 @@
+INPUT:
+###########
+#S  # #  E#
+# # ### # #
+# #     # #
+######### #
+#       # #
+# ####### #
+#     # # #
+##### ### #
+# # #     #
+###########
+
+EXPECTED SOLUTION:
+###########
+#SXX# #XXE#
+# #X###X# #
+# #XXXXX# #
+######### #
+#       # #
+# ####### #
+#     # # #
+##### ### #
+# # #     #
+###########
+
+OUTPUT:
+Here's one possible path from S to E in the given maze:
+
+```
+###########
+#S>># #>>E#
+# # ### #>#
+# #     # v#
+######### v#
+#       # v#
+# ####### v#
+#     # # v#
+##### ### v#
+# # #     v#
+###########
+```
+
+**Explanation:**
+
+The path is represented by `>` moving right, `v` moving down. Starting at `S`, the path proceeds as follows:
+
+1.  Right twice (`>>`)
+2.  Right twice (`>>`) to reach `E`
+3.  Down once (`v`)
+4.  Down once (`v`)
+5.  Down once (`v`)
+6.  Down once (`v`)
+7.  Down once (`v`)
+8.  Down once (`v`)
+9.  Down once (`v`)
+
+
+HUMAN VERIFICATION:
