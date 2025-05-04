@@ -1,0 +1,25 @@
+INPUT:
+<ADJLIST_START> ( 2 , 0 ) <--> ( 1 , 0 ) ; ( 4 , 0 ) <--> ( 3 , 0 ) ; ( 4 , 0 ) <--> ( 4 , 1 ) ; ( 2 , 4 ) <--> ( 3 , 4 ) ; ( 1 , 4 ) <--> ( 1 , 3 ) ; ( 0 , 3 ) <--> ( 0 , 2 ) ; ( 3 , 2 ) <--> ( 4 , 2 ) ; ( 3 , 3 ) <--> ( 4 , 3 ) ; ( 3 , 2 ) <--> ( 3 , 3 ) ; ( 1 , 3 ) <--> ( 1 , 2 ) ; ( 0 , 2 ) <--> ( 1 , 2 ) ; ( 0 , 3 ) <--> ( 0 , 4 ) ; ( 1 , 4 ) <--> ( 2 , 4 ) ; ( 1 , 0 ) <--> ( 0 , 0 ) ; ( 4 , 4 ) <--> ( 3 , 4 ) ; ( 4 , 3 ) <--> ( 4 , 4 ) ; ( 4 , 1 ) <--> ( 4 , 2 ) ; ( 3 , 0 ) <--> ( 2 , 0 ) ; <ADJLIST_END> <ORIGIN_START> ( 4 , 0 ) <ORIGIN_END> <TARGET_START> ( 2 , 0 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 4 , 0 ) ( 3 , 0 ) ( 2 , 0 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (4, 0) and the target is at (2, 0).
+
+## 2: Identify the connections relevant to the origin and target
+From the origin (4, 0), the cell is connected to (3, 0). The target (2, 0) is directly connected to (1, 0) and (3, 0).
+
+## 3: Explore paths from the origin to the target
+Starting from (4, 0), we can move to (3, 0) as it's directly connected. From (3, 0), we can move to (2, 0) as it's also directly connected, which leads us directly to the target.
+
+## 4: Construct the path
+The path from the origin (4, 0) to the target (2, 0) can be constructed as follows: (4, 0) -> (3, 0) -> (2, 0).
+
+## 5: Verify the path
+Verify that the constructed path only uses connections defined in the maze's adjacency list and that it starts at the origin and ends at the target.
+
+The final answer is: $\boxed{(4, 0) (3, 0) (2, 0)}$
+
+HUMAN VERIFICATION:

@@ -1,0 +1,27 @@
+INPUT:
+<ADJLIST_START> (0,0) <--> SOUTH (0,1) <--> SOUTH (0,3) <--> SOUTH (0,4) <--> SOUTH (1,4) <--> SOUTH (2,0) <--> SOUTH (2,4) <--> SOUTH (3,2) <--> SOUTH (4,4) <--> NORTH (0,0) <--> EAST (0,3) <--> EAST (1,2) <--> WEST (1,2) <--> EAST (2,1) <--> WEST (2,2) <--> WEST (2,2) <--> EAST (3,1) <--> WEST (3,2) <--> WEST (4,2) <--> EAST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (0,0) <ORIGIN_END> <TARGET_START> (0,4) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,0) EAST (0,1) SOUTH (1,1) EAST (1,2) EAST (1,3) NORTH (0,3) EAST (0,4) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (0,0) to the target (0,4) in the given maze configuration, we can follow these steps based on the adjacency list provided. Here's the path:
+
+1. Start at (0,0).
+2. Move SOUTH to (0,1).
+3. Move SOUTH to (0,3).
+4. Move SOUTH to (0,4) - Target Reached.
+
+So the complete path is:
+- Starting Point: (0,0)
+- Move SOUTH to (0,1)
+- Move SOUTH to (0,2)
+- Move SOUTH to (0,3)
+- Move SOUTH to (0,4)
+
+### Final Path:
+(0,0) SOUTH (0,1) SOUTH (0,2) SOUTH (0,3) SOUTH (0,4) 
+
+This path successfully navigates from the origin to the target in the maze.
+
+HUMAN VERIFICATION:

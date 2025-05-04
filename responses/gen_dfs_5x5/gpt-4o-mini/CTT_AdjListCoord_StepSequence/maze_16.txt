@@ -1,0 +1,40 @@
+INPUT:
+<ADJLIST_START> ( 3 , 1 ) <--> ( 3 , 0 ) ; ( 2 , 1 ) <--> ( 2 , 0 ) ; ( 0 , 1 ) <--> ( 0 , 0 ) ; ( 3 , 2 ) <--> ( 3 , 1 ) ; ( 2 , 3 ) <--> ( 2 , 2 ) ; ( 0 , 4 ) <--> ( 0 , 3 ) ; ( 4 , 4 ) <--> ( 3 , 4 ) ; ( 3 , 4 ) <--> ( 2 , 4 ) ; ( 2 , 1 ) <--> ( 2 , 2 ) ; ( 1 , 3 ) <--> ( 1 , 2 ) ; ( 0 , 3 ) <--> ( 1 , 3 ) ; ( 1 , 0 ) <--> ( 0 , 0 ) ; ( 3 , 2 ) <--> ( 4 , 2 ) ; ( 4 , 2 ) <--> ( 4 , 3 ) ; ( 4 , 3 ) <--> ( 4 , 4 ) ; ( 1 , 1 ) <--> ( 0 , 1 ) ; ( 2 , 0 ) <--> ( 3 , 0 ) ; ( 1 , 2 ) <--> ( 1 , 1 ) ; ( 1 , 4 ) <--> ( 0 , 4 ) ; ( 2 , 4 ) <--> ( 1 , 4 ) ; <ADJLIST_END> <ORIGIN_START> ( 0 , 0 ) <ORIGIN_END> <TARGET_START> ( 0 , 4 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 0 ) ( 0 , 1 ) ( 1 , 1 ) ( 1 , 2 ) ( 1 , 3 ) ( 0 , 3 ) ( 0 , 4 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (0, 0) to the target (0, 4) in the given maze configuration, we will traverse through the provided adjacency list:
+
+Here is a step-by-step path from the origin (0, 0) to the target (0, 4):
+
+1. **(0, 0)** → Move to **(1, 0)** (via (1, 0) <--> (0, 0))
+2. **(1, 0)** → Move to **(1, 1)** (via (1, 1) <--> (1, 0))
+3. **(1, 1)** → Move to **(0, 1)** (via (0, 1) <--> (1, 1))
+4. **(0, 1)** → Move to **(0, 2)** (via (0, 1) <--> (0, 2))
+5. **(0, 2)** → Move to **(1, 2)** (via (1, 2) <--> (0, 2))
+6. **(1, 2)** → Move to **(1, 3)** (via (1, 3) <--> (1, 2))
+7. **(1, 3)** → Move to **(0, 3)** (via (0, 3) <--> (1, 3))
+8. **(0, 3)** → Move to **(0, 4)** (via (0, 4) <--> (0, 3))
+
+Combining all the steps, the complete path from (0, 0) to (0, 4) is:
+
+**Path**:  
+(0, 0) → (1, 0) → (1, 1) → (0, 1) → (0, 2) → (1, 2) → (1, 3) → (0, 3) → (0, 4)  
+
+Thus, the path can be represented as follows:
+
+<PATH_START> 
+(0, 0) 
+(1, 0) 
+(1, 1) 
+(0, 1) 
+(0, 2) 
+(1, 2) 
+(1, 3) 
+(0, 3) 
+(0, 4) 
+<PATH_END>
+
+HUMAN VERIFICATION:

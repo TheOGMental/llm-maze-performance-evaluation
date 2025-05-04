@@ -1,0 +1,55 @@
+INPUT:
+<ADJLIST_START> (1,1) <--> NORTH (0,4) <--> SOUTH (1,2) <--> SOUTH (1,4) <--> SOUTH (0,1) <--> WEST (0,2) <--> EAST (0,3) <--> EAST (1,2) <--> WEST (2,3) <--> WEST (2,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (2,3) <ORIGIN_END> <TARGET_START> (0,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (2,3) WEST (2,2) NORTH (1,2) WEST (1,1) NORTH (0,1) WEST (0,0) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is given in an adjacency list format, showing the connections between different cells in the maze. The origin is at (2,3) and the target is at (0,0).
+
+## 2: Identify the connections for each cell
+From the given adjacency list:
+- (1,1) is connected to: NORTH (0,4), SOUTH (1,2), SOUTH (1,4), SOUTH (0,1), WEST (0,2), EAST (0,3), EAST (1,2)
+- (0,4), (1,2), (1,4), (0,1), (0,2), (0,3), and (2,3) have specific connections but not all are listed; we focus on (2,3) and its connections.
+
+## 3: Determine the connections for the origin (2,3)
+The origin (2,3) is connected to: WEST (2,2), WEST (2,2), EAST (1,3) is not directly listed but we see (2,3) is connected to WEST (2,2) and implicitly to EAST (1,3) through the problem's context.
+
+## 4: Correctly interpret the maze connections
+Given the format, it seems there was an error in transcription. Let's assume (2,3) connects to (2,2) and (1,3) based on standard maze representations.
+
+## 5: Find a path from the origin (2,3) to the target (0,0)
+To find a path, we start at (2,3) and move towards the target (0,0). Given the connections:
+- From (2,3), we can go WEST to (1,3) or WEST (2,2).
+- Let's explore moving WEST to (2,2) first.
+
+## 6: Explore the path through (2,2)
+From (2,2), possible moves are not directly listed, but assuming standard movements:
+- We could go WEST to (1,2) or SOUTH to (2,1) or EAST to (2,3) back.
+
+## 7: Continue exploring paths
+Since direct connections to (0,0) are not provided, let's assume (0,0) or nearby cells have connections based on a grid layout.
+
+## 8: Analyze connections to reach (0,0)
+Given (1,1) connects to (0,1) and assuming a grid, (0,0) might connect to (0,1) or (1,0).
+
+## 9: Determine a viable path
+A potential path could be: (2,3) -> WEST (2,2) -> WEST (1,2) -> NORTH (1,1) -> WEST (0,1) -> NORTH (0,0).
+
+## 10: Validate the path
+Let's validate: Starting from (2,3) to (2,2) [WEST], then to (1,2) [WEST], then to (1,1) [SOUTH or NORTH, but we choose NORTH for proximity], then to (0,1) [WEST], and finally to (0,0) [NORTH].
+
+## 11: Confirm the path with given connections
+The path (2,3) -> (2,2) -> (1,2) -> (1,1) -> (0,1) -> (0,0) seems plausible. Let's ensure it matches given connections:
+- (2,3) to (2,2) is WEST.
+- (2,2) to (1,2) is WEST.
+- (1,2) to (1,1) is NORTH.
+- (1,1) to (0,1) is SOUTH or WEST, but we need (0,1) to (0,0) which would be NORTH.
+
+## 12: Adjust for accurate connections
+Given (1,1) connects to (0,1), the path can be: (2,3) -> WEST (2,2) -> WEST (1,2) -> NORTH (1,1) -> SOUTH (0,1) -> NORTH (0,0).
+
+The final answer is: $\boxed{(2,3) WEST (2,2) WEST (1,2) NORTH (1,1) SOUTH (0,1) NORTH (0,0)}$
+
+HUMAN VERIFICATION:

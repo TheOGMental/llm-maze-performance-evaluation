@@ -1,0 +1,83 @@
+INPUT:
+###########
+#    E    #
+# ####### #
+#S  #   # #
+### # ### #
+# # # #   #
+##### # ###
+# # # # # #
+##### # ###
+# # #   # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#XXXXE    #
+#X####### #
+#S  #   # #
+### # ### #
+# # # #   #
+##### # ###
+# # # # # #
+##### # ###
+# # #   # #
+###########
+
+OUTPUT:
+To find a path from the start (S) to the end (E) in the provided maze, we can represent the solution using coordinates. The given maze is as follows:
+
+```
+###########
+#    E    #
+# ####### #
+#S  #   # #
+### # ### #
+# # # #   #
+##### # ###
+# # # # # #
+##### # ###
+# # #   # #
+###########
+```
+
+Here’s the breakdown of the path from S to E:
+
+1. Start at (3, 0) (coordinates correspond to the row and column).
+2. Move right to (3, 1).
+3. Move up to (2, 1).
+4. Move up to (1, 1).
+5. Move left to (1, 2). This is actually not possible since it's blocked by walls. 
+6. Instead, move to the right to (3, 2).
+7. Move up to (2, 2).
+8. Move further up to (1, 2).
+9. Move to the right to (1, 3) which is also blocked.
+
+Let's review the map for a viable path. The optimal path from S to E is as follows:
+
+1. Start at (3, 1) - S
+2. Move to (3, 2), move to (3, 3) (wall)
+3. Move back to (3, 1), then S, move down continuously
+4. Move up to (2, 1) and right to (1, 1) then finally reach E (1, 5).
+
+Following these rules we find a logical step-by-step solution.
+
+The actual path can be condensed here:
+1. (3, 1) → (2, 1) up,  
+2. (1, 1) left to (1, 2).
+3. Finally, reach E at (1, 5).
+
+Therefore, the path from Start to End can be represented as the movements through coordinates. 
+
+Remember, any blocked pathway, I would need to backtrack and find alternate paths.
+
+In textual instructions:
+
+- Start at (3, 1)
+- Move Up (2, 1)
+- Move right (1, 1)
+- Finally reach E.
+
+This illustrates a path while getting around obstacles!
+
+HUMAN VERIFICATION:

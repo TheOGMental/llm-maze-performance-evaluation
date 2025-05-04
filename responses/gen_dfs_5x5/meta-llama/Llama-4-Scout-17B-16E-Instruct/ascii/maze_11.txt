@@ -1,0 +1,80 @@
+INPUT:
+###########
+#    S# # #
+# ### #####
+#   # # # #
+### # #####
+#   # # # #
+# ### #####
+# #E# # # #
+### # #####
+# #   # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#    S# # #
+# ###X#####
+#   #X# # #
+### #X#####
+#   #X# # #
+# ###X#####
+# #E#X# # #
+###X#X#####
+# #XXX# # #
+###########
+
+OUTPUT:
+## Step 1: Understand the maze configuration
+The given maze is:
+###########
+#    S# # #
+# ### #####
+#   # # # #
+### # #####
+#   # # # #
+# ### #####
+# #E# # # #
+### # #####
+# #   # # #
+###########
+We need to find a path from the origin (S) to the target (E).
+
+## 2: Identify the start and end points
+The start point (S) is at coordinates (1,1) and the end point (E) is at coordinates (7,7).
+
+## 3: Analyze the maze for a path
+Looking at the maze, there are several walls and open paths. The most direct path seems to be blocked by walls, so we need to navigate around them.
+
+## 4: Determine a path
+Starting from S (1,1), we can move right to (1,2), then down to (2,2) is blocked, so we move right to (1,3) is not possible directly, we go down to (2,1) then right and up and down to navigate through.
+
+## 5: Detailed pathfinding
+A possible path could be:
+- From (1,1) move right to (1,2),
+- Then down to (2,2) is blocked, so from (1,2) move down to (2,2) no, go (1,3) no, so (1,1) to (1,2) then (2,1) to (3,1) to (3,2) to (3,3) to (2,3) to (2,4) to (3,4) to (3,5) to (2,5) to (2,6) to (3,6) to (3,7) to (4,7) to (5,7) to (6,7) to (7,7) but blocked by wall at several points.
+- Correct approach: Start (1,1) S, move right (1,2), down (2,2) blocked, so (1,1) to (1,2), (1,2) to (1,3) no wall, (1,3) to (1,4) no, down (2,3) yes, (2,3) to (2,4) yes, (2,4) to (3,4) yes, (3,4) to (3,5) yes, (3,5) to (4,5) yes, (4,5) to (4,6) yes, (4,6) to (5,6) yes, (5,6) to (5,7) yes, (5,7) to (6,7) yes, (6,7) to (7,7) E.
+
+## 6: Specify the path with coordinates
+Path: 
+(1,1) -> (1,2) -> (1,3) -> (2,3) -> (2,4) -> (3,4) -> (3,5) -> (4,5) -> (4,6) -> (5,6) -> (5,7) -> (6,7) -> (7,7).
+
+## 7: Translate path into maze movements
+The path in terms of movements (right, down, left, up) based on coordinates:
+- Right: (1,1) to (1,2)
+- Right: (1,2) to (1,3)
+- Down: (1,3) to (2,3)
+- Down: (2,3) to (2,4)
+- Right: (2,4) to (3,4)
+- Right: (3,4) to (3,5)
+- Down: (3,5) to (4,5)
+- Down: (4,5) to (4,6)
+- Down: (4,6) to (5,6)
+- Down: (5,6) to (5,7)
+- Down: (5,7) to (6,7)
+- Down: (6,7) to (7,7).
+
+The final answer is: 
+(1,1) -> (1,2) -> (1,3) -> (2,3) -> (2,4) -> (3,4) -> (3,5) -> (4,5) -> (4,6) -> (5,6) -> (5,7) -> (6,7) -> (7,7)
+
+HUMAN VERIFICATION:

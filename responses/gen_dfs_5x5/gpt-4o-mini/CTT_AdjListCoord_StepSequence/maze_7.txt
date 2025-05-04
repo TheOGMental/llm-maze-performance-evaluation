@@ -1,0 +1,20 @@
+INPUT:
+<ADJLIST_START> ( 0 , 0 ) <--> ( 1 , 0 ) ; ( 2 , 1 ) <--> ( 3 , 1 ) ; ( 4 , 1 ) <--> ( 4 , 2 ) ; ( 1 , 1 ) <--> ( 0 , 1 ) ; ( 3 , 0 ) <--> ( 2 , 0 ) ; ( 4 , 0 ) <--> ( 3 , 0 ) ; ( 3 , 1 ) <--> ( 4 , 1 ) ; ( 3 , 2 ) <--> ( 4 , 2 ) ; ( 1 , 1 ) <--> ( 2 , 1 ) ; ( 1 , 0 ) <--> ( 2 , 0 ) ; ( 0 , 0 ) <--> ( 0 , 1 ) ; <ADJLIST_END> <ORIGIN_START> ( 1 , 1 ) <ORIGIN_END> <TARGET_START> ( 2 , 1 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 1 ) ( 2 , 1 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1, 1) to the target (2, 1) in the given maze configuration, we can analyze the adjacency list provided. Here is the step-by-step solution:
+
+1. **Starting Point**: (1, 1)
+2. **Possible Moves from (1, 1)**: The adjacency list shows that (1, 1) is connected to (0, 1) and (2, 1).
+3. **Moving directly to the Target**: Since (2, 1) is directly reachable from (1, 1), we can move from (1, 1) to (2, 1) directly.
+
+Thus, the path from the origin (1, 1) to the target (2, 1) is simply:
+
+**Path**: (1, 1) → (2, 1)
+
+This is a straightforward movement to the target without needing to take any detours.
+
+HUMAN VERIFICATION:

@@ -1,0 +1,38 @@
+INPUT:
+<ADJLIST_START> (0,3) <--> (0,4) ; (1,1) <--> (0,1) ; (0,0) <--> (0,1) ; (1,1) <--> (1,2) ; (1,2) <--> (2,2) ; (0,3) <--> (0,2) ; (1,4) <--> (2,4) ; (2,3) <--> (2,2) ; (2,4) <--> (2,3) ; (1,4) <--> (0,4) ; <ADJLIST_END> <ORIGIN_START> (2,3) <ORIGIN_END> <TARGET_START> (0,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (2,3) (2,2) (1,2) (1,1) (0,1) (0,0) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (2,3) and the target is at (0,0).
+
+## 2: Identify the connections relevant to the origin and target
+From the origin (2,3), we can see it's connected to (2,2) and (2,4). The target (0,0) is connected to (0,1).
+
+## 3: Explore paths from the origin to the target
+Starting from (2,3), we can move to (2,2) or (2,4). Let's explore both options.
+
+## 4: Explore the path through (2,2)
+From (2,2), we can move to (1,2) or (2,3). Since (2,3) is our origin, moving back there doesn't help. From (1,2), we can move to (1,1) or (2,2). Moving to (1,1) seems promising as it connects to (0,1), which is close to our target (0,0).
+
+## 5: Continue the path through (1,1)
+From (1,1), we can move to (0,1) or (1,2). Moving to (0,1) is a step closer to the target. From (0,1), we can move to (0,0) or (0,2), and moving to (0,0) directly reaches the target.
+
+## 6: Construct the path from origin to target
+The path from (2,3) to (0,0) can be constructed as follows: (2,3) -> (2,2) -> (1,2) -> (1,1) -> (0,1) -> (0,0).
+
+## 7: Verify the path
+Let's verify that this path is correct and follows the given connections:
+- (2,3) is connected to (2,2)
+- (2,2) is connected to (1,2)
+- (1,2) is connected to (1,1)
+- (1,1) is connected to (0,1)
+- (0,1) is connected to (0,0)
+
+All steps are valid.
+
+The final answer is: $\boxed{(2,3) (2,2) (1,2) (1,1) (0,1) (0,0)}$
+
+HUMAN VERIFICATION:

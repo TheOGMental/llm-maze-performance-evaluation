@@ -1,0 +1,62 @@
+INPUT:
+###########
+#   # # # #
+# # #######
+# #S# # # #
+# # #######
+# #E# # # #
+# # #######
+# # # # # #
+# # # #####
+# #   # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#   # # # #
+# # #######
+# #S# # # #
+# #X#######
+# #E# # # #
+# # #######
+# # # # # #
+# # # #####
+# #   # # #
+###########
+
+OUTPUT:
+To solve the maze you provided and find a path from the starting point 'S' (which is located at (3,2)) to the endpoint 'E' (located at (4,2)), we can follow a systematic approach to navigate through the maze.
+
+Here is the maze with coordinates for visual reference:
+
+```
+(0,0)###########(0,12)
+(1,0)#   # # # #(1,12)
+(2,0)# # #######(2,12)
+(3,0)# #S# # # #(3,12)
+(4,0)# # #######(4,12)
+(5,0)# #E# # # #(5,12)
+(6,0)# # #######(6,12)
+(7,0)# # # # # #(7,12)
+(8,0)# # # #####(8,12)
+(9,0)###########(9,12)
+```
+
+Given the start position S (3,2) and the end position E (4,2), the steps to reach E from S are as follows:
+
+1. **Starting at S (3,2)**
+2. Move **down to (4,2)** - which is 'E'
+
+Thus, the path is:
+
+- Start at S (3,2)
+- Move Down to E (4,2)
+
+So the path from 'S' to 'E' is simply:
+```
+(3,2) -> (4,2)
+```
+
+This is a direct move down since there are no obstacles between 'S' and 'E'.
+
+HUMAN VERIFICATION:

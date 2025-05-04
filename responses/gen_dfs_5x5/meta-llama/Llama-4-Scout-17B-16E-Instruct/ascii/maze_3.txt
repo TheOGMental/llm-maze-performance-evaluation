@@ -1,0 +1,78 @@
+INPUT:
+###########
+# #S# #  E#
+### ### # #
+# # #   # #
+### # ### #
+#   # #   #
+# ### # ###
+# #   # # #
+# # ### ###
+#   #   # #
+###########
+
+EXPECTED SOLUTION:
+###########
+# #S# #XXE#
+###X###X# #
+# #X#XXX# #
+###X#X### #
+#XXX#X#   #
+#X###X# ###
+#X#XXX# # #
+#X#X### ###
+#XXX#   # #
+###########
+
+OUTPUT:
+## Step 1: Understand the maze configuration
+The given maze is:
+###########
+# #S# #  E#
+### ### # #
+# # #   # #
+### # ### #
+#   # #   #
+# ### # ###
+# #   # # #
+# # ### ###
+#   #   # #
+###########
+We need to find a path from the origin (S) to the target (E).
+
+## 2: Identify the origin and target positions
+The origin (S) is located at position (1,1) and the target (E) is located at position (1,7).
+
+## 3: Analyze the maze for a path
+Looking at the maze, there are no obstacles (represented by '#') blocking the direct path between S and E, but we have to navigate through the maze avoiding '#'.
+
+## 4: Determine the path
+Starting from S at (1,1), we can move right to (1,2), then to (1,3), but we see '#' at (1,3) and below it. So, we move down to (2,1) then right to (2,2) is blocked by '#', so we actually move down to (3,1) and then right.
+
+## 5: Detailed pathfinding
+A possible path could be:
+- Start at S (1,1)
+- Move right to (1,2)
+- Move down to (2,2) is blocked, so move down to (3,1) then right to (3,2)
+- Continue right to (3,3) then down to (4,3) then right to (4,4)
+- Move down to (5,4) then right to (5,5)
+- Move down to (6,5) then right to (6,6)
+- Move down to (7,6) then right to (7,7) then up to (6,7) is not possible due to '#', re-evaluate path.
+- Re-evaluate: Move down from (1,1) to (2,1) is blocked by '#', so from (1,1) move right to (1,2) then down.
+
+## 6: Correct detailed pathfinding
+Correcting the approach:
+- From (1,1) move right to (1,2) [S]
+- Then right to (1,3)
+- Down to (2,3) then right to (2,4)
+- Down to (3,4) then right to (3,5)
+- Down to (4,5) then right to (4,6)
+- Down to (5,6) then right to (5,7) [E]
+
+## 7: Verify the path
+Verifying the path: (1,1) -> (1,2) -> (1,3) -> (2,3) -> (2,4) -> (3,4) -> (3,5) -> (4,5) -> (4,6) -> (5,6) -> (5,7)
+
+The final answer is: 
+(1,1) -> (1,2) -> (1,3) -> (2,3) -> (3,3) -> (3,4) -> (4,4) -> (4,5) -> (5,5) -> (5,6) -> (5,7)
+
+HUMAN VERIFICATION:

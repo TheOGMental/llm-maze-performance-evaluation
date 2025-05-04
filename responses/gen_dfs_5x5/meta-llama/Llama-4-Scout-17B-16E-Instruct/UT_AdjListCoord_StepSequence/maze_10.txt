@@ -1,0 +1,25 @@
+INPUT:
+<ADJLIST_START> (4,4) <--> (3,4) ; (1,1) <--> (1,2) ; (1,2) <--> (1,3) ; (3,1) <--> (2,1) ; (0,4) <--> (1,4) ; (3,2) <--> (2,2) ; (2,0) <--> (2,1) ; (0,4) <--> (0,3) ; (2,4) <--> (1,4) ; (3,4) <--> (2,4) ; (3,2) <--> (4,2) ; (4,1) <--> (3,1) ; (1,0) <--> (1,1) ; (4,1) <--> (4,2) ; (2,0) <--> (1,0) ; (3,3) <--> (2,3) ; (0,3) <--> (1,3) ; (4,3) <--> (3,3) ; (4,4) <--> (4,3) ; <ADJLIST_END> <ORIGIN_START> (1,3) <ORIGIN_END> <TARGET_START> (0,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,3) (0,3) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (1,3) and the target is at (0,3).
+
+## 2: Identify the connections relevant to the origin and target
+From the origin (1,3), the cell is connected to (1,2) and (1,4) is not directly connected but (1,3) is connected to (0,3) and (2,3). The target is at (0,3), which is directly connected to (1,3) and (0,4) is connected to (0,3).
+
+## 3: Determine the shortest path from origin to target
+Given that (1,3) is directly connected to (0,3), the shortest path is simply moving from (1,3) to (0,3).
+
+## 4: Verify the path with the provided adjacency list
+The adjacency list shows that (1,3) <--> (0,3) ; (1,3) <--> (2,3) ; (1,3) <--> (1,2). This confirms that a direct path exists from (1,3) to (0,3).
+
+## 5: Construct the path
+The path from the origin (1,3) to the target (0,3) is: (1,3) (0,3).
+
+The final answer is: $\boxed{(1,3) (0,3)}$
+
+HUMAN VERIFICATION:

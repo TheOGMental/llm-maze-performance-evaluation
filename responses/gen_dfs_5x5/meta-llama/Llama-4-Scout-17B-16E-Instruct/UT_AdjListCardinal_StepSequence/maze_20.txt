@@ -1,0 +1,55 @@
+INPUT:
+<ADJLIST_START> (1,1) <--> NORTH (1,2) <--> NORTH (1,4) <--> NORTH (2,4) <--> NORTH (2,2) <--> SOUTH (3,0) <--> SOUTH (4,1) <--> NORTH (3,4) <--> SOUTH (0,2) <--> EAST (0,4) <--> WEST (1,2) <--> WEST (2,2) <--> EAST (2,4) <--> WEST (3,1) <--> WEST (3,2) <--> EAST (3,3) <--> EAST (4,2) <--> WEST (4,3) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (4,1) <ORIGIN_END> <TARGET_START> (0,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (4,1) EAST (4,2) EAST (4,3) EAST (4,4) NORTH (3,4) WEST (3,3) WEST (3,2) NORTH (2,2) EAST (2,3) EAST (2,4) NORTH (1,4) NORTH (0,4) WEST (0,3) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (4,1) and the target is at (0,3).
+
+## 2: Identify the possible movements from the origin
+From (4,1), the possible movements are SOUTH (3,0) is not directly connected, but (4,1) is connected to SOUTH (3,1) is not listed, however, it is connected to EAST (4,2) and there might be a connection to WEST (3,1) as per the given list.
+
+## 3: Correctly interpret the adjacency list for (4,1)
+The correct interpretation is that (4,1) is connected to SOUTH (3,0) and EAST (4,2) and WEST (3,1).
+
+## 4: Explore the maze from the origin (4,1)
+Starting from (4,1), moving WEST to (3,1) seems promising as it opens up more paths.
+
+## 5: Analyze connections from (3,1)
+From (3,1), we can move EAST to (4,1) back to the origin, EAST (3,2), EAST (3,3), and SOUTH (4,1) is not an option but SOUTH (3,0) is connected to (3,1) indirectly through other points.
+
+## 6: Find a path from (3,1) to the target area
+Moving EAST from (3,1) to (3,2) then to (3,3) and then trying to navigate towards the target (0,3).
+
+## 7: Explore connections from (3,3)
+From (3,3), we can move WEST to (2,3) or EAST to (4,3) or WEST to (3,2) or EAST (4,2) but no direct connection to (0,3).
+
+## 8: Navigate from (3,3) towards the target
+Noticing that (3,3) has a connection to EAST (4,3) and WEST (3,2), and there's a connection from (0,2) to SOUTH, we should look for a path that leads us closer to (0,3).
+
+## 9: Analyze the connection to (0,2) and its relevance
+(0,2) is connected to EAST (0,4) and SOUTH (1,2) and WEST is not an option but NORTH (1,2) and SOUTH (0,1) and there's no direct path listed to (0,3) but (0,2) to (0,3) is not listed.
+
+## 10: Detailed exploration from (4,1) to target (0,3)
+Given that (4,1) is connected to (3,0) and (4,2), let's explore (4,1) to (3,1) then (3,2) then (2,2) then (1,2) then (0,2) then to (0,3) if possible.
+
+## 11: Checking direct connections to (0,3)
+There's no direct connection listed from any point to (0,3) except potentially through (0,2) or other points.
+
+## 12: Path construction
+A potential path could be: (4,1) -> WEST (3,1) -> EAST (3,2) -> WEST (2,2) -> WEST (1,2) -> SOUTH (0,2) -> but there's no direct SOUTH connection from (0,2) to (0,3).
+
+## 13: Re-evaluate connections for a viable path
+Re-evaluating, if (1,1) is not directly accessible but (1,2) is connected to (1,1) and (1,4) and (2,2), let's focus on getting to (0,2) or directly to the target.
+
+## 14: Finding the optimal path
+Given (4,1) to (3,1) to (3,2) to (2,2) to (1,2) to (0,2) seems viable. Then, we check if there's a connection from (0,2) that can lead us to (0,3).
+
+## 15: Construct the path
+The path could be (4,1) -> WEST (3,1) -> EAST (3,2) -> WEST (2,2) -> WEST (1,2) -> WEST (0,2). Unfortunately, there's no direct connection provided to move from (0,2) to (0,3).
+
+The final answer is: $\boxed{(4,1) -> WEST (3,1) -> EAST (3,2) -> WEST (2,2) -> WEST (1,2) -> WEST (0,2)}$
+
+HUMAN VERIFICATION:

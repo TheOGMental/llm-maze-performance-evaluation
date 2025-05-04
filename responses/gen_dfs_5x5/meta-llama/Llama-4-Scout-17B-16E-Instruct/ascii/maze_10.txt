@@ -1,0 +1,85 @@
+INPUT:
+###########
+# # # #E  #
+####### # #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # #E  #
+#######X# #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+
+OUTPUT:
+## Step 1: Understand the maze configuration
+The given maze is:
+###########
+# # # #E  #
+####### # #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+We need to find a path from the origin (S) to the target (E).
+
+## 2: Identify the start and end points
+The start point (S) is located at:
+#      S# #
+which translates to coordinates (2, 5) if we consider the top-left corner as (0,0) and count rows and columns starting from 0.
+
+The end point (E) is located at:
+# # # #E  #
+which translates to coordinates (1, 4).
+
+## 3: Analyze the maze for a path
+Looking at the maze, there are no obstacles marked (like 'X' in the previous maze), so we can move up, down, left, or right freely.
+
+## 4: Determine the path
+Starting from S at (2, 5), we can move up to (1, 5), then to (1, 4) which is E.
+
+## 5: Specify the path
+The path can be described as follows:
+- Start at S: (2, 5)
+- Move up to: (1, 5)
+- Move left to: (1, 4) which is E.
+
+## 6: Translate the path into maze coordinates
+Given the maze structure:
+- (2, 5) corresponds to the 'S' in #      S# #
+- (1, 5) corresponds to a position in # # # #E  #
+- (1, 4) corresponds to the 'E' in # # # #E  #
+
+## 7: Write down the path
+The path from S to E is: down is not needed, so we go up and left.
+From #      S# #, go up to # # # #E  #, which means moving from row 2 to row 1, and then moving left until we reach E.
+
+## 8: Detailed step-by-step path
+1. At (2,5) which is S.
+2. Move up to (1,5).
+3. Move left to (1,4) which is E.
+
+## 9: Represent the path in the maze
+The path can be represented as moving up from S and then left towards E.
+
+The final answer is: 
+Up, Left, Left, Up, Left, Left, Up
+
+HUMAN VERIFICATION:

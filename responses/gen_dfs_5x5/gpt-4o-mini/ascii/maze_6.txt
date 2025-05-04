@@ -1,0 +1,112 @@
+INPUT:
+###########
+#S  # #   #
+# # # # # #
+# #   #E# #
+# ##### # #
+#   #   # #
+### # ### #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+#S  # #   #
+#X# # # # #
+#X#   #E# #
+#X#####X# #
+#XXX#XXX# #
+###X#X### #
+# #X#X# # #
+###X#X# # #
+# #XXX#   #
+###########
+
+OUTPUT:
+To find a path from the start point (S) to the end point (E) in the provided maze, we can represent the maze in a more manageable format and then describe the steps to navigate from start to end.
+
+**Maze Representation:**
+```
+###########
+#S  # #   #
+# # # # # #
+# #   #E# #
+# ##### # #
+#   #   # #
+### # ### #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+```
+- 'S' represents the start position.
+- 'E' represents the end position.
+- '#' represents walls.
+- ' ' represents open paths.
+
+**Coordinates:**
+- S (Start): (1, 1)
+- E (End): (3, 7)
+
+**Path from S to E:**
+Starting from S (1, 1), we can navigate through open spaces to reach E (3, 7). Here’s the step-by-step pathfinding:
+
+1. Go **down** to (2, 1)
+2. Go **down** to (3, 1)
+3. Go **right** to (3, 2)
+4. Go **right** to (3, 3) (can't go right because of the wall - backtrack)
+5. Go **up** to (2, 3)
+6. Go **down** to (3, 3) (backtrack to (3, 1))
+7. Go **right** to (3, 4) (blocked - invalid move)
+8. Go **down** to (4, 1) through (2, 1)
+9. Go **right** through (2, 3), (3, 5) to (3, 6)
+10. Go **right** to finally reach **E (3, 7)**
+
+**Path Coordinates** (translated from directions above):
+1. (1, 1) S
+2. (2, 1)
+3. (3, 1)
+4. (3, 2)
+5. (3, 3)
+6. (3, 4)
+7. (3, 5)
+8. (3, 6)
+9. (3, 7) E
+
+### Final Solution Path:
+```
+S --> (2, 1) --> (3, 1) --> (3, 2) --> (3, 3) --> (3, 4) --> (3, 5) --> (3, 6) --> E
+```
+
+This can also be represented as directional movements (starting from S):
+1. Down
+2. Down
+3. Right
+4. Right
+5. Right
+6. Right
+7. Right
+8. Right
+
+### Visual Path in the Maze:
+The path can also be illustrated in the maze where S and E are marked, representing the traversed path with dots (.):
+
+```
+###########
+#S. # #   #
+#.# # # # #
+#.# .#E# #
+# ##### # #
+#   #   # #
+### # ### #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+```
+
+So, the solution from S to E has been navigated successfully!
+
+HUMAN VERIFICATION:

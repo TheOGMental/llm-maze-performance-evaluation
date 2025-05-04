@@ -1,0 +1,72 @@
+INPUT:
+###########
+#       # #
+# ##### ###
+#S#   #   #
+# # # ### #
+# # # #   #
+# # # # ###
+# # # #   #
+# # ##### #
+#E#       #
+###########
+
+EXPECTED SOLUTION:
+###########
+#       # #
+# ##### ###
+#S#   #   #
+#X# # ### #
+#X# # #   #
+#X# # # ###
+#X# # #   #
+#X# ##### #
+#E#       #
+###########
+
+OUTPUT:
+To navigate the maze from the starting position 'S' to the target position 'E', we can represent the maze as a grid where walls are represented by '#' and open paths by spaces. 
+
+Here is the maze representation with coordinates:
+```
+###########
+#       # #  (1)
+# ##### ###  (2)
+#S#   #   #  (3)
+# # # ### #  (4)
+# # # #   #  (5)
+# # # # ###  (6)
+# # # #   #  (7)
+# # ##### #  (8)
+#E#       #  (9)
+###########  (0)
+```
+
+The starting point 'S' is at (3, 0) and the end point 'E' is at (8, 0).
+
+To find a path, I’ll list the moves (using (row, column) format) from 'S' to 'E':
+
+1. Start at (3, 0)
+2. Move down to (4, 0)
+3. Move down to (5, 0)
+4. Move down to (6, 0)
+5. Move down to (7, 0)
+6. Move down to (8, 0), where 'E' is located.
+
+Thus, the path from 'S' to 'E' can be summarized as follows:
+- (3, 0) → (4, 0) → (5, 0) → (6, 0) → (7, 0) → (8, 0)
+
+The complete path in coordinate format is:
+
+```
+Start at S (3, 0)
+Move to (4, 0)
+Move to (5, 0)
+Move to (6, 0)
+Move to (7, 0)
+Move to E (8, 0)
+```
+
+This path successfully navigates from the start to the exit within the constraints of the maze.
+
+HUMAN VERIFICATION:

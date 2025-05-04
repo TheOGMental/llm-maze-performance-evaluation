@@ -1,0 +1,36 @@
+INPUT:
+<ADJLIST_START> (0,0) <--> SOUTH (1,3) <--> NORTH (1,0) <--> SOUTH (2,1) <--> NORTH (1,2) <--> SOUTH (1,4) <--> SOUTH (3,0) <--> NORTH (3,1) <--> NORTH (2,2) <--> SOUTH (3,3) <--> NORTH (3,0) <--> SOUTH (4,1) <--> NORTH (4,4) <--> NORTH (0,1) <--> WEST (0,2) <--> WEST (0,2) <--> EAST (1,2) <--> WEST (1,3) <--> EAST (2,4) <--> WEST (3,3) <--> EAST (4,1) <--> EAST (4,3) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (1,0) <ORIGIN_END> <TARGET_START> (4,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,0) SOUTH (2,0) SOUTH (3,0) SOUTH (4,0) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1,0) to the target (4,0) in the given maze, we can analyze the adjacency list provided.
+
+Let's break down the connections:
+
+- From (1,0), we can go SOUTH to (2,1).
+- From (2,1), we can go NORTH to (1,0) or SOUTH to (3,0).
+- From (3,0), we can go NORTH to (2,0) or SOUTH to (4,1).
+- From (4,1), we can go NORTH to (3,1) or SOUTH to (4,2).
+- From (4,0), we want to move to (4,0).
+
+Now using these connections, we can trace a path:
+
+1. Start at (1,0).
+2. Move SOUTH to (2,1).
+3. From (2,1), move SOUTH to (3,0).
+4. From (3,0), move SOUTH to (4,0).
+
+Thus, the path from origin (1,0) to target (4,0) can be represented as follows:
+
+**Path:**
+1. (1,0) 
+2. SOUTH (to) (2,1)
+3. SOUTH (to) (3,0)
+4. SOUTH (to) (4,0)
+
+**Final Path Listing**:
+(1,0) SOUTH (2,1) SOUTH (3,0) SOUTH (4,0)
+
+HUMAN VERIFICATION:

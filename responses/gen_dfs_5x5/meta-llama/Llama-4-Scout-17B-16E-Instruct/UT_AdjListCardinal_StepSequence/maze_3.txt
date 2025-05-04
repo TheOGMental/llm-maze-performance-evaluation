@@ -1,0 +1,48 @@
+INPUT:
+<ADJLIST_START> (0,1) <--> SOUTH (1,3) <--> NORTH (1,4) <--> NORTH (1,1) <--> SOUTH (1,2) <--> SOUTH (1,4) <--> SOUTH (3,0) <--> NORTH (3,2) <--> NORTH (2,3) <--> SOUTH (4,0) <--> NORTH (4,1) <--> NORTH (3,3) <--> SOUTH (0,4) <--> WEST (1,2) <--> EAST (2,0) <--> EAST (2,3) <--> EAST (3,2) <--> WEST (4,0) <--> EAST (4,2) <--> EAST <ADJLIST_END> <ORIGIN_START> (0,1) <ORIGIN_END> <TARGET_START> (0,4) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,1) SOUTH (1,1) SOUTH (2,1) WEST (2,0) SOUTH (3,0) SOUTH (4,0) EAST (4,1) NORTH (3,1) EAST (3,2) NORTH (2,2) NORTH (1,2) EAST (1,3) NORTH (0,3) EAST (0,4) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (0,1) and the target is at (0,4).
+
+## 2: Identify the possible movements from the origin
+From (0,1), the possible movements are SOUTH to (1,1), and there are no other direct connections.
+
+## 3: Explore the maze from the origin to find a path to the target
+Starting from (0,1), moving SOUTH to (1,1) is an option. From (1,1), we can move NORTH to (0,1) which is a dead end as we've already been there, or SOUTH to (1,2), or NORTH to (1,4) but we need to find a path that leads us closer to (0,4).
+
+## 4: Continue exploring the maze
+From (1,1), moving SOUTH to (1,2) is an option. From (1,2), we can move WEST to (0,2) which is not directly listed but we see (1,2) is connected to (0,1) and (1,3) and (1,4) through other nodes. Let's correct the approach by systematically checking connections: (1,2) is connected to WEST (0,2) and SOUTH (1,3).
+
+## 5: Systematically find a path
+From (0,1), moving SOUTH to (1,1) then SOUTH to (1,2) then WEST to (0,2) then SOUTH to (1,2) is not helpful as it loops. Directly from (0,1), there's a connection to SOUTH (1,3) and NORTH (1,1) and directly to (0,4) is not listed but let's explore SOUTH (1,3) and other connections systematically.
+
+## 6: Explore connections systematically
+- From (0,1), we have SOUTH (1,3).
+- From (1,3), we have NORTH (0,1), SOUTH (1,4), and SOUTH (3,0), NORTH (2,3).
+- The target (0,4) has a connection to SOUTH (1,4).
+
+## 7: Find a path to the target
+Let's try to get to (0,4) using the given connections:
+- (0,1) to SOUTH (1,3)
+- (1,3) to NORTH (0,1) loops back.
+- (1,3) to SOUTH (1,4) then we need to get to (0,4).
+
+## 8: Detailed path exploration
+- (1,4) is connected to NORTH (1,1), SOUTH (0,4) directly.
+
+## 9: Construct the path
+The path can be: (0,1) -> SOUTH (1,3) -> SOUTH (1,4) -> SOUTH (0,4).
+
+## 10: Verify the path
+Verify that the constructed path does not loop and reaches the target:
+- (0,1) to (1,3) is valid.
+- (1,3) to (1,4) is valid.
+- (1,4) to (0,4) is valid.
+
+The final answer is: $\boxed{(0,1) SOUTH (1,3) SOUTH (1,4) SOUTH (0,4)}$
+
+HUMAN VERIFICATION:

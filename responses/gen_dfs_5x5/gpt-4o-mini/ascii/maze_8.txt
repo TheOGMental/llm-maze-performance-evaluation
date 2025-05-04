@@ -1,0 +1,116 @@
+INPUT:
+###########
+# # #     #
+# ### #####
+# # #     #
+# ####### #
+#E# # # # #
+# ####### #
+# # #   # #
+# ### # # #
+#S    #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # #     #
+# ### #####
+# # #     #
+# ####### #
+#E# # # # #
+#X####### #
+#X# #   # #
+#X### # # #
+#S    #   #
+###########
+
+OUTPUT:
+To navigate the given maze from the start (S) to the end (E), we need to find a path through the open spaces while avoiding walls (`#`). The maze layout is as follows:
+
+```
+###########
+# # #     #
+# ### #####
+# # #     #
+# ####### #
+#E# # # # #
+# ####### #
+# # #   # #
+# ### # # #
+#S    #   #
+###########
+```
+
+### Key:
+- `#` = Wall
+- ` ` (space) = Open path
+- `S` = Start
+- `E` = End
+
+### Step-by-step Path:
+
+1. Start at `S` located at (8, 1).
+2. Move up to (7, 1).
+3. Move up to (6, 1).
+4. Move up to (5, 1).
+5. Move up to (4, 1).
+6. Move left to (4, 0).
+7. Move down to (5, 0).
+8. Move down to (6, 0).
+9. Move left to (6, 1) and then up to (5, 1).
+10. Move left to (5, 0).
+11. Move down to (6, 0).
+12. Move right to (6, 2).
+13. Move down to (7, 2).
+14. Move down to (8, 2).
+15. Move right to (8, 3).
+16. Move up to (7, 3).
+17. Move up to (6, 3).
+18. Move right to (6, 4).
+19. Move down to (7, 4).
+20. Move down to (8, 4).
+21. Move left to (7, 4).
+22. Move left to (7, 3).
+23. Move up to (6, 3).
+24. Move left to (5, 3).
+25. Move down to (6, 3).
+26. Move right to (5, 4).
+27. Move down to (6, 4).
+28. Move left to (5, 4) and finally move up to (4, 4).
+29. Move left to (4, 3).
+30. Move down to (5, 4).
+31. Move down to (6, 4).
+
+And finally, from there, we can make our way to the end (E) at (5, 0).
+
+### Final Path:
+
+1. Start at (8, 1) [S]
+2. (7, 1)
+3. (6, 1)
+4. (5, 1)
+5. (4, 1)
+6. (5, 1)
+7. (6, 1)
+8. (7, 1)
+9. (5, 0)
+10. (4, 1)
+11. (3, 1)
+12. (2, 1)
+13. (1, 1)
+14. (2, 1)
+15. (2, 3)
+16. (1, 4)
+17. (0, 5)
+18. Go to (0, 6)
+19. To (0, 7)
+20. Finally, move to (0, 8) → (0, 9).
+
+This route ultimately leads from the starting point `S` to the ending point `E`. 
+
+### Final Path Directions:
+- Up (to avoid walls)
+- Left (as necessary)
+Having traversed the necessary paths in open sections of the maze while circumventing walls, we arrive successfully from the origin `S` to the target `E`.
+
+HUMAN VERIFICATION:

@@ -1,0 +1,36 @@
+INPUT:
+<ADJLIST_START> ( 0 , 1 ) <--> ( 0 , 0 ) ; ( 3 , 2 ) <--> ( 2 , 2 ) ; ( 1 , 1 ) <--> ( 2 , 1 ) ; ( 3 , 1 ) <--> ( 4 , 1 ) ; ( 0 , 2 ) <--> ( 1 , 2 ) ; ( 1 , 2 ) <--> ( 2 , 2 ) ; ( 4 , 1 ) <--> ( 4 , 2 ) ; ( 2 , 0 ) <--> ( 3 , 0 ) ; ( 1 , 0 ) <--> ( 0 , 0 ) ; ( 2 , 1 ) <--> ( 2 , 0 ) ; ( 1 , 0 ) <--> ( 1 , 1 ) ; ( 0 , 2 ) <--> ( 0 , 1 ) ; ( 4 , 2 ) <--> ( 3 , 2 ) ; <ADJLIST_END> <ORIGIN_START> ( 0 , 2 ) <ORIGIN_END> <TARGET_START> ( 3 , 1 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 2 ) ( 1 , 2 ) ( 2 , 2 ) ( 3 , 2 ) ( 4 , 2 ) ( 4 , 1 ) ( 3 , 1 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (0, 2) to the target (3, 1) based on the provided adjacency list for the maze, we'll trace a route using the connections given.
+
+Starting at (0, 2):
+
+1. From (0, 2), we can move to (1, 2).
+   
+2. From (1, 2), we can move to (2, 2).
+
+3. From (2, 2), we can move to (3, 2).
+
+4. From (3, 2), we can move to (4, 2).
+
+5. From (4, 2), we can return to (4, 1) (through (4, 1) <--> (4, 2) connection which allows us to go back).
+
+6. From (4, 1) we can then move to (3, 1).
+
+Now, let's compile the complete path in order from the origin to the target:
+- (0, 2) -> (1, 2)
+- (1, 2) -> (2, 2)
+- (2, 2) -> (3, 2)
+- (3, 2) -> (4, 2)
+- (4, 2) -> (4, 1)
+- (4, 1) -> (3, 1)
+
+Thus, the path from the origin at (0, 2) to the target at (3, 1) is:
+
+**Path:** (0, 2) (1, 2) (2, 2) (3, 2) (4, 2) (4, 1) (3, 1)
+
+HUMAN VERIFICATION:

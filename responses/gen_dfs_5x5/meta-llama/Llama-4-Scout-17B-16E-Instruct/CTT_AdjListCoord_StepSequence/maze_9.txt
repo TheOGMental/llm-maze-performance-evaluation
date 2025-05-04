@@ -1,0 +1,27 @@
+INPUT:
+<ADJLIST_START> ( 4 , 4 ) <--> ( 4 , 3 ) ; ( 3 , 3 ) <--> ( 2 , 3 ) ; ( 2 , 3 ) <--> ( 1 , 3 ) ; ( 4 , 4 ) <--> ( 3 , 4 ) ; ( 1 , 3 ) <--> ( 1 , 4 ) ; ( 1 , 2 ) <--> ( 0 , 2 ) ; ( 1 , 1 ) <--> ( 0 , 1 ) ; ( 2 , 4 ) <--> ( 3 , 4 ) ; ( 1 , 4 ) <--> ( 0 , 4 ) ; ( 0 , 3 ) <--> ( 0 , 2 ) ; ( 3 , 3 ) <--> ( 4 , 3 ) ; ( 0 , 4 ) <--> ( 0 , 3 ) ; ( 1 , 2 ) <--> ( 1 , 1 ) ; <ADJLIST_END> <ORIGIN_START> ( 2 , 4 ) <ORIGIN_END> <TARGET_START> ( 3 , 4 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 2 , 4 ) ( 3 , 4 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (2, 4) and the target is at (3, 4).
+
+## 2: Identify the connections relevant to the origin and target
+From the given adjacency list, we can see that:
+- (2, 4) is connected to (3, 4)
+- Other connections are provided but we focus on paths leading to (3, 4) from (2, 4).
+
+## 3: Determine the shortest path from origin to target
+Given that (2, 4) is directly connected to (3, 4), the shortest path is straightforward.
+
+## 4: Verify if the direct path is valid
+Since (2, 4) <--> (3, 4) is listed, we can directly move from (2, 4) to (3, 4).
+
+## 5: Provide the path
+The path from the origin (2, 4) to the target (3, 4) is simply (2, 4) (3, 4).
+
+The final answer is: $\boxed{(2, 4) (3, 4)}$
+
+HUMAN VERIFICATION:

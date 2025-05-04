@@ -1,0 +1,36 @@
+INPUT:
+<ADJLIST_START> ( 0 , 0 ) <--> SOUTH ( 0 , 2 ) <--> SOUTH ( 2 , 0 ) <--> NORTH ( 2 , 4 ) <--> NORTH ( 3 , 0 ) <--> NORTH ( 3 , 4 ) <--> NORTH ( 3 , 0 ) <--> SOUTH ( 3 , 2 ) <--> SOUTH ( 3 , 3 ) <--> SOUTH ( 4 , 4 ) <--> NORTH ( 0 , 3 ) <--> WEST ( 0 , 3 ) <--> EAST ( 1 , 2 ) <--> EAST ( 1 , 3 ) <--> EAST ( 3 , 2 ) <--> EAST ( 4 , 0 ) <--> EAST ( 4 , 2 ) <--> WEST ( 4 , 4 ) <--> WEST <ADJLIST_END> <ORIGIN_START> ( 4 , 0 ) <ORIGIN_END> <TARGET_START> ( 2 , 0 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 4 , 0 ) NORTH ( 3 , 0 ) NORTH ( 2 , 0 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (4, 0) and the target is at (2, 0).
+
+## 2: Identify the possible movements from the origin
+From (4, 0), the possible movements are EAST and SOUTH, but we need to check which of these movements are actually allowed according to the adjacency list.
+
+## 3: Analyze the adjacency list for the origin (4, 0)
+The adjacency list shows that (4, 0) is connected to EAST and also to (3, 0) through NORTH is not directly listed but (3, 0) is connected to (4, 0) through SOUTH, implying a direct connection exists as (4, 0) <--> EAST and (4, 0) <--> SOUTH is not listed but (3, 0) <--> NORTH implies a connection to (4, 0).
+
+## 4: Determine the path to the target (2, 0)
+Given that the target is at (2, 0) and the origin is at (4, 0), a straightforward path would be to move WEST or SOUTH from (4, 0) towards (2, 0). However, we must follow the provided connections.
+
+## 5: Find a valid path using the given connections
+The connection list shows (4, 0) <--> EAST and (4, 0) <--> SOUTH is not directly provided but we see (3, 0) <--> NORTH which implies (4, 0) is connected to (3, 0). Directly, (4, 0) is connected to (4, 2) and (4, 4) through EAST, but to get to (2, 0), we should consider moving WEST or SOUTH. Since (4, 0) is connected to (3, 0) and then (3, 0) <--> NORTH, implying a connection to a cell above it, and directly (2, 0) <--> NORTH is not listed but (2, 0) <--> SOUTH is not an option from (2, 0), we look for a path: (4, 0) to (3, 0) to (2, 0) seems plausible as it involves moving NORTH.
+
+## 6: Construct the path
+The path can be constructed as follows: Start at (4, 0), move WEST to (3, 0) since (3, 0) <--> NORTH is connected to (4, 0), then move WEST to (2, 0) is not directly connected, so we actually see (2, 0) is directly connected to (3, 0) through SOUTH, implying: (4, 0) -> (3, 0) -> (2, 0).
+
+## 7: Verify the path with given connections
+Verify that each step in the path is supported by the adjacency list:
+- (4, 0) to (3, 0) is supported as (3, 0) <--> NORTH (implying connection to (4, 0)),
+- (3, 0) to (2, 0) is supported as (2, 0) <--> SOUTH (implying connection to (3, 0)).
+
+## 8: Write down the path
+The path from (4, 0) to (2, 0) is: (4, 0) -> (3, 0) -> (2, 0).
+
+The final answer is: $\boxed{(4, 0) -> (3, 0) -> (2, 0)}$
+
+HUMAN VERIFICATION:

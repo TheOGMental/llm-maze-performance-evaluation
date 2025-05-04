@@ -1,0 +1,43 @@
+INPUT:
+<ADJLIST_START> (4,2) <--> (4,1) ; (1,0) <--> (0,0) ; (2,2) <--> (3,2) ; (0,4) <--> (0,3) ; (3,1) <--> (2,1) ; (2,0) <--> (2,1) ; (0,0) <--> (0,1) ; (1,2) <--> (0,2) ; (1,4) <--> (2,4) ; (3,1) <--> (4,1) ; (4,3) <--> (4,4) ; (0,4) <--> (1,4) ; (2,4) <--> (3,4) ; (1,3) <--> (2,3) ; (0,1) <--> (1,1) ; (2,2) <--> (2,3) ; (3,3) <--> (4,3) ; (0,3) <--> (1,3) ; (4,4) <--> (3,4) ; (3,2) <--> (4,2) ; (1,1) <--> (1,2) ; (1,0) <--> (2,0) ; <ADJLIST_END> <ORIGIN_START> (0,0) <ORIGIN_END> <TARGET_START> (1,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,0) (1,0) (2,0) (2,1) (3,1) (4,1) (4,2) (3,2) (2,2) (2,3) (1,3) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (0,0) and the target is at (1,3).
+
+## 2: Identify the origin and target
+The origin is (0,0) and the target is (1,3). We need to find a path from (0,0) to (1,3).
+
+## 3: Explore possible paths from the origin
+From (0,0), we can move to (1,0) or (0,1) since (0,0) <--> (1,0) and (0,0) <--> (0,1).
+
+## 4: Continue exploring paths
+Let's try moving to (1,0) first. From (1,0), we can move to (2,0) or (1,1) since (1,0) <--> (2,0) and (1,0) <--> (0,0) but we already came from (0,0), and (1,0) <--> (1,1).
+
+## 5: Further exploration from (1,0)
+Moving to (1,1) seems promising. From (1,1), we can move to (1,2) or (0,1). Let's explore (1,1) to (1,2).
+
+## 6: Explore path through (1,2)
+From (1,2), we can move to (1,3) or (0,2). Since (1,3) is our target, moving directly to (1,3) is ideal.
+
+## 7: Verify the path
+The path from (0,0) to (1,0) to (1,1) to (1,2) to (1,3) seems direct and efficient. Let's verify the connections: (0,0) <--> (1,0), (1,0) <--> (1,1), (1,1) <--> (1,2), and (1,2) is directly connected to (1,3) as (1,3) <--> (2,3) and (1,3) <--> (0,3) but specifically (1,2) <--> (0,2) and there's no direct link given from (1,2) to (1,3), indicating a need to reassess.
+
+## 8: Reassess and find an alternative path
+Given the error in step 7, let's reassess. From (0,0), moving to (0,1) is an option. From (0,1), we can move to (1,1). From (1,1), we can move to (1,2) or (0,1). Then from (1,2), we see it can connect to (0,2) and (1,1), but not directly to (1,3). However, (1,3) is connected to (0,3) and (2,3). Let's try another route: (0,0) to (0,1) to (1,1) to (1,2) doesn't directly lead to (1,3) without backtracking or exploring other nodes.
+
+## 9: Explore an alternative route through (0,1) to (1,1) to (1,3)
+From (0,1), we go to (1,1). From (1,1), we can go to (1,2). However, we need to get to (1,3). Noticing (1,3) <--> (0,3) and (1,3) <--> (2,3), and (0,3) <--> (0,4) and (0,4) <--> (1,4) but no direct link from (1,2) or (1,1) to (1,3) directly, we must use given connections efficiently.
+
+## 10: Direct path identification
+A potential path could be: (0,0) -> (0,1) -> (1,1) -> (1,3). Let's verify: (0,0) <--> (0,1), (0,1) <--> (1,1), and (1,1) <--> (1,2) but also (1,3) is directly reachable from (1,1) through (1,2) is not listed, however (1,0) <--> (1,1) and other connections suggest exploring (0,1) to (1,1) then to (1,2) and realizing (1,1) to (1,3) isn't listed but (1,3) <--> (0,3) and (1,3) <--> (2,3).
+
+## 11: Final path verification
+Given connections, a viable path seems (0,0) -> (1,0) -> (2,0) -> (2,1) -> (3,1) -> (4,1) -> (4,2) -> (3,2) -> (2,2) -> (2,3) -> (1,3). Let's verify each step: (0,0) <--> (1,0), (1,0) <--> (2,0), (2,0) <--> (2,1), (2,1) <--> (3,1), (3,1) <--> (4,1), (4,1) <--> (4,2), (4,2) <--> (3,2), (3,2) <--> (2,2), (2,2) <--> (2,3), and (2,3) <--> (1,3).
+
+The final answer is: $\boxed{(0,0) (1,0) (2,0) (2,1) (3,1) (4,1) (4,2) (3,2) (2,2) (2,3) (1,3)}$
+
+HUMAN VERIFICATION:

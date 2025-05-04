@@ -1,0 +1,62 @@
+INPUT:
+<ADJLIST_START> (1,1) <--> NORTH (0,2) <--> SOUTH (0,4) <--> SOUTH (1,3) <--> SOUTH (3,3) <--> NORTH (3,4) <--> NORTH (4,3) <--> NORTH (4,4) <--> NORTH (0,2) <--> EAST (0,3) <--> EAST (1,2) <--> WEST (1,4) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (2,4) <ORIGIN_END> <TARGET_START> (3,4) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (2,4) SOUTH (3,4) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (2,4) and the target is at (3,4).
+
+## 2: Identify the possible movements from the origin
+From (2,4), we can see the possible movements are not directly listed, but based on the target and origin, we infer movements: NORTH, SOUTH, EAST, WEST.
+
+## 3: Analyze the adjacency list for a path to the target
+The adjacency list shows:
+- (1,1) <--> NORTH (0,2) ...
+- (1,1) <--> SOUTH (0,4) ...
+- (1,1) <--> SOUTH (1,3) ...
+- (1,1) <--> SOUTH (3,3) ...
+- (1,1) <--> NORTH (3,4) ...
+- (3,4) <--> NORTH (4,3) ...
+- (3,4) <--> NORTH (4,4) ...
+- (3,4) <--> NORTH (0,2) ...
+- (0,2) <--> EAST (0,3) ...
+- (1,2) <--> EAST (1,3) is implied but not directly shown, however (1,1) <--> EAST (1,2) and (1,2) <--> SOUTH (1,3) can be used.
+- (1,4) <--> WEST (1,3) ...
+
+## 4: Determine the direct connections to the origin and target
+The origin (2,4) is directly connected to (3,4) as implied by the target, and potentially to other cells not directly listed but inferred through the maze structure.
+
+## 5: Find a path from the origin (2,4) to the target (3,4)
+Given that (3,3) <--> SOUTH (3,4) and there's a connection from (2,4) to (3,3) or directly to (3,4) if it exists, we look for a path:
+- Directly moving from (2,4) to (3,4) if possible.
+
+## 6: Analyze connections for a viable path
+Since (2,4) is not directly connected to any cell in the list, we infer:
+- There's no direct NORTH, SOUTH, EAST, WEST listed for (2,4), but we see (3,3) <--> SOUTH (3,4) and need to find a path to (3,3) from (2,4).
+
+## 7: Explore possible paths
+Given (1,1) <--> SOUTH (3,3), and assuming (2,4) could connect to cells around it, let's assume a connection to (2,3) or directly to (3,3) or (3,4) if it exists.
+
+## 8: Identify a specific path
+Noticing (3,4) is the target and assuming a potential path:
+- If (2,4) connects to (3,4) directly or through another cell.
+
+## 9: Construct a path based on given connections
+Since direct connections for (2,4) are not provided, let's assume and verify:
+- A potential path could be (2,4) -> (3,4) if it exists directly.
+
+## 10: Verify the path
+Given that there's no explicit connection listed for (2,4) to any other node, but seeing (3,3) <--> SOUTH (3,4), let's find a path to (3,3).
+
+## 11: Detailed path finding
+Assuming (2,4) to (2,3) is possible (though not listed), and then:
+- (2,3) to (3,3) is a potential move (EAST).
+
+## 12: Finalize the path
+The path could be: (2,4) -> (2,3) -> (3,3) -> (3,4).
+
+The final answer is: $\boxed{(2,4) EAST (3,4)}$
+
+HUMAN VERIFICATION:

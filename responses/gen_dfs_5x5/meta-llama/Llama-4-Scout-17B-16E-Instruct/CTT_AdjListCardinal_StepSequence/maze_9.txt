@@ -1,0 +1,34 @@
+INPUT:
+<ADJLIST_START> ( 0 , 1 ) <--> SOUTH ( 1 , 2 ) <--> NORTH ( 1 , 4 ) <--> NORTH ( 1 , 3 ) <--> SOUTH ( 2 , 3 ) <--> SOUTH ( 3 , 4 ) <--> NORTH ( 3 , 3 ) <--> SOUTH ( 4 , 4 ) <--> NORTH ( 0 , 2 ) <--> EAST ( 0 , 4 ) <--> WEST ( 1 , 1 ) <--> EAST ( 1 , 4 ) <--> WEST ( 4 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 2 , 4 ) <ORIGIN_END> <TARGET_START> ( 3 , 4 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 2 , 4 ) SOUTH ( 3 , 4 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (2, 4) and the target is at (3, 4).
+
+## 2: Identify the possible moves from the origin
+From (2, 4), we can see the possible moves are not directly listed, but based on the given adjlist, (2, 4) is connected to (3, 4) as there's a direct mention of (3, 4) <--> NORTH ( 2 , 3 ) is not present but (3, 4) <--> SOUTH is not directly connected to (2,4) but (3,4) and (2,3) are connected through other nodes.
+
+## 3: Analyze connections relevant to the origin and target
+Given that (3, 4) is the target and it's directly connected to (2, 3) through a north-south relationship and (2, 4) is the origin, let's find a path. There's a connection from (3, 4) <--> NORTH, implying a cell above it is connected, but we need to find a path from (2, 4) to (3, 4).
+
+## 4: Determine the path from origin to target
+Looking closely, (2, 4) is directly connected to (3, 4) as indicated by the adjacency list: there's no direct north-south connection listed for (2,4) and (3,4) but (3,4) <--> SOUTH (2,3) is not listed. However, given (3, 4) <--> SOUTH (2, 3) is not present, we check for (2,4) connections: Since (2,4) to (3,4) seems a likely direct move given their positions and (3, 4) <--> NORTH is mentioned but not directly to (2,4), implying we might have misunderstood the direct connections.
+
+## 5: Re-evaluate the adjacency list for a direct or indirect path
+Upon re-evaluation, notice (2, 3) <--> SOUTH (3, 3) and (3, 3) <--> SOUTH (4, 3) but more importantly, there's (3, 4) and its connections. Directly, (2, 4) to (3, 4) seems plausible as it's a simple move down or up depending on perspective.
+
+## 6: Apply the path based on given and inferred connections
+The direct path from (2, 4) to (3, 4) can be considered as moving NORTH from (2, 4) is not an option but moving SOUTH is not listed for (2,4). However, given that (3,4) is the target and assuming a grid layout, if (2,4) and (3,4) are adjacent, the path could simply be: (2, 4) NORTH (3, 4) or another applicable move.
+
+## 7: Realize the error in assuming non-existent connections and simplify
+Given that (2, 4) and (3, 4) are vertically aligned and assuming standard grid movement (up, down, left, right), and noting (3, 4) <--> NORTH (3, 3) and other connections, we see (2, 4) to (3, 4) could be a straightforward move if directly connected.
+
+## 8: Conclude the path based on direct connections
+The path from (2, 4) to (3, 4) is simply moving down from (2, 4) to (3, 4) as they are in a vertical line and assuming standard movement rules.
+
+The final answer is: $\boxed{(2, 4) NORTH (3, 4)}$
+
+HUMAN VERIFICATION:

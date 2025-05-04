@@ -1,0 +1,105 @@
+INPUT:
+###########
+# # #     #
+# ### #####
+# # #     #
+# ####### #
+#E# # # # #
+# ####### #
+# # #   # #
+# ### # # #
+#S    #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # #     #
+# ### #####
+# # #     #
+# ####### #
+#E# # # # #
+#X####### #
+#X# #   # #
+#X### # # #
+#S    #   #
+###########
+
+OUTPUT:
+## Step 1: Understand the Maze Configuration
+The given maze is:
+###########
+# # #     #
+# ### #####
+# # #     #
+# ####### #
+#E# # # # #
+# ####### #
+# # #   # #
+# ### # # #
+#S    #   #
+###########
+We need to find a path from the origin (S) to the target (E).
+
+## 2: Identify the Origin and Target
+The origin (S) is located at the bottom of the maze, and the target (E) is located near the middle.
+
+## 3: Analyze Possible Moves
+Given the maze structure, we can only move up, down, left, or right. We cannot move diagonally or through walls.
+
+## 4: Plan the Path
+Start at S and move up towards E, avoiding walls.
+
+## 5: Determine the Path
+From S, move up:
+- Start at #S    #   #
+- Move up to # # #   # #
+- Then to # ### # # #
+- Then to # ####### #
+- Then to #E# # # # #
+
+## 6: Specify the Path
+The path can be specified as follows:
+1. Start at (9, 8) - S
+2. Move up to (8, 8)
+3. Move up to (7, 8)
+4. Move left to (7, 7)
+5. Move left to (7, 6)
+6. Move up to (6, 6)
+7. Move left to (5, 6)
+8. Move up to (4, 6)
+9. Move left to (3, 6)
+10. Move left to (2, 6)
+11. Move up to (1, 6)
+12. Move right to (1, 7)
+13. Move right to (1, 8)
+14. Move up to (0, 8) - but we need to adjust according to actual maze coordinates and ensure we end at E.
+
+## 7: Adjust for Actual Coordinates and Ensure End at E
+Correcting the approach for accurate maze coordinates:
+- S is at (8, 1) if we consider the bottom left as (0,0)
+- E is at (4, 5)
+
+## 8: Detailed Step-by-Step Movement
+1. (8,1) -> (7,1)
+2. (7,1) -> (7,2)
+3. (7,2) -> (7,3)
+4. (7,3) -> (6,3)
+5. (6,3) -> (5,3)
+6. (5,3) -> (5,4)
+7. (5,4) -> (5,5)
+8. (5,5) -> (4,5) - E
+
+The final answer is: 
+S -> (8,1) 
+(8,1) to (7,1) 
+(7,1) to (7,2) 
+(7,2) to (7,3) 
+(7,3) to (6,3) 
+(6,3) to (5,3) 
+(5,3) to (5,4) 
+(5,4) to (5,5) 
+(5,5) to (4,5) = E 
+So path is: 
+(8,1) -> (7,1) -> (7,2) -> (7,3) -> (6,3) -> (5,3) -> (5,4) -> (5,5) -> (4,5)
+
+HUMAN VERIFICATION:

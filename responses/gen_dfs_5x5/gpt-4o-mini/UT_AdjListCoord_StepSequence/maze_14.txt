@@ -1,0 +1,42 @@
+INPUT:
+<ADJLIST_START> (3,3) <--> (3,2) ; (3,0) <--> (3,1) ; (3,4) <--> (4,4) ; (3,3) <--> (3,4) ; (4,2) <--> (4,3) ; (4,0) <--> (3,0) ; (4,1) <--> (3,1) ; (4,4) <--> (4,3) ; (4,2) <--> (4,1) ; <ADJLIST_END> <ORIGIN_START> (3,3) <ORIGIN_END> <TARGET_START> (3,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (3,3) (3,4) (4,4) (4,3) (4,2) (4,1) (3,1) (3,0) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (3,3) to the target (3,0) in the given maze, we'll use the adjacency list provided. Below, I will outline the steps to navigate through the maze.
+
+Here is the adjacency list:
+- (3,3) <--> (3,2)
+- (3,0) <--> (3,1)
+- (3,4) <--> (4,4)
+- (3,3) <--> (3,4)
+- (4,2) <--> (4,3)
+- (4,0) <--> (3,0)
+- (4,1) <--> (3,1)
+- (4,4) <--> (4,3)
+- (4,2) <--> (4,1)
+
+To find a path from (3,3) to (3,0), we notice the following connections:
+
+1. Starting at **(3,3)**, the possible moves are to **(3,2)** or **(3,4)**.
+2. Let's move to **(3,2)**. From (3,2), the possible moves are back to **(3,3)** or further down to **(none)** as there are no other connections directly from (3,2).
+3. Instead, if we started from (3,3) and picked the other possible link (3,4):
+    1. **(3,3) -> (3,4)**
+    2. Now from **(3,4)**, we can only go back to **(3,3)** or move to **(4,4)**.
+4. Moving to **(4,4)**, we can then go back to **(3,4)** or move to **(4,3)**.
+5. Moving to **(4,3)**, we can then go back to **(4,4)** or move to **(4,2)**.
+6. From **(4,2)**, we can move to either back to **(4,3)** or down to **(4,1)**.
+7. Moving to **(4,1)**, options are back to **(4,2)** or go to **(3,1)**.
+8. Moving to **(3,1)** provides the option back to **(4,1)** or down to **(3,0)**, our target.
+
+Thus, the valid path from origin (3,3) to target (3,0) is:
+**(3,3) (3,4) (4,4) (4,3) (4,2) (4,1) (3,1) (3,0)**
+
+So the final path is:
+```
+<PATH_START> (3,3) (3,4) (4,4) (4,3) (4,2) (4,1) (3,1) (3,0) <PATH_END>
+```
+
+HUMAN VERIFICATION:

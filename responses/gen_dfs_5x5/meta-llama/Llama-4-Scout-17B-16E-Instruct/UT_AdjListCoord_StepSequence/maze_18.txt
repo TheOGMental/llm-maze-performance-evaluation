@@ -1,0 +1,32 @@
+INPUT:
+<ADJLIST_START> (3,1) <--> (3,0) ; (1,0) <--> (2,0) ; (2,2) <--> (2,3) ; (1,4) <--> (2,4) ; (2,4) <--> (3,4) ; (1,3) <--> (1,4) ; (0,1) <--> (0,0) ; (2,1) <--> (3,1) ; (1,3) <--> (1,2) ; (3,4) <--> (3,3) ; (2,3) <--> (3,3) ; (2,2) <--> (2,1) ; (0,0) <--> (1,0) ; (0,1) <--> (1,1) ; (3,0) <--> (2,0) ; <ADJLIST_END> <ORIGIN_START> (1,0) <ORIGIN_END> <TARGET_START> (1,1) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,0) (0,0) (0,1) (1,1) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (1,0) and the target is at (1,1).
+
+## 2: Identify the connections relevant to the origin and target
+From the origin (1,0), the connected cells are (0,0) and (2,0). The target is (1,1), which is connected to (0,1) and (1,0) directly, but since (1,0) is the origin, we look for a path through other cells.
+
+## 3: Explore paths from the origin to the target
+Starting from (1,0), we can move to (0,0) or (2,0). 
+- Moving to (0,0) allows us to then move to (0,1).
+- Moving to (2,0) allows us to then move to (2,1) or (3,0), but these do not directly lead to (1,1) efficiently.
+
+## 4: Find a path through (0,0) to (1,1)
+From (1,0), move to (0,0), then to (0,1), and finally to (1,1). This path seems direct: (1,0) -> (0,0) -> (0,1) -> (1,1).
+
+## 5: Verify the path with the given adjacency list
+- (1,0) <--> (0,0) is in the list.
+- (0,0) <--> (0,1) is in the list.
+- (0,1) <--> (1,1) is in the list.
+
+## 6: Confirm the solution
+The path (1,0) -> (0,0) -> (0,1) -> (1,1) is valid according to the provided adjacency list.
+
+The final answer is: $\boxed{(1,0) (0,0) (0,1) (1,1)}$
+
+HUMAN VERIFICATION:

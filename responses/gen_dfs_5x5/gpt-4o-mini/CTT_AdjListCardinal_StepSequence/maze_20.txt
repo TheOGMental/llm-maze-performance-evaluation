@@ -1,0 +1,39 @@
+INPUT:
+<ADJLIST_START> ( 1 , 1 ) <--> NORTH ( 1 , 2 ) <--> NORTH ( 0 , 4 ) <--> SOUTH ( 2 , 4 ) <--> NORTH ( 2 , 2 ) <--> SOUTH ( 4 , 0 ) <--> NORTH ( 3 , 1 ) <--> SOUTH ( 4 , 4 ) <--> NORTH ( 0 , 2 ) <--> EAST ( 0 , 4 ) <--> WEST ( 1 , 2 ) <--> WEST ( 2 , 3 ) <--> WEST ( 2 , 3 ) <--> EAST ( 3 , 1 ) <--> WEST ( 3 , 2 ) <--> EAST ( 3 , 3 ) <--> EAST ( 4 , 1 ) <--> EAST ( 4 , 3 ) <--> WEST ( 4 , 4 ) <--> WEST <ADJLIST_END> <ORIGIN_START> ( 4 , 1 ) <ORIGIN_END> <TARGET_START> ( 0 , 3 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 4 , 1 ) EAST ( 4 , 2 ) EAST ( 4 , 3 ) EAST ( 4 , 4 ) NORTH ( 3 , 4 ) WEST ( 3 , 3 ) WEST ( 3 , 2 ) NORTH ( 2 , 2 ) EAST ( 2 , 3 ) EAST ( 2 , 4 ) NORTH ( 1 , 4 ) NORTH ( 0 , 4 ) WEST ( 0 , 3 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (4, 1) to the target (0, 3) in the given maze configuration, we can navigate through the adjacency list provided. Below is a possible path:
+
+1. **Start at (4, 1)** 
+2. **Move NORTH to (3, 1)** 
+3. **Move NORTH to (2, 1)** (not possible, so let's try another route)
+4. **From (3, 1), move EAST to (3, 2)**
+5. **From (3, 2), move EAST to (3, 3)**
+6. **From (3, 3), move NORTH to (2, 3)**
+7. **From (2, 3), move NORTH to (1, 3)** (not possible, backtrack)
+8. **From (2, 3), move WEST to (2, 2)**
+9. **From (2, 2), move NORTH to (1, 2)**
+10. **From (1, 2), move NORTH to (0, 2)**
+11. **From (0, 2), move EAST to (0, 3)** (target reached)
+
+Now, here's the formatted path representing the movements per the established direction and coordinates:
+
+**Path:**
+(4, 1) NORTH (3, 1) EAST (3, 2) EAST (3, 3) NORTH (2, 3) WEST (2, 2) NORTH (1, 2) NORTH (0, 2) EAST (0, 3)
+
+Thus, the movements to get from (4, 1) to (0, 3) are:
+- (4, 1) NORTH to (3, 1)
+- (3, 1) EAST to (3, 2)
+- (3, 2) EAST to (3, 3)
+- (3, 3) NORTH to (2, 3)
+- (2, 3) WEST to (2, 2)
+- (2, 2) NORTH to (1, 2)
+- (1, 2) NORTH to (0, 2)
+- (0, 2) EAST to (0, 3)
+
+This is a valid path connecting the origin to the target while adhering to the available routes in the maze.
+
+HUMAN VERIFICATION:

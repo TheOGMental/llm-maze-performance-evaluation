@@ -1,0 +1,42 @@
+INPUT:
+<ADJLIST_START> ( 2 , 1 ) <--> ( 3 , 1 ) ; ( 2 , 2 ) <--> ( 1 , 2 ) ; ( 0 , 2 ) <--> ( 0 , 3 ) ; ( 0 , 2 ) <--> ( 0 , 1 ) ; ( 3 , 4 ) <--> ( 2 , 4 ) ; ( 2 , 3 ) <--> ( 2 , 2 ) ; ( 1 , 3 ) <--> ( 1 , 4 ) ; ( 0 , 4 ) <--> ( 0 , 3 ) ; ( 1 , 1 ) <--> ( 2 , 1 ) ; ( 3 , 3 ) <--> ( 3 , 2 ) ; ( 4 , 1 ) <--> ( 3 , 1 ) ; ( 4 , 0 ) <--> ( 3 , 0 ) ; ( 1 , 2 ) <--> ( 1 , 3 ) ; ( 3 , 3 ) <--> ( 4 , 3 ) ; ( 4 , 4 ) <--> ( 4 , 3 ) ; ( 1 , 0 ) <--> ( 2 , 0 ) ; ( 1 , 4 ) <--> ( 0 , 4 ) ; ( 2 , 0 ) <--> ( 3 , 0 ) ; ( 3 , 4 ) <--> ( 4 , 4 ) ; ( 4 , 1 ) <--> ( 4 , 2 ) ; ( 1 , 0 ) <--> ( 1 , 1 ) ; ( 4 , 2 ) <--> ( 3 , 2 ) ; ( 2 , 3 ) <--> ( 2 , 4 ) ; <ADJLIST_END> <ORIGIN_START> ( 4 , 4 ) <ORIGIN_END> <TARGET_START> ( 4 , 2 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 4 , 4 ) ( 4 , 3 ) ( 3 , 3 ) ( 3 , 2 ) ( 4 , 2 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (4, 4) to the target (4, 2) based on the provided adjacency list, we can follow the connected points step by step. 
+
+Let's analyze the maze:
+
+1. Start at (4, 4).
+2. From (4, 4), we can move to (3, 4).
+3. From (3, 4), we can move to (2, 4).
+4. From (2, 4), we can move to (2, 3).
+5. From (2, 3), we can move to (3, 3).
+6. From (3, 3), we can move to (4, 3).
+7. From (4, 3), we can move to (4, 2).
+
+Now let's construct the complete path:
+
+- (4, 4) 
+- (3, 4) 
+- (2, 4) 
+- (2, 3) 
+- (3, 3) 
+- (4, 3) 
+- (4, 2)
+
+Thus, the final path from origin to target is:
+
+<PATH_START> 
+(4, 4) 
+(3, 4) 
+(2, 4) 
+(2, 3) 
+(3, 3) 
+(4, 3) 
+(4, 2) 
+<PATH_END>.
+
+HUMAN VERIFICATION:

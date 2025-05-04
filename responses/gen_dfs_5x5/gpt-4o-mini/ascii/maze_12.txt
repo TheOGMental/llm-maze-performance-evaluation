@@ -1,0 +1,78 @@
+INPUT:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # #E    #
+# ### ### #
+#     #S  #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # #EXXXX#
+# ### ###X#
+#     #SXX#
+###########
+
+OUTPUT:
+To find a path from the starting point (S) to the endpoint (E) in the provided maze, we can trace the route step by step. 
+
+Here's a representation of the maze with the designated start point (S) and end point (E):
+
+```
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # #E    #  <-- E is at (6, 3)
+# ### ### #
+#     #S  #  <-- S is at (7, 6)
+###########
+```
+
+We can navigate through the maze by identifying the available paths:
+
+1. Start at S (7, 6).
+2. Move up to (6, 6) - this cell is free.
+3. Now move left to (6, 5) - this cell is still free.
+4. Continue left to (6, 4) - this cell is also free.
+5. Move left again to (6, 3) - you reach the endpoint E.
+
+Now let's summarize the path as coordinates relative to the maze grid:
+
+- **Starting Point (S): (7, 6)**
+- Move to (6, 6)
+- Move to (6, 5)
+- Move to (6, 4)
+- Move to (6, 3) → **Endpoint (E)**
+
+The coordinates of the path are:
+1. (7, 6) S
+2. (6, 6)
+3. (6, 5)
+4. (6, 4)
+5. (6, 3) E
+
+Thus, the path from S to E is as follows:
+
+1. **From S: (Move Up) (7, 6) to (6, 6)**
+2. **(Move Left) (6, 6) to (6, 5)**
+3. **(Move Left) (6, 5) to (6, 4)**
+4. **(Move Left) (6, 4) to (6, 3) - Reached E**
+
+This successfully completes the route from S to E in the maze.
+
+HUMAN VERIFICATION:

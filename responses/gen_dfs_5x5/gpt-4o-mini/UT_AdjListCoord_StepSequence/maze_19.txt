@@ -1,0 +1,76 @@
+INPUT:
+<ADJLIST_START> (3,4) <--> (3,3) ; (2,3) <--> (2,4) ; (3,0) <--> (2,0) ; (2,3) <--> (3,3) ; (0,3) <--> (0,2) ; (2,4) <--> (1,4) ; (0,1) <--> (0,2) ; (1,2) <--> (1,1) ; (3,1) <--> (4,1) ; (4,4) <--> (4,3) ; (4,3) <--> (4,2) ; (1,0) <--> (0,0) ; (2,2) <--> (3,2) ; (3,0) <--> (4,0) ; (2,0) <--> (1,0) ; (2,1) <--> (1,1) ; (4,2) <--> (4,1) ; (1,2) <--> (2,2) ; (1,4) <--> (1,3) ; (0,1) <--> (0,0) ; (1,3) <--> (0,3) ; (2,1) <--> (3,1) ; (4,4) <--> (3,4) ; <ADJLIST_END> <ORIGIN_START> (1,0) <ORIGIN_END> <TARGET_START> (4,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,0) (2,0) (3,0) (4,0) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1,0) to the target (4,0) in the given maze, we can represent the connections provided in the adjacency list and then trace a route.
+
+### Maze Adjacency List:
+- (3,4) <--> (3,3)
+- (2,3) <--> (2,4)
+- (3,0) <--> (2,0)
+- (2,3) <--> (3,3)
+- (0,3) <--> (0,2)
+- (2,4) <--> (1,4)
+- (0,1) <--> (0,2)
+- (1,2) <--> (1,1)
+- (3,1) <--> (4,1)
+- (4,4) <--> (4,3)
+- (4,3) <--> (4,2)
+- (1,0) <--> (0,0)
+- (2,2) <--> (3,2)
+- (3,0) <--> (4,0)
+- (2,0) <--> (1,0)
+- (2,1) <--> (1,1)
+- (4,2) <--> (4,1)
+- (1,2) <--> (2,2)
+- (1,4) <--> (1,3)
+- (0,1) <--> (0,0)
+- (1,3) <--> (0,3)
+- (2,1) <--> (3,1)
+- (4,4) <--> (3,4)
+
+### Pathfinding from (1,0) to (4,0):
+Starting at (1,0):
+1. Move to (0,0) - can move because (1,0) <--> (0,0).
+2. Move to (0,1) - can move because (0,0) <--> (0,1).
+3. Move to (0,2) - can move because (0,1) <--> (0,2).
+4. Move to (0,3) - can move because (0,2) <--> (0,3).
+5. Move to (1,3) - can move because (0,3) <--> (1,3).
+6. Move to (1,4) - can move because (1,3) <--> (1,4).
+7. Move to (2,4) - can move because (1,4) <--> (2,4).
+8. Move to (2,3) - can move because (2,4) <--> (2,3).
+9. Move to (3,3) - can move because (2,3) <--> (3,3).
+10. Move to (3,4) - can move because (3,3) <--> (3,4).
+11. Move to (4,4) - can move because (3,4) <--> (4,4).
+12. Move to (4,3) - can move because (4,4) <--> (4,3).
+13. Move to (4,2) - can move because (4,3) <--> (4,2).
+14. Move to (4,1) - can move because (4,2) <--> (4,1).
+15. Move to (4,0) - can move because (4,1) <--> (4,0).
+
+### Constructed Path:
+The path from the origin (1,0) to the target (4,0) is:
+- (1,0)
+- (0,0)
+- (0,1)
+- (0,2)
+- (0,3)
+- (1,3)
+- (1,4)
+- (2,4)
+- (2,3)
+- (3,3)
+- (3,4)
+- (4,4)
+- (4,3)
+- (4,2)
+- (4,1)
+- (4,0)
+
+### Final Output:
+Here’s the final path going from (1,0) to (4,0):
+**Path: (1,0) -> (0,0) -> (0,1) -> (0,2) -> (0,3) -> (1,3) -> (1,4) -> (2,4) -> (2,3) -> (3,3) -> (3,4) -> (4,4) -> (4,3) -> (4,2) -> (4,1) -> (4,0)**
+
+HUMAN VERIFICATION:

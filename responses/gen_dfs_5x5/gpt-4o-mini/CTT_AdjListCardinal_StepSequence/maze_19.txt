@@ -1,0 +1,26 @@
+INPUT:
+<ADJLIST_START> ( 1 , 0 ) <--> NORTH ( 0 , 3 ) <--> SOUTH ( 2 , 0 ) <--> NORTH ( 1 , 1 ) <--> SOUTH ( 1 , 2 ) <--> SOUTH ( 1 , 4 ) <--> SOUTH ( 2 , 0 ) <--> SOUTH ( 2 , 1 ) <--> SOUTH ( 2 , 2 ) <--> SOUTH ( 3 , 3 ) <--> NORTH ( 4 , 0 ) <--> NORTH ( 3 , 1 ) <--> SOUTH ( 3 , 4 ) <--> SOUTH ( 0 , 1 ) <--> WEST ( 0 , 1 ) <--> EAST ( 0 , 3 ) <--> WEST ( 1 , 2 ) <--> WEST ( 1 , 4 ) <--> WEST ( 2 , 3 ) <--> EAST ( 3 , 4 ) <--> WEST ( 4 , 2 ) <--> WEST ( 4 , 3 ) <--> WEST ( 4 , 4 ) <--> WEST <ADJLIST_END> <ORIGIN_START> ( 1 , 0 ) <ORIGIN_END> <TARGET_START> ( 4 , 0 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 0 ) SOUTH ( 2 , 0 ) SOUTH ( 3 , 0 ) SOUTH ( 4 , 0 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1, 0) to the target (4, 0) in the provided maze configuration, we will need to navigate through the connections (adjacency list) given.
+
+Here is the step-by-step path through the maze:
+
+1. From (1, 0), we can move SOUTH to (2, 0).
+2. From (2, 0), we can move SOUTH to (3, 0).
+3. From (3, 0), we can move SOUTH to (4, 0).
+
+Thus, the full path from origin (1, 0) to target (4, 0) is:
+
+```
+<PATH_START> 
+( 1 , 0 ) SOUTH ( 2 , 0 ) SOUTH ( 3 , 0 ) SOUTH ( 4 , 0 ) 
+<PATH_END>
+```
+
+This path connects the origin to the target successfully within the constraints of the provided maze.
+
+HUMAN VERIFICATION:

@@ -1,0 +1,31 @@
+INPUT:
+<ADJLIST_START> ( 0 , 3 ) <--> SOUTH ( 1 , 4 ) <--> NORTH ( 1 , 0 ) <--> SOUTH ( 1 , 4 ) <--> SOUTH ( 2 , 1 ) <--> SOUTH ( 3 , 2 ) <--> NORTH ( 2 , 3 ) <--> SOUTH ( 2 , 4 ) <--> SOUTH ( 4 , 1 ) <--> NORTH ( 3 , 2 ) <--> SOUTH ( 4 , 3 ) <--> NORTH ( 3 , 4 ) <--> SOUTH ( 0 , 4 ) <--> WEST ( 1 , 0 ) <--> EAST ( 1 , 1 ) <--> EAST ( 1 , 3 ) <--> WEST ( 2 , 0 ) <--> EAST ( 4 , 2 ) <--> WEST ( 4 , 4 ) <--> WEST <ADJLIST_END> <ORIGIN_START> ( 1 , 3 ) <ORIGIN_END> <TARGET_START> ( 0 , 3 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 3 ) NORTH ( 0 , 3 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (1, 3) and the target is at (0, 3).
+
+## 2: Identify the possible movements from the origin
+From the origin (1, 3), we can see the possible movements are: WEST (1, 2) is not directly listed, but EAST (1, 4) and WEST (1, 0) are listed for other points, implying (1,3) connects to (1,4) and (1,0) through other points. Directly, (1,3) <--> EAST is not listed but (1,4) <--> WEST and (1,0) <--> EAST are, suggesting (1,3) is connected to (1,4) and (1,0).
+
+## 3: Determine the direct connections of the origin (1,3)
+Given (1,3) <--> EAST (1,4) and (1,3) is also connected to (1,0) through WEST, but there's no direct WEST or EAST from (1,3) to another cell listed, we infer (1,3) connects to (1,4) and potentially other cells through shared connections.
+
+## 4: Analyze the target location (0,3) and its connections
+The target is at (0,3) which has a connection: (0,3) <--> SOUTH (1,4) and (0,4) <--> WEST, implying a potential path through (0,4) or directly from (1,4) to (0,3).
+
+## 5: Find a path from the origin (1,3) to the target (0,3)
+Given that (1,3) connects to (1,4) and (1,4) connects to (0,3) through SOUTH, a potential path could be: (1,3) -> (1,4) -> (0,3).
+
+## 6: Verify the path
+The path (1,3) -> (1,4) -> (0,3) seems direct and valid based on the connections provided. Let's verify: The origin (1,3) is connected to (1,4), and (1,4) is connected to (0,3) through SOUTH, which matches our needed direction.
+
+## 7: Confirm the solution
+The path from (1,3) to (0,3) is: (1,3) -> (1,4) -> (0,3). This path goes from the origin to the target.
+
+The final answer is: $\boxed{(1,3) -> (1,4) -> (0,3)}$
+
+HUMAN VERIFICATION:

@@ -1,0 +1,37 @@
+INPUT:
+<ADJLIST_START> (0,3) <--> (0,4) ; (1,1) <--> (0,1) ; (0,0) <--> (0,1) ; (1,1) <--> (1,2) ; (1,2) <--> (2,2) ; (0,3) <--> (0,2) ; (1,4) <--> (2,4) ; (2,3) <--> (2,2) ; (2,4) <--> (2,3) ; (1,4) <--> (0,4) ; <ADJLIST_END> <ORIGIN_START> (2,3) <ORIGIN_END> <TARGET_START> (0,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (2,3) (2,2) (1,2) (1,1) (0,1) (0,0) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (2,3) to the target (0,0) in the given maze, let's analyze the adjacency list and look for a route based on the connections provided.
+
+The adjacency list indicates the following connections:
+- (0,3) <--> (0,4)
+- (1,1) <--> (0,1)
+- (0,0) <--> (0,1)
+- (1,1) <--> (1,2)
+- (1,2) <--> (2,2)
+- (0,3) <--> (0,2)
+- (1,4) <--> (2,4)
+- (2,3) <--> (2,2)
+- (2,4) <--> (2,3)
+- (1,4) <--> (0,4)
+
+Now, to find a path from (2,3) to (0,0), we can start from the origin and move through adjacent nodes until we reach the target:
+
+1. Start at **(2,3)**.
+2. Move to (2,2) (using the connection (2,3) <--> (2,2)).
+3. Move to (1,2) (using the connection (1,2) <--> (2,2)).
+4. Move to (1,1) (using the connection (1,1) <--> (1,2)).
+5. Move to (0,1) (using the connection (1,1) <--> (0,1)).
+6. Move to (0,0) (using the connection (0,0) <--> (0,1)).
+
+Thus, the complete path from (2,3) to (0,0) is:
+
+**(2,3) → (2,2) → (1,2) → (1,1) → (0,1) → (0,0)**. 
+
+This path successfully navigates through the maze from the origin to the target.
+
+HUMAN VERIFICATION:

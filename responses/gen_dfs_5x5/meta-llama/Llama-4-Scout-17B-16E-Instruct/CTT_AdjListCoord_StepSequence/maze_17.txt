@@ -1,0 +1,46 @@
+INPUT:
+<ADJLIST_START> ( 2 , 1 ) <--> ( 3 , 1 ) ; ( 2 , 2 ) <--> ( 1 , 2 ) ; ( 0 , 2 ) <--> ( 0 , 3 ) ; ( 0 , 2 ) <--> ( 0 , 1 ) ; ( 3 , 4 ) <--> ( 2 , 4 ) ; ( 2 , 3 ) <--> ( 2 , 2 ) ; ( 1 , 3 ) <--> ( 1 , 4 ) ; ( 0 , 4 ) <--> ( 0 , 3 ) ; ( 1 , 1 ) <--> ( 2 , 1 ) ; ( 3 , 3 ) <--> ( 3 , 2 ) ; ( 4 , 1 ) <--> ( 3 , 1 ) ; ( 4 , 0 ) <--> ( 3 , 0 ) ; ( 1 , 2 ) <--> ( 1 , 3 ) ; ( 3 , 3 ) <--> ( 4 , 3 ) ; ( 4 , 4 ) <--> ( 4 , 3 ) ; ( 1 , 0 ) <--> ( 2 , 0 ) ; ( 1 , 4 ) <--> ( 0 , 4 ) ; ( 2 , 0 ) <--> ( 3 , 0 ) ; ( 3 , 4 ) <--> ( 4 , 4 ) ; ( 4 , 1 ) <--> ( 4 , 2 ) ; ( 1 , 0 ) <--> ( 1 , 1 ) ; ( 4 , 2 ) <--> ( 3 , 2 ) ; ( 2 , 3 ) <--> ( 2 , 4 ) ; <ADJLIST_END> <ORIGIN_START> ( 4 , 4 ) <ORIGIN_END> <TARGET_START> ( 4 , 2 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 4 , 4 ) ( 4 , 3 ) ( 3 , 3 ) ( 3 , 2 ) ( 4 , 2 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (4, 4) and the target is at (4, 2).
+
+## 2: Identify the connections relevant to the origin and target
+From the origin (4, 4), the connected cells are (3, 4) and (4, 3). The target is at (4, 2), and it is connected to (4, 1) and (3, 2).
+
+## 3: Explore paths from the origin to the target
+Starting from (4, 4), we can move to (3, 4) or (4, 3). Let's explore both options to find a path to (4, 2).
+
+## 4: Explore the path through (3, 4)
+If we move from (4, 4) to (3, 4), we can then move to (2, 4) or (3, 3). From (3, 3), we can move to (3, 2) or (4, 3). The cell (3, 2) is directly connected to (4, 2), which is our target.
+
+## 5: Construct the path through (3, 4) and (3, 3)
+A potential path is: (4, 4) -> (3, 4) -> (3, 3) -> (3, 2) -> (4, 2).
+
+## 6: Verify if the constructed path is valid and optimal
+Let's verify the path: (4, 4) is connected to (3, 4), (3, 4) is connected to (3, 3), (3, 3) is connected to (3, 2), and (3, 2) is connected to (4, 2). This path seems valid.
+
+## 7: Check for a shorter or equally efficient path
+Another potential path could be: (4, 4) -> (4, 3) -> (4, 2) or (4, 4) -> (4, 3) -> (3, 3) -> (3, 2) -> (4, 2). The direct path (4, 4) -> (4, 3) -> (4, 2) is shorter.
+
+## 8: Construct the shorter path
+The shorter path is: (4, 4) -> (4, 3) -> (4, 2).
+
+## 9: Confirm the shorter path is valid
+(4, 4) is connected to (4, 3) and (3, 4), and (4, 3) is connected to (4, 2) through (4, 1) and (4, 2) or directly if listed, but given (4, 1) <--> (4, 2), it confirms (4, 3) connects to (4, 2) indirectly through (4, 1) but directly listed as (4, 1) <--> (4, 2) and (4, 3) to (4, 2) isn't listed, implying a need for (4,3) to (4,1) then (4,1) to (4,2).
+
+## 10: Finalize the most efficient path
+Given the connections, a valid and efficient path is: (4, 4) -> (3, 4) -> (3, 3) -> (3, 2) -> (4, 2) or more directly if connections allow, (4,4) to (4,1) then (4,2).
+
+## 11: Direct Path Verification
+Directly from (4,4) we can go to (3,4) then (2,4) then (2,3) then (2,2) then (1,2) then (1,1) then (1,0) then (2,0) then (3,0) then (3,1) then (3,2) then (4,2) or simply (4,4) -> (4,3) isn't directly connected to (4,2) without going through (4,1).
+
+## 12: Optimal Path Identification
+An optimal path seems to be (4,4) -> (3,4) -> (2,4) -> (2,3) -> (2,2) -> (1,2) -> (1,3) -> (1,4) -> (0,4) -> (0,3) -> (0,2) -> (0,1) -> (1,1) -> (2,1) -> (3,1) -> (4,1) -> (4,2).
+
+The final answer is: $\boxed{(4, 4) -> (3, 4) -> (2, 4) -> (2, 3) -> (2, 2) -> (1, 2) -> (1, 3) -> (1, 4) -> (0, 4) -> (0, 3) -> (0, 2) -> (0, 1) -> (1, 1) -> (2, 1) -> (3, 1) -> (4, 1) -> (4, 2)}$
+
+HUMAN VERIFICATION:
