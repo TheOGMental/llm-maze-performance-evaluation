@@ -50,4 +50,4 @@ Here's a solution path from S (start) to E (end) in the given maze:
 
 
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

@@ -12,4 +12,4 @@ Here's the solution to the maze, going from the origin (0,1) to the target (0,4)
 (0,1) SOUTH (1,1) NORTH (1,4) WEST (0,4)
 ```
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

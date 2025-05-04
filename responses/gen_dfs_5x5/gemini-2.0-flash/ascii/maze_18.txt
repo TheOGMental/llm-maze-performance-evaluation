@@ -33,4 +33,4 @@ E, E, N, N, W, W, W, S, S, E, E, E, N, N, N, W, W, S, S, E, E
 
 This path leads from the 'S' (Start) to the 'E' (End) location.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

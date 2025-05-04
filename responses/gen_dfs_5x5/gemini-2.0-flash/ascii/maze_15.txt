@@ -35,4 +35,4 @@ Here's one possible path from S to E in the maze:
 
 
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

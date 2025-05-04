@@ -10,4 +10,4 @@ Here's the solution to the maze, going from the origin to the target:
 <PATH_START>(0, 0) EAST (0, 1) EAST (0, 2) EAST (0, 3) EAST (0, 4)<PATH_END>
 
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

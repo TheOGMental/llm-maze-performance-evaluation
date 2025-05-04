@@ -41,4 +41,4 @@ Here's a solution path for the maze, represented by 'X' characters.
 ###########
 ```
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

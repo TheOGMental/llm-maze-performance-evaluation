@@ -9,4 +9,4 @@ Here's the solution to the maze:
 
 <PATH_START>( 1 , 0 ) SOUTH ( 0 , 0 ) EAST ( 1 , 1 )<PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

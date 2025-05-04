@@ -12,4 +12,4 @@ Here's a path from the origin (0, 2) to the target (3, 1) in the given maze:
 (0, 2) NORTH (0, 1) EAST (1, 1) NORTH (1, 0) EAST (2, 0) SOUTH (3, 0) EAST (3, 1)
 
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

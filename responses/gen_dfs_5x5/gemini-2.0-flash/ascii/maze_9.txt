@@ -41,4 +41,4 @@ SSSSWWWWNNNNNEEEEEENNNNNWWWWSSSSSS
 6.  **WWWW:** Move West four times to the left side of the maze.
 7.  **SSSSSS:** Move South six times to the target (E).
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

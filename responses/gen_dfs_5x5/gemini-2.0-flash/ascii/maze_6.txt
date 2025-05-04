@@ -46,4 +46,4 @@ Here's a solution path for the maze, represented by 'X' characters:
 The path starts at 'S' and makes its way to 'E' by only moving horizontally or vertically through empty spaces.  The 'X' characters indicate the cells that form the solution path.
 
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

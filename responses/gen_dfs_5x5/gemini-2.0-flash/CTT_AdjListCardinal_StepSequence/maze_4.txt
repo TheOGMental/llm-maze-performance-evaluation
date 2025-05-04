@@ -7,4 +7,4 @@ EXPECTED SOLUTION:
 OUTPUT:
 There is no path from (2,3) to (0,0) in the maze. The provided adjacency list does not describe a maze where such a path exists.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

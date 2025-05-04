@@ -58,4 +58,4 @@ Here's one possible solution path from E to S in the given maze:
 6.  Move Down Twice.
 7.  Reach **S**.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

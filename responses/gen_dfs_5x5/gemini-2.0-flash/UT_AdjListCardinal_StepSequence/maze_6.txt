@@ -17,4 +17,4 @@ The solution was obtained by starting from the origin and following edges in the
 
 
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

@@ -12,4 +12,4 @@ Here's the solution to the maze, including the path from the origin to the targe
 (3,3) SOUTH (4,3) WEST (4,4) WEST 
 ```
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

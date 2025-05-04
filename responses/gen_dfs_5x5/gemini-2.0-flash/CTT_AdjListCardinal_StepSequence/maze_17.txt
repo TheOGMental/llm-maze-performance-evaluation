@@ -9,4 +9,4 @@ Here's a path from the origin (4,4) to the target (4,2) based on the provided ma
 
 <PATH_START> ( 4 , 4 ) NORTH ( 3 , 4 ) NORTH ( 2 , 4 ) WEST ( 2 , 3 ) SOUTH ( 3 , 3 ) WEST ( 3 , 2 ) SOUTH ( 4 , 2 ) <PATH_END>
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

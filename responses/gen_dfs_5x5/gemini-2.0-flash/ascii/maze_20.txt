@@ -57,4 +57,4 @@ The path follows the open spaces in the maze. Here's a step-by-step description:
 
 This path ensures that you only travel through valid open spaces and reach the designated 'E' (End) point.
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F

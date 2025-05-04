@@ -12,4 +12,4 @@ Here's the solution to the maze, including the path from the origin to the targe
 ```
 
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: T

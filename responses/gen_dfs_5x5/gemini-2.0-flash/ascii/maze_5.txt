@@ -64,4 +64,4 @@ Here's one possible path from S (Start) to E (End) in the maze you provided:
 ###########
 ```
 
-HUMAN VERIFICATION:
+HUMAN VERIFICATION: F
