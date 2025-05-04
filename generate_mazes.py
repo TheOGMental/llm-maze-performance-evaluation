@@ -19,7 +19,8 @@ from maze_dataset.tokenization import (AdjListTokenizers,
                                        _TokenizerElement,)
 
 cfg: MazeDatasetConfig = MazeDatasetConfig(
-	name="test", # name is only for you to keep track of things
+	name="dfs_5x5", # name is only for you to keep track of things
+    seed=3, # trying to get a non-trivial example maze
 	grid_n=5, # number of rows/columns in the lattice
 	n_mazes=21, # number of mazes to generate
 	maze_ctor=LatticeMazeGenerators.gen_dfs, # algorithm to generate the maze
@@ -32,23 +33,51 @@ maze_folder = "mazes" + os.path.sep + cfg.maze_ctor.__name__ + "_" + str(cfg.gri
 os.makedirs(maze_folder, exist_ok=True)
 
 # Tokenization options
-coord_tokenizers = [CoordTokenizers.UT(), CoordTokenizers.CTT()]
-adj_list_tokenizers = [AdjListTokenizers.AdjListCoord(pre=False, post=True, shuffle_d0=True,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords())]
-target_tokenizers = [TargetTokenizers.Unlabeled(post=False)]
-path_tokenizers = [PathTokenizers.StepSequence(step_size=StepSizes.Singles(), step_tokenizers=(StepTokenizers.Coord(),), pre=False, intra=False, post=False)]
+# coord_tokenizers = [CoordTokenizers.UT(), CoordTokenizers.CTT()]
+# adj_list_tokenizers = [AdjListTokenizers.AdjListCoord(pre=False, post=True, shuffle_d0=True,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords()),
+#                        AdjListTokenizers.AdjListCardinal(pre=False, post=True, shuffle_d0=True,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords()),]
+# target_tokenizers = [TargetTokenizers.Unlabeled(post=False)]
+# path_tokenizers = [PathTokenizers.StepSequence(step_size=StepSizes.Singles(), step_tokenizers=(StepTokenizers.Coord(),), pre=False, intra=False, post=False)]
 
 # Create all possible combinations of tokenizers from above options
+# tokenizer_list = [
+#     MazeTokenizerModular(
+#         prompt_sequencer=PromptSequencers.AOTP(
+#             coord_tokenizer=coord,
+#             adj_list_tokenizer=adj,
+#             target_tokenizer=target,
+#             path_tokenizer=path
+#         )
+#     )
+#     for coord, adj, target, path in product(coord_tokenizers, adj_list_tokenizers, target_tokenizers, path_tokenizers)
+# ]
+
 tokenizer_list = [
     MazeTokenizerModular(
         prompt_sequencer=PromptSequencers.AOTP(
-            coord_tokenizer=coord,
-            adj_list_tokenizer=adj,
-            target_tokenizer=target,
-            path_tokenizer=path
-        )
-    )
-    for coord, adj, target, path in product(coord_tokenizers, adj_list_tokenizers, target_tokenizers, path_tokenizers)
-]
+            coord_tokenizer=CoordTokenizers.UT(),
+            adj_list_tokenizer=AdjListTokenizers.AdjListCoord(pre=False, post=True, shuffle_d0=True,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords()),
+            target_tokenizer=TargetTokenizers.Unlabeled(post=False),
+            path_tokenizer=PathTokenizers.StepSequence(step_size=StepSizes.Singles(), step_tokenizers=(StepTokenizers.Coord(),), pre=False, intra=False, post=False)
+    )),
+    MazeTokenizerModular(
+        prompt_sequencer=PromptSequencers.AOTP(
+            coord_tokenizer=CoordTokenizers.CTT(),
+            adj_list_tokenizer=AdjListTokenizers.AdjListCoord(pre=False, post=True, shuffle_d0=True,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords()),
+            target_tokenizer=TargetTokenizers.Unlabeled(post=False),
+            path_tokenizer=PathTokenizers.StepSequence(step_size=StepSizes.Singles(), step_tokenizers=(StepTokenizers.Coord(),), pre=False, intra=False, post=False))),
+    MazeTokenizerModular(
+        prompt_sequencer=PromptSequencers.AOTP(
+            coord_tokenizer=CoordTokenizers.UT(),
+            adj_list_tokenizer=AdjListTokenizers.AdjListCardinal(pre=False, post=True, shuffle_d0=True,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords()),
+            target_tokenizer=TargetTokenizers.Unlabeled(post=False),
+            path_tokenizer=PathTokenizers.StepSequence(step_size=StepSizes.Singles(), step_tokenizers=(StepTokenizers.Cardinal(), StepTokenizers.Coord(),), pre=False, intra=False, post=False))),
+    MazeTokenizerModular(
+        prompt_sequencer=PromptSequencers.AOTP(
+            coord_tokenizer=CoordTokenizers.CTT(),
+            adj_list_tokenizer=AdjListTokenizers.AdjListCardinal(pre=False, post=True, shuffle_d0=True,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords()),
+            target_tokenizer=TargetTokenizers.Unlabeled(post=False),
+            path_tokenizer=PathTokenizers.StepSequence(step_size=StepSizes.Singles(), step_tokenizers=(StepTokenizers.Cardinal(), StepTokenizers.Coord(),), pre=False, intra=False, post=False)))]
 
 # Save the ASCII representation of the mazes
 ascii_folder = os.path.join(maze_folder, "ascii")
