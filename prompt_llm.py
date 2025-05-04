@@ -7,7 +7,7 @@ load_dotenv()
 # Make sure these are correct
 API_KEY = os.getenv("API_KEY")
 URL = None
-MODEL = "A"
+MODEL = None
 
 client = OpenAI(api_key=API_KEY, base_url=URL)
 
