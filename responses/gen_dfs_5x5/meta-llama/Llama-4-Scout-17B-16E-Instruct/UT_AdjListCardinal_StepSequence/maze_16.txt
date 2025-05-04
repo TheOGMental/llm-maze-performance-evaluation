@@ -1,0 +1,29 @@
+INPUT:
+<ADJLIST_START> (0,0) <--> SOUTH (0,1) <--> SOUTH (0,3) <--> SOUTH (0,4) <--> SOUTH (1,4) <--> SOUTH (2,0) <--> SOUTH (2,4) <--> SOUTH (3,2) <--> SOUTH (4,4) <--> NORTH (0,0) <--> EAST (0,3) <--> EAST (1,2) <--> WEST (1,2) <--> EAST (2,1) <--> WEST (2,2) <--> WEST (2,2) <--> EAST (3,1) <--> WEST (3,2) <--> WEST (4,2) <--> EAST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (0,0) <ORIGIN_END> <TARGET_START> (0,4) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,0) EAST (0,1) SOUTH (1,1) EAST (1,2) EAST (1,3) NORTH (0,3) EAST (0,4) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the maze configuration
+The given maze configuration is represented as an adjacency list, showing the connections between different cells in the maze. The origin is at (0,0) and the target is at (0,4).
+
+## 2: Identify the possible moves from the origin
+From (0,0), the possible moves are SOUTH to (0,1).
+
+## 3: Explore the maze to find a path to the target
+We need to navigate from (0,0) to (0,4). The direct path is to move SOUTH from (0,0) to (0,1), then continue SOUTH to (0,3), and finally move SOUTH to (0,4).
+
+## 4: Construct the path
+The path can be constructed by moving SOUTH from (0,0) to (0,1), then to (0,3), and finally to (0,4). So, the path is: (0,0) SOUTH (0,1) SOUTH (0,2) is not directly available, we go (0,1) SOUTH (0,3) and then (0,3) SOUTH (0,4).
+
+## 5: Correct the path based on available moves
+Given the adjacency list, from (0,0), we can move SOUTH to (0,1), then to (0,3) directly, and then to (0,4). The correct sequence of moves is: (0,0) SOUTH (0,1) is not directly connected to (0,3) or (0,4) without intermediate steps, we see (0,0) <--> SOUTH (0,1) <--> SOUTH (0,3) <--> SOUTH (0,4). So, the path is (0,0) SOUTH (0,1) SOUTH (0,3) SOUTH (0,4).
+
+## 6: Verify the path
+Verify that the path (0,0) SOUTH (0,1) SOUTH (0,3) SOUTH (0,4) is valid and reaches the target (0,4) from the origin (0,0).
+
+The final answer is: 
+(0,0) SOUTH (0,1) SOUTH (0,3) SOUTH (0,4)
+
+HUMAN VERIFICATION:

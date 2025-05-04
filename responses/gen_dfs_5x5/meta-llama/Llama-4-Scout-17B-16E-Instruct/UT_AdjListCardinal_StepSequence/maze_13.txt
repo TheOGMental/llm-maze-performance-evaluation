@@ -1,0 +1,29 @@
+INPUT:
+<ADJLIST_START> (1,2) <--> NORTH (0,4) <--> SOUTH (1,2) <--> SOUTH (1,4) <--> SOUTH (2,4) <--> SOUTH (4,2) <--> NORTH (0,2) <--> EAST (0,3) <--> EAST (3,2) <--> EAST (3,3) <--> EAST (4,2) <--> EAST (4,4) <--> WEST <ADJLIST_END> <ORIGIN_START> (0,2) <ORIGIN_END> <TARGET_START> (1,2) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,2) SOUTH (1,2) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is given in an adjacency list format, showing the connections between different cells in the maze. The origin is at (0,2) and the target is at (1,2).
+
+## 2: Identify the possible moves from the origin
+From the origin (0,2), the possible moves are NORTH to (0,4) and EAST to (0,3).
+
+## 3: Determine the goal
+The goal is to find a path from the origin (0,2) to the target (1,2).
+
+## 4: Explore the maze to find a path to the target
+Starting from (0,2), we can move SOUTH to (1,2) directly, which is the target.
+
+## 5: Verify if the path is valid and shortest
+The path (0,2) to (1,2) is a direct move and seems to be the shortest path possible.
+
+## 6: Format the path according to the given format
+The path in the required format is: <PATH_START> (0,2) SOUTH (1,2) <PATH_END>.
+
+The final answer is: 
+<PATH_START> (0,2) SOUTH (1,2) <PATH_END>
+
+HUMAN VERIFICATION:

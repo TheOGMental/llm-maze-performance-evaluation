@@ -1,0 +1,65 @@
+INPUT:
+<ADJLIST_START> (1,0) <--> NORTH (1,1) <--> NORTH (0,2) <--> SOUTH (0,3) <--> SOUTH (0,4) <--> SOUTH (2,0) <--> NORTH (2,3) <--> NORTH (1,4) <--> SOUTH (3,1) <--> NORTH (2,2) <--> SOUTH (3,4) <--> NORTH (3,1) <--> SOUTH (4,2) <--> NORTH (3,3) <--> SOUTH (3,4) <--> SOUTH (0,1) <--> WEST (0,3) <--> EAST (1,1) <--> EAST (2,0) <--> EAST (2,2) <--> EAST (4,1) <--> EAST (4,4) <--> WEST <ADJLIST_END> <ORIGIN_START> (0,0) <ORIGIN_END> <TARGET_START> (1,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,0) SOUTH (1,0) SOUTH (2,0) EAST (2,1) SOUTH (3,1) SOUTH (4,1) EAST (4,2) NORTH (3,2) NORTH (2,2) EAST (2,3) NORTH (1,3) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (0,0) and the target is at (1,3).
+
+## 2: Identify the possible movements from the origin
+From (0,0), we can see the possible movements are not directly listed, but we can infer from the given connections that (0,0) is connected to (0,1) and (1,0) since (1,0) <--> NORTH (1,1) and there's no direct connection listed for (0,0) but we notice (1,0) is connected to (1,1) and (0,2) is connected to (0,3) and so on.
+
+## 3: Determine the connection for (0,0)
+Given that (1,0) <--> NORTH (1,1) and there's no direct mention of (0,0) connections, we assume (0,0) could be connected to (0,1) and (1,0) based on the structure of such mazes and the information provided for adjacent cells.
+
+## 4: Find a path from the origin (0,0) to the target (1,3)
+Let's analyze the connections:
+- (1,0) <--> NORTH (1,1)
+- (0,2) <--> SOUTH (0,3)
+- (0,3) <--> WEST (0,1) and <--> SOUTH (0,4)
+- (1,1) <--> EAST (2,1) is not listed but (1,1) <--> EAST is not fully specified, however, (1,1) is connected to (0,1) and (1,0) is connected to (2,0).
+
+## 5: Explore paths systematically
+Starting from (0,0), if we move EAST to (1,0), then NORTH to (1,1), then EAST to (2,1) is not directly available, so let's try moving SOUTH from (1,0) which is not an option, or moving EAST from (0,0) if it were connected, which it's not directly listed.
+
+## 6: Detailed path exploration
+Given (0,0) to (0,1) is a plausible first step (though not directly listed, assuming a grid structure), then:
+- From (0,1), we can go EAST to (1,1).
+- From (1,1), we need to get to (1,3). There's a connection from (1,1) to (1,0) and NORTH to (0,2) but not directly to (1,3).
+
+## 7: Continue path exploration
+If we go from (0,0) to (1,0) then to (1,1), 
+- Then from (1,1), moving EAST is not specified but let's assume grid movement, so we look for connections like (1,2) or directly to (1,3) if available.
+
+## 8: Analyze specific connections to target
+Noticing (2,2) <--> NORTH (2,3) and (3,1) <--> NORTH (2,2) and (1,4) <--> SOUTH (2,4) is not directly helpful. But (0,3) <--> SOUTH (0,4) and (0,3) <--> WEST (0,1) indicates we can get to (0,3) and then try to get to (1,3).
+
+## 9: Construct a viable path
+A potential path could be:
+- (0,0) to (0,1) [assumed],
+- (0,1) to (1,1) [direct],
+- Then we need to navigate to (1,3).
+
+## 10: Direct path to target
+Given that (1,0) connects to (1,1) and there's no direct (1,1) to (1,3), let's assume we can move in a grid-like fashion and see if there's an overlooked connection:
+- From (0,1) to (0,2) [not directly listed but assume (0,1) to (0,2)],
+- (0,2) to (0,3) [listed],
+- (0,3) to (1,3) [not listed directly].
+
+## 11: Final path determination
+However, noticing:
+- (1,1) <--> EAST is mentioned without a destination, implying a potential path could exist but isn't fully mapped.
+
+## 12: Solution realization
+Given connections and assuming grid movement where not explicitly listed:
+- A path could be (0,0) -> (1,0) -> (1,1) -> ? to (1,3).
+Direct connections to solve:
+- (0,0) -> (0,1),
+- (0,1) -> (1,1),
+- Looking closely, (0,2) -> (0,3) and if (1,2) or (1,3) is reachable from nearby points.
+
+The final answer is: $\boxed{(0,0) (0,1) (1,1) (1,2) (1,3)}$
+
+HUMAN VERIFICATION:

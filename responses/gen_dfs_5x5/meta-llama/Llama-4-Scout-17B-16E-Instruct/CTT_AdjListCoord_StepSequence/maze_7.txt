@@ -1,0 +1,25 @@
+INPUT:
+<ADJLIST_START> ( 0 , 0 ) <--> ( 1 , 0 ) ; ( 2 , 1 ) <--> ( 3 , 1 ) ; ( 4 , 1 ) <--> ( 4 , 2 ) ; ( 1 , 1 ) <--> ( 0 , 1 ) ; ( 3 , 0 ) <--> ( 2 , 0 ) ; ( 4 , 0 ) <--> ( 3 , 0 ) ; ( 3 , 1 ) <--> ( 4 , 1 ) ; ( 3 , 2 ) <--> ( 4 , 2 ) ; ( 1 , 1 ) <--> ( 2 , 1 ) ; ( 1 , 0 ) <--> ( 2 , 0 ) ; ( 0 , 0 ) <--> ( 0 , 1 ) ; <ADJLIST_END> <ORIGIN_START> ( 1 , 1 ) <ORIGIN_END> <TARGET_START> ( 2 , 1 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 1 ) ( 2 , 1 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (1, 1) and the target is at (2, 1).
+
+## 2: Identify the connections relevant to the origin and target
+From the origin (1, 1), the connected cells are (0, 1) and (2, 1). Since the target is (2, 1), we have a direct connection.
+
+## 3: Determine the path from origin to target
+Given that (1, 1) is directly connected to (2, 1), the path is straightforward.
+
+## 4: Verify if the direct path is valid
+The direct path from (1, 1) to (2, 1) is valid because (1, 1) <--> (2, 1) is listed in the adjacency list.
+
+## 5: Provide the path
+The path from the origin (1, 1) to the target (2, 1) is simply (1, 1) (2, 1).
+
+The final answer is: $\boxed{(1, 1) (2, 1)}$
+
+HUMAN VERIFICATION:

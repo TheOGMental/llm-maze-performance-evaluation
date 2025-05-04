@@ -1,0 +1,26 @@
+INPUT:
+<ADJLIST_START> (3,4) <--> (2,4) ; (2,1) <--> (2,0) ; (1,4) <--> (0,4) ; (3,1) <--> (3,0) ; (3,2) <--> (3,1) ; (1,2) <--> (1,3) ; (1,3) <--> (0,3) ; (2,1) <--> (2,2) ; (2,0) <--> (3,0) ; (0,1) <--> (0,0) ; (4,4) <--> (3,4) ; (3,2) <--> (4,2) ; (0,4) <--> (0,3) ; (4,2) <--> (4,3) ; (1,4) <--> (2,4) ; (1,1) <--> (1,2) ; (1,1) <--> (0,1) ; (4,4) <--> (4,3) ; (1,0) <--> (0,0) ; (2,2) <--> (2,3) ; <ADJLIST_END> <ORIGIN_START> (0,0) <ORIGIN_END> <TARGET_START> (0,4) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,0) (0,1) (1,1) (1,2) (1,3) (0,3) (0,4) <PATH_END>
+
+OUTPUT:
+To solve the maze from the origin (0,0) to the target (0,4), we can use the adjacency list provided to find the path. Here's a step-by-step breakdown of how to navigate through the maze:
+
+1. Start at (0,0).
+2. Move to (1,0) using the connection to (0,0).
+3. Move to (1,1) using the connection to (1,0).
+4. Move to (1,2) using the connection to (1,1).
+5. Move to (1,3) using the connection to (1,2).
+6. Move to (0,3) using the connection to (1,3).
+7. Finally, move to (0,4) using the connection to (0,3).
+
+Thus, the path from (0,0) to (0,4) is as follows:
+
+**Path:** (0,0) → (1,0) → (1,1) → (1,2) → (1,3) → (0,3) → (0,4)
+
+This can be represented simply as:
+
+**Path**: (0,0) (1,0) (1,1) (1,2) (1,3) (0,3) (0,4)
+
+HUMAN VERIFICATION:

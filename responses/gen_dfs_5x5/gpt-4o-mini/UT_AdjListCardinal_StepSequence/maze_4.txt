@@ -1,0 +1,81 @@
+INPUT:
+<ADJLIST_START> (1,1) <--> NORTH (0,4) <--> SOUTH (1,2) <--> SOUTH (1,4) <--> SOUTH (0,1) <--> WEST (0,2) <--> EAST (0,3) <--> EAST (1,2) <--> WEST (2,3) <--> WEST (2,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (2,3) <ORIGIN_END> <TARGET_START> (0,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (2,3) WEST (2,2) NORTH (1,2) WEST (1,1) NORTH (0,1) WEST (0,0) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (2,3) to the target (0,0) based on the adjacency list provided, let's analyze the connections:
+
+1. **Starting Point**: (2,3)
+2. **Connections**: From (2,3), the pathways are:
+   - → EAST to (2,4)
+   - → WEST to (1,2) (based on the adjacency provided)
+
+So first, I will move WEST:
+
+### Step 1:
+- Current Position: (2,3)
+- Move: WEST to (1,2)
+
+### Step 2:
+From (1,2), the possible connections are:
+- → SOUTH to (1,4)
+- → EAST to (0,3) (based on the adjacency)
+- → WEST to (0,2)  (based on the adjacency)
+
+Let’s move EAST to (0,3):
+
+### Step 3:
+- Current Position: (1,2)
+- Move: EAST to (0,3)
+
+### Step 4:
+From (0,3), I can move:
+- → EAST to (0,4)
+- → WEST to (0,2)
+- → SOUTH to (1,3) 
+
+But let's move WEST to (0,2): 
+
+### Step 5:
+- Current Position: (0,3)
+- Move: WEST to (0,2)
+
+### Step 6:
+From (0,2), I can move:
+- → EAST to (0,3)
+- → WEST to (0,1)
+- → SOUTH to (1,2) 
+
+Let’s move WEST to (0,1):
+
+### Step 7:
+- Current Position: (0,2)
+- Move: WEST to (0,1)
+
+### Step 8:
+From (0,1), I can go:
+- → EAST to (0,2)
+- → WEST to (0,0)
+- → SOUTH to (1,1)
+
+Let's move WEST to (0,0).
+
+### Step 9:
+- Current Position: (0,1)
+- Move: WEST to (0,0)
+
+### Reaching the Target:
+Now, I have arrived at the target position (0,0).
+
+### Complete Path:
+Thus, the complete path from (2,3) to (0,0) is:
+- (2,3) WEST (1,2) EAST (0,3) WEST (0,2) WEST (0,1) WEST (0,0)
+
+Here’s the final path in the designated format:
+```
+<PATH_START> (2,3) WEST (1,2) EAST (0,3) WEST (0,2) WEST (0,1) WEST (0,0) <PATH_END>
+```
+
+HUMAN VERIFICATION:

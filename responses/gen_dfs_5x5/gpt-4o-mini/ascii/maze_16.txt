@@ -1,0 +1,95 @@
+INPUT:
+###########
+#S  # #  E#
+# # ### # #
+# #     # #
+######### #
+#       # #
+# ####### #
+#     # # #
+##### ### #
+# # #     #
+###########
+
+EXPECTED SOLUTION:
+###########
+#SXX# #XXE#
+# #X###X# #
+# #XXXXX# #
+######### #
+#       # #
+# ####### #
+#     # # #
+##### ### #
+# # #     #
+###########
+
+OUTPUT:
+To navigate through the maze, we will represent the layout and the path taken from 'S' (Start) to 'E' (End). Here's the maze with its original layout:
+
+```
+###########
+#S  # #  E#
+# # ### # #
+# #     # #
+######### #
+#       # #
+# ####### #
+#     # # #
+##### ### #
+# # #     #
+###########
+```
+
+The solution will be a step-by-step path to get from 'S' to 'E'. The path will be represented with 'X', and I'll indicate the path clearly within the maze.
+
+Here’s a solution path from 'S' to 'E':
+
+1. Start at 'S' (1, 1).
+2. Move down (to (2, 1)).
+3. Move down (to (3, 1)).
+4. Move down (to (4, 1)).
+5. Move right (to (4, 2)).
+6. Move right (to (4, 3)).
+7. Move up (to (3, 3)).
+8. Move up (to (2, 3)).
+9. Move up (to (1, 3)).
+10. Move right (to (1, 4)).
+11. Move right (to (1, 5)).
+12. Move down (to (2, 5)).
+13. Move down (to (3, 5)).
+14. Move down (to (4, 5)).
+15. Move down (to (5, 5)).
+16. Move down (to (6, 5)).
+17. Move down (to (7, 5)).
+18. Move left (to (7, 4)).
+19. Move left (to (7, 3)).
+20. Move up (to (6, 3)).
+21. Move up (to (5, 3)).
+22. Move up (to (4, 3)).
+23. Move left (to (4, 2)).
+24. Move left (to (3, 2)).
+25. Move down (to (3, 1)).
+26. Move down (to (4, 1)).
+27. Move up (to (2, 0)).
+28. Move right to (1, 0), then (1, 1) to reach 'E'.
+
+Now, let's mark the path with `X`:
+
+```
+###########
+#SXX# #  E#
+# #X### # #
+# #XXXXX# #
+######### #
+#       # #
+# ####### #
+#     # # #
+##### ### #
+# # #     #
+###########
+```
+
+The above layout contains 'X' indicating the path taken from 'S' to 'E'. Note: The path may have different possible routes, and this is one of the traversable options following the maze rules.
+
+HUMAN VERIFICATION:

@@ -1,0 +1,93 @@
+INPUT:
+###########
+# # # #E  #
+####### # #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # #E  #
+#######X# #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+
+OUTPUT:
+To find the path from the starting point (S) to the endpoint (E) in the given maze, let's first identify their coordinates:
+
+```
+###########
+# # # #E  #
+####### # #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+```
+
+- S is located at (2, 6)
+- E is located at (0, 6)
+
+Now we can trace a path from S to E.
+
+1. Start at S (2, 6).
+2. Move up to (1, 6) (Blocked by #).
+3. Move left to (2, 5) (open).
+4. Move up to (1, 5) (Blocked by #).
+5. Move left to (2, 4) (Blocked by #).
+6. Move down to (3, 6) (Blocked by #).
+7. Move up to (1, 6) (Blocked by #)..
+8. Move right to (2, 7) (open).
+9. Move left to (2, 7)(Blocked by #).
+
+Here's a detailed solution breaking down the path:
+
+1. Start at S (2, 6)
+2. (2, 6) → (1, 6) (Blocked)
+3. (2, 6) → (2, 7) (open)
+4. (2, 7) → (3, 7) (Blocked) 
+5. (3, 6) (Blocked) 
+6. (1, 6) and (2,5) blocked
+
+So following these sequences:
+
+1. Move left from (2, 6) to (2, 5) (Blocked)
+2. Move down to (3, 6) (Blocked)
+
+We can also avoid cumbersome paths and navigate up:
+
+1. Start at (2, 6)
+2. (2, 6) → (2, 7) → (1, 7) (Blocked)
+3. Eventually up to (0, 5) (open).
+
+To reach from S to E:
+
+- (2,6) moves:
+1. Up to (1, 6)
+2. Up to (0, 6) E
+This completes a valid path directly to the exit.
+
+Thus, the ultimate path traced step by step would be:
+- Down through clear pathway avoiding walls: S → E 
+
+Here is the summarized direction for your maze from S to E:
+
+**Path**: S at (2, 6) → up (to (1, 6)) → up (to E at (0, 6))
+
+HUMAN VERIFICATION:

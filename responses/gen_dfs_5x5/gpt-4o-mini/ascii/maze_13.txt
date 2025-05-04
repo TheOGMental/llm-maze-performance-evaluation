@@ -1,0 +1,47 @@
+INPUT:
+###########
+# # #S    #
+##### ### #
+# # #E# # #
+##### ### #
+# # # # # #
+######### #
+# # #     #
+##### #####
+# # #     #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # #S    #
+#####X### #
+# # #E# # #
+##### ### #
+# # # # # #
+######### #
+# # #     #
+##### #####
+# # #     #
+###########
+
+OUTPUT:
+To provide a path from the starting point (S) to the ending point (E) in the maze, first we identify their positions. In this case:
+
+- Start (S) is located at (1, 5) (2nd row, 6th column).
+- Exit (E) is located at (3, 5) (4th row, 6th column).
+
+Here’s the path to navigate through the maze (with coordinates):
+
+1. Start at (1, 5) [S]
+2. Move down to (2, 5)
+3. Move down to (3, 5) [E]
+
+The full path is:
+- Starting from (1, 5) (S), you move to (2, 5), then to (3, 5) (E).
+
+Path in coordinates:
+- (1, 5) -> (2, 5) -> (3, 5)
+
+This is a clear and direct route from the start to the exit without any obstacles.
+
+HUMAN VERIFICATION:

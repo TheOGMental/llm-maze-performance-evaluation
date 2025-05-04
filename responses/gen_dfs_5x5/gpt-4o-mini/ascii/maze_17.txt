@@ -1,0 +1,95 @@
+INPUT:
+###########
+# #       #
+######### #
+#   #     #
+# # # #####
+# # #     #
+# # ##### #
+# # #   # #
+# # # # # #
+# #  E#  S#
+###########
+
+EXPECTED SOLUTION:
+###########
+# #       #
+######### #
+#   #     #
+# # # #####
+# # #     #
+# # ##### #
+# # #XXX# #
+# # #X#X# #
+# #  E#XXS#
+###########
+
+OUTPUT:
+To create a path from the origin (S) to the target (E) in the given maze configuration, we need to analyze the maze step by step. Here’s the layout showing the start (S) and end (E) points:
+
+```
+###########
+# #       #
+######### #
+#   #     #
+# # # #####
+# # #     #
+# # ##### #
+# # #   # #
+# # # # # #
+# #  E#  S#
+###########
+```
+
+To find the path, let's denote the paths using coordinates, where (row, column) represents the position in the maze. Here’s a valid path from S to E:
+
+1. Start from S at (8, 8).
+2. Move up to (7, 8).
+3. Move up to (6, 8).
+4. Move left to (6, 7).
+5. Move up to (5, 7).
+6. Move up to (4, 7).
+7. Move left to (4, 6).
+8. Move up to (3, 6).
+9. Move up to (2, 6).
+10. Move left to (2, 5).
+11. Move down to (3, 5).
+12. Move down to (4, 5).
+13. Move down to (5, 5).
+14. Move left to (5, 4).
+15. Move down to (6, 4).
+16. Move down to (7, 4).
+17. Move left to (7, 3).
+18. Move left to (7, 2).
+19. Move up to (6, 2).
+20. Move right to (6, 3).
+21. Move up to (5, 3).
+22. Move left to (5, 2).
+23. Move down to (6, 2).
+24. Move down to (7, 2).
+25. Move down to (8, 2).
+26. Move down to (9, 2).
+27. Move left to (9, 1).
+28. Move left to (9, 0).
+29. Move right to (8, 0).
+30. Move right to (8, 1).
+31. Move right to (8, 2).
+32. Finally, move up to (7, 2).
+33. Move up to (6, 2).
+34. Move up to (5, 2).
+35. Move up to (5, 1).
+36. Move up to (5, 0).
+37. Reach E at (6, 1).
+
+**Summary of the Path (in coordinates):**
+- Start at (8,8)
+- Move through the following positions: 
+  (7,8) -> (6,8) -> (6,7) -> (5,7) -> (4,7) -> (4,6) -> (3,6) -> (2,6) -> (2,5) -> 
+  (3,5) -> (4,5) -> (5,5) -> (5,4) -> (6,4) -> (7,4) -> (7,3) -> (7,2) -> 
+  (6,2) -> (5,3) -> (5,2) -> (6,2) -> (7,2) -> (8,2) -> (9,2) -> (9,1) -> 
+  (9,0) -> (8,0) -> (8,1) -> (8,2) -> (7,2) -> (6,2) -> (5,2) -> (5,1) -> (5,0) -> 
+  Reach (6,1) end at E.
+
+This is a valid path for the maze from S to E!
+
+HUMAN VERIFICATION:

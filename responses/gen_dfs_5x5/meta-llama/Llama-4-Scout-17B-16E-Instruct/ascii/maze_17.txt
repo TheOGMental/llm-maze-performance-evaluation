@@ -1,0 +1,103 @@
+INPUT:
+###########
+# #       #
+######### #
+#   #     #
+# # # #####
+# # #     #
+# # ##### #
+# # #   # #
+# # # # # #
+# #  E#  S#
+###########
+
+EXPECTED SOLUTION:
+###########
+# #       #
+######### #
+#   #     #
+# # # #####
+# # #     #
+# # ##### #
+# # #XXX# #
+# # #X#X# #
+# #  E#XXS#
+###########
+
+OUTPUT:
+## Step 1: Understand the maze configuration
+The given maze is:
+###########
+# #       #
+######### #
+#   #     #
+# # # #####
+# # #     #
+# # ##### #
+# # #   # #
+# # # # # #
+# #  E#  S#
+###########
+We need to find a path from the origin (usually marked as 'S' for start) to the target (usually marked as 'E' for end).
+
+## 2: Identify the start and end points
+In the given maze, 'S' is the start point and 'E' is the end point.
+
+## 3: Analyze the maze for a path
+Looking at the maze, the start point 'S' is at the bottom and the end point 'E' is also at the bottom. The maze seems to have several walls and open paths.
+
+## 4: Determine the path
+Since 'S' and 'E' are at the same level and relatively close, we should look for a straightforward path. Starting from 'S', we move up and then navigate through the available paths to reach 'E'.
+
+## 5: Find a specific path
+Starting from 'S' (bottom right), we can move up. The maze configuration allows us to move up from 'S' to the cell above it, then move left and continue navigating through the open spaces.
+
+## 6: Detailed path description
+From 'S', move up to the cell above it. Then, move left until we can move up again without hitting a wall. Continue this process, avoiding walls.
+
+## 7: Actual path
+The path can be described as follows (assuming the maze is 0-indexed and using coordinates for simplicity, but given the format, we'll describe it directly):
+- Start at 'S' (bottom right).
+- Move up.
+- Continue up and left/right as necessary to avoid walls.
+
+Given the constraints of the text format and without visual aids, let's describe a potential path directly:
+1. From 'S', go up.
+2. Go left when possible.
+3. Navigate through the open paths.
+
+## 8: Path in maze coordinates or description
+A potential path could be (describing moves rather than exact coordinates due to format constraints):
+- Up from S,
+- Left,
+- Up,
+- Left,
+- Down (if necessary to navigate around obstacles),
+- Up,
+- Left/Right to align with 'E',
+- Down to 'E' if necessary.
+
+However, without a straightforward way to denote each step in text and given the complexity of manually tracing each move in this format, let's simplify:
+
+## 9: Final Path Description
+Given the maze:
+###########
+# #       #
+######### #
+#   #     #
+# # # #####
+# # #     #
+# # ##### #
+# # #   # #
+# # # # # #
+# #  E#  S#
+###########
+A simple path could be:
+- Start at S (last row, second to last column).
+- Move up to (10,1).
+- Then move left to (9,1), up to (8,1), left to (8,0), up to (7,0), left to (7,1), up to (6,1), left to (6,0), up to (5,0), left to (5,1), up to (4,1), left to (4,2), up to (3,2), left to (3,3), up to (2,3), left to (2,4), up to (1,4), left to (1,1), up to (0,1), right to (0,2), down to E.
+
+The final answer is: 
+Up, Left, Up, Left, Up, Left, Up, Left, Up, Left, Up, Left, Up, Right, Down
+
+HUMAN VERIFICATION:

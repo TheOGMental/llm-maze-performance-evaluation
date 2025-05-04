@@ -1,0 +1,22 @@
+INPUT:
+<ADJLIST_START> ( 2 , 4 ) <--> ( 3 , 4 ) ; ( 0 , 2 ) <--> ( 0 , 3 ) ; ( 4 , 3 ) <--> ( 4 , 4 ) ; ( 3 , 3 ) <--> ( 3 , 4 ) ; ( 4 , 2 ) <--> ( 4 , 3 ) ; ( 0 , 2 ) <--> ( 1 , 2 ) ; ( 4 , 2 ) <--> ( 3 , 2 ) ; ( 1 , 4 ) <--> ( 2 , 4 ) ; ( 0 , 3 ) <--> ( 0 , 4 ) ; ( 3 , 2 ) <--> ( 3 , 3 ) ; ( 0 , 4 ) <--> ( 1 , 4 ) ; ( 1 , 2 ) <--> ( 2 , 2 ) ; <ADJLIST_END> <ORIGIN_START> ( 0 , 2 ) <ORIGIN_END> <TARGET_START> ( 1 , 2 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 2 ) ( 1 , 2 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (0, 2) and the target is at (1, 2).
+
+## 2: Identify the connections relevant to the origin and target
+From the origin (0, 2), the cell is connected to (0, 3) and (1, 2). The target is (1, 2), which is directly connected to the origin.
+
+## 3: Determine the path from the origin to the target
+Since (0, 2) is directly connected to (1, 2), the path can be found immediately without needing further exploration.
+
+## 4: Construct the path
+The path from (0, 2) to (1, 2) is straightforward: (0, 2) -> (1, 2).
+
+The final answer is: $\boxed{(0, 2) (1, 2)}$
+
+HUMAN VERIFICATION:

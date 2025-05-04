@@ -1,0 +1,49 @@
+INPUT:
+<ADJLIST_START> (3,1) <--> (3,0) ; (1,0) <--> (2,0) ; (2,2) <--> (2,3) ; (1,4) <--> (2,4) ; (2,4) <--> (3,4) ; (1,3) <--> (1,4) ; (0,1) <--> (0,0) ; (2,1) <--> (3,1) ; (1,3) <--> (1,2) ; (3,4) <--> (3,3) ; (2,3) <--> (3,3) ; (2,2) <--> (2,1) ; (0,0) <--> (1,0) ; (0,1) <--> (1,1) ; (3,0) <--> (2,0) ; <ADJLIST_END> <ORIGIN_START> (1,0) <ORIGIN_END> <TARGET_START> (1,1) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,0) (0,0) (0,1) (1,1) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1,0) to the target (1,1) in the provided maze configuration, we can follow the connections specified in the adjacency list.
+
+Starting at (1,0):
+1. From (1,0), we can move to (0,0) or (2,0).
+
+Let’s explore the possible connections:
+- Move from (1,0) to (0,0).
+   
+2. From (0,0), we can only move back to (1,0).
+
+Since this does not lead us closer to the target (1,1), let's backtrack and try another option:
+- Move from (1,0) to (2,0).
+
+3. From (2,0), we can move back to (1,0) or to (3,0).
+
+Let’s explore:
+- Move from (2,0) to (3,0).
+
+4. From (3,0), we can move back to (2,0) or to (3,1).
+
+Let’s explore:
+- Move from (3,0) to (3,1).
+
+5. From (3,1), we can move back to (3,0) or to (2,1).
+
+Let’s explore:
+- Move from (3,1) to (2,1).
+
+6. From (2,1), we can move to (1,1) or to (2,2).
+
+Let’s move to the target:
+- Move from (2,1) to (1,1).
+
+Now we have reached the target. 
+
+The complete path from (1,0) to (1,1) is:
+(1,0) → (2,0) → (3,0) → (3,1) → (2,1) → (1,1).
+
+Thus, the path can be represented as:
+**(1,0) (2,0) (3,0) (3,1) (2,1) (1,1)**.
+
+HUMAN VERIFICATION:

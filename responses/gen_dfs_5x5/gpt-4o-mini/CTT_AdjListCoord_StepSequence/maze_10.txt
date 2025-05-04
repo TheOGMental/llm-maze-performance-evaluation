@@ -1,0 +1,46 @@
+INPUT:
+<ADJLIST_START> ( 4 , 3 ) <--> ( 4 , 4 ) ; ( 4 , 1 ) <--> ( 4 , 2 ) ; ( 1 , 2 ) <--> ( 1 , 3 ) ; ( 3 , 3 ) <--> ( 4 , 3 ) ; ( 1 , 3 ) <--> ( 0 , 3 ) ; ( 2 , 4 ) <--> ( 1 , 4 ) ; ( 4 , 2 ) <--> ( 3 , 2 ) ; ( 3 , 4 ) <--> ( 2 , 4 ) ; ( 0 , 4 ) <--> ( 1 , 4 ) ; ( 2 , 3 ) <--> ( 3 , 3 ) ; ( 4 , 1 ) <--> ( 3 , 1 ) ; ( 2 , 0 ) <--> ( 2 , 1 ) ; ( 2 , 2 ) <--> ( 3 , 2 ) ; ( 0 , 3 ) <--> ( 0 , 4 ) ; ( 1 , 1 ) <--> ( 1 , 0 ) ; ( 1 , 1 ) <--> ( 1 , 2 ) ; ( 2 , 0 ) <--> ( 1 , 0 ) ; ( 3 , 4 ) <--> ( 4 , 4 ) ; ( 3 , 1 ) <--> ( 2 , 1 ) ; <ADJLIST_END> <ORIGIN_START> ( 1 , 3 ) <ORIGIN_END> <TARGET_START> ( 0 , 3 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 3 ) ( 0 , 3 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1, 3) to the target (0, 3) in the given maze configuration, we can traverse the adjacency list provided. Let's break down the connections and find a valid path.
+
+### Adjacency List:
+1. (4, 3) <--> (4, 4)
+2. (4, 1) <--> (4, 2)
+3. (1, 2) <--> (1, 3)
+4. (3, 3) <--> (4, 3)
+5. (1, 3) <--> (0, 3)
+6. (2, 4) <--> (1, 4)
+7. (4, 2) <--> (3, 2)
+8. (3, 4) <--> (2, 4)
+9. (0, 4) <--> (1, 4)
+10. (2, 3) <--> (3, 3)
+11. (4, 1) <--> (3, 1)
+12. (2, 0) <--> (2, 1)
+13. (2, 2) <--> (3, 2)
+14. (0, 3) <--> (0, 4)
+15. (1, 1) <--> (1, 0)
+16. (1, 1) <--> (1, 2)
+17. (2, 0) <--> (1, 0)
+18. (3, 4) <--> (4, 4)
+19. (3, 1) <--> (2, 1)
+
+### Finding the Path:
+1. Start at (1, 3).
+2. From (1, 3), we can go directly to (0, 3) based on the adjacency list (`(1, 3) <--> (0, 3)`).
+
+### Path Representation:
+The path from the origin (1, 3) to the target (0, 3) is therefore:
+
+**Path:**
+(1, 3) → (0, 3)
+
+### Final Output:
+Here is the path in the specified format:
+
+<PATH_START> ( 1 , 3 ) ( 0 , 3 ) <PATH_END>
+
+HUMAN VERIFICATION:

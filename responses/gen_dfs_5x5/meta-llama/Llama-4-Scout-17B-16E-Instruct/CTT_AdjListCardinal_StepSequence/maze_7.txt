@@ -1,0 +1,35 @@
+INPUT:
+<ADJLIST_START> ( 1 , 0 ) <--> NORTH ( 0 , 1 ) <--> SOUTH ( 1 , 0 ) <--> SOUTH ( 1 , 1 ) <--> SOUTH ( 3 , 0 ) <--> NORTH ( 2 , 1 ) <--> SOUTH ( 4 , 0 ) <--> NORTH ( 3 , 1 ) <--> SOUTH ( 3 , 2 ) <--> SOUTH ( 0 , 1 ) <--> WEST ( 4 , 2 ) <--> WEST <ADJLIST_END> <ORIGIN_START> ( 1 , 1 ) <ORIGIN_END> <TARGET_START> ( 2 , 1 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 1 ) SOUTH ( 2 , 1 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (1,1) and the target is at (2,1).
+
+## 2: Identify the possible movements from the origin
+From (1,1), we can move SOUTH to (1,2) or NORTH to (0,1) or EAST to (2,1) but since (2,1) is directly reachable, we should check if it's directly connected.
+
+## 3: Analyze the connections
+The given connections are:
+- (1,0) <--> NORTH (0,1)
+- (0,1) <--> SOUTH (1,0)
+- (1,0) <--> SOUTH (1,1)
+- (1,1) <--> SOUTH (3,0)
+- (3,0) <--> NORTH (2,1)
+- (2,1) <--> SOUTH (4,0)
+- (4,0) <--> NORTH (3,1)
+- (3,1) <--> SOUTH (3,2)
+- (0,1) <--> WEST (no direct connection to (1,1) from here that isn't already listed)
+- (4,2) <--> WEST (but there's no direct connection listed from (4,2) to any point near our origin or target)
+
+## 4: Determine the path from origin to target
+Given that the target is (2,1) and the origin is (1,1), and noticing that (1,1) is directly connected to (2,1) as per the corrected understanding of the maze connections, we realize there's a direct path.
+
+## 5: Specify the path
+The path from (1,1) to (2,1) is simply EAST, since (1,1) <--> EAST (2,1) is a direct connection.
+
+The final answer is: $\boxed{(1,1) EAST (2,1)}$
+
+HUMAN VERIFICATION:

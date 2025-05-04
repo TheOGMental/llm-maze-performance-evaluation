@@ -1,0 +1,37 @@
+INPUT:
+<ADJLIST_START> ( 0 , 0 ) <--> SOUTH ( 1 , 1 ) <--> NORTH ( 1 , 2 ) <--> NORTH ( 0 , 3 ) <--> SOUTH ( 1 , 4 ) <--> NORTH ( 2 , 0 ) <--> NORTH ( 1 , 3 ) <--> SOUTH ( 2 , 4 ) <--> NORTH ( 3 , 1 ) <--> NORTH ( 2 , 2 ) <--> SOUTH ( 3 , 4 ) <--> NORTH ( 4 , 1 ) <--> NORTH ( 4 , 2 ) <--> NORTH ( 3 , 3 ) <--> SOUTH ( 4 , 4 ) <--> NORTH ( 0 , 0 ) <--> EAST ( 0 , 4 ) <--> WEST ( 1 , 2 ) <--> WEST ( 2 , 1 ) <--> WEST ( 2 , 2 ) <--> EAST ( 4 , 1 ) <--> EAST ( 4 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 0 , 0 ) <ORIGIN_END> <TARGET_START> ( 1 , 3 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 0 ) SOUTH ( 1 , 0 ) SOUTH ( 2 , 0 ) EAST ( 2 , 1 ) SOUTH ( 3 , 1 ) SOUTH ( 4 , 1 ) EAST ( 4 , 2 ) NORTH ( 3 , 2 ) NORTH ( 2 , 2 ) EAST ( 2 , 3 ) NORTH ( 1 , 3 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (0,0) and the target is at (1,3).
+
+## 2: Identify the possible movements from the origin
+From (0,0), the possible movements are SOUTH to (1,0) and EAST to (0,4), and also NORTH is mentioned but it loops back to (0,0) which doesn't help in reaching the target.
+
+## 3: Explore the maze to find a path to the target
+Starting from (0,0), moving SOUTH to (1,0) seems like a potential first step. However, we need to systematically explore the maze to find a path to (1,3).
+
+## 4: Analyze connections to reach (1,3)
+Looking at the target (1,3), we see that (1,2) is connected to (1,3) through an unspecified direct path, but (1,2) is connected to (0,3) and (1,1) and (2,1) is connected to (2,2) which might help.
+
+## 5: Detailed exploration from origin
+From (0,0), moving SOUTH gives (1,0). From (1,0), there's no direct connection to (1,3) or nearby cells that can easily reach (1,3). Let's try moving EAST from (0,0) to (0,4), then SOUTH to (1,4), and then try to navigate from there.
+
+## 6: Navigation from (1,4)
+From (1,4), moving WEST gives (0,4), and moving NORTH gives (0,4) which doesn't help. However, (1,4) is connected to (2,4) and (1,3) directly.
+
+## 7: Direct path to target
+Noticing that (1,4) is directly connected to (1,3), we have a straightforward path: (0,0) to (1,0) is not directly helpful, but (0,0) to (0,4) to (1,4) to (1,3) is.
+
+## 8: Specify the path
+The path can be specified as: (0,0) EAST (0,4) SOUTH (1,4) WEST (1,3).
+
+## 9: Confirm the path
+Confirming that this path does indeed go from the origin (0,0) to the target (1,3) using the given connections.
+
+The final answer is: $\boxed{(0,0) EAST (0,4) SOUTH (1,4) WEST (1,3)}$
+
+HUMAN VERIFICATION:

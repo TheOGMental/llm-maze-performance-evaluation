@@ -1,0 +1,26 @@
+INPUT:
+<ADJLIST_START> (0,0) <--> SOUTH (0,1) <--> SOUTH (1,0) <--> SOUTH (2,4) <--> NORTH (3,0) <--> NORTH (2,1) <--> SOUTH (3,3) <--> NORTH (2,4) <--> SOUTH (0,1) <--> WEST (1,2) <--> EAST (1,4) <--> WEST (2,2) <--> WEST (2,2) <--> EAST (3,1) <--> WEST (3,4) <--> WEST <ADJLIST_END> <ORIGIN_START> (1,0) <ORIGIN_END> <TARGET_START> (1,1) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,0) NORTH (0,0) EAST (0,1) SOUTH (1,1) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (1,0) and the target is at (1,1).
+
+## 2: Identify the relevant connections for the origin and target
+From the origin (1,0), the possible moves are SOUTH (1,1) and EAST (1,2) is not directly listed but we see (1,0) <--> SOUTH (2,4) and (1,0) <--> SOUTH (0,1) and (1,0) <--> NORTH is not listed but (0,0) <--> SOUTH (0,1) and (0,0) is not directly connected to (1,0) but (1,0) <--> SOUTH. The target is at (1,1).
+
+## 3: Determine the direct path if possible
+Given that (1,0) has a direct connection to (1,1) as (1,0) <--> SOUTH (0,1) and also (1,0) <--> SOUTH (2,4) but most directly (1,0) is connected to (1,1) through a SOUTH move based on standard maze movement (up, down, left, right).
+
+## 4: Construct the path
+The path from (1,0) to (1,1) is straightforward since (1,0) is directly connected to (1,1) via a SOUTH move.
+
+## 5: Verify the path with the given format
+The path in the required format is: <PATH_START> (1,0) SOUTH (1,1) <PATH_END>.
+
+The final answer is: 
+<PATH_START> (1,0) SOUTH (1,1) <PATH_END>
+
+HUMAN VERIFICATION:

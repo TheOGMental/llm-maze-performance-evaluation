@@ -1,0 +1,92 @@
+INPUT:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#E  #  S  #
+# # ##### #
+# #       #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#EXX#  SXX#
+# #X#####X#
+# #XXXXXXX#
+###########
+
+OUTPUT:
+## Step 1: Understand the maze configuration
+The given maze is:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#E  #  S  #
+# # ##### #
+# #       #
+###########.
+We need to find a path from the origin (which seems to be the top-left corner, given the context) to the target, where 'E' represents the end (target) and 'S' represents the start (origin).
+
+## 2: Identify the start and end points
+The start point 'S' is located at the bottom center of the maze, and the end point 'E' is at the bottom left. The maze is:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#E  #  S  #
+# # ##### #
+# #       #
+###########.
+
+## 3: Analyze the maze for a path
+Given the structure, we see that there are no obstacles between 'E' and 'S' except for the '#' walls that form the border of the maze and a wall that blocks direct access. The path needs to navigate around these walls.
+
+## 4: Determine the path
+Starting from 'S', we move up until we reach an open path that leads to 'E'. Since 'S' is at the bottom and 'E' is also at the bottom but to the left, we can move left from 'S' but we have to navigate through the gap in the wall.
+
+## 5: Specify the path
+The path from 'S' to 'E' can be described as follows:
+1. Start at 'S'.
+2. Move up through the open space until reaching the top of the maze or a point where we can move left.
+3. Since there's a wall blocking direct left movement from 'S', move up first.
+
+## 6: Detailed path description
+Given the maze:
+- Start at 'S' (bottom center).
+- Move up to the second row from the bottom.
+- Then move left until hitting the wall or reaching 'E'.
+
+## 7: Actual path in coordinates
+Let's denote the start of the bottom row as (0,0) for 'S' and count up and left accordingly. 'S' is at (1,4) if we consider the bottom-left corner as (0,0) for simplicity in a 2D grid representation.
+
+## 8: Finding the exact path
+The exact path in a step-by-step movement:
+- From 'S' at (1,4), move up to (1,3).
+- Continue up to (1,2).
+- Move left to (0,2).
+- Move down to (0,4) which is 'E'.
+
+## 9: Translate to maze coordinates
+In maze terms, moving from 'S' to 'E':
+- Up, up, left, down.
+
+The final answer is: 
+Up, up, left, down
+
+HUMAN VERIFICATION:

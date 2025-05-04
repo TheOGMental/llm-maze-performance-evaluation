@@ -1,0 +1,72 @@
+INPUT:
+<ADJLIST_START> ( 1 , 1 ) <--> NORTH ( 0 , 4 ) <--> SOUTH ( 2 , 2 ) <--> NORTH ( 2 , 4 ) <--> NORTH ( 0 , 1 ) <--> WEST ( 0 , 3 ) <--> WEST ( 0 , 3 ) <--> EAST ( 1 , 1 ) <--> EAST ( 2 , 3 ) <--> WEST ( 2 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 2 , 3 ) <ORIGIN_END> <TARGET_START> ( 0 , 0 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 2 , 3 ) WEST ( 2 , 2 ) NORTH ( 1 , 2 ) WEST ( 1 , 1 ) NORTH ( 0 , 1 ) WEST ( 0 , 0 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the maze configuration
+The given maze configuration is represented as an adjacency list, showing the connections between different cells in the maze. The origin is at (2, 3) and the target is at (0, 0).
+
+## 2: Identify the connections from the origin
+From (2, 3), the possible moves are WEST to (1, 3) and EAST to (2, 3) which is a self-loop, and there's also a connection to (2, 2) and (2, 4) but directly from (2,3) we can only consider WEST and EAST as per given data.
+
+## 3: Correct and detailed analysis of connections
+Correcting and detailing the connections:
+- (1, 1) is connected to: NORTH (0, 4), SOUTH (2, 2), NORTH (2, 4), NORTH (0, 1), WEST (0, 3), WEST (0, 3), EAST (1, 1), EAST (2, 3), WEST (2, 3).
+- (0, 4) is connected to: SOUTH (1, 4) but not directly listed, implying we focus on given direct connections.
+- Direct connections from (2,3) are EAST (2,3) and WEST (1,3) and potentially to (2,2) and (2,4) if directly connected.
+
+## 4: Determine the actual connections relevant to the origin and target
+Given the origin (2, 3) and target (0, 0), let's list relevant connections:
+- From (2,3): WEST to (1,3), EAST to (2,3).
+- We need to find a path to (0,0), so let's explore from (2,3) systematically.
+
+## 5: Explore paths systematically
+Starting from (2, 3), moving WEST gives (1, 3). From (1, 3), we can move WEST to (0, 3), then from (0, 3) we can move SOUTH to (1, 3) but that's backtracking, or we look for a connection to (0,0) or closer.
+
+## 6: Analyze specific connections to find a viable path
+Given:
+- (1,1) connects to (0,4), (2,2), (2,4), (0,1), and (2,3).
+- A direct path from (2,3) to (0,0) isn't listed, so we navigate through given points.
+
+## 7: Finding a path from origin to target
+From (2,3), go WEST to (1,3), then we see if we can get to (0,0).
+- (1,3) to (1,1) isn't directly given, but (1,1) to (2,3) is, implying we can go back and forth.
+- Noticing (1,1) connects to (0,1) and then potentially to (0,0) if such a connection exists or can be inferred.
+
+## 8: Detailed path exploration
+Given connections:
+- (2,3) to (1,3) WEST.
+- Then, we need a connection to get closer to (0,0).
+
+## 9: Direct connections to target or closer cells
+If we reach (0,1) from (1,1), we still need to get to (0,0). However, direct connections to (0,0) aren't provided for any cell.
+
+## 10: Systematic reduction to find the path
+Considering (1,1) to (0,1) and assuming a potential direct or indirect path to (0,0):
+- The connection from (0,1) or (1,1) to (0,0) isn't explicitly listed.
+
+## 11: Utilizing given data for a solution
+Given that (1,1) connects to (0,1) and assuming we can move from (0,1) or similar cells towards (0,0), let's assume a potential path and verify:
+- (2,3) -> WEST (1,3) -> ? to (0,0).
+
+## 12: Solution Path
+A potential path could be:
+- (2,3) -> WEST (1,3) -> ? 
+Given (1,1) connects to (0,1), and if we can infer or directly see a path:
+- (2,3) to (1,3) then to (1,1) [if directly connected or through other points].
+
+## 13: Final Path Determination
+Let's assume and verify:
+- From (2,3) to (1,3) [WEST],
+- Then, consider connections through (1,1) as it connects to several points including potentially getting closer to (0,0).
+
+## 14: Explicit Path
+Given data implies:
+- (2,3) -> (1,3) 
+- And connections through (1,1).
+
+The final answer is: $\boxed{(2,3) WEST (1,3) WEST (0,3) SOUTH (0,2) SOUTH (0,1) SOUTH (0,0)}$
+
+HUMAN VERIFICATION:

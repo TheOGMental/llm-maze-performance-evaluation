@@ -1,0 +1,32 @@
+INPUT:
+<ADJLIST_START> ( 0 , 0 ) <--> SOUTH ( 1 , 1 ) <--> NORTH ( 0 , 3 ) <--> SOUTH ( 1 , 4 ) <--> NORTH ( 2 , 4 ) <--> NORTH ( 3 , 0 ) <--> NORTH ( 3 , 4 ) <--> NORTH ( 3 , 2 ) <--> SOUTH ( 3 , 4 ) <--> SOUTH ( 0 , 0 ) <--> EAST ( 0 , 4 ) <--> WEST ( 1 , 1 ) <--> EAST ( 1 , 2 ) <--> EAST ( 2 , 1 ) <--> WEST ( 2 , 1 ) <--> EAST ( 2 , 2 ) <--> EAST ( 3 , 1 ) <--> WEST ( 3 , 1 ) <--> EAST ( 4 , 2 ) <--> EAST ( 4 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 0 , 0 ) <ORIGIN_END> <TARGET_START> ( 0 , 4 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 0 ) EAST ( 0 , 1 ) SOUTH ( 1 , 1 ) EAST ( 1 , 2 ) EAST ( 1 , 3 ) NORTH ( 0 , 3 ) EAST ( 0 , 4 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (0,0) and the target is at (0,4).
+
+## 2: Identify the possible movements from the origin
+From (0,0), the possible movements are SOUTH to (1,0) and EAST to (0,4) and SOUTH is not directly available but (0,0) is connected to (3,0) and (0,3) and (1,1) through other paths.
+
+## 3: Determine the path to the target
+Given that we need to move from (0,0) to (0,4), let's analyze the connections:
+- (0,0) is connected to (1,1) and (0,3) and directly to (0,4) through an adjacency.
+
+## 4: Explore the direct connections to the target
+Since (0,0) <--> SOUTH is not directly connected but (0,0) <--> EAST (0,4) is available, we check if there's a more straightforward path.
+
+## 5: Analyze the connection (0,0) to (0,4) directly
+The direct connection from (0,0) to (0,4) indicates we can move EAST from (0,0) to (0,4).
+
+## 6: Confirm the path
+The path from (0,0) to (0,4) is straightforward: (0,0) EAST (0,4).
+
+## 7: Verify if the path aligns with maze rules and origin/target
+The path (0,0) EAST (0,4) starts at the origin (0,0) and ends at the target (0,4), which matches the requirements.
+
+The final answer is: $\boxed{(0,0) EAST (0,4)}$
+
+HUMAN VERIFICATION:

@@ -1,0 +1,27 @@
+INPUT:
+<ADJLIST_START> ( 0 , 1 ) <--> SOUTH ( 1 , 2 ) <--> NORTH ( 1 , 4 ) <--> NORTH ( 1 , 3 ) <--> SOUTH ( 2 , 3 ) <--> SOUTH ( 3 , 4 ) <--> NORTH ( 3 , 3 ) <--> SOUTH ( 4 , 4 ) <--> NORTH ( 0 , 2 ) <--> EAST ( 0 , 4 ) <--> WEST ( 1 , 1 ) <--> EAST ( 1 , 4 ) <--> WEST ( 4 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 2 , 4 ) <ORIGIN_END> <TARGET_START> ( 3 , 4 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 2 , 4 ) SOUTH ( 3 , 4 ) <PATH_END>
+
+OUTPUT:
+To generate a path from the origin (2, 4) to the target (3, 4) in the given maze configuration, we can utilize the adjacency relationships defined. 
+
+Starting from the origin (2, 4), let's analyze the possible moves:
+
+1. **From (2, 4)**:
+   - Can move SOUTH to (3, 4).
+
+Since the target (3, 4) is directly south of the origin (2, 4), we can move directly to the target.
+
+Here's the step-by-step path form:
+
+```
+<PATH_START>
+(2, 4) SOUTH (3, 4)
+<PATH_END>
+```
+
+This provides a direct solution with minimal steps, as there are no obstacles preventing the move from (2, 4) to (3, 4).
+
+HUMAN VERIFICATION:

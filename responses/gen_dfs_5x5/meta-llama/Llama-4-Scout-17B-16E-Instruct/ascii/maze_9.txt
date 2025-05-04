@@ -1,0 +1,97 @@
+INPUT:
+###########
+# # #     #
+### # ### #
+# #   #   #
+####### ###
+# # # # #S#
+####### # #
+# # # # #E#
+####### # #
+# # # #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # #     #
+### # ### #
+# #   #   #
+####### ###
+# # # # #S#
+####### #X#
+# # # # #E#
+####### # #
+# # # #   #
+###########
+
+OUTPUT:
+## Step 1: Understand the maze configuration
+The given maze is:
+###########
+# # #     #
+### # ### #
+# #   #   #
+####### ###
+# # # # #S#
+####### # #
+# # # # #E#
+####### # #
+# # # #   #
+###########
+We need to find a path from the origin (usually marked as 'S') to the target (usually marked as 'E').
+
+## 2: Identify the start and end points
+The start point 'S' is located at:
+# # # # #S#
+And the end point 'E' is located at:
+# # # # #E#
+
+## 3: Analyze the maze for a path
+Looking at the maze, the start point 'S' is at the bottom middle and the end point 'E' is at the top middle. The maze has several walls and open paths.
+
+## 4: Determine a path from S to E
+To move from 'S' to 'E', we should start by moving up from 'S' since 'E' is above 'S'. The maze configuration suggests that we can move up from 'S' and then navigate through the available paths to reach 'E'.
+
+## 5: Find the specific path
+Starting from 'S':
+- Move up: Not possible directly because of the wall, so we move right or left first. Let's move right: Not possible because of the wall.
+- Move left: Possible, but we need to navigate carefully.
+- A possible path could be: Down is not an option as we are at the bottom, so we go left or right. Given the structure, let's navigate:
+1. From # # # # #S#, move left to # # #     #
+2. Then up through # #   #   #
+3. Continue navigating through the maze avoiding walls.
+
+## 6: Detailed path
+Let's detail the path step by step:
+- Start at: # # # # #S#
+- Move left to: # # #     #
+- Then up to: ### # ### #
+- From there, move left to: # #   #   #
+- Up to: ######## ###
+- Right to: # # # # # #
+- Down to: ####### # #
+- Left to: # # # # #E#
+
+## 7: Write down the path
+The path in coordinates or steps would be complex without a grid, but essentially:
+- Start (S) at (5,6)
+- Move left, then up, navigating through.
+
+## 8: Actual Path
+Given the complexity and without visual aids, let's assume a simple path:
+1. (5,6) -> (4,6) [Left]
+2. (4,6) -> (4,5) [Up]
+3. (4,5) -> (4,3) [Up]
+4. (4,3) -> (3,3) [Left]
+5. (3,3) -> (3,2) [Up]
+6. (3,2) -> (2,2) [Left]
+7. (2,2) -> (2,1) [Up]
+8. (2,1) -> (1,1) [Left]
+9. (1,1) -> (1,0) [Up]
+10. (1,0) -> (0,0) [Left]
+However, exact coordinates might not directly translate without a numbered grid.
+
+The final answer is: 
+No specific step-by-step coordinate path was directly derived due to format constraints, but essentially, one would navigate from S to E by moving around the obstacles.
+
+HUMAN VERIFICATION:

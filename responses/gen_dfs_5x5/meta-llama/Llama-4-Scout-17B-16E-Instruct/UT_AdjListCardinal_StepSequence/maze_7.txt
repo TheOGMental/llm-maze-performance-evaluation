@@ -1,0 +1,22 @@
+INPUT:
+<ADJLIST_START> (1,0) <--> NORTH (1,1) <--> NORTH (1,0) <--> SOUTH (1,1) <--> SOUTH (2,0) <--> SOUTH (3,1) <--> NORTH (3,0) <--> SOUTH (4,1) <--> NORTH (4,2) <--> NORTH (0,0) <--> EAST (4,2) <--> WEST <ADJLIST_END> <ORIGIN_START> (1,1) <ORIGIN_END> <TARGET_START> (2,1) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,1) SOUTH (2,1) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is given in an adjacency list format, showing the connections between different cells in the maze. The origin is at (1,1) and the target is at (2,1).
+
+## 2: Identify the possible movements from the origin
+From (1,1), the possible movements are NORTH to (1,0) and SOUTH to (2,1) and EAST is not directly available but WEST is not listed, implying (1,1) is connected to (1,0) and (2,1) directly.
+
+## 3: Determine the path to the target
+Given that (1,1) is directly connected to (2,1) by a SOUTH movement, we can directly move from the origin (1,1) to the target (2,1).
+
+## 4: Verify if the path is valid and shortest
+The path (1,1) SOUTH (2,1) is a valid path and it seems to be the shortest path possible given the direct connection.
+
+The final answer is: $\boxed{(1,1) SOUTH (2,1)}$
+
+HUMAN VERIFICATION:

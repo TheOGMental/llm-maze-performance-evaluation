@@ -1,0 +1,77 @@
+INPUT:
+<ADJLIST_START> (0,0) <--> SOUTH (1,3) <--> NORTH (1,0) <--> SOUTH (2,1) <--> NORTH (1,2) <--> SOUTH (1,4) <--> SOUTH (3,0) <--> NORTH (3,1) <--> NORTH (2,2) <--> SOUTH (3,3) <--> NORTH (3,0) <--> SOUTH (4,1) <--> NORTH (4,4) <--> NORTH (0,1) <--> WEST (0,2) <--> WEST (0,2) <--> EAST (1,2) <--> WEST (1,3) <--> EAST (2,4) <--> WEST (3,3) <--> EAST (4,1) <--> EAST (4,3) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (1,0) <ORIGIN_END> <TARGET_START> (4,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,0) SOUTH (2,0) SOUTH (3,0) SOUTH (4,0) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (1,0) and the target is at (4,0).
+
+## 2: Identify the possible movements from the origin
+From (1,0), the possible movements are NORTH to (0,0) and SOUTH to (2,1), and EAST to (2,0) is not directly listed but we see (1,0) is connected to (0,0) and (1,3) is not directly connected to (1,0) without going through other points.
+
+## 3: Explore the maze to find a path to the target
+Starting from (1,0), we can move NORTH to (0,0). From (0,0), we can move SOUTH to (1,0) or EAST to (0,1) or SOUTH to (1,3) but there's no direct connection to move towards (4,0) efficiently from here.
+
+## 4: Analyze connections for a viable path
+Noticing the connections:
+- (0,0) to (3,0)
+- (1,0) to (1,3) and then to (1,4) and other points
+- Direct connections to (4,0) or nearby are needed.
+
+## 5: Determine a path from origin to target
+A potential path could involve moving from (1,0) to (0,0) then to (3,0) and then to (4,0) or finding a better route through other connections.
+
+## 6: Explore specific connections for an efficient path
+From (1,0), moving NORTH to (0,0), then SOUTH to (3,0) is not directly possible as per given connections. However, (0,0) connects to (3,0). So, (1,0) to (0,0) to (3,0) to (4,0) seems plausible.
+
+## 7: Verify the path
+Let's verify: 
+- (1,0) to (0,0)
+- (0,0) to (3,0)
+- (3,0) to (4,1) or directly if possible to (4,0)
+
+## 8: Detailed path verification
+Given connections:
+- (1,0) <--> NORTH (0,0)
+- (0,0) <--> SOUTH (3,0)
+- There's no direct (3,0) to (4,0), but (3,0) <--> NORTH (3,1) and (3,0) <--> SOUTH is not an option, however, (4,1) is connected to (3,0) and (4,0) is not directly connected to any point that leads to (3,0) efficiently.
+
+## 9: Finding the most direct path
+The most straightforward path seems to be:
+- (1,0) to (0,0)
+- (0,0) to (3,0)
+- Then, we need to get to (4,0). Since (3,0) connects to (4,1), we should look for a connection that leads us closer to (4,0).
+
+## 10: Finalizing the path
+Upon closer inspection:
+- (1,0) to (0,0)
+- (0,0) to (3,0)
+- But to reach (4,0), notice (3,0) <--> SOUTH (4,1), and there's no direct link to (4,0). However, exploring other options:
+- Directly from (1,0) to (1,3) then connections.
+
+## 11: Alternative path exploration
+Considering alternative routes:
+- From (1,0), going SOUTH to (2,1) then exploring.
+
+## 12: Path through (2,1)
+- (1,0) to (2,1)
+- Then, (2,1) to (1,2) or (2,2)
+
+## 13: Evaluating connections for (2,1)
+- (2,1) <--> NORTH (1,2) and (2,1) <--> SOUTH (3,1) or other points.
+
+## 14: Efficient path identification
+An efficient path could be:
+- (1,0) -> (2,1)
+- (2,1) -> (2,2)
+- (2,2) -> (3,2) is not listed, but (2,2) <--> NORTH (1,2) and (3,1) is connected to (2,1).
+
+## 15: Direct path to target
+Considering (1,0) -> (0,0) -> (3,0) and then to (4,1), and realizing we need (4,0):
+- The connection (4,1) to (4,0) or similar is needed.
+
+The final answer is: $\boxed{(1,0) NORTH (0,0) SOUTH (3,0) SOUTH (4,1) WEST (4,0)}$
+
+HUMAN VERIFICATION:

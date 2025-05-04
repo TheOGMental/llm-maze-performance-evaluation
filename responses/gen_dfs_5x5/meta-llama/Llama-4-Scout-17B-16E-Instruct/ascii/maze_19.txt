@@ -1,0 +1,71 @@
+INPUT:
+###########
+#       # #
+# ##### ###
+#S#   #   #
+# # # ### #
+# # # #   #
+# # # # ###
+# # # #   #
+# # ##### #
+#E#       #
+###########
+
+EXPECTED SOLUTION:
+###########
+#       # #
+# ##### ###
+#S#   #   #
+#X# # ### #
+#X# # #   #
+#X# # # ###
+#X# # #   #
+#X# ##### #
+#E#       #
+###########
+
+OUTPUT:
+## Step 1: Understand the maze configuration
+The given maze is:
+###########
+#       # #
+# ##### ###
+#S#   #   #
+# # # ### #
+# # # #   #
+# # # # ###
+# # # #   #
+# # ##### #
+#E#       #
+###########
+We need to find a path from the origin (S) to the target (E).
+
+## 2: Identify the start and end points
+The start point (S) is located at (2,1) and the end point (E) is located at (9,10) in a 0-indexed coordinate system, assuming the top-left corner of the maze is (0,0).
+
+## 3: Analyze the maze for a path
+Looking at the maze, there are no obstacles on the path from S to E except for the walls represented by '#'. The maze seems to have a relatively straightforward path once we navigate around the initial and final wall configurations.
+
+## 4: Determine the path
+Starting from S at (2,1), we can move right to (2,2) but we are blocked by '#'. So, we move down to (3,1), then right to (3,2) but again blocked. Moving down to (4,1) and then right is also blocked. The best initial move seems to be down.
+
+## 5: Find a detailed path
+A possible path could be:
+- From S (2,1), move down to (3,1) because moving right is blocked.
+- Continue down to (4,1), (5,1), (6,1), (7,1), (8,1) as moving right is still blocked by '#####'.
+- At (8,1), move right to (8,2).
+- Then move right to (8,3), (8,4), (8,5), (8,6), (8,7), (8,8).
+- At (8,8), move down to (9,8).
+- Finally, move right to (9,9) and then to E at (9,10).
+
+## 6: Convert path into maze coordinates and directions
+The path in terms of coordinates is:
+(2,1) -> (3,1) -> (4,1) -> (5,1) -> (6,1) -> (7,1) -> (8,1) -> (8,2) -> (8,3) -> (8,4) -> (8,5) -> (8,6) -> (8,7) -> (8,8) -> (9,8) -> (9,9) -> (9,10).
+
+## 7: Represent the path visually or textually
+Given the maze and path, we represent it as a sequence of moves: Down, Down, Down, Down, Down, Down, Right, Right, Right, Right, Right, Right, Right, Down, Right, Right.
+
+The final answer is: 
+Down 6 times, Right 7 times, Down, Right 2 times.
+
+HUMAN VERIFICATION:

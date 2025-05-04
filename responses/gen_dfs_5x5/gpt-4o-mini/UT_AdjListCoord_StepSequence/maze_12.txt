@@ -1,0 +1,36 @@
+INPUT:
+<ADJLIST_START> (4,3) <--> (4,4) ; (4,0) <--> (3,0) ; (3,2) <--> (3,3) ; (3,2) <--> (4,2) ; (4,1) <--> (4,2) ; (3,4) <--> (4,4) ; (4,1) <--> (4,0) ; (3,3) <--> (3,4) ; <ADJLIST_END> <ORIGIN_START> (4,3) <ORIGIN_END> <TARGET_START> (3,2) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (4,3) (4,4) (3,4) (3,3) (3,2) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (4,3) to the target (3,2) using the given adjacency list, we can trace through the connections marked in the adjacency list. Here’s the breakdown of the steps to generate a path:
+
+1. Start at the origin: **(4,3)**
+2. From (4,3), we can move to the following connected nodes:
+   - (4,4) (available)
+3. Move to **(4,4)**
+4. From (4,4), the connections are:
+   - (3,4) (available)
+5. Move to **(3,4)**
+6. From (3,4), we can move to:
+   - (3,3) (available)
+7. Move to **(3,3)**
+8. Now from (3,3), we can move to:
+   - (3,2) (available)
+9. Move to **(3,2)** (which is the target)
+
+Therefore, the path from (4,3) to (3,2) is as follows:
+
+**Path:**
+- (4,3)
+- (4,4)
+- (3,4)
+- (3,3)
+- (3,2)
+
+So, the complete path is:
+**(4,3) (4,4) (3,4) (3,3) (3,2)**
+
+HUMAN VERIFICATION:

@@ -1,0 +1,104 @@
+INPUT:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#E  #  S  #
+# # ##### #
+# #       #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#EXX#  SXX#
+# #X#####X#
+# #XXXXXXX#
+###########
+
+OUTPUT:
+To navigate the provided maze from the starting position (S) to the exit (E), we will follow a systematic approach. The maze layout you provided looks like this:
+
+```
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#E  #  S  #
+# # ##### #
+# #       #
+###########
+```
+
+**Coordinates**: 
+- Starting Point (S): (6, 5)
+- Exit Point (E): (6, 1)
+
+We can use standard notation for direction:
+- Up = U (row - 1)
+- Down = D (row + 1)
+- Left = L (column - 1)
+- Right = R (column + 1)
+
+### Step-by-Step Pathfinding:
+
+Starting from (6, 5):
+1. Move Left to (6, 4): `L`
+2. Move Left to (6, 3): `L`
+3. Move Up to (5, 3): `U`
+4. Move Up to (4, 3): `U`
+5. Move Up to (3, 3): `U`
+6. Move Up to (2, 3): `U`
+7. Move Up to (1, 3): `U`
+8. Move Up to (0, 3): `U`
+9. Move Left to (0, 2): `L`
+10. Move Down to (1, 2): `D`
+11. Move Down to (2, 2): `D`
+12. Move Down to (3, 2): `D`
+13. Move Down to (4, 2): `D`
+14. Move Down to (5, 2): `D`
+15. Move Down to (6, 2): `D`
+16. Move Left to (6, 1): `L` (reached Exit E)
+
+### Final Path
+The sequence of moves from S to E is:
+
+```
+L, L, U, U, U, U, U, U, U, L, D, D, D, D, D, D, L
+```
+
+Alternatively, represented as coordinates:
+
+- Start at (6, 5)
+- Move to (6, 4)
+- Move to (6, 3)
+- Up to (5, 3)
+- Up to (4, 3)
+- Up to (3, 3)
+- Up to (2, 3)
+- Up to (1, 3)
+- Up to (0, 3)
+- Left to (0, 2)
+- Down to (1, 2)
+- Down to (2, 2)
+- Down to (3, 2)
+- Down to (4, 2)
+- Down to (5, 2)
+- Down to (6, 2)
+- Finally Left to Exit (6, 1)
+
+### Conclusion
+The complete path from the start (S) to the exit (E) while avoiding walls consists of the movements outlined above.
+
+HUMAN VERIFICATION:

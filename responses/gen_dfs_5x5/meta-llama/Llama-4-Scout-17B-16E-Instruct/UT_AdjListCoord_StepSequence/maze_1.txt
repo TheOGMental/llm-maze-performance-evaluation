@@ -1,0 +1,34 @@
+INPUT:
+<ADJLIST_START> (2,0) <--> (2,1) ; (3,3) <--> (2,3) ; (0,0) <--> (1,0) ; (3,0) <--> (2,0) ; (3,2) <--> (3,3) ; (0,1) <--> (0,0) ; (2,4) <--> (2,3) ; (1,4) <--> (1,3) ; (3,0) <--> (4,0) ; (3,2) <--> (3,1) ; (1,2) <--> (1,1) ; (4,1) <--> (4,0) ; (1,4) <--> (2,4) ; (0,2) <--> (0,1) ; (0,3) <--> (0,4) ; (4,1) <--> (3,1) ; (1,2) <--> (1,3) ; (0,3) <--> (0,2) ; (1,0) <--> (1,1) ; <ADJLIST_END> <ORIGIN_START> (2,1) <ORIGIN_END> <TARGET_START> (1,4) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (2,1) (2,0) (3,0) (4,0) (4,1) (3,1) (3,2) (3,3) (2,3) (2,4) (1,4) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (2,1) and the target is at (1,4).
+
+## 2: Identify the connections relevant to the origin and target
+From the origin (2,1), the cell is connected to (2,0) and (1,1). The target (1,4) is connected to (1,3) and (2,4).
+
+## 3: Explore paths from the origin
+Starting from (2,1), we can move to (2,0) or (1,1). Let's explore both options.
+
+## 4: Explore the path through (2,0)
+From (2,0), we can move to (3,0) or (2,1). Since (2,1) is the origin, moving back to it doesn't help. From (3,0), we can move to (2,0) or (4,0). This path doesn't seem to lead directly to the target.
+
+## 5: Explore the path through (1,1)
+From (1,1), we can move to (1,0), (1,2), or (2,1). Since (2,1) is the origin, moving back to it doesn't help. From (1,0), we can move to (0,0) or (1,1). From (1,2), we can move to (1,1), (1,3), or (2,2). The connection to (1,3) seems promising.
+
+## 6: Continue exploring from (1,3)
+From (1,3), we can move to (1,2), (1,4), or (2,3). Moving to (1,4) directly reaches the target.
+
+## 7: Construct the path from origin to target
+The path from (2,1) to (1,1) to (1,2) to (1,3) to (1,4) seems direct and efficient.
+
+## 8: Verify the path
+Let's verify the path: (2,1) -> (1,1) -> (1,2) -> (1,3) -> (1,4). This path is valid according to the given adjacency list.
+
+The final answer is: $\boxed{(2,1) (1,1) (1,2) (1,3) (1,4)}$
+
+HUMAN VERIFICATION:

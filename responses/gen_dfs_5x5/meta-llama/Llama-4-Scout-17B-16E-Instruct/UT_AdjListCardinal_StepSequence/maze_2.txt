@@ -1,0 +1,28 @@
+INPUT:
+<ADJLIST_START> (1,0) <--> NORTH (1,4) <--> NORTH (1,1) <--> SOUTH (2,2) <--> NORTH (2,4) <--> NORTH (2,2) <--> SOUTH (3,3) <--> NORTH (4,2) <--> NORTH (4,3) <--> NORTH (0,1) <--> WEST (0,1) <--> EAST (0,2) <--> EAST (0,4) <--> WEST (1,1) <--> WEST (1,3) <--> WEST (2,3) <--> EAST (4,3) <--> WEST <ADJLIST_END> <ORIGIN_START> (1,0) <ORIGIN_END> <TARGET_START> (0,2) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,0) NORTH (0,0) EAST (0,1) EAST (0,2) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (1,0) and the target is at (0,2).
+
+## 2: Identify the possible movements from the origin
+From (1,0), the possible movements are NORTH to (1,4) and NORTH to (1,1).
+
+## 3: Explore the path through (1,1)
+Moving NORTH from (1,0) to (1,1). From (1,1), we can move SOUTH to (2,2), WEST to (0,1), or EAST is not directly available as per the given adjlist.
+
+## 4: Explore the path through (0,1) from (1,1)
+From (1,1), moving WEST to (0,1). From (0,1), we can move NORTH is not available, but we can move EAST to (0,2) which is our target.
+
+## 5: Construct the path from origin to target
+The path can be constructed as follows: Start at (1,0), move NORTH to (1,1), then move WEST to (0,1), and finally move EAST to (0,2).
+
+## 6: Verify the path
+Verify that the constructed path does not violate any maze rules and that it indeed leads from the origin (1,0) to the target (0,2).
+
+The final answer is: $\boxed{(1,0) NORTH (1,1) WEST (0,1) EAST (0,2)}$
+
+HUMAN VERIFICATION:

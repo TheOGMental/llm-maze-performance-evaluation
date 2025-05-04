@@ -1,0 +1,28 @@
+INPUT:
+<ADJLIST_START> (4,2) <--> (4,1) ; (1,0) <--> (0,0) ; (2,2) <--> (3,2) ; (0,4) <--> (0,3) ; (3,1) <--> (2,1) ; (2,0) <--> (2,1) ; (0,0) <--> (0,1) ; (1,2) <--> (0,2) ; (1,4) <--> (2,4) ; (3,1) <--> (4,1) ; (4,3) <--> (4,4) ; (0,4) <--> (1,4) ; (2,4) <--> (3,4) ; (1,3) <--> (2,3) ; (0,1) <--> (1,1) ; (2,2) <--> (2,3) ; (3,3) <--> (4,3) ; (0,3) <--> (1,3) ; (4,4) <--> (3,4) ; (3,2) <--> (4,2) ; (1,1) <--> (1,2) ; (1,0) <--> (2,0) ; <ADJLIST_END> <ORIGIN_START> (0,0) <ORIGIN_END> <TARGET_START> (1,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,0) (1,0) (2,0) (2,1) (3,1) (4,1) (4,2) (3,2) (2,2) (2,3) (1,3) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (0,0) to the target (1,3) in the given maze, let's analyze the adjacency list provided. We can navigate the maze using the connections defined by the adjacent nodes. 
+
+Starting from (0,0), we need to find a way through the maze to reach (1,3). 
+
+1. Start at (0,0).
+2. Move to (0,1). (Available path: (0,0) <--> (0,1))
+3. Move to (1,1). (Available path: (0,1) <--> (1,1))
+4. Move to (1,2). (Available path: (1,1) <--> (1,2))
+5. Move to (1,3). (Available path: (1,2) <--> (1,3))
+
+Thus, the path from the origin (0,0) to the target (1,3) is:
+1. (0,0)
+2. (0,1)
+3. (1,1)
+4. (1,2)
+5. (1,3)
+
+This gives us the complete path as:
+**Path: (0,0) (0,1) (1,1) (1,2) (1,3)**
+
+HUMAN VERIFICATION:

@@ -1,0 +1,76 @@
+INPUT:
+###########
+#S  # #   #
+# # # # # #
+# #   #E# #
+# ##### # #
+#   #   # #
+### # ### #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+#S  # #   #
+#X# # # # #
+#X#   #E# #
+#X#####X# #
+#XXX#XXX# #
+###X#X### #
+# #X#X# # #
+###X#X# # #
+# #XXX#   #
+###########
+
+OUTPUT:
+## Step 1: Understand the maze configuration
+The given maze is:
+###########
+#S  # #   #
+# # # # # #
+# #   #E# #
+# ##### # #
+#   #   # #
+### # ### #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+We need to find a path from the origin (S) to the target (E).
+
+## 2: Identify the starting and ending points
+The starting point (S) is at coordinates (1,1) and the target point (E) is at coordinates (3,5) if we consider the top-left corner as (1,1).
+
+## 3: Analyze the maze for a path
+Looking at the maze, there are no obstacles between the start and end that would completely block the path. We can move up, down, left, or right.
+
+## 4: Determine a path
+Starting from S at (1,1), we can move right to (1,2), then down to (2,2), then right to (2,5), then down to (3,5) but we hit a wall, so let's adjust: from (1,1), move right to (1,2), then down to (2,2), then right to (2,5) is not possible directly because of the wall, so we go down to (5,2) then right.
+
+## 5: Find a detailed path
+A possible path could be:
+- From (1,1) move right to (1,2)
+- Then down to (2,2)
+- Right to (2,3)
+- Down to (3,3)
+- Right to (3,4)
+- Down to (4,4) is blocked, so let's correct: Down to (5,2) then right to (5,5) but we need to get to E efficiently.
+- Correct approach: From S (1,1), go down to (2,1), then right to (2,5) is blocked, so down to (3,1), right to (3,4), up to (2,4), right to (2,5) no, blocked. Let's simplify: go down from S.
+
+## 6: Detailed step-by-step path
+1. Start at S (1,1).
+2. Move down to (2,1).
+3. Move down to (3,1).
+4. Move down to (4,1).
+5. Move right to (4,2).
+6. Move right to (4,3).
+7. Move up to (3,3).
+8. Move right to (3,4).
+9. Move right to (3,5) which is E.
+
+The final answer is: 
+Down, Down, Down, Right, Right, Up, Right, Right
+
+HUMAN VERIFICATION:

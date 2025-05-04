@@ -1,0 +1,74 @@
+INPUT:
+<ADJLIST_START> ( 2 , 1 ) <--> ( 2 , 0 ) ; ( 0 , 2 ) <--> ( 1 , 2 ) ; ( 0 , 1 ) <--> ( 1 , 1 ) ; ( 0 , 4 ) <--> ( 0 , 3 ) ; ( 4 , 3 ) <--> ( 3 , 3 ) ; ( 0 , 0 ) <--> ( 0 , 1 ) ; ( 1 , 1 ) <--> ( 1 , 2 ) ; ( 3 , 4 ) <--> ( 2 , 4 ) ; ( 1 , 4 ) <--> ( 2 , 4 ) ; ( 1 , 0 ) <--> ( 2 , 0 ) ; ( 1 , 3 ) <--> ( 0 , 3 ) ; ( 4 , 2 ) <--> ( 4 , 1 ) ; ( 0 , 0 ) <--> ( 1 , 0 ) ; ( 3 , 2 ) <--> ( 2 , 2 ) ; ( 3 , 1 ) <--> ( 4 , 1 ) ; ( 2 , 1 ) <--> ( 3 , 1 ) ; ( 1 , 3 ) <--> ( 2 , 3 ) ; ( 4 , 4 ) <--> ( 3 , 4 ) ; ( 4 , 2 ) <--> ( 3 , 2 ) ; ( 2 , 2 ) <--> ( 2 , 3 ) ; ( 4 , 4 ) <--> ( 4 , 3 ) ; ( 0 , 4 ) <--> ( 1 , 4 ) ; <ADJLIST_END> <ORIGIN_START> ( 0 , 0 ) <ORIGIN_END> <TARGET_START> ( 1 , 3 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 0 ) ( 1 , 0 ) ( 2 , 0 ) ( 2 , 1 ) ( 3 , 1 ) ( 4 , 1 ) ( 4 , 2 ) ( 3 , 2 ) ( 2 , 2 ) ( 2 , 3 ) ( 1 , 3 ) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing which cells are connected to each other. The origin is at (0,0) and the target is at (1,3).
+
+## 2: Convert the adjacency list into a usable graph or matrix representation
+To solve the maze, it's helpful to visualize or represent the maze in a way that allows for pathfinding algorithms to be applied. However, given the complexity and the format of the provided maze, we'll analyze connections directly from the adjacency list.
+
+## 3: Identify direct connections from the origin (0,0)
+From (0,0), we can move to (0,1) or (1,0) as these are the direct connections provided.
+
+## 4: Explore paths from (0,0) to potential routes leading to (1,3)
+Starting from (0,0), let's explore possible paths:
+- Moving to (0,1) then to (1,1) is possible.
+- From (1,1), we can move to (1,2) or (2,1) or (0,0) but (0,0) is backtracking.
+
+## 5: Continue exploring paths towards the target (1,3)
+- From (1,1), moving to (1,2) is a step towards the target. From (1,2), we can move to (1,3) directly or to (0,2) or (2,2) but again, some of these moves might not lead directly to the target efficiently.
+
+## 6: Analyze the connection to (1,3) directly
+Given that (1,3) is the target, let's see if there's a direct or near-direct path:
+- (1,3) is connected to (0,3) and (2,3).
+- (0,3) is connected to (0,4) and (0,2).
+- (2,3) is connected to (2,2) and (1,3) directly.
+
+## 7: Apply a pathfinding approach
+A straightforward path from (0,0) to (1,3) can be:
+- (0,0) to (0,1)
+- (0,1) to (1,1)
+- (1,1) to (1,2)
+- (1,2) to (1,3)
+
+This path seems direct and efficient.
+
+## 8: Verify the path
+Let's verify if the path (0,0) -> (0,1) -> (1,1) -> (1,2) -> (1,3) is valid according to the given adjacency list:
+- (0,0) <--> (0,1) is valid.
+- (0,1) <--> (1,1) is valid.
+- (1,1) <--> (1,2) is valid.
+- (1,2) <--> (1,3) is not directly listed, but (1,3) <--> (1,2) is not explicitly mentioned either. However, (1,3) <--> (0,3) and (1,3) <--> (2,3) are listed, and (1,2) <--> (1,1) and (1,2) <--> (0,2) are listed. The direct connection from (1,2) to (1,3) needs confirmation.
+
+## 9: Correct the approach based on given connections
+Upon re-examining the connections:
+- (0,0) to (1,0) is also an option.
+- But a more straightforward path considering given connections could involve:
+- (0,0) -> (0,1) -> (1,1) -> (1,2) -> (0,2) -> (0,3) -> (1,3)
+
+Let's verify this path:
+- (0,0) <--> (0,1) is valid.
+- (0,1) <--> (1,1) is valid.
+- (1,1) <--> (1,2) is valid.
+- (1,2) <--> (0,2) is valid.
+- (0,2) <--> (0,3) is not directly listed but (0,4) <--> (0,3) and other connections suggest a need to find a path through given nodes.
+
+## 10: Finalize a valid path
+Given the connections:
+- A valid path could be (0,0) -> (1,0) -> (2,0) -> (2,1) -> (2,2) -> (2,3) -> (1,3).
+
+Let's verify:
+- (0,0) <--> (1,0) is valid.
+- (1,0) <--> (2,0) is valid.
+- (2,0) <--> (2,1) is valid.
+- (2,1) <--> (2,2) is valid.
+- (2,2) <--> (2,3) is valid.
+- (2,3) <--> (1,3) is valid.
+
+The final answer is: $\boxed{(0,0) (1,0) (2,0) (2,1) (2,2) (2,3) (1,3)}$
+
+HUMAN VERIFICATION:

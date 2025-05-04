@@ -1,0 +1,72 @@
+INPUT:
+<ADJLIST_START> (1,1) <--> (1,2) ; (2,2) <--> (3,2) ; (4,1) <--> (3,1) ; (3,3) <--> (3,2) ; (0,2) <--> (1,2) ; (3,4) <--> (4,4) ; (0,4) <--> (1,4) ; (3,4) <--> (3,3) ; (4,2) <--> (4,1) ; (3,0) <--> (4,0) ; (2,3) <--> (2,4) ; (2,4) <--> (1,4) ; (0,3) <--> (0,4) ; (4,4) <--> (4,3) ; (0,2) <--> (0,3) ; (4,2) <--> (4,3) ; (3,0) <--> (3,1) ; (0,1) <--> (1,1) ; (2,3) <--> (2,2) ; <ADJLIST_END> <ORIGIN_START> (4,1) <ORIGIN_END> <TARGET_START> (0,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (4,1) (4,2) (4,3) (4,4) (3,4) (3,3) (3,2) (2,2) (2,3) (2,4) (1,4) (0,4) (0,3) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (4,1) to the target (0,3) in the given maze, we will trace the connections provided in the adjacency list. 
+
+Here’s the step-by-step solution, starting at the origin and navigating through the adjacency connections to reach the target:
+
+1. **Start at (4,1)**:
+   - From (4,1), we can move to (3,1) or (4,2).
+  
+2. **Move to (3,1)**:
+   - From (3,1), we can move to (3,0) or back to (4,1).
+
+3. **Move to (3,0)**:
+   - From (3,0), we can move to (4,0) (the only option).
+
+4. **Move to (4,0)**:
+   - From (4,0), we can only move back to (3,0) (no other exits).
+
+5. **Backtrack to (3,1)**:
+   - Since (4,0) is a dead end, go back up to (3,1).
+
+6. **Move from (3,1) to (4,2)**:
+   - Now from (4,1), go back and take the other option and move to (4,2).
+
+7. **From (4,2)**:
+   - Move to (4,3) (the only option).
+
+8. **From (4,3)**:
+   - Move to (4,4) (the only option).
+
+9. **From (4,4)**:
+   - Move to (3,4) (the only option).
+
+10. **From (3,4)**:
+    - Move to (3,3) (the only option).
+
+11. **From (3,3)**:
+    - Move to (3,2) (the only option).
+
+12. **From (3,2)**:
+    - Move to (2,2) (the only option).
+
+13. **From (2,2)**:
+    - Move to (2,3) (the only option).
+
+14. **From (2,3)**:
+    - Move to (2,4) (the only option).
+
+15. **From (2,4)**:
+    - Move to (1,4) (the only option).
+
+16. **From (1,4)**:
+    - Move to (0,4) (the only option).
+
+17. **From (0,4)**:
+    - Move to (0,3) (the only option).
+
+Now, we have successfully reached the target (0,3).
+
+The complete path is:
+**(4,1) -> (4,2) -> (4,3) -> (4,4) -> (3,4) -> (3,3) -> (3,2) -> (2,2) -> (2,3) -> (2,4) -> (1,4) -> (0,4) -> (0,3)**
+
+### Result
+The path from origin (4,1) to target (0,3) is:
+`(4,1) (4,2) (4,3) (4,4) (3,4) (3,3) (3,2) (2,2) (2,3) (2,4) (1,4) (0,4) (0,3)`
+
+HUMAN VERIFICATION:

@@ -1,0 +1,25 @@
+INPUT:
+<ADJLIST_START> (0,3) <--> SOUTH (1,4) <--> NORTH (1,0) <--> SOUTH (2,4) <--> NORTH (2,1) <--> SOUTH (2,2) <--> SOUTH (3,3) <--> NORTH (3,4) <--> NORTH (3,1) <--> SOUTH (4,2) <--> NORTH (4,3) <--> NORTH (4,4) <--> NORTH (0,4) <--> WEST (1,1) <--> WEST (1,1) <--> EAST (1,3) <--> WEST (2,0) <--> EAST (4,2) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (1,3) <ORIGIN_END> <TARGET_START> (0,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,3) NORTH (0,3) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (1,3) and the target is at (0,3).
+
+## 2: Identify the relevant connections for the origin and target
+From the origin (1,3), the cell is connected to (0,3) to the west and to (1,4) to the south and (1,1) to the west (with a duplicate connection to (1,1) which can be ignored for simplicity). The target is at (0,3), which is directly connected to (1,3).
+
+## 3: Determine the path from the origin to the target
+Given that (1,3) is directly connected to (0,3) by moving west, we can establish a straightforward path.
+
+## 4: Construct the path
+The path from (1,3) to (0,3) is simply moving west: (1,3) WEST (0,3).
+
+## 5: Verify if the path is valid and complete
+The path (1,3) WEST (0,3) starts at the origin (1,3) and ends at the target (0,3), making it a valid and complete path.
+
+The final answer is: $\boxed{(1,3) WEST (0,3)}$
+
+HUMAN VERIFICATION:

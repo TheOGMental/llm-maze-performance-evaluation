@@ -1,0 +1,91 @@
+INPUT:
+###########
+#         #
+# #########
+#        E#
+######### #
+#  S# #   #
+# ##### ###
+# #     # #
+# # #######
+#   # # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#         #
+# #########
+#        E#
+#########X#
+#XXS# #XXX#
+#X#####X###
+#X#XXXXX# #
+#X#X#######
+#XXX# # # #
+###########
+
+OUTPUT:
+To find a path from the start location (S) to the end location (E) in the given maze, we can represent the maze in coordinates. The start (S) is at (5, 2) and the end (E) is at (2, 8). The walls are represented by '#' and the spaces we can move through are represented by spaces.
+
+Here's how the maze looks with coordinates indicated (rows are numbered from top to bottom, and columns from left to right):
+
+```
+(0,0)###########
+(1,0)#         #
+(2,0)# #########
+(3,0)#        E#
+(4,0)######### #
+(5,0)#  S# #   #
+(6,0)# ##### ###
+(7,0)# #     # #
+(8,0)# # #######
+(9,0)###########
+```
+
+Now we can visualize a possible path:
+
+### Steps to Navigate from S to E:
+
+1. Start at (5, 2) - S
+2. Move Up to (4, 2)
+3. Move Up to (3, 2)
+4. Move Up to (2, 2)
+5. Move Right to (2, 3)
+6. Move Right to (2, 4)
+7. Move Right to (2, 5)
+8. Move Right to (2, 6)
+9. Move Right to (2, 7)
+10. Move Right to (2, 8) - E
+
+### Resulting Path Coordinates:
+The path can be represented in coordinates as follows:
+- S: (5, 2)
+- Move Up: (4, 2)
+- Move Up: (3, 2)
+- Move Up: (2, 2)
+- Move Right: (2, 3)
+- Move Right: (2, 4)
+- Move Right: (2, 5)
+- Move Right: (2, 6)
+- Move Right: (2, 7)
+- Move Right: (2, 8) - E
+
+### Visualizing Path in the Maze:
+```
+###########
+#         #
+# #########
+#        E#
+######### #
+# **S# #   #
+# ##### ###
+# #     # #
+# # #######
+#   # # # #
+###########
+```
+Where '*' represents the path taken.
+
+So the path from S to E is complete!
+
+HUMAN VERIFICATION:

@@ -1,0 +1,40 @@
+INPUT:
+<ADJLIST_START> (4,0) <--> NORTH (3,1) <--> SOUTH (3,4) <--> SOUTH (3,0) <--> EAST (3,2) <--> EAST (3,4) <--> WEST (4,1) <--> EAST (4,3) <--> WEST (4,4) <--> WEST <ADJLIST_END> <ORIGIN_START> (3,3) <ORIGIN_END> <TARGET_START> (3,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (3,3) EAST (3,4) SOUTH (4,4) WEST (4,3) WEST (4,2) WEST (4,1) NORTH (3,1) WEST (3,0) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is provided in an adjacency list format, showing the connections between different cells in the maze. The origin is at (3,3) and the target is at (3,0).
+
+## 2: Identify the possible movements from the origin
+From (3,3), the possible movements are EAST (4,3), WEST (2,3), NORTH (2,3) is not directly connected, SOUTH (3,2), and other directions based on the given adjacency list.
+
+## 3: Correctly interpret the adjacency list for the given maze
+The correct interpretation of the adjacency list is as follows:
+- (4,0) is connected to NORTH (3,1), SOUTH (3,0), EAST (3,2) is not directly connected to (4,0), but (4,0) is connected to SOUTH (3,0) and NORTH (3,1).
+- (3,0) is connected to NORTH (4,0), SOUTH is not an option as it's at the bottom, EAST (3,1) is not listed but (3,0) is connected to EAST (4,0) indirectly through other points.
+
+## 4: Determine the actual connections for relevant cells
+- (3,3) is connected to EAST (4,3), WEST (2,3), and SOUTH (3,2).
+- (3,0) is connected to NORTH (4,0).
+
+## 5: Find a path from the origin (3,3) to the target (3,0)
+To find a path, start at (3,3) and move towards (3,0).
+- From (3,3), move SOUTH to (3,2).
+- From (3,2), move SOUTH to (3,1).
+- From (3,1), move SOUTH to (3,0).
+
+## 6: Verify the path using the given connections
+The path (3,3) -> SOUTH (3,2) -> SOUTH (3,1) -> SOUTH (3,0) seems direct but we need to ensure it aligns with given connections.
+
+## 7: Confirm the path
+Given that (3,3) <--> SOUTH (3,2), (3,2) <--> SOUTH (3,1), and (3,1) <--> SOUTH (3,0), the path is confirmed.
+
+## 8: Write down the path
+The path from (3,3) to (3,0) is: (3,3) SOUTH (3,2) SOUTH (3,1) SOUTH (3,0).
+
+The final answer is: $\boxed{(3,3) SOUTH (3,2) SOUTH (3,1) SOUTH (3,0)}$
+
+HUMAN VERIFICATION:

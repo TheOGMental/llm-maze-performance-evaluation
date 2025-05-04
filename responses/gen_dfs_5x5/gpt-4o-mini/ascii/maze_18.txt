@@ -1,0 +1,64 @@
+INPUT:
+###########
+#   # # # #
+# # #######
+#S#E#     #
+# ####### #
+# #     # #
+# # ### # #
+#   # #   #
+###########
+# # # # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#XXX# # # #
+#X#X#######
+#S#E#     #
+# ####### #
+# #     # #
+# # ### # #
+#   # #   #
+###########
+# # # # # #
+###########
+
+OUTPUT:
+To solve the maze and find a path from the starting point (S) to the end point (E), we can represent the maze as a coordinate grid, where each position can be referred to by its (row, column) coordinates.
+
+The maze can be represented as follows, with 'S' as the start point at (2, 1) and 'E' as the end point at (2, 2):
+
+```
+###########
+#   # # # #
+# # #######
+#S#E#     #
+# ####### #
+# #     # #
+# # ### # #
+#   # #   #
+###########
+# # # # # #
+###########
+```
+
+Starting Point (S): (2, 1)  
+Ending Point (E): (2, 2)  
+
+To outline a path step-by-step from S to E:
+
+1. Start at (2, 1) (S).
+2. Move right to (2, 2) (E).
+
+The path from S to E is straightforward as they are adjacent. Here's the representation of the moves:
+
+- (2, 1) -> (2, 2)
+
+Thus, the path from the start to the end is simply:
+
+- **Path:** S → E
+
+This is the shortest path available through the maze.
+
+HUMAN VERIFICATION:

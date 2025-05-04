@@ -1,0 +1,45 @@
+INPUT:
+<ADJLIST_START> (4,0) <--> NORTH (4,2) <--> NORTH (4,4) <--> NORTH (3,3) <--> WEST (3,3) <--> EAST (4,1) <--> WEST (4,2) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (4,3) <ORIGIN_END> <TARGET_START> (3,2) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (4,3) EAST (4,4) NORTH (3,4) WEST (3,3) WEST (3,2) <PATH_END>
+
+OUTPUT:
+## Step 1: Understand the given maze configuration
+The maze configuration is given in an adjacency list format, showing the connections between different cells. The origin is at (4,3) and the target is at (3,2).
+
+## 2: Identify the connections of the origin and target
+From the given adjacency list:
+- (4,0) is connected to NORTH (4,2), NORTH (4,4), and NORTH (3,3).
+- (4,2) is connected to WEST (4,3) and EAST (4,1) and NORTH (4,4).
+- (4,3) is connected to WEST (4,2) and EAST (4,4).
+- (4,4) is connected to WEST (4,3) and NORTH (3,3).
+- (3,3) is connected to WEST and EAST, but specific connections to other cells are not directly listed; however, it's connected to (4,0) NORTH, implying (3,3) is south of (4,0) but directly connected to (4,4) NORTH.
+
+## 3: Determine the relevant connections for the origin (4,3) and target (3,2)
+The origin (4,3) is connected to:
+- WEST (4,2)
+- EAST (4,4)
+
+The target (3,2) is not directly listed, but we can infer connections based on given data:
+- (3,3) is connected to (4,0) and presumably has connections to the south and west, given typical maze structures.
+
+## 4: Find a path from the origin (4,3) to the target (3,2)
+Given the target (3,2) and origin (4,3), let's find a path:
+1. From (4,3), go WEST to (4,2).
+2. From (4,2), there's no direct SOUTH or WEST to (3,2), but we can go NORTH or EAST. Since we need to get to (3,2), let's consider moving in a way that gets us closer.
+3. Noticing (3,3) is connected to (4,0) and presumably to cells below it, let's try to get to (3,3) first.
+4. From (4,3), go EAST to (4,4).
+5. From (4,4), go NORTH to (3,3).
+6. From (3,3), go SOUTH to (3,2).
+
+## 5: Construct the path
+The path from (4,3) to (3,2) is:
+- (4,3) EAST (4,4)
+- (4,4) NORTH (3,3)
+- (3,3) SOUTH (3,2)
+
+The final answer is: 
+(4,3) EAST (4,4) NORTH (3,3) SOUTH (3,2)
+
+HUMAN VERIFICATION:
