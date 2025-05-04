@@ -1,0 +1,83 @@
+INPUT:
+<ADJLIST_START> (1,0) <--> NORTH (2,4) <--> NORTH (3,0) <--> NORTH (3,3) <--> NORTH (4,0) <--> NORTH (3,1) <--> SOUTH (0,0) <--> EAST (0,1) <--> EAST (0,3) <--> WEST (0,3) <--> EAST (1,1) <--> WEST (1,2) <--> WEST (1,3) <--> WEST (1,3) <--> EAST (2,0) <--> EAST (2,3) <--> EAST (3,1) <--> EAST (3,3) <--> WEST (4,0) <--> EAST <ADJLIST_END> <ORIGIN_START> (2,1) <ORIGIN_END> <TARGET_START> (1,4) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (2,1) WEST (2,0) SOUTH (3,0) SOUTH (4,0) EAST (4,1) NORTH (3,1) EAST (3,2) EAST (3,3) NORTH (2,3) EAST (2,4) NORTH (1,4) <PATH_END>
+
+OUTPUT:
+To solve this maze, we need to find a path from the origin (2,1) to the target (1,4). Let's analyze the adjacency list to determine possible moves from each cell.
+
+### Adjacency List Interpretation:
+The adjacency list shows connections between cells. For example:
+- (1,0) is connected to NORTH (direction to another cell, but since NORTH of (1,0) would be (0,0), but (0,0) is listed separately, so perhaps the connections are bidirectional or directional).
+  
+Given the somewhat unclear structure, I'll assume that the connections are bidirectional unless specified otherwise. Here's a clearer interpretation:
+
+From the list, here are the connections (assuming bidirectional):
+- (1,0) <--> (0,0) [since NORTH of (1,0) is (0,0)]
+- (2,4) <--> (1,4) [NORTH of (2,4) is (1,4)]
+- (3,0) <--> (2,0) [NORTH of (3,0) is (2,0)]
+- (3,3) <--> (2,3) [NORTH of (3,3) is (2,3)]
+- (4,0) <--> (3,0) [NORTH of (4,0) is (3,0)]
+- (3,1) <--> (4,1) [SOUTH of (3,1) is (4,1), but (4,1) isn't listed, so perhaps this is a typo]
+- (0,0) <--> (0,1) [EAST of (0,0) is (0,1)]
+- (0,1) <--> (0,3) [EAST of (0,1) is (0,2), but (0,2) isn't listed, so perhaps this is a typo or (0,1) <--> (0,3) directly]
+- (0,3) <--> (0,3) [WEST of (0,3) is (0,2), but this seems like a self-loop or typo]
+- (1,1) <--> (1,2) [EAST of (1,1) is (1,2)]
+- (1,2) <--> (1,3) [WEST of (1,2) is (1,1), but already listed, so perhaps (1,2) <--> (1,3)]
+- (1,3) <--> (1,3) [WEST of (1,3) is (1,2), but this seems like a self-loop or typo]
+- (2,0) <--> (2,3) [EAST of (2,0) is (2,1), but (2,1) isn't listed, so perhaps (2,0) <--> (2,3)]
+- (2,3) <--> (3,3) [EAST of (2,3) is (2,4), but (2,4) is listed separately]
+- (3,1) <--> (3,3) [EAST of (3,1) is (3,2), but (3,2) isn't listed, so perhaps (3,1) <--> (3,3)]
+- (4,0) <--> (4,1) [EAST of (4,0) is (4,1), but (4,1) isn't listed, so perhaps this is a typo]
+
+Given the confusion in the adjacency list, I'll reconstruct possible connections based on standard directions and the given data:
+
+### Possible Connections (Bidirectional):
+1. (1,0) <--> (0,0)
+2. (2,4) <--> (1,4)
+3. (3,0) <--> (2,0)
+4. (3,3) <--> (2,3)
+5. (4,0) <--> (3,0)
+6. (0,0) <--> (0,1)
+7. (0,1) <--> (0,3)
+8. (1,1) <--> (1,2)
+9. (1,2) <--> (1,3)
+10. (2,0) <--> (2,3)
+11. (2,3) <--> (3,3)
+12. (3,1) <--> (3,3)
+
+### Path from (2,1) to (1,4):
+The origin is (2,1), but (2,1) isn't directly connected in the adjacency list. This suggests that (2,1) might be isolated or the adjacency list is incomplete. However, since the problem asks for a path, I'll assume that (2,1) is connected to some adjacent cells not listed.
+
+Given that, one possible path is:
+1. From (2,1), move to an adjacent cell that is connected. Since (2,1) isn't listed, perhaps it's connected to (2,0) or (2,2), but neither is helpful. Alternatively, perhaps (2,1) is connected to (1,1), but (1,1) is listed as connected to (1,2).
+
+Assuming (2,1) is connected to (1,1):
+- (2,1) -> (1,1) [SOUTH]
+- (1,1) -> (1,2) [EAST]
+- (1,2) -> (1,3) [EAST]
+- (1,3) -> ? (no further connections listed)
+
+This path doesn't reach (1,4). 
+
+Alternative approach: (1,4) is connected to (2,4), but (2,4) isn't connected to anything else except (1,4), so we need to find a way to (2,4).
+
+Given the unclear connections, here's a plausible path based on standard grid movement (assuming unlisted cells are passable):
+- (2,1) -> (2,2) [EAST]
+- (2,2) -> (2,3) [EAST]
+- (2,3) -> (2,4) [EAST]
+- (2,4) -> (1,4) [NORTH]
+
+However, (2,2) isn't listed in the adjacency list, so this might not be valid.
+
+Given the ambiguity in the adjacency list, the most likely valid path is:
+- (2,1) -> (2,0) [WEST] (assuming (2,1) is connected to (2,0))
+- (2,0) -> (2,3) [EAST]
+- (2,3) -> (2,4) [EAST]
+- (2,4) -> (1,4) [NORTH]
+
+### Final Path:
+(2,1) WEST (2,0) EAST (2,3) EAST (2,4) NORTH (1,4)
+
+HUMAN VERIFICATION:

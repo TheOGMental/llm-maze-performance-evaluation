@@ -1,0 +1,82 @@
+INPUT:
+###########
+# # #  E  #
+### # ### #
+# #   # # #
+######### #
+# # #     #
+##### #####
+#   #     #
+# # ##### #
+# #S      #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # #  EXX#
+### # ###X#
+# #   # #X#
+#########X#
+# # #XXXXX#
+#####X#####
+#   #XXXXX#
+# # #####X#
+# #SXXXXXX#
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin `S` (start) to the target `E` (end). Here's the maze for reference:
+
+```
+###########
+# # #  E  #
+### # ### #
+# #   # # #
+######### #
+# # #     #
+##### #####
+#   #     #
+# # ##### #
+# #S      #
+###########
+```
+
+### Step-by-Step Solution:
+
+1. **Identify Start (`S`) and End (`E`) Positions:**
+   - Start (`S`) is at the bottom-left part of the maze: row 9, column 4 (assuming the top-left is (0,0)).
+   - End (`E`) is near the top-right part of the maze: row 1, column 6.
+
+2. **Possible Movements:**
+   - You can move up, down, left, or right, but not diagonally.
+   - You cannot pass through walls (`#`).
+
+3. **Path from `S` to `E`:**
+   - From `S` (row 9, column 4), move **up** to (row 8, column 4).
+   - From (8,4), move **up** to (7,4).
+   - From (7,4), move **right** to (7,5).
+   - From (7,5), move **right** to (7,6).
+   - From (7,6), move **right** to (7,7).
+   - From (7,7), move **up** to (6,7).
+   - From (6,7), move **up** to (5,7).
+   - From (5,7), move **left** to (5,6).
+   - From (5,6), move **left** to (5,5).
+   - From (5,5), move **up** to (4,5).
+   - From (4,5), move **left** to (4,4).
+   - From (4,4), move **left** to (4,3).
+   - From (4,3), move **up** to (3,3).
+   - From (3,3), move **up** to (2,3).
+   - From (2,3), move **right** to (2,4).
+   - From (2,4), move **right** to (2,5).
+   - From (2,5), move **up** to (1,5).
+   - From (1,5), move **right** to (1,6) (`E`).
+
+### Final Path:
+The sequence of moves is: Up, Up, Right, Right, Right, Up, Up, Left, Left, Up, Left, Left, Up, Right, Right, Up, Right.
+
+### Path Coordinates (row, column):
+(9,4) → (8,4) → (7,4) → (7,5) → (7,6) → (7,7) → (6,7) → (5,7) → (5,6) → (5,5) → (4,5) → (4,4) → (4,3) → (3,3) → (2,3) → (2,4) → (2,5) → (1,5) → (1,6)
+
+This path successfully navigates from `S` to `E` without passing through any walls.
+
+HUMAN VERIFICATION:

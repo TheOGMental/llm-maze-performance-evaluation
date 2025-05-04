@@ -1,0 +1,66 @@
+INPUT:
+<ADJLIST_START> (1,4) <--> NORTH (2,0) <--> NORTH (1,1) <--> SOUTH (2,2) <--> NORTH (3,0) <--> NORTH (3,1) <--> NORTH (2,4) <--> SOUTH (3,0) <--> SOUTH (3,1) <--> SOUTH (4,2) <--> NORTH (3,3) <--> SOUTH (3,4) <--> SOUTH (0,1) <--> EAST (0,2) <--> EAST (0,4) <--> WEST (1,0) <--> EAST (1,3) <--> WEST (1,4) <--> WEST (2,2) <--> EAST (2,3) <--> EAST (3,3) <--> WEST (4,1) <--> EAST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (4,4) <ORIGIN_END> <TARGET_START> (4,2) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (4,4) WEST (4,3) NORTH (3,3) WEST (3,2) SOUTH (4,2) <PATH_END>
+
+OUTPUT:
+Alright, let's tackle this maze step by step. I'm going to approach this methodically to find a path from the origin `(4,4)` to the target `(4,2)` based on the given adjacency list.
+
+### Understanding the Adjacency List
+
+First, let's parse the adjacency list to understand how the cells are connected. The adjacency list shows which cells are connected to each other and in which direction.
+
+Here's the adjacency list broken down:
+
+1. `(1,4) <--> NORTH (2,0)`: From (1,4), you can go NORTH to (2,0), and vice versa.
+2. `(2,0) <--> NORTH (1,1)`: From (2,0), NORTH to (1,1).
+3. `(1,1) <--> SOUTH (2,2)`: From (1,1), SOUTH to (2,2).
+4. `(2,2) <--> NORTH (3,0)`: From (2,2), NORTH to (3,0).
+5. `(3,0) <--> NORTH (3,1)`: From (3,0), NORTH to (3,1).
+6. `(3,1) <--> NORTH (2,4)`: From (3,1), NORTH to (2,4).
+7. `(2,4) <--> SOUTH (3,0)`: From (2,4), SOUTH to (3,0).
+8. `(3,0) <--> SOUTH (3,1)`: From (3,0), SOUTH to (3,1).
+9. `(3,1) <--> SOUTH (4,2)`: From (3,1), SOUTH to (4,2).
+10. `(4,2) <--> NORTH (3,3)`: From (4,2), NORTH to (3,3).
+11. `(3,3) <--> SOUTH (3,4)`: From (3,3), SOUTH to (3,4).
+12. `(3,4) <--> SOUTH (0,1)`: From (3,4), SOUTH to (0,1).
+13. `(0,1) <--> EAST (0,2)`: From (0,1), EAST to (0,2).
+14. `(0,2) <--> EAST (0,4)`: From (0,2), EAST to (0,4).
+15. `(0,4) <--> WEST (1,0)`: From (0,4), WEST to (1,0).
+16. `(1,0) <--> EAST (1,3)`: From (1,0), EAST to (1,3).
+17. `(1,3) <--> WEST (1,4)`: From (1,3), WEST to (1,4).
+18. `(1,4) <--> WEST (2,2)`: From (1,4), WEST to (2,2).
+19. `(2,2) <--> EAST (2,3)`: From (2,2), EAST to (2,3).
+20. `(2,3) <--> EAST (3,3)`: From (2,3), EAST to (3,3).
+21. `(3,3) <--> WEST (4,1)`: From (3,3), WEST to (4,1).
+22. `(4,1) <--> EAST (4,3)`: From (4,1), EAST to (4,3).
+23. `(4,3) <--> EAST`: From (4,3), EAST to... (no cell specified, possibly a boundary).
+
+### Identifying Origin and Target
+
+- **Origin:** `(4,4)`
+- **Target:** `(4,2)`
+
+First, notice that `(4,4)` isn't directly listed in the adjacency list. This might mean it's isolated or there's a missing connection. However, looking at the adjacency list, the highest row number is 4 (e.g., `(4,1)`, `(4,2)`, `(4,3)`), but `(4,4)` isn't connected to any other cell based on the given list. This suggests that `(4,4)` might be a dead end with no exits, making it impossible to start from there.
+
+But let's double-check if `(4,4)` is connected in any way. Scanning the adjacency list, there's no mention of `(4,4)` being connected to any other cell. Therefore, starting from `(4,4)`, we cannot move in any direction since there are no links from it.
+
+### Verifying Possible Connections
+
+Is there any cell that connects to `(4,4)`? Looking through the adjacency list:
+
+- `(3,4) <--> SOUTH (0,1)`: This connects `(3,4)` to `(0,1)` via SOUTH, but not to `(4,4)`.
+- `(4,3) <--> EAST`: It says EAST, but no cell is specified; it might imply `(4,4)`, but typically, EAST from `(4,3)` would be `(4,4)`, but since `(4,4)` isn't listed as connected back, this is ambiguous.
+
+Given that `(4,4)` isn't listed in any connections, it's likely not part of the traversable maze, making the origin unreachable from any other point, and thus no path can start from `(4,4)`.
+
+### Conclusion
+
+Since the origin `(4,4)` is not connected to any other cell in the maze based on the provided adjacency list, there is no possible path from `(4,4)` to the target `(4,2)`.
+
+### Final Answer
+
+There is no possible path from the origin `(4,4)` to the target `(4,2)` because the origin cell `(4,4)` is not connected to any other cells in the maze.
+
+HUMAN VERIFICATION:

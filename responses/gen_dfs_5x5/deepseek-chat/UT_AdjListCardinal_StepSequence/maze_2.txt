@@ -1,0 +1,110 @@
+INPUT:
+<ADJLIST_START> (1,0) <--> NORTH (1,4) <--> NORTH (1,1) <--> SOUTH (2,2) <--> NORTH (2,4) <--> NORTH (2,2) <--> SOUTH (3,3) <--> NORTH (4,2) <--> NORTH (4,3) <--> NORTH (0,1) <--> WEST (0,1) <--> EAST (0,2) <--> EAST (0,4) <--> WEST (1,1) <--> WEST (1,3) <--> WEST (2,3) <--> EAST (4,3) <--> WEST <ADJLIST_END> <ORIGIN_START> (1,0) <ORIGIN_END> <TARGET_START> (0,2) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,0) NORTH (0,0) EAST (0,1) EAST (0,2) <PATH_END>
+
+OUTPUT:
+Alright, let's tackle this maze step by step. I'm going to approach it methodically to find a path from the origin `(1,0)` to the target `(0,2)`. 
+
+### Understanding the Maze Structure
+
+First, let's parse the adjacency list to understand how the cells are connected. The adjacency list shows which cells are connected to each other and in which direction. Here's how I interpret the given connections:
+
+1. `(1,0) <--> NORTH (1,4)`: From `(1,0)`, you can go NORTH to `(1,4)`.
+2. `(1,4) <--> NORTH (1,1)`: From `(1,4)`, you can go NORTH to `(1,1)`.
+3. `(1,1) <--> SOUTH (2,2)`: From `(1,1)`, you can go SOUTH to `(2,2)`.
+4. `(2,2) <--> NORTH (2,4)`: From `(2,2)`, you can go NORTH to `(2,4)`.
+5. `(2,4) <--> NORTH (2,2)`: From `(2,4)`, you can go NORTH to `(2,2)` (this seems like a loop between `(2,2)` and `(2,4)`).
+6. `(2,2) <--> SOUTH (3,3)`: From `(2,2)`, you can go SOUTH to `(3,3)`.
+7. `(3,3) <--> NORTH (4,2)`: From `(3,3)`, you can go NORTH to `(4,2)` (this seems odd because `(4,2)` is above `(3,3)` numerically, but if we consider `NORTH` as decreasing the first coordinate, it might make sense depending on the maze's orientation).
+8. `(4,2) <--> NORTH (4,3)`: From `(4,2)`, you can go NORTH to `(4,3)`.
+9. `(4,3) <--> NORTH (0,1)`: From `(4,3)`, you can go NORTH to `(0,1)` (this seems like a wrap-around or teleportation, which is unusual).
+10. `(0,1) <--> WEST (0,1)`: From `(0,1)`, you can go WEST to `(0,1)` (this is a self-loop, which doesn't help).
+11. `(0,1) <--> EAST (0,2)`: From `(0,1)`, you can go EAST to `(0,2)` (our target!).
+12. `(0,2) <--> EAST (0,4)`: From `(0,2)`, you can go EAST to `(0,4)`.
+13. `(0,4) <--> WEST (1,1)`: From `(0,4)`, you can go WEST to `(1,1)`.
+14. `(1,1) <--> WEST (1,3)`: From `(1,1)`, you can go WEST to `(1,3)`.
+15. `(1,3) <--> WEST (2,3)`: From `(1,3)`, you can go WEST to `(2,3)`.
+16. `(2,3) <--> EAST (4,3)`: From `(2,3)`, you can go EAST to `(4,3)`.
+17. `(4,3) <--> WEST`: From `(4,3)`, you can go WEST (but no destination is specified, which might be a typo or incomplete).
+
+### Identifying Possible Paths
+
+Our origin is `(1,0)` and target is `(0,2)`. Let's explore possible paths:
+
+**Option 1:**
+1. Start at `(1,0)`.
+2. Go NORTH to `(1,4)`.
+3. From `(1,4)`, go NORTH to `(1,1)`.
+4. From `(1,1)`, we have several options:
+   - Go SOUTH to `(2,2)`.
+   - Go WEST to `(1,3)`.
+   
+   Let's try going WEST to `(1,3)`:
+   5. From `(1,3)`, go WEST to `(2,3)`.
+   6. From `(2,3)`, go EAST to `(4,3)`.
+   7. From `(4,3)`, go NORTH to `(0,1)`.
+   8. From `(0,1)`, go EAST to `(0,2)` (target reached!).
+
+So, the path would be:
+`(1,0)` NORTH `(1,4)` NORTH `(1,1)` WEST `(1,3)` WEST `(2,3)` EAST `(4,3)` NORTH `(0,1)` EAST `(0,2)`.
+
+**Option 2:**
+Alternatively, from `(1,1)`, let's try going SOUTH to `(2,2)`:
+1. `(1,0)` NORTH `(1,4)` NORTH `(1,1)` SOUTH `(2,2)`.
+From `(2,2)`:
+- NORTH to `(2,4)` (which goes back to `(2,2)`, loop).
+- SOUTH to `(3,3)`.
+Let's go SOUTH to `(3,3)`:
+2. `(3,3)` NORTH `(4,2)`.
+3. `(4,2)` NORTH `(4,3)`.
+4. `(4,3)` NORTH `(0,1)`.
+5. `(0,1)` EAST `(0,2)`.
+
+This is similar to the first path but takes a detour via `(2,2)` and `(3,3)`. It's longer, so the first option seems more efficient.
+
+**Option 3:**
+Is there a more direct path? Let's see:
+From `(1,0)`, the only move is NORTH to `(1,4)`.
+From `(1,4)`, only NORTH to `(1,1)`.
+From `(1,1)`, we can go WEST to `(1,3)` or SOUTH to `(2,2)`.
+The WEST path seems more direct as seen in Option 1.
+
+### Verifying the First Path
+
+Let's write down the first path with directions:
+1. Start at `(1,0)`.
+2. Go NORTH to `(1,4)`.
+3. From `(1,4)`, go NORTH to `(1,1)`.
+4. From `(1,1)`, go WEST to `(1,3)`.
+5. From `(1,3)`, go WEST to `(2,3)`.
+   - Wait, `(1,3)` WEST to `(2,3)`: This seems odd because WEST typically decreases the second coordinate (column number), but here it's increasing from 3 to 3 (same column) or maybe it's a typo and should be `(1,3)` WEST `(1,2)` but `(1,2)` isn't in the list. Maybe `(1,3)` WEST `(2,3)` means moving down a row while staying in the same column or similar. Given the adjacency list, we have to take it as is.
+6. From `(2,3)`, go EAST to `(4,3)`.
+   - Similarly, EAST increasing the column, but `(2,3)` to `(4,3)` jumps rows, which is unusual unless it's a teleport or wrap-around.
+7. From `(4,3)`, go NORTH to `(0,1)`.
+   - `(4,3)` to `(0,1)` is a big jump, likely a wrap-around.
+8. From `(0,1)`, go EAST to `(0,2)`.
+
+Given the maze's unusual connections (like `(4,3)` to `(0,1)`), this seems to be the intended path despite the non-standard moves.
+
+### Final Path
+
+Based on the adjacency list and the connections, the path from `(1,0)` to `(0,2)` is:
+
+`(1,0)` NORTH `(1,4)` NORTH `(1,1)` WEST `(1,3)` WEST `(2,3)` EAST `(4,3)` NORTH `(0,1)` EAST `(0,2)`
+
+### Step-by-Step Directions:
+
+1. Start at origin: `(1,0)`.
+2. Move NORTH to `(1,4)`.
+3. Move NORTH to `(1,1)`.
+4. Move WEST to `(1,3)`.
+5. Move WEST to `(2,3)`.
+6. Move EAST to `(4,3)`.
+7. Move NORTH to `(0,1)`.
+8. Move EAST to target `(0,2)`.
+
+This sequence follows the given adjacency list and successfully reaches the target from the origin.
+
+HUMAN VERIFICATION:

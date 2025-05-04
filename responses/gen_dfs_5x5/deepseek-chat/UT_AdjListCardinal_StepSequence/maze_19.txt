@@ -1,0 +1,50 @@
+INPUT:
+<ADJLIST_START> (0,0) <--> SOUTH (1,3) <--> NORTH (1,0) <--> SOUTH (2,1) <--> NORTH (1,2) <--> SOUTH (1,4) <--> SOUTH (3,0) <--> NORTH (3,1) <--> NORTH (2,2) <--> SOUTH (3,3) <--> NORTH (3,0) <--> SOUTH (4,1) <--> NORTH (4,4) <--> NORTH (0,1) <--> WEST (0,2) <--> WEST (0,2) <--> EAST (1,2) <--> WEST (1,3) <--> EAST (2,4) <--> WEST (3,3) <--> EAST (4,1) <--> EAST (4,3) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (1,0) <ORIGIN_END> <TARGET_START> (4,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,0) SOUTH (2,0) SOUTH (3,0) SOUTH (4,0) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1, 0) to the target (4, 0) in the given maze, let's analyze the adjacency list step by step and construct a valid path.
+
+### Adjacency List Analysis:
+1. (0,0) <--> SOUTH (1,0)
+2. (1,0) <--> SOUTH (2,1)
+3. (2,1) <--> NORTH (1,0), SOUTH (3,1)
+4. (3,1) <--> NORTH (2,1), SOUTH (4,1)
+5. (4,1) <--> NORTH (3,1), EAST (4,3)
+6. (4,3) <--> WEST (4,1), EAST (4,4)
+7. (4,4) <--> NORTH (3,3)
+8. (3,3) <--> NORTH (2,2), SOUTH (4,4)
+9. (2,2) <--> NORTH (1,2), SOUTH (3,3)
+10. (1,2) <--> NORTH (0,2), SOUTH (2,2)
+11. (0,2) <--> EAST (1,2)
+12. (1,3) <--> NORTH (0,0), WEST (1,2), EAST (2,4)
+13. (2,4) <--> WEST (1,3)
+14. (1,4) <--> SOUTH (3,0)
+15. (3,0) <--> NORTH (1,4), SOUTH (4,1)
+16. (0,1) <--> WEST (0,0), EAST (0,2)
+17. (0,2) <--> WEST (0,1), EAST (1,2)
+
+### Path Construction:
+We start at (1, 0) and aim to reach (4, 0). However, (4, 0) is not directly listed in the adjacency list, which suggests it might be isolated or unreachable. But let's assume it's a typo and the target is (4, 1) (since (4, 0) isn't connected). If the target is indeed (4, 0), no path exists based on the given adjacencies.
+
+Assuming the target is (4, 1), here's a possible path:
+
+1. (1, 0) -> SOUTH to (2, 1)
+2. (2, 1) -> SOUTH to (3, 1)
+3. (3, 1) -> SOUTH to (4, 1)
+
+If the target is (4, 0), no path exists because (4, 0) is not connected to any other cell in the adjacency list. 
+
+### Final Path (assuming target is (4, 1)):
+<PATH_START> (1,0) SOUTH (2,1) SOUTH (3,1) SOUTH (4,1) <PATH_END>
+
+If the target is indeed (4, 0), the maze has no valid path to it. Please verify the target coordinates. 
+
+### Corrected Path (if target is (4, 1)):
+<PATH_START> (1,0) SOUTH (2,1) SOUTH (3,1) SOUTH (4,1) <PATH_END>
+
+If the target is (4, 0), no path exists.
+
+HUMAN VERIFICATION:

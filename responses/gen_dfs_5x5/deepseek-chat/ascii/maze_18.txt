@@ -1,0 +1,130 @@
+INPUT:
+###########
+#   # # # #
+# # #######
+#S#E#     #
+# ####### #
+# #     # #
+# # ### # #
+#   # #   #
+###########
+# # # # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#XXX# # # #
+#X#X#######
+#S#E#     #
+# ####### #
+# #     # #
+# # ### # #
+#   # #   #
+###########
+# # # # # #
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin `S` (start) to the target `E` (end). Here's the maze for reference:
+
+```
+###########
+#   # # # #
+# # #######
+#S#E#     #
+# ####### #
+# #     # #
+# # ### # #
+#   # #   #
+###########
+# # # # # #
+###########
+```
+
+### Step-by-Step Solution:
+
+1. **Identify Start (`S`) and End (`E`) Positions:**
+   - `S` is located at the 4th row, 2nd column (assuming the top-left corner is (1,1)).
+   - `E` is located at the 4th row, 4th column.
+
+2. **Possible Moves:**
+   - From `S` (4,2), you can move:
+     - Up to (3,2)
+     - Down to (5,2)
+     - Left to (4,1) (but this is a wall `#`)
+     - Right to (4,3) (but this is a wall `#`)
+
+3. **Exploring Moves:**
+   - From `S` (4,2), moving up to (3,2):
+     - (3,2) is a wall `#`, so this is invalid.
+   - From `S` (4,2), moving down to (5,2):
+     - (5,2) is a wall `#`, so this is invalid.
+   - From `S` (4,2), moving left to (4,1) is a wall.
+   - From `S` (4,2), moving right to (4,3) is a wall.
+
+   Wait a minute, this suggests that `S` is completely blocked, which contradicts the presence of `E` in the maze. Let me re-examine the maze.
+
+   Upon closer inspection, `S` is at (4,2), and `E` is at (4,4). The positions around `S`:
+   - (4,1): `#` (wall)
+   - (4,3): `#` (wall)
+   - (3,2): `#` (wall)
+   - (5,2): `#` (wall)
+
+   This implies `S` is entirely surrounded by walls, making it impossible to reach `E`. This seems like an unsolvable maze or possibly a misplacement of `S` or `E`.
+
+4. **Rechecking Maze Layout:**
+   Let me re-express the maze with coordinates for clarity (rows and columns):
+
+   Row 1: `###########`
+   Row 2: `#   # # # #`
+   Row 3: `# # #######`
+   Row 4: `#S#E#     #`
+   Row 5: `# ####### #`
+   Row 6: `# #     # #`
+   Row 7: `# # ### # #`
+   Row 8: `#   # #   #`
+   Row 9: `###########`
+   Row 10: `# # # # # #`
+   Row 11: `###########`
+
+   - `S` is at Row 4, Column 2.
+   - `E` is at Row 4, Column 4.
+   - Adjacent to `S`:
+     - Left: Row 4, Column 1 is `#` (wall)
+     - Right: Row 4, Column 3 is `#` (wall)
+     - Up: Row 3, Column 2 is `#` (wall)
+     - Down: Row 5, Column 2 is `#` (wall)
+
+   This confirms that `S` is entirely blocked by walls, making it impossible to start moving. Therefore, the maze is unsolvable as given.
+
+### Conclusion:
+The maze is unsolvable because the start position `S` is completely surrounded by walls (`#`), leaving no possible moves to reach `E`. There might be an error in the maze configuration (e.g., `S` or `E` placed incorrectly). 
+
+If the maze is correct as given, then there is no valid path from `S` to `E`. 
+
+### Corrected Maze (Assuming Possible Misplacement):
+If `S` were at (4,1) instead of (4,2), the maze would be solvable. For example:
+
+```
+###########
+#   # # # #
+# # #######
+#SE#     #
+# ####### #
+# #     # #
+# # ### # #
+#   # #   #
+###########
+# # # # # #
+###########
+```
+
+In this case, `S` is at (4,1) and `E` at (4,2), and the path is simply right from `S` to `E`:
+- Path: (4,1) → (4,2)
+
+But as given, the maze is unsolvable. 
+
+### Final Answer:
+The maze is unsolvable because the start position `S` is entirely blocked by walls, leaving no possible moves to reach `E`.
+
+HUMAN VERIFICATION:

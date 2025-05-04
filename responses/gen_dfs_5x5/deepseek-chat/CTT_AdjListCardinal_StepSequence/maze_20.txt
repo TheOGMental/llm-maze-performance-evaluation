@@ -1,0 +1,83 @@
+INPUT:
+<ADJLIST_START> ( 1 , 1 ) <--> NORTH ( 1 , 2 ) <--> NORTH ( 0 , 4 ) <--> SOUTH ( 2 , 4 ) <--> NORTH ( 2 , 2 ) <--> SOUTH ( 4 , 0 ) <--> NORTH ( 3 , 1 ) <--> SOUTH ( 4 , 4 ) <--> NORTH ( 0 , 2 ) <--> EAST ( 0 , 4 ) <--> WEST ( 1 , 2 ) <--> WEST ( 2 , 3 ) <--> WEST ( 2 , 3 ) <--> EAST ( 3 , 1 ) <--> WEST ( 3 , 2 ) <--> EAST ( 3 , 3 ) <--> EAST ( 4 , 1 ) <--> EAST ( 4 , 3 ) <--> WEST ( 4 , 4 ) <--> WEST <ADJLIST_END> <ORIGIN_START> ( 4 , 1 ) <ORIGIN_END> <TARGET_START> ( 0 , 3 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 4 , 1 ) EAST ( 4 , 2 ) EAST ( 4 , 3 ) EAST ( 4 , 4 ) NORTH ( 3 , 4 ) WEST ( 3 , 3 ) WEST ( 3 , 2 ) NORTH ( 2 , 2 ) EAST ( 2 , 3 ) EAST ( 2 , 4 ) NORTH ( 1 , 4 ) NORTH ( 0 , 4 ) WEST ( 0 , 3 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (4, 1) to the target (0, 3) in the given maze, we can follow these steps:
+
+### Step-by-Step Path:
+1. Start at (4, 1).
+2. From (4, 1), move EAST to (4, 3).
+3. From (4, 3), move WEST to (4, 4).
+4. From (4, 4), move NORTH to (3, 4).
+5. From (3, 4), move WEST to (3, 3).
+6. From (3, 3), move EAST to (3, 2).
+7. From (3, 2), move WEST to (3, 1).
+8. From (3, 1), move NORTH to (2, 1).
+9. From (2, 1), move EAST to (2, 2).
+10. From (2, 2), move NORTH to (1, 2).
+11. From (1, 2), move NORTH to (0, 2).
+12. From (0, 2), move EAST to (0, 3).
+
+### Final Path:
+```
+(4, 1) EAST (4, 3) WEST (4, 4) NORTH (3, 4) WEST (3, 3) EAST (3, 2) WEST (3, 1) NORTH (2, 1) EAST (2, 2) NORTH (1, 2) NORTH (0, 2) EAST (0, 3)
+```
+
+### Verification:
+Let's verify each step to ensure the path is valid based on the adjacency list:
+
+1. (4, 1) <--> EAST (4, 3) — Valid.
+2. (4, 3) <--> WEST (4, 4) — Valid.
+3. (4, 4) <--> NORTH (3, 4) — Valid (implied by (4, 4) <--> NORTH).
+4. (3, 4) is not directly in the adjacency list, but (4, 4) <--> NORTH implies (3, 4) is connected to (4, 4). This seems to be an inconsistency. Let me correct the path.
+
+### Corrected Path:
+Since (3, 4) is not explicitly in the adjacency list, let's find an alternative route from (4, 4):
+
+1. Start at (4, 1).
+2. From (4, 1), move EAST to (4, 3).
+3. From (4, 3), move WEST to (4, 4).
+4. From (4, 4), move NORTH to (3, 4) — Not directly listed, so this step is invalid. Alternative: From (4, 4), move WEST to (4, 3) — but this is backtracking. Another alternative: From (4, 1), move NORTH to (3, 1).
+5. From (3, 1), move WEST to (3, 2).
+6. From (3, 2), move EAST to (3, 3).
+7. From (3, 3), move EAST to (3, 4) — Not listed, so invalid. Alternative: From (3, 1), move NORTH to (2, 1).
+8. (2, 1) is not in the adjacency list, so this is invalid. Another approach: From (4, 1), move NORTH to (3, 1).
+9. From (3, 1), move WEST to (3, 2).
+10. From (3, 2), move EAST to (3, 3).
+11. From (3, 3), move EAST to (3, 4) — Not listed. This seems problematic. Let's try another path.
+
+### Alternative Correct Path:
+Given the adjacency list, here's a valid path:
+
+1. (4, 1) EAST (4, 3) WEST (4, 4) NORTH (3, 4) — Wait, (3, 4) is not in the adjacency list. This suggests the maze may not have a direct path. However, let's try:
+
+From the adjacency list, the only connections from (4, 1) are EAST to (4, 3). From (4, 3), WEST to (4, 4). From (4, 4), NORTH is not listed, so this path is invalid. 
+
+### Re-evaluating:
+The target is (0, 3), which is not directly in the adjacency list. The closest is (0, 2) and (0, 4). Since (0, 3) is not listed, it may be unreachable. However, assuming (0, 3) is reachable via (0, 2) EAST (though not listed), here's a possible path:
+
+1. (4, 1) EAST (4, 3) WEST (4, 4) NORTH (3, 4) — Not listed, so invalid.
+2. Alternative: (4, 1) EAST (4, 3) WEST (4, 4) — Dead end.
+
+Given the constraints, the maze may not have a valid path to (0, 3). However, if we assume (0, 2) can reach (0, 3), here's a path:
+
+1. (4, 1) EAST (4, 3) WEST (4, 4) NORTH (3, 4) — Not listed, so invalid.
+   
+### Final Answer:
+After careful review, the target (0, 3) is not reachable from the origin (4, 1) based on the given adjacency list. The adjacency list does not provide any connections that lead to (0, 3). 
+
+However, if we assume (0, 2) can reach (0, 3) via an implicit EAST move (even though it's not listed), here's a possible path:
+
+```
+(4, 1) EAST (4, 3) WEST (4, 4) NORTH (3, 4) WEST (3, 3) EAST (3, 2) WEST (3, 1) NORTH (2, 1) EAST (2, 2) NORTH (1, 2) NORTH (0, 2) EAST (0, 3)
+```
+
+But since (3, 4) and (0, 3) are not in the adjacency list, this path is invalid. Thus, the maze has no valid path from (4, 1) to (0, 3) under the given constraints. 
+
+### Correct Conclusion:
+The target (0, 3) is unreachable from the origin (4, 1) in the provided maze configuration.
+
+HUMAN VERIFICATION:

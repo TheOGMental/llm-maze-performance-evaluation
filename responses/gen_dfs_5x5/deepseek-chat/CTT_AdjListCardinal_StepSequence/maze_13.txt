@@ -1,0 +1,67 @@
+INPUT:
+<ADJLIST_START> ( 0 , 2 ) <--> SOUTH ( 0 , 4 ) <--> SOUTH ( 2 , 2 ) <--> NORTH ( 1 , 4 ) <--> SOUTH ( 3 , 4 ) <--> NORTH ( 4 , 2 ) <--> NORTH ( 0 , 2 ) <--> EAST ( 0 , 3 ) <--> EAST ( 3 , 3 ) <--> WEST ( 3 , 3 ) <--> EAST ( 4 , 3 ) <--> WEST ( 4 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 0 , 2 ) <ORIGIN_END> <TARGET_START> ( 1 , 2 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 2 ) SOUTH ( 1 , 2 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (0, 2) to the target (1, 2) in the given maze, let's analyze the adjacency list and construct a possible path step by step.
+
+### Adjacency List Analysis:
+1. (0, 2) is connected to:
+   - SOUTH to (0, 4)
+   - EAST to (0, 3)
+
+2. (0, 4) is connected to:
+   - SOUTH to (2, 2)
+
+3. (2, 2) is connected to:
+   - NORTH to (1, 4)
+
+4. (1, 4) is connected to:
+   - SOUTH to (3, 4)
+
+5. (3, 4) is connected to:
+   - NORTH to (4, 2)
+
+6. (4, 2) is connected to:
+   - NORTH to (3, 3)
+
+7. (0, 3) is connected to:
+   - EAST to (3, 3)
+
+8. (3, 3) is connected to:
+   - WEST to (4, 3)
+   - EAST to (4, 3)
+
+9. (4, 3) is connected to:
+   - WEST to (3, 3)
+   - EAST to (some node, but not specified further)
+
+### Target (1, 2) Analysis:
+The target (1, 2) is not directly listed in the adjacency list, which suggests it might be isolated or unreachable. However, let's assume it is connected to (2, 2) or another nearby node (though this is not specified in the adjacency list). 
+
+Given the adjacency list, there is no explicit connection to (1, 2), so it may not be reachable from (0, 2) with the given connections. 
+
+### Possible Interpretation:
+If we assume that (1, 2) is connected to (2, 2) (even though this is not in the adjacency list), a possible path could be:
+1. From (0, 2), go SOUTH to (0, 4).
+2. From (0, 4), go SOUTH to (2, 2).
+3. From (2, 2), go NORTH to (1, 2) (assuming this connection exists).
+
+However, since the adjacency list does not include (1, 2) or any connections to it, the target is unreachable as given.
+
+### Corrected Target:
+If the target was supposed to be (2, 2) instead of (1, 2), the path would be:
+1. (0, 2) SOUTH (0, 4)
+2. (0, 4) SOUTH (2, 2)
+
+But since the target is explicitly (1, 2), and it is not reachable based on the adjacency list, the maze has no valid path from (0, 2) to (1, 2). 
+
+### Final Answer:
+The target (1, 2) is unreachable from the origin (0, 2) given the provided adjacency list. Please verify the target coordinates or the maze connections. 
+
+If the target is indeed (1, 2), no valid path exists. If the target was meant to be (2, 2), the path is:
+(0, 2) SOUTH (0, 4) SOUTH (2, 2).
+
+HUMAN VERIFICATION:

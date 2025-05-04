@@ -1,0 +1,52 @@
+INPUT:
+<ADJLIST_START> ( 1 , 2 ) <--> NORTH ( 1 , 0 ) <--> SOUTH ( 2 , 0 ) <--> SOUTH ( 2 , 1 ) <--> SOUTH ( 3 , 2 ) <--> NORTH ( 4 , 3 ) <--> NORTH ( 1 , 1 ) <--> WEST ( 1 , 1 ) <--> EAST ( 2 , 2 ) <--> WEST ( 3 , 1 ) <--> WEST ( 3 , 3 ) <--> WEST ( 4 , 0 ) <--> EAST ( 4 , 1 ) <--> EAST ( 4 , 3 ) <--> WEST <ADJLIST_END> <ORIGIN_START> ( 1 , 0 ) <ORIGIN_END> <TARGET_START> ( 1 , 2 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 0 ) EAST ( 1 , 1 ) EAST ( 1 , 2 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1, 0) to the target (1, 2) in the given maze, let's analyze the adjacency list step by step.
+
+### Adjacency List:
+- (1, 2) <--> NORTH (1, 0)
+- (1, 0) <--> SOUTH (2, 0)
+- (2, 0) <--> SOUTH (2, 1)
+- (2, 1) <--> SOUTH (3, 2)
+- (3, 2) <--> NORTH (4, 3)
+- (4, 3) <--> NORTH (1, 1)
+- (1, 1) <--> WEST (1, 1) [This seems like a self-loop, which is likely a typo or redundant]
+- (1, 1) <--> EAST (2, 2)
+- (2, 2) <--> WEST (3, 1)
+- (3, 1) <--> WEST (3, 3)
+- (3, 3) <--> WEST (4, 0)
+- (4, 0) <--> EAST (4, 1)
+- (4, 1) <--> EAST (4, 3)
+- (4, 3) <--> WEST
+
+### Path Construction:
+1. Start at the origin: (1, 0).
+2. From (1, 0), we can go SOUTH to (2, 0).
+3. From (2, 0), we can go SOUTH to (2, 1).
+4. From (2, 1), we can go SOUTH to (3, 2).
+5. From (3, 2), we can go NORTH to (4, 3).
+6. From (4, 3), we can go NORTH to (1, 1).
+7. From (1, 1), we can go EAST to (2, 2).
+8. From (2, 2), we can go WEST to (3, 1).
+9. From (3, 1), we can go WEST to (3, 3).
+10. From (3, 3), we can go WEST to (4, 0).
+11. From (4, 0), we can go EAST to (4, 1).
+12. From (4, 1), we can go EAST to (4, 3).
+13. From (4, 3), we can go NORTH to (1, 1).
+14. From (1, 1), we can go NORTH to (1, 2), which is the target.
+
+However, this path seems unnecessarily long. Let's try to find a shorter path:
+
+1. Start at the origin: (1, 0).
+2. From (1, 0), we can go NORTH to (1, 2), which is the target.
+
+This is much shorter and valid based on the adjacency list. 
+
+### Final Path:
+(1, 0) NORTH (1, 2)
+
+HUMAN VERIFICATION:

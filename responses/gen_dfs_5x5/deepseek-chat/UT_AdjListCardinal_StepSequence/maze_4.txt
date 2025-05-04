@@ -1,0 +1,72 @@
+INPUT:
+<ADJLIST_START> (1,1) <--> NORTH (0,4) <--> SOUTH (1,2) <--> SOUTH (1,4) <--> SOUTH (0,1) <--> WEST (0,2) <--> EAST (0,3) <--> EAST (1,2) <--> WEST (2,3) <--> WEST (2,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (2,3) <ORIGIN_END> <TARGET_START> (0,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (2,3) WEST (2,2) NORTH (1,2) WEST (1,1) NORTH (0,1) WEST (0,0) <PATH_END>
+
+OUTPUT:
+To solve this maze, we need to find a path from the origin (2,3) to the target (0,0). Let's analyze the adjacency list and construct the path step by step.
+
+### Adjacency List Interpretation:
+1. (1,1) <--> NORTH (0,4)
+2. (0,4) <--> SOUTH (1,2)
+3. (1,2) <--> SOUTH (1,4)
+4. (1,4) <--> SOUTH (0,1)
+5. (0,1) <--> WEST (0,2)
+6. (0,2) <--> EAST (0,3)
+7. (0,3) <--> EAST (1,2)
+8. (1,2) <--> WEST (2,3)
+9. (2,3) <--> WEST (2,3) (This seems like a self-loop or a typo; likely should connect to another cell)
+10. (2,3) <--> EAST (This seems incomplete; likely should connect to another cell)
+
+From the adjacency list, it seems there are some inconsistencies or missing connections. However, we can infer the following connections:
+- (2,3) is connected to (1,2) via WEST.
+- (1,2) is connected to (0,4), (1,4), and (0,3).
+- (0,4) is connected to (1,1).
+- (1,1) is connected to (0,4).
+- (0,1) is connected to (0,2) and (1,4).
+- (0,2) is connected to (0,3).
+- (0,3) is connected to (1,2).
+
+### Target (0,0):
+The target (0,0) is not explicitly listed in the adjacency list, which suggests it might be isolated or unreachable. However, assuming there is a typo and (0,0) should be connected to one of the listed cells, the most likely candidate is (0,1), since (0,0) is adjacent to (0,1) via WEST.
+
+### Constructing the Path:
+Assuming (0,0) is connected to (0,1) via WEST, here's a possible path:
+1. Start at (2,3).
+2. Move WEST to (1,2).
+3. From (1,2), move SOUTH to (1,4).
+4. From (1,4), move SOUTH to (0,1).
+5. From (0,1), move WEST to (0,0).
+
+However, (0,1) is connected to (0,2) via WEST, not (0,0). This suggests (0,0) is unreachable from the given adjacency list. 
+
+### Alternative Interpretation:
+If (0,0) is a typo and the intended target is (0,1), the path would be:
+1. (2,3) WEST (1,2) SOUTH (1,4) SOUTH (0,1).
+
+But since the target is explicitly (0,0), and it's not in the adjacency list, the maze as given has no valid path to the target. 
+
+### Final Answer:
+Given the provided adjacency list, the target (0,0) is unreachable from the origin (2,3). The adjacency list does not include (0,0) or any connections leading to it. 
+
+If there is a typo and the target is (0,1), the path is:
+<PATH_START> (2,3) WEST (1,2) SOUTH (1,4) SOUTH (0,1) <PATH_END>.
+
+Otherwise, no valid path exists to (0,0). 
+
+For the given problem, assuming (0,0) is unreachable, the answer is:
+"No valid path exists from (2,3) to (0,0) with the given adjacency list." 
+
+If you can confirm or correct the adjacency list or target, I can provide a more accurate path. 
+
+### Possible Corrected Path (assuming (0,0) is connected to (0,1)):
+If we assume (0,0) is connected to (0,1) via WEST (even though not in the adjacency list), the path would be:
+<PATH_START> (2,3) WEST (1,2) SOUTH (1,4) SOUTH (0,1) WEST (0,0) <PATH_END>.
+
+But this is speculative without confirmation of the adjacency list. 
+
+Given the strict constraints, the answer is:
+"No valid path exists to (0,0) as it is not in the adjacency list."
+
+HUMAN VERIFICATION:

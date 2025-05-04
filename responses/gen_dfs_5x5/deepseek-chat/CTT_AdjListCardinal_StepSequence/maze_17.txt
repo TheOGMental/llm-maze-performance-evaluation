@@ -1,0 +1,25 @@
+INPUT:
+<ADJLIST_START> ( 0 , 4 ) <--> SOUTH ( 2 , 0 ) <--> NORTH ( 2 , 1 ) <--> NORTH ( 2 , 2 ) <--> NORTH ( 3 , 0 ) <--> NORTH ( 2 , 1 ) <--> SOUTH ( 3 , 4 ) <--> NORTH ( 3 , 0 ) <--> SOUTH ( 4 , 1 ) <--> NORTH ( 3 , 2 ) <--> SOUTH ( 4 , 3 ) <--> NORTH ( 4 , 4 ) <--> NORTH ( 0 , 2 ) <--> WEST ( 0 , 3 ) <--> WEST ( 0 , 3 ) <--> EAST ( 1 , 1 ) <--> WEST ( 1 , 2 ) <--> EAST ( 1 , 4 ) <--> WEST ( 2 , 3 ) <--> WEST ( 2 , 3 ) <--> EAST ( 3 , 3 ) <--> WEST ( 4 , 2 ) <--> WEST ( 4 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 4 , 4 ) <ORIGIN_END> <TARGET_START> ( 4 , 2 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 4 , 4 ) WEST ( 4 , 3 ) NORTH ( 3 , 3 ) WEST ( 3 , 2 ) SOUTH ( 4 , 2 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (4, 4) to the target (4, 2) in the given maze, we can follow these steps:
+
+1. Start at (4, 4).
+2. From (4, 4), move NORTH to (3, 4).
+3. From (3, 4), move NORTH to (2, 4). However, (2, 4) is not in the adjacency list, so this path is invalid.
+4. Alternatively, from (4, 4), there are no other connections, so we must backtrack.
+5. The correct path is:
+   - Start at (4, 4).
+   - Move NORTH to (3, 4).
+   - From (3, 4), move WEST to (3, 3).
+   - From (3, 3), move WEST to (3, 2).
+   - From (3, 2), move SOUTH to (4, 2).
+
+Here is the valid path:
+
+<PATH_START> (4, 4) NORTH (3, 4) WEST (3, 3) WEST (3, 2) SOUTH (4, 2) <PATH_END>
+
+HUMAN VERIFICATION:

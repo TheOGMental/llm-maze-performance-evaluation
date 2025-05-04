@@ -1,0 +1,91 @@
+INPUT:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#E  #  S  #
+# # ##### #
+# #       #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#EXX#  SXX#
+# #X#####X#
+# #XXXXXXX#
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin (S) to the target (E). Here's the maze for reference:
+
+```
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#E  #  S  #
+# # ##### #
+# #       #
+###########
+```
+
+### Step-by-Step Solution:
+
+1. **Identify the Positions:**
+   - **Origin (S):** Located at the bottom row, in the middle (let's say column 7 for clarity).
+   - **Target (E):** Located a few rows above S, on the left side (let's say column 2).
+
+2. **Possible Moves:**
+   - From S, you can move **up**, **left**, or **right** (since down is a wall).
+   - Moving right from S leads to a dead end (wall).
+   - Moving left from S leads to an open path.
+
+3. **Path:**
+   - Move **left** from S to column 5.
+   - Move **up** from column 5 to the row above (avoiding the wall on the right).
+   - Continue moving **up** until you reach the row where E is located.
+   - Move **left** to reach E.
+
+### Final Path:
+The path can be described as a series of moves: Left, Up, Up, Up, Left.
+
+### Visual Representation:
+Here’s the path marked with arrows (→, ←, ↑, ↓):
+
+```
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+#E←↑#  S  #
+# #↑##### #
+# #↑      #
+###########
+```
+
+### Step-by-Step Directions:
+1. Start at S.
+2. Move Left (←).
+3. Move Up (↑).
+4. Move Up (↑).
+5. Move Up (↑).
+6. Move Left (←) to E.
+
+This path successfully navigates from S to E without hitting any walls.
+
+HUMAN VERIFICATION:

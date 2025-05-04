@@ -1,0 +1,42 @@
+INPUT:
+<ADJLIST_START> ( 0 , 0 ) <--> SOUTH ( 1 , 4 ) <--> NORTH ( 1 , 1 ) <--> SOUTH ( 2 , 2 ) <--> NORTH ( 1 , 4 ) <--> SOUTH ( 3 , 2 ) <--> NORTH ( 2 , 3 ) <--> SOUTH ( 4 , 2 ) <--> NORTH ( 3 , 3 ) <--> SOUTH ( 0 , 1 ) <--> WEST ( 0 , 1 ) <--> EAST ( 0 , 3 ) <--> WEST ( 0 , 3 ) <--> EAST ( 1 , 1 ) <--> WEST ( 1 , 2 ) <--> EAST ( 2 , 4 ) <--> WEST ( 4 , 3 ) <--> WEST <ADJLIST_END> <ORIGIN_START> ( 1 , 0 ) <ORIGIN_END> <TARGET_START> ( 0 , 2 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 0 ) NORTH ( 0 , 0 ) EAST ( 0 , 1 ) EAST ( 0 , 2 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1, 0) to the target (0, 2) in the given maze, we need to analyze the adjacency list and determine a sequence of moves that connects these two points. Here's the step-by-step solution:
+
+### Adjacency List Analysis:
+The adjacency list provided shows the connections between cells in the maze. Here's a simplified representation of the connections:
+
+- (0, 0) <--> SOUTH (1, 0)
+- (1, 4) <--> NORTH (0, 4) [Note: (0, 4) is not explicitly listed, but (1, 4) has NORTH connection]
+- (1, 1) <--> SOUTH (2, 1) [Note: (2, 1) is not explicitly listed, but (1, 1) has SOUTH connection]
+- (2, 2) <--> NORTH (1, 2)
+- (1, 4) <--> SOUTH (2, 4)
+- (3, 2) <--> NORTH (2, 2)
+- (2, 3) <--> SOUTH (3, 3)
+- (4, 2) <--> NORTH (3, 2)
+- (3, 3) <--> SOUTH (4, 3)
+- (0, 1) <--> WEST (0, 0)
+- (0, 1) <--> EAST (0, 2)
+- (0, 3) <--> WEST (0, 2)
+- (0, 3) <--> EAST (0, 4) [Note: (0, 4) is not explicitly listed]
+- (1, 1) <--> WEST (1, 0)
+- (1, 2) <--> EAST (1, 3) [Note: (1, 3) is not explicitly listed]
+- (2, 4) <--> WEST (2, 3)
+- (4, 3) <--> WEST (4, 2)
+
+### Path from (1, 0) to (0, 2):
+1. Start at the origin: (1, 0)
+2. From (1, 0), move EAST to (1, 1) [since (1, 1) is connected WEST to (1, 0)]
+3. From (1, 1), move NORTH to (0, 1) [since (1, 1) has a NORTH connection to (0, 1)]
+4. From (0, 1), move EAST to (0, 2) [since (0, 1) is connected EAST to (0, 2)]
+
+### Final Path:
+(1, 0) EAST (1, 1) NORTH (0, 1) EAST (0, 2)
+
+This path successfully connects the origin (1, 0) to the target (0, 2) using the given adjacency list.
+
+HUMAN VERIFICATION:

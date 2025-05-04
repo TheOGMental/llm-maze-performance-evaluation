@@ -1,0 +1,92 @@
+INPUT:
+###########
+#E  #     #
+### ##### #
+# #   # # #
+##### ### #
+# # #  S  #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#EXX#     #
+###X##### #
+# #XXX# # #
+#####X### #
+# # #XXS  #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin `S` to the target `E`. Here's the maze for reference:
+
+```
+###########
+#E  #     #
+### ##### #
+# #   # # #
+##### ### #
+# # #  S  #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+```
+
+### Step-by-Step Solution:
+1. **Identify Positions**:
+   - Origin (`S`): Row 5, Column 7 (assuming rows and columns are 0-indexed from the top-left corner).
+   - Target (`E`): Row 0, Column 1.
+
+2. **Possible Moves**: From `S`, we can move up, down, left, or right, but not through walls (`#`).
+
+3. **Pathfinding**:
+   - From `S` (5,7), move up to (4,7).
+   - From (4,7), move left to (4,5).
+   - From (4,5), move up to (3,5).
+   - From (3,5), move left to (3,3).
+   - From (3,3), move up to (2,3).
+   - From (2,3), move left to (2,1).
+   - From (2,1), move up to (1,1).
+   - From (1,1), move left to (1,0).
+   - From (1,0), move up to (0,0), then right to (0,1) to reach `E`.
+
+However, let's verify this step-by-step to ensure no walls are crossed:
+
+- (5,7) → (4,7): Valid (empty space).
+- (4,7) → (4,5): Valid (empty space).
+- (4,5) → (3,5): Valid (empty space).
+- (3,5) → (3,3): Valid (empty space).
+- (3,3) → (2,3): Valid (empty space).
+- (2,3) → (2,1): Valid (empty space).
+- (2,1) → (1,1): Valid (empty space).
+- (1,1) → (1,0): Wall at (1,0), so this is invalid. Correct move is (1,1) → (0,1) directly to `E`.
+
+### Corrected Path:
+From `S` (5,7):
+1. Up to (4,7).
+2. Left to (4,5).
+3. Up to (3,5).
+4. Left to (3,3).
+5. Up to (2,3).
+6. Left to (2,1).
+7. Up to (1,1).
+8. Up to (0,1) (`E`).
+
+### Final Path:
+The sequence of moves is: Up, Left, Up, Left, Up, Left, Up, Up.
+
+### Coordinates:
+- (5,7) → (4,7) → (4,5) → (3,5) → (3,3) → (2,3) → (2,1) → (1,1) → (0,1).
+
+This path successfully navigates from `S` to `E` without crossing any walls.
+
+HUMAN VERIFICATION:

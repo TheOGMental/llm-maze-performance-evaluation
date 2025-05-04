@@ -1,0 +1,60 @@
+INPUT:
+<ADJLIST_START> ( 0 , 0 ) <--> SOUTH ( 1 , 1 ) <--> NORTH ( 0 , 3 ) <--> SOUTH ( 1 , 4 ) <--> NORTH ( 2 , 4 ) <--> NORTH ( 3 , 0 ) <--> NORTH ( 3 , 4 ) <--> NORTH ( 3 , 2 ) <--> SOUTH ( 3 , 4 ) <--> SOUTH ( 0 , 0 ) <--> EAST ( 0 , 4 ) <--> WEST ( 1 , 1 ) <--> EAST ( 1 , 2 ) <--> EAST ( 2 , 1 ) <--> WEST ( 2 , 1 ) <--> EAST ( 2 , 2 ) <--> EAST ( 3 , 1 ) <--> WEST ( 3 , 1 ) <--> EAST ( 4 , 2 ) <--> EAST ( 4 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 0 , 0 ) <ORIGIN_END> <TARGET_START> ( 0 , 4 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 0 ) EAST ( 0 , 1 ) SOUTH ( 1 , 1 ) EAST ( 1 , 2 ) EAST ( 1 , 3 ) NORTH ( 0 , 3 ) EAST ( 0 , 4 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (0, 0) to the target (0, 4) in the given maze, let's analyze the adjacency list and construct a valid path step by step.
+
+### Adjacency List Analysis:
+1. (0, 0) is connected to:
+   - SOUTH to (1, 1)
+   - EAST to (0, 1) [Note: (0, 1) is not explicitly listed, but (0, 0) is connected to EAST (0, 1) implicitly]
+   - (0, 0) is also connected to (0, 4) via EAST (but this seems incorrect as (0, 4) is not directly adjacent to (0, 0) in a grid. Likely a typo, so we ignore this.)
+
+2. (0, 4) is connected to:
+   - WEST to (0, 3)
+   - (0, 3) is connected to SOUTH to (1, 4)
+   - (1, 4) is connected to NORTH to (0, 3) and NORTH to (2, 4)
+   - (2, 4) is connected to NORTH to (3, 4)
+   - (3, 4) is connected to NORTH to (3, 2) and SOUTH to (3, 4) [loop]
+
+3. Other connections:
+   - (1, 1) is connected to NORTH to (0, 0), EAST to (1, 2)
+   - (1, 2) is connected to EAST to (2, 2)
+   - (2, 2) is connected to EAST to (3, 2)
+   - (3, 2) is connected to SOUTH to (3, 4)
+   - (2, 1) is connected to WEST to (2, 1) and EAST to (2, 2) [loop]
+   - (3, 1) is connected to WEST to (3, 1) and EAST to (4, 2) [loop]
+   - (4, 2) is connected to EAST to (4, 3)
+
+### Path Construction:
+We need to go from (0, 0) to (0, 4). Here's a possible path:
+
+1. Start at (0, 0).
+2. Move EAST to (0, 1) [assuming this connection exists, though not explicitly listed].
+3. Move EAST to (0, 2) [assuming this connection exists, though not explicitly listed].
+4. Move EAST to (0, 3).
+5. Move EAST to (0, 4).
+
+However, the adjacency list does not explicitly list (0, 1) or (0, 2), so this path may not be valid. 
+
+An alternative path using explicit connections:
+1. Start at (0, 0).
+2. Move SOUTH to (1, 1).
+3. Move EAST to (1, 2).
+4. Move EAST to (2, 2).
+5. Move EAST to (3, 2).
+6. Move SOUTH to (3, 4).
+7. Move NORTH to (2, 4).
+8. Move NORTH to (1, 4).
+9. Move NORTH to (0, 3).
+10. Move EAST to (0, 4).
+
+This path is valid based on the given adjacency list. Here is the formatted path:
+
+### Path:
+(0, 0) SOUTH (1, 1) EAST (1, 2) EAST (2, 2) EAST (3, 2) SOUTH (3, 4) NORTH (2, 4) NORTH (1, 4) NORTH (0, 3) EAST (0, 4)
+
+HUMAN VERIFICATION:

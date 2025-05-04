@@ -1,0 +1,90 @@
+INPUT:
+###########
+# # #     #
+### # ### #
+# #   #   #
+####### ###
+# # # # #S#
+####### # #
+# # # # #E#
+####### # #
+# # # #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # #     #
+### # ### #
+# #   #   #
+####### ###
+# # # # #S#
+####### #X#
+# # # # #E#
+####### # #
+# # # #   #
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin `S` (start) to the target `E` (end). Here is the maze for reference:
+
+```
+###########
+# # #     #
+### # ### #
+# #   #   #
+####### ###
+# # # # #S#
+####### # #
+# # # # #E#
+####### # #
+# # # #   #
+###########
+```
+
+### Step-by-Step Solution:
+
+1. **Identify Start (`S`) and End (`E`) Positions**:
+   - `S` is located at the bottom of the middle column (Row 6, Column 10 if we consider the top-left as (1,1)).
+   - `E` is located at Row 8, Column 10.
+
+2. **Possible Moves**: You can move up, down, left, or right, but not diagonally. You cannot pass through walls (`#`).
+
+3. **Path from `S` to `E`**:
+   - From `S` (Row 6, Column 10), move **up** to Row 5, Column 10.
+   - From Row 5, Column 10, move **left** to Row 5, Column 9 (but this is a wall, so invalid).
+   - Instead, from Row 5, Column 10, move **up** to Row 4, Column 10.
+   - From Row 4, Column 10, move **left** to Row 4, Column 9 (empty space).
+   - From Row 4, Column 9, move **left** to Row 4, Column 8 (empty space).
+   - From Row 4, Column 8, move **left** to Row 4, Column 7 (empty space).
+   - From Row 4, Column 7, move **up** to Row 3, Column 7 (empty space).
+   - From Row 3, Column 7, move **left** to Row 3, Column 6 (empty space).
+   - From Row 3, Column 6, move **left** to Row 3, Column 5 (wall, invalid).
+   - Instead, from Row 3, Column 6, move **up** to Row 2, Column 6 (empty space).
+   - From Row 2, Column 6, move **left** to Row 2, Column 5 (wall, invalid).
+   - Instead, from Row 2, Column 6, move **right** to Row 2, Column 7 (empty space).
+   - From Row 2, Column 7, move **right** to Row 2, Column 8 (empty space).
+   - From Row 2, Column 8, move **right** to Row 2, Column 9 (empty space).
+   - From Row 2, Column 9, move **down** to Row 3, Column 9 (wall, invalid).
+   - Instead, from Row 2, Column 9, move **down** to Row 3, Column 9 is a wall, so this path is invalid.
+   - Re-evaluate: From Row 2, Column 6, move **down** to Row 3, Column 6 (already visited).
+   - Alternative path: From Row 4, Column 7, move **down** to Row 5, Column 7 (wall, invalid).
+   - Alternative path: From Row 4, Column 10, move **right** is out of bounds.
+   - Alternative path: From `S` (Row 6, Column 10), move **left** to Row 6, Column 9 (wall, invalid).
+   - Alternative path: From `S` (Row 6, Column 10), move **down** to Row 7, Column 10 (empty space).
+   - From Row 7, Column 10, move **down** to Row 8, Column 10 (`E`).
+
+### Final Path:
+The simplest path is:
+1. Start at `S` (Row 6, Column 10).
+2. Move **down** to Row 7, Column 10.
+3. Move **down** to `E` (Row 8, Column 10).
+
+### Path Representation (Coordinates are in (Row, Column) format):
+- (6, 10) → (7, 10) → (8, 10)
+
+### Directions:
+- Down, Down.
+
+This is the shortest path from `S` to `E`.
+
+HUMAN VERIFICATION:

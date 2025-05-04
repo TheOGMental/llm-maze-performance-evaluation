@@ -1,0 +1,79 @@
+INPUT:
+###########
+# # # #E  #
+####### # #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # #E  #
+#######X# #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin (S) to the target (E). Here's the maze for reference:
+
+```
+###########
+# # # #E  #
+####### # #
+#      S# #
+# ####### #
+#   # # # #
+### # # # #
+# # # # # #
+### # # # #
+# #   #   #
+###########
+```
+
+### Step-by-Step Solution:
+
+1. **Identify the Positions:**
+   - **Origin (S):** Located at the 4th row, 8th column (assuming the top-left is (1,1)).
+   - **Target (E):** Located at the 2nd row, 8th column.
+
+2. **Possible Moves:**
+   - From S (4,8), you can move: Left, Right, Up, or Down if the adjacent cell is not a wall (#).
+
+3. **Pathfinding:**
+   - From S (4,8), move **Left** to (4,7).
+   - From (4,7), move **Left** to (4,6).
+   - From (4,6), move **Left** to (4,5).
+   - From (4,5), move **Left** to (4,4).
+   - From (4,4), move **Left** to (4,3).
+   - From (4,3), move **Left** to (4,2).
+   - From (4,2), move **Up** to (3,2).
+   - From (3,2), move **Up** to (2,2).
+   - From (2,2), move **Right** to (2,3).
+   - From (2,3), move **Right** to (2,4).
+   - From (2,4), move **Right** to (2,5).
+   - From (2,5), move **Right** to (2,6).
+   - From (2,6), move **Right** to (2,7).
+   - From (2,7), move **Right** to (2,8) (E).
+
+### Path:
+The path from S to E is as follows (using coordinates (row, column)):
+
+(4,8) → (4,7) → (4,6) → (4,5) → (4,4) → (4,3) → (4,2) → (3,2) → (2,2) → (2,3) → (2,4) → (2,5) → (2,6) → (2,7) → (2,8)
+
+### Directions:
+- Left, Left, Left, Left, Left, Left, Up, Up, Right, Right, Right, Right, Right, Right.
+
+This path successfully navigates from the origin (S) to the target (E) without hitting any walls.
+
+HUMAN VERIFICATION:

@@ -69,13 +69,13 @@ tokenizer_list = [
     MazeTokenizerModular(
         prompt_sequencer=PromptSequencers.AOTP(
             coord_tokenizer=CoordTokenizers.UT(),
-            adj_list_tokenizer=AdjListTokenizers.AdjListCardinal(pre=False, post=True, shuffle_d0=True,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords()),
+            adj_list_tokenizer=AdjListTokenizers.AdjListCardinal(pre=False, post=False, shuffle_d0=False,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords()),
             target_tokenizer=TargetTokenizers.Unlabeled(post=False),
             path_tokenizer=PathTokenizers.StepSequence(step_size=StepSizes.Singles(), step_tokenizers=(StepTokenizers.Cardinal(), StepTokenizers.Coord(),), pre=False, intra=False, post=False))),
     MazeTokenizerModular(
         prompt_sequencer=PromptSequencers.AOTP(
             coord_tokenizer=CoordTokenizers.CTT(),
-            adj_list_tokenizer=AdjListTokenizers.AdjListCardinal(pre=False, post=True, shuffle_d0=True,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords()),
+            adj_list_tokenizer=AdjListTokenizers.AdjListCardinal(pre=False, post=False, shuffle_d0=False,edge_subset=EdgeSubsets.ConnectionEdges(walls=False), edge_permuter=EdgePermuters.RandomCoords()),
             target_tokenizer=TargetTokenizers.Unlabeled(post=False),
             path_tokenizer=PathTokenizers.StepSequence(step_size=StepSizes.Singles(), step_tokenizers=(StepTokenizers.Cardinal(), StepTokenizers.Coord(),), pre=False, intra=False, post=False)))]
 

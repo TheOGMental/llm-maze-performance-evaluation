@@ -1,0 +1,251 @@
+INPUT:
+<ADJLIST_START> (1,1) <--> NORTH (0,2) <--> SOUTH (1,3) <--> NORTH (0,4) <--> SOUTH (2,2) <--> NORTH (1,3) <--> SOUTH (2,4) <--> NORTH (3,0) <--> NORTH (2,1) <--> SOUTH (2,2) <--> SOUTH (3,3) <--> NORTH (3,4) <--> NORTH (3,0) <--> SOUTH (4,4) <--> NORTH (0,1) <--> EAST (0,3) <--> EAST (1,0) <--> EAST (2,1) <--> WEST (3,2) <--> WEST (4,1) <--> WEST (4,1) <--> EAST (4,2) <--> EAST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (3,1) <ORIGIN_END> <TARGET_START> (1,4) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (3,1) NORTH (2,1) WEST (2,0) SOUTH (3,0) SOUTH (4,0) EAST (4,1) EAST (4,2) EAST (4,3) EAST (4,4) NORTH (3,4) NORTH (2,4) NORTH (1,4) <PATH_END>
+
+OUTPUT:
+Alright, let's tackle this maze problem step by step. I'm going to approach it methodically to find a path from the origin `(3,1)` to the target `(1,4)`. 
+
+### Understanding the Maze Representation
+
+First, let's understand how the maze is represented. The maze is given as an adjacency list, which shows how each cell is connected to its neighboring cells. Here's the adjacency list provided:
+
+```
+(1,1) <--> NORTH (0,2) <--> SOUTH (1,3) <--> NORTH (0,4) <--> SOUTH (2,2) <--> NORTH (1,3) <--> SOUTH (2,4) <--> NORTH (3,0) <--> NORTH (2,1) <--> SOUTH (2,2) <--> SOUTH (3,3) <--> NORTH (3,4) <--> NORTH (3,0) <--> SOUTH (4,4) <--> NORTH (0,1) <--> EAST (0,3) <--> EAST (1,0) <--> EAST (2,1) <--> WEST (3,2) <--> WEST (4,1) <--> WEST (4,1) <--> EAST (4,2) <--> EAST (4,3) <--> EAST
+```
+
+This seems a bit jumbled, so let's parse it to see which cells are connected to which others.
+
+### Parsing the Adjacency List
+
+An adjacency list typically lists each cell and its connected neighbors. Here's how I'll interpret it:
+
+1. `(1,1)` is connected to:
+   - `NORTH (0,2)`: Moving north from (1,1) takes you to (0,2).
+   - `SOUTH (1,3)`: Moving south from (1,1) takes you to (1,3). Wait, that doesn't make sense because (1,1) moving south should be (2,1), not (1,3). Maybe it's a typo, or perhaps the maze allows teleportation or non-standard moves. For now, let's assume it's correct as given.
+
+Hmm, this seems confusing. Maybe the format is listing connections where each `<-->` separates two connected cells, regardless of direction. Let me try that:
+
+Breaking it down:
+
+- (1,1) is connected to NORTH (0,2)
+- (0,2) is connected to SOUTH (0,4) [but (0,2) moving south is (1,2), not (0,4), so maybe it's just listing connected pairs]
+  
+Perhaps it's better to list all connected pairs without considering directions. Let me extract all connected cell pairs:
+
+From the list, the connections are:
+
+1. (1,1) — (0,2)
+2. (0,2) — (0,4)
+3. (0,4) — (2,1)
+4. (2,1) — (1,2)
+5. (1,2) — (1,3)
+6. (1,3) — (0,1)
+7. (0,1) — (0,4)
+8. (0,4) — (1,4)
+9. (1,4) — (2,1)
+10. (2,1) — (2,2)
+11. (2,2) — (?)
+
+Wait, the last part seems incomplete. Maybe the last cell is (2,2) connected to itself or maybe it's a typo. Given that, let's list all unique connections we can derive:
+
+From the given, here are the connections (assuming bidirectional):
+
+- (1,1) ↔ (0,2)
+- (0,2) ↔ (0,4)
+- (0,4) ↔ (2,1)
+- (2,1) ↔ (1,2)
+- (1,2) ↔ (1,3)
+- (1,3) ↔ (0,1)
+- (0,1) ↔ (0,4)
+- (0,4) ↔ (1,4)
+- (1,4) ↔ (2,1)
+- (2,1) ↔ (2,2)
+- (2,2) ↔ (?) [no clear next]
+
+But looking back, the original list seems to have more entries after (2,2). Let me try to list all connections in order:
+
+1. (1,1) ↔ (0,2)
+2. (0,2) ↔ (0,4)
+3. (0,4) ↔ (2,1)
+4. (2,1) ↔ (1,2)
+5. (1,2) ↔ (1,3)
+6. (1,3) ↔ (0,1)
+7. (0,1) ↔ (0,4)
+8. (0,4) ↔ (1,4)
+9. (1,4) ↔ (2,1)
+10. (2,1) ↔ (2,2)
+11. (2,2) ↔ (?) [next is EAST, but no cell specified]
+
+This seems incomplete. Maybe the connections are not just pairs but include directions. Let me try to reconstruct the adjacency list properly.
+
+### Reconstructing the Adjacency List Properly
+
+An adjacency list for a maze usually lists each cell and its possible moves (direction and resulting cell). Let's try to list each cell with its connections:
+
+Starting from the beginning:
+
+- (1,1):
+  - NORTH: (0,2)
+  
+- (0,2):
+  - SOUTH: (0,4) [but SOUTH from (0,2) should be (1,2), so maybe it's a typo or the maze wraps around]
+  
+Wait, this seems inconsistent with standard grid movements. Maybe the directions are not standard compass directions, or the connections are arbitrary.
+
+Given the confusion, perhaps it's better to list all cell pairs where movement is allowed between them, regardless of direction.
+
+From the given list, the connected cell pairs are:
+
+1. (1,1) — (0,2)
+2. (0,2) — (0,4)
+3. (0,4) — (2,1)
+4. (2,1) — (1,2)
+5. (1,2) — (1,3)
+6. (1,3) — (0,1)
+7. (0,1) — (0,4)
+8. (0,4) — (1,4)
+9. (1,4) — (2,1)
+10. (2,1) — (2,2)
+11. (2,2) — (?) [no next cell]
+
+This seems incomplete. Maybe the rest are:
+
+- (3,0) — (2,1)
+- (2,2) — (3,3)
+- (3,3) — (3,4)
+- (3,0) — (4,4)
+- (0,1) — (0,3)
+- (0,3) — (1,0)
+- (1,0) — (2,1)
+- (2,1) — (3,2)
+- (3,2) — (4,1)
+- (4,1) — (4,2)
+- (4,2) — (4,3)
+
+This seems more complete. Now, let's list all unique connections:
+
+From the above, the connections are:
+
+- (1,1) ↔ (0,2)
+- (0,2) ↔ (0,4)
+- (0,4) ↔ (2,1)
+- (2,1) ↔ (1,2)
+- (1,2) ↔ (1,3)
+- (1,3) ↔ (0,1)
+- (0,1) ↔ (0,4)
+- (0,4) ↔ (1,4)
+- (1,4) ↔ (2,1)
+- (2,1) ↔ (2,2)
+- (3,0) ↔ (2,1)
+- (2,2) ↔ (3,3)
+- (3,3) ↔ (3,4)
+- (3,0) ↔ (4,4)
+- (0,1) ↔ (0,3)
+- (0,3) ↔ (1,0)
+- (1,0) ↔ (2,1)
+- (2,1) ↔ (3,2)
+- (3,2) ↔ (4,1)
+- (4,1) ↔ (4,2)
+- (4,2) ↔ (4,3)
+
+Now, let's see if we can find a path from (3,1) to (1,4).
+
+### Finding the Path from (3,1) to (1,4)
+
+First, check if (3,1) is in the connections. It's not directly listed, but let's see if it's connected:
+
+Looking at the connections, (3,1) isn't directly mentioned. The closest is (3,0), (3,2), (3,3), (3,4). Maybe (3,1) is a typo or not connected. But since it's the origin, it must be connected.
+
+Wait, in the original list, there's `(3,0) <--> NORTH (2,1)`, but no (3,1). Maybe (3,1) is connected to something not listed. Alternatively, maybe it's a typo and should be (3,0) or (3,2).
+
+Given that, let's assume the origin is (3,2) instead, as (3,1) isn't in the connections.
+
+Assuming origin is (3,2):
+
+From (3,2):
+- (3,2) ↔ (4,1)
+- (3,2) ↔ (2,1)
+
+Let's try to reach (1,4):
+
+Option 1:
+(3,2) → (2,1)
+From (2,1):
+- (2,1) ↔ (1,2)
+- (2,1) ↔ (0,4)
+- (2,1) ↔ (1,4)
+- (2,1) ↔ (2,2)
+- (2,1) ↔ (3,0)
+- (2,1) ↔ (1,0)
+
+Let's go to (1,4) directly:
+(3,2) → (2,1) → (1,4)
+
+That's a path: (3,2) → (2,1) → (1,4)
+
+But the origin is given as (3,1), not (3,2). Maybe (3,1) is connected to (3,2) or others not listed. If we can't find (3,1), perhaps it's disconnected.
+
+Given that, maybe the correct origin is (3,2), and there's a typo.
+
+Assuming origin is (3,2), the path is:
+
+(3,2) WEST (2,1) NORTH (1,4)
+
+But directions may not match exactly. Alternatively, if we must start from (3,1), and it's not connected, then no path exists.
+
+Given the confusion, the most plausible path is from (3,2) to (1,4):
+
+(3,2) → (2,1) → (1,4)
+
+### Final Path
+
+Given the ambiguity with (3,1), assuming it's a typo and the origin is (3,2), the path is:
+
+```
+(3,2) WEST (2,1) NORTH (1,4)
+```
+
+If (3,1) is indeed the origin and not connected, then no path exists. But based on the connections, the likely intended path is:
+
+```
+(3,2) WEST (2,1) NORTH (1,4)
+```
+
+However, since the origin is specified as (3,1), and it's not in the adjacency list, it's impossible to start from there. Therefore, there might be an error in the maze configuration.
+
+Given that, the most reasonable answer is that starting from (3,1), which isn't connected to any other cell, no path exists to (1,4).
+
+But since that's unlikely, perhaps (3,1) is connected to (3,2) implicitly. If so:
+
+```
+(3,1) EAST (3,2) WEST (2,1) NORTH (1,4)
+```
+
+Assuming (3,1) can move EAST to (3,2), which is listed as connected to (2,1).
+
+### Conclusion
+
+Given the ambiguity, the most plausible path is:
+
+```
+(3,1) EAST (3,2) WEST (2,1) NORTH (1,4)
+```
+
+However, since (3,1) isn't listed in the adjacency list, this might not be valid. The next best is starting from (3,2):
+
+```
+(3,2) WEST (2,1) NORTH (1,4)
+```
+
+Given that, and assuming the origin might have been mistyped, the path is:
+
+**Path:**
+```
+(3,2) WEST (2,1) NORTH (1,4)
+```
+
+If we strictly adhere to the origin being (3,1) with no connections, then no path exists. But likely, the intended origin is (3,2), leading to the above path.
+
+HUMAN VERIFICATION:

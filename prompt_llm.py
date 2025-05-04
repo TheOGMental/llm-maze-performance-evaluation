@@ -59,5 +59,5 @@ for folder in os.listdir(input_base_path):
                     output = "INPUT:\n" + maze_input + "\n\nEXPECTED SOLUTION:\n" + expected_output + "\n\nOUTPUT:\n" + response + "\n\nHUMAN VERIFICATION:"
 
                     output_file_path = os.path.join(output_folder_path, file_name)
-                    with open(output_file_path, "w") as output_file:
+                    with open(output_file_path, "w", encoding="utf-8") as output_file:
                         output_file.write(output)

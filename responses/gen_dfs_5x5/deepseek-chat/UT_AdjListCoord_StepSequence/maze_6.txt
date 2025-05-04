@@ -1,0 +1,35 @@
+INPUT:
+<ADJLIST_START> (4,2) <--> (4,1) ; (1,0) <--> (0,0) ; (2,2) <--> (3,2) ; (0,4) <--> (0,3) ; (3,1) <--> (2,1) ; (2,0) <--> (2,1) ; (0,0) <--> (0,1) ; (1,2) <--> (0,2) ; (1,4) <--> (2,4) ; (3,1) <--> (4,1) ; (4,3) <--> (4,4) ; (0,4) <--> (1,4) ; (2,4) <--> (3,4) ; (1,3) <--> (2,3) ; (0,1) <--> (1,1) ; (2,2) <--> (2,3) ; (3,3) <--> (4,3) ; (0,3) <--> (1,3) ; (4,4) <--> (3,4) ; (3,2) <--> (4,2) ; (1,1) <--> (1,2) ; (1,0) <--> (2,0) ; <ADJLIST_END> <ORIGIN_START> (0,0) <ORIGIN_END> <TARGET_START> (1,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,0) (1,0) (2,0) (2,1) (3,1) (4,1) (4,2) (3,2) (2,2) (2,3) (1,3) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (0,0) to the target (1,3) in the given maze, we can follow these steps based on the adjacency list provided:
+
+1. Start at (0,0).
+2. From (0,0), move to (0,1) since they are connected.
+3. From (0,1), move to (1,1) since they are connected.
+4. From (1,1), move to (1,2) since they are connected.
+5. From (1,2), move to (0,2). However, (0,2) does not lead directly to (1,3), so this path may not be optimal.
+6. Alternatively, from (1,1), we can consider moving to (2,1), but this seems to lead away from the target.
+7. Another approach is to go from (1,2) to (2,2), then to (2,3), and finally to (1,3).
+
+Here is the optimal path:
+
+(0,0) -> (0,1) -> (1,1) -> (1,2) -> (2,2) -> (2,3) -> (1,3)
+
+Let me verify this path step by step using the adjacency list:
+
+- (0,0) <--> (0,1): Valid.
+- (0,1) <--> (1,1): Valid.
+- (1,1) <--> (1,2): Valid.
+- (1,2) is connected to (0,2) and (2,2). We choose (2,2).
+- (2,2) <--> (2,3): Valid.
+- (2,3) <--> (1,3): Valid.
+
+Thus, the path is valid. Here is the final answer:
+
+<PATH_START> (0,0) (0,1) (1,1) (1,2) (2,2) (2,3) (1,3) <PATH_END>
+
+HUMAN VERIFICATION:

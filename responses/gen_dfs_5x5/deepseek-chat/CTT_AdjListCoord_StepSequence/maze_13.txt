@@ -1,0 +1,17 @@
+INPUT:
+<ADJLIST_START> ( 2 , 4 ) <--> ( 3 , 4 ) ; ( 0 , 2 ) <--> ( 0 , 3 ) ; ( 4 , 3 ) <--> ( 4 , 4 ) ; ( 3 , 3 ) <--> ( 3 , 4 ) ; ( 4 , 2 ) <--> ( 4 , 3 ) ; ( 0 , 2 ) <--> ( 1 , 2 ) ; ( 4 , 2 ) <--> ( 3 , 2 ) ; ( 1 , 4 ) <--> ( 2 , 4 ) ; ( 0 , 3 ) <--> ( 0 , 4 ) ; ( 3 , 2 ) <--> ( 3 , 3 ) ; ( 0 , 4 ) <--> ( 1 , 4 ) ; ( 1 , 2 ) <--> ( 2 , 2 ) ; <ADJLIST_END> <ORIGIN_START> ( 0 , 2 ) <ORIGIN_END> <TARGET_START> ( 1 , 2 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 2 ) ( 1 , 2 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (0, 2) to the target (1, 2) in the given maze, we can follow the adjacency list provided. Here's the step-by-step path:
+
+1. Start at the origin: (0, 2)
+2. From (0, 2), move to (1, 2) (directly connected according to the adjacency list: (0, 2) <--> (1, 2))
+
+This is a very short path since the origin and target are directly connected. Here's the path:
+
+<PATH_START> (0, 2) (1, 2) <PATH_END>
+
+HUMAN VERIFICATION:

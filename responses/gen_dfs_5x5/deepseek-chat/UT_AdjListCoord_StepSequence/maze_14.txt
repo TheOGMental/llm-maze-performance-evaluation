@@ -1,0 +1,46 @@
+INPUT:
+<ADJLIST_START> (3,3) <--> (3,2) ; (3,0) <--> (3,1) ; (3,4) <--> (4,4) ; (3,3) <--> (3,4) ; (4,2) <--> (4,3) ; (4,0) <--> (3,0) ; (4,1) <--> (3,1) ; (4,4) <--> (4,3) ; (4,2) <--> (4,1) ; <ADJLIST_END> <ORIGIN_START> (3,3) <ORIGIN_END> <TARGET_START> (3,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (3,3) (3,4) (4,4) (4,3) (4,2) (4,1) (3,1) (3,0) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (3,3) to the target (3,0) in the given maze, let's analyze the adjacency list step by step.
+
+### Adjacency List:
+1. (3,3) <--> (3,2)
+2. (3,3) <--> (3,4)
+3. (3,2) is connected to (3,3)
+4. (3,4) <--> (4,4)
+5. (4,4) <--> (4,3)
+6. (4,3) <--> (4,2)
+7. (4,2) <--> (4,1)
+8. (4,1) <--> (3,1)
+9. (3,1) <--> (3,0)
+10. (3,0) <--> (4,0)
+11. (3,1) <--> (3,0)
+12. (4,1) <--> (3,1)
+13. (4,2) <--> (4,1)
+14. (4,3) <--> (4,2)
+15. (4,4) <--> (4,3)
+16. (3,0) <--> (3,1)
+17. (3,1) <--> (4,1)
+18. (4,0) <--> (3,0)
+
+### Path from (3,3) to (3,0):
+One possible path is:
+1. Start at (3,3).
+2. Move to (3,2) via (3,3) <--> (3,2).
+3. From (3,2), the only connection is back to (3,3), which is a dead end. So, backtrack to (3,3).
+4. From (3,3), move to (3,4) via (3,3) <--> (3,4).
+5. From (3,4), move to (4,4) via (3,4) <--> (4,4).
+6. From (4,4), move to (4,3) via (4,4) <--> (4,3).
+7. From (4,3), move to (4,2) via (4,3) <--> (4,2).
+8. From (4,2), move to (4,1) via (4,2) <--> (4,1).
+9. From (4,1), move to (3,1) via (4,1) <--> (3,1).
+10. From (3,1), move to (3,0) via (3,1) <--> (3,0).
+
+### Final Path:
+(3,3) -> (3,4) -> (4,4) -> (4,3) -> (4,2) -> (4,1) -> (3,1) -> (3,0)
+
+HUMAN VERIFICATION:

@@ -1,0 +1,222 @@
+INPUT:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # #E    #
+# ### ### #
+#     #S  #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # #EXXXX#
+# ### ###X#
+#     #SXX#
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin (S) to the target (E). Here's the maze for reference:
+
+```
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # # # # #
+###########
+# # #E    #
+# ### ### #
+#     #S  #
+###########
+```
+
+### Step-by-Step Solution:
+
+1. **Identify the Positions:**
+   - **Origin (S):** Located at the bottom row, in the middle (let's say column 5, row 9 for clarity).
+   - **Target (E):** Located in the second-to-last row, towards the left (let's say column 5, row 7).
+
+2. **Possible Moves:**
+   - From S (row 9, column 5), you can move:
+     - Up (row 8, column 5): blocked by a wall (`#`).
+     - Left (row 9, column 4): empty space (` `).
+     - Right (row 9, column 6): empty space (` `).
+     - Down (row 10, column 5): out of bounds.
+
+3. **Path Exploration:**
+   - Move left from S to (row 9, column 4).
+   - From (row 9, column 4), you can move:
+     - Up (row 8, column 4): blocked by a wall (`#`).
+     - Left (row 9, column 3): empty space (` `).
+     - Right (row 9, column 5): back to S.
+     - Down (row 10, column 4): out of bounds.
+   - Move left to (row 9, column 3).
+   - From (row 9, column 3), you can move:
+     - Up (row 8, column 3): empty space (` `).
+     - Left (row 9, column 2): empty space (` `).
+     - Right (row 9, column 4): already visited.
+     - Down (row 10, column 3): out of bounds.
+   - Move up to (row 8, column 3).
+   - From (row 8, column 3), you can move:
+     - Up (row 7, column 3): empty space (` `).
+     - Left (row 8, column 2): empty space (` `).
+     - Right (row 8, column 4): blocked by a wall (`#`).
+     - Down (row 9, column 3): already visited.
+   - Move up to (row 7, column 3).
+   - From (row 7, column 3), you can move:
+     - Up (row 6, column 3): empty space (` `).
+     - Left (row 7, column 2): empty space (` `).
+     - Right (row 7, column 4): blocked by a wall (`#`).
+     - Down (row 8, column 3): already visited.
+   - Move up to (row 6, column 3).
+   - From (row 6, column 3), you can move:
+     - Up (row 5, column 3): blocked by a wall (`#`).
+     - Left (row 6, column 2): empty space (` `).
+     - Right (row 6, column 4): empty space (` `).
+     - Down (row 7, column 3): already visited.
+   - Move left to (row 6, column 2).
+   - From (row 6, column 2), you can move:
+     - Up (row 5, column 2): empty space (` `).
+     - Left (row 6, column 1): blocked by a wall (`#`).
+     - Right (row 6, column 3): already visited.
+     - Down (row 7, column 2): empty space (` `).
+   - Move up to (row 5, column 2).
+   - From (row 5, column 2), you can move:
+     - Up (row 4, column 2): blocked by a wall (`#`).
+     - Left (row 5, column 1): blocked by a wall (`#`).
+     - Right (row 5, column 3): empty space (` `).
+     - Down (row 6, column 2): already visited.
+   - Move right to (row 5, column 3).
+   - From (row 5, column 3), you can move:
+     - Up (row 4, column 3): blocked by a wall (`#`).
+     - Left (row 5, column 2): already visited.
+     - Right (row 5, column 4): empty space (` `).
+     - Down (row 6, column 3): already visited.
+   - Move right to (row 5, column 4).
+   - From (row 5, column 4), you can move:
+     - Up (row 4, column 4): empty space (` `).
+     - Left (row 5, column 3): already visited.
+     - Right (row 5, column 5): blocked by a wall (`#`).
+     - Down (row 6, column 4): empty space (` `).
+   - Move up to (row 4, column 4).
+   - From (row 4, column 4), you can move:
+     - Up (row 3, column 4): blocked by a wall (`#`).
+     - Left (row 4, column 3): blocked by a wall (`#`).
+     - Right (row 4, column 5): empty space (` `).
+     - Down (row 5, column 4): already visited.
+   - Move right to (row 4, column 5).
+   - From (row 4, column 5), you can move:
+     - Up (row 3, column 5): blocked by a wall (`#`).
+     - Left (row 4, column 4): already visited.
+     - Right (row 4, column 6): empty space (` `).
+     - Down (row 5, column 5): blocked by a wall (`#`).
+   - Move right to (row 4, column 6).
+   - From (row 4, column 6), you can move:
+     - Up (row 3, column 6): blocked by a wall (`#`).
+     - Left (row 4, column 5): already visited.
+     - Right (row 4, column 7): blocked by a wall (`#`).
+     - Down (row 5, column 6): empty space (` `).
+   - Move down to (row 5, column 6).
+   - From (row 5, column 6), you can move:
+     - Up (row 4, column 6): already visited.
+     - Left (row 5, column 5): blocked by a wall (`#`).
+     - Right (row 5, column 7): empty space (` `).
+     - Down (row 6, column 6): empty space (` `).
+   - Move right to (row 5, column 7).
+   - From (row 5, column 7), you can move:
+     - Up (row 4, column 7): blocked by a wall (`#`).
+     - Left (row 5, column 6): already visited.
+     - Right (row 5, column 8): empty space (` `).
+     - Down (row 6, column 7): empty space (` `).
+   - Move right to (row 5, column 8).
+   - From (row 5, column 8), you can move:
+     - Up (row 4, column 8): empty space (` `).
+     - Left (row 5, column 7): already visited.
+     - Right (row 5, column 9): blocked by a wall (`#`).
+     - Down (row 6, column 8): empty space (` `).
+   - Move up to (row 4, column 8).
+   - From (row 4, column 8), you can move:
+     - Up (row 3, column 8): blocked by a wall (`#`).
+     - Left (row 4, column 7): blocked by a wall (`#`).
+     - Right (row 4, column 9): empty space (` `).
+     - Down (row 5, column 8): already visited.
+   - Move right to (row 4, column 9).
+   - From (row 4, column 9), you can move:
+     - Up (row 3, column 9): blocked by a wall (`#`).
+     - Left (row 4, column 8): already visited.
+     - Right (row 4, column 10): blocked by a wall (`#`).
+     - Down (row 5, column 9): blocked by a wall (`#`).
+   - This seems like a dead end, so backtrack to (row 5, column 8).
+   - From (row 5, column 8), move down to (row 6, column 8).
+   - From (row 6, column 8), you can move:
+     - Up (row 5, column 8): already visited.
+     - Left (row 6, column 7): empty space (` `).
+     - Right (row 6, column 9): blocked by a wall (`#`).
+     - Down (row 7, column 8): empty space (` `).
+   - Move down to (row 7, column 8).
+   - From (row 7, column 8), you can move:
+     - Up (row 6, column 8): already visited.
+     - Left (row 7, column 7): empty space (` `).
+     - Right (row 7, column 9): empty space (` `).
+     - Down (row 8, column 8): blocked by a wall (`#`).
+   - Move left to (row 7, column 7).
+   - From (row 7, column 7), you can see E is at (row 7, column 5), so move left to (row 7, column 6).
+   - From (row 7, column 6), move left to (row 7, column 5), which is E.
+
+### Final Path:
+The path from S to E is as follows (assuming (row, column) coordinates starting from (1,1) at the top-left corner):
+
+1. Start at S (row 9, column 5).
+2. Left to (9, 4).
+3. Left to (9, 3).
+4. Up to (8, 3).
+5. Up to (7, 3).
+6. Up to (6, 3).
+7. Left to (6, 2).
+8. Up to (5, 2).
+9. Right to (5, 3).
+10. Right to (5, 4).
+11. Up to (4, 4).
+12. Right to (4, 5).
+13. Right to (4, 6).
+14. Down to (5, 6).
+15. Right to (5, 7).
+16. Right to (5, 8).
+17. Down to (6, 8).
+18. Down to (7, 8).
+19. Left to (7, 7).
+20. Left to (7, 6).
+21. Left to (7, 5) (E).
+
+### Simplified Path:
+Alternatively, a more straightforward path exists:
+1. Start at S (row 9, column 5).
+2. Left to (9, 4).
+3. Left to (9, 3).
+4. Up to (8, 3).
+5. Up to (7, 3).
+6. Left to (7, 4).
+7. Left to (7, 5) (E).
+
+### Correct Path:
+The simplified path is correct and more efficient:
+- S (9,5) → (9,4) → (9,3) → (8,3) → (7,3) → (7,4) → (7,5) E.
+
+### Movement Directions:
+- Left, Left, Up, Up, Left, Left.
+
+### Final Answer:
+The path from S to E is: Left, Left, Up, Up, Left, Left.
+
+HUMAN VERIFICATION:

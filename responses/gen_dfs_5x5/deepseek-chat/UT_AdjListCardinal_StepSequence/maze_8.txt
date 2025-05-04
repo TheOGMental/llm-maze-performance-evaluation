@@ -1,0 +1,241 @@
+INPUT:
+<ADJLIST_START> (0,0) <--> SOUTH (1,2) <--> NORTH (2,0) <--> NORTH (1,4) <--> SOUTH (3,0) <--> NORTH (3,4) <--> NORTH (4,0) <--> NORTH (4,2) <--> NORTH (4,3) <--> NORTH (3,4) <--> SOUTH (0,3) <--> WEST (0,4) <--> WEST (1,2) <--> EAST (1,4) <--> WEST (3,3) <--> WEST (4,0) <--> EAST (4,1) <--> EAST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (4,0) <ORIGIN_END> <TARGET_START> (2,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (4,0) NORTH (3,0) NORTH (2,0) <PATH_END>
+
+OUTPUT:
+Alright, let's tackle this maze step by step. I'm going to approach this by first understanding the maze's structure based on the adjacency list provided, then figure out how to get from the origin `(4,0)` to the target `(2,0)`.
+
+### Understanding the Maze Structure
+
+The maze is represented by an adjacency list that shows which cells are connected to each other and in which direction. Here's how I'll interpret it:
+
+Each line in the adjacency list shows a cell and its connected neighbors with the direction you can move to get there. For example:
+- `(0,0) <--> SOUTH (1,2)` means from `(0,0)`, you can move SOUTH to reach `(1,2)`, and vice versa, from `(1,2)`, you can move NORTH to reach `(0,0)`.
+
+Let me list out all the connections to visualize the maze better:
+
+1. `(0,0) <--> SOUTH (1,2)`
+   - `(0,0)` can go SOUTH to `(1,2)`
+   - `(1,2)` can go NORTH to `(0,0)`
+
+2. `(1,2) <--> NORTH (2,0)`
+   - `(1,2)` can go NORTH to `(2,0)`
+   - `(2,0)` can go SOUTH to `(1,2)`
+
+3. `(2,0) <--> NORTH (1,4)`
+   - `(2,0)` can go NORTH to `(1,4)`
+   - `(1,4)` can go SOUTH to `(2,0)`
+
+4. `(1,4) <--> SOUTH (3,0)`
+   - `(1,4)` can go SOUTH to `(3,0)`
+   - `(3,0)` can go NORTH to `(1,4)`
+
+5. `(3,0) <--> NORTH (3,4)`
+   - `(3,0)` can go NORTH to `(3,4)`
+   - `(3,4)` can go SOUTH to `(3,0)`
+
+6. `(3,4) <--> NORTH (4,0)`
+   - `(3,4)` can go NORTH to `(4,0)`
+   - `(4,0)` can go SOUTH to `(3,4)`
+
+7. `(4,0) <--> NORTH (4,2)`
+   - `(4,0)` can go NORTH to `(4,2)`
+   - `(4,2)` can go SOUTH to `(4,0)`
+
+8. `(4,2) <--> NORTH (4,3)`
+   - `(4,2)` can go NORTH to `(4,3)`
+   - `(4,3)` can go SOUTH to `(4,2)`
+
+9. `(4,3) <--> NORTH (3,4)`
+   - `(4,3)` can go NORTH to `(3,4)`
+   - `(3,4)` can go SOUTH to `(4,3)`
+
+10. `(3,4) <--> SOUTH (0,3)`
+    - `(3,4)` can go SOUTH to `(0,3)`
+    - `(0,3)` can go NORTH to `(3,4)`
+
+11. `(0,3) <--> WEST (0,4)`
+    - `(0,3)` can go WEST to `(0,4)`
+    - `(0,4)` can go EAST to `(0,3)`
+
+12. `(0,4) <--> WEST (1,2)`
+    - `(0,4)` can go WEST to `(1,2)`
+    - `(1,2)` can go EAST to `(0,4)`
+
+13. `(1,2) <--> EAST (1,4)`
+    - `(1,2)` can go EAST to `(1,4)`
+    - `(1,4)` can go WEST to `(1,2)`
+
+14. `(1,4) <--> WEST (3,3)`
+    - `(1,4)` can go WEST to `(3,3)`
+    - `(3,3)` can go EAST to `(1,4)`
+
+15. `(3,3) <--> WEST (4,0)`
+    - `(3,3)` can go WEST to `(4,0)`
+    - `(4,0)` can go EAST to `(3,3)`
+
+16. `(4,0) <--> EAST (4,1)`
+    - `(4,0)` can go EAST to `(4,1)`
+    - `(4,1)` can go WEST to `(4,0)`
+
+17. `(4,1) <--> EAST (4,3)`
+    - `(4,1)` can go EAST to `(4,3)`
+    - `(4,3)` can go WEST to `(4,1)`
+
+### Visualizing the Maze
+
+From the connections, let's try to see how cells are linked:
+
+- `(4,0)` is connected to:
+  - `(3,4)` SOUTH
+  - `(4,2)` NORTH
+  - `(3,3)` EAST (via `(4,0)` EAST to `(4,1)` EAST to `(4,3)` NORTH to `(3,4)` SOUTH to `(4,3)` WEST to `(4,1)` WEST to `(4,0)` EAST to `(3,3)` seems convoluted, but `(4,0)` directly EAST to `(4,1)` then EAST to `(4,3)`, but `(3,3)` is connected to `(4,0)` via EAST from `(3,3)` to `(1,4)` seems off. Wait, `(3,3)` is connected to `(4,0)` via WEST, meaning from `(3,3)` you can go WEST to `(4,0)`, so from `(4,0)` you can go EAST to `(4,1)` then EAST to `(4,3)`, but not directly to `(3,3)`.
+
+Actually, looking back, `(3,3)` is connected to `(4,0)` via `(3,3) WEST (4,0)`, meaning from `(4,0)` you can go EAST to `(4,1)`, then EAST to `(4,3)`, but `(3,3)` is connected to `(1,4)` via `(1,4) WEST (3,3)`, so `(3,3)` EAST to `(1,4)`.
+
+This seems a bit tangled. Maybe it's better to list possible moves from each cell.
+
+### Listing Possible Moves from Each Cell
+
+Let's list out from each cell where you can go:
+
+- `(0,0)`: SOUTH to `(1,2)`
+- `(1,2)`: NORTH to `(0,0)`, NORTH to `(2,0)`, EAST to `(1,4)`, WEST to `(0,4)`
+- `(2,0)`: SOUTH to `(1,2)`, NORTH to `(1,4)`
+- `(1,4)`: SOUTH to `(2,0)`, SOUTH to `(3,0)`, WEST to `(1,2)`, WEST to `(3,3)`
+- `(3,0)`: NORTH to `(1,4)`, NORTH to `(3,4)`
+- `(3,4)`: SOUTH to `(3,0)`, NORTH to `(4,0)`, SOUTH to `(0,3)`, SOUTH to `(4,3)`
+- `(4,0)`: SOUTH to `(3,4)`, NORTH to `(4,2)`, EAST to `(4,1)`, EAST to `(3,3)` (via `(4,0)` EAST to `(4,1)` EAST to `(4,3)` but `(3,3)` is connected to `(4,0)` via WEST, so from `(4,0)` EAST to `(4,1)` EAST to `(4,3)` then `(4,3)` NORTH to `(3,4)` but not directly to `(3,3)`. Wait, `(3,3)` is connected to `(1,4)` and `(4,0)` via `(3,3) WEST (4,0)`, so from `(4,0)` EAST to `(4,1)` EAST to `(4,3)` but no direct path to `(3,3)` from `(4,0)` except via `(3,3) WEST (4,0)` which is the reverse.
+  
+Hmm, seems like from `(4,0)` you can't directly go to `(3,3)` unless `(3,3)` is connected to `(4,0)` via `(3,3) WEST (4,0)`, meaning from `(4,0)` you can go EAST to `(4,1)` etc., but not directly to `(3,3)`.
+
+Maybe better to ignore `(3,3)` for now unless needed.
+
+- `(4,2)`: SOUTH to `(4,0)`, NORTH to `(4,3)`
+- `(4,3)`: SOUTH to `(4,2)`, NORTH to `(3,4)`, WEST to `(4,1)`
+- `(0,3)`: NORTH to `(3,4)`, WEST to `(0,4)`
+- `(0,4)`: EAST to `(0,3)`, WEST to `(1,2)`
+- `(3,3)`: EAST to `(1,4)`, WEST to `(4,0)`
+- `(4,1)`: WEST to `(4,0)`, EAST to `(4,3)`
+
+### Finding the Path from `(4,0)` to `(2,0)`
+
+Origin: `(4,0)`
+Target: `(2,0)`
+
+From `(4,0)`, where can we go?
+
+1. `(4,0)`:
+   - SOUTH to `(3,4)`
+   - NORTH to `(4,2)`
+   - EAST to `(4,1)`
+
+Let's explore each option:
+
+**Option 1: SOUTH to `(3,4)`**
+- `(3,4)`:
+  - SOUTH to `(3,0)`
+  - NORTH to `(4,0)` (back)
+  - SOUTH to `(0,3)`
+  - SOUTH to `(4,3)`
+
+From `(3,4)` to `(3,0)`:
+- `(3,0)`:
+  - NORTH to `(1,4)`
+  - NORTH to `(3,4)` (back)
+
+From `(3,0)` to `(1,4)`:
+- `(1,4)`:
+  - SOUTH to `(2,0)` (target!)
+  - SOUTH to `(3,0)` (back)
+  - WEST to `(1,2)`
+  - WEST to `(3,3)`
+
+From `(1,4)` to `(2,0)`:
+Bingo! We've reached the target.
+
+So one possible path is:
+`(4,0)` SOUTH `(3,4)` SOUTH `(3,0)` NORTH `(1,4)` SOUTH `(2,0)`
+
+But let's check if this is valid:
+- `(4,0)` SOUTH `(3,4)`: Yes, `(4,0)` can go SOUTH to `(3,4)`
+- `(3,4)` SOUTH `(3,0)`: Yes
+- `(3,0)` NORTH `(1,4)`: Yes
+- `(1,4)` SOUTH `(2,0)`: Yes
+
+This seems correct.
+
+**Option 2: NORTH to `(4,2)`**
+For completeness, let's see where this leads:
+- `(4,2)`:
+  - SOUTH to `(4,0)` (back)
+  - NORTH to `(4,3)`
+
+From `(4,2)` to `(4,3)`:
+- `(4,3)`:
+  - SOUTH to `(4,2)` (back)
+  - NORTH to `(3,4)`
+  - WEST to `(4,1)`
+
+From `(4,3)` to `(3,4)`:
+- `(3,4)`:
+  - Then similar to Option 1, can go to `(3,0)` then `(1,4)` then `(2,0)`
+
+This would be longer, so Option 1 is better.
+
+**Option 3: EAST to `(4,1)`**
+- `(4,1)`:
+  - WEST to `(4,0)` (back)
+  - EAST to `(4,3)`
+
+From `(4,1)` to `(4,3)`:
+- `(4,3)`:
+  - Then as above, can go to `(3,4)` etc.
+
+Again, longer than Option 1.
+
+### Verifying the Shortest Path
+
+The path found in Option 1 is:
+`(4,0)` SOUTH `(3,4)` SOUTH `(3,0)` NORTH `(1,4)` SOUTH `(2,0)`
+
+Let's count the steps:
+1. `(4,0)` to `(3,4)`
+2. `(3,4)` to `(3,0)`
+3. `(3,0)` to `(1,4)`
+4. `(1,4)` to `(2,0)`
+
+Total: 4 moves.
+
+Is there a shorter path? Let's see:
+
+Alternative path:
+From `(4,0)` EAST to `(4,1)` EAST to `(4,3)` NORTH to `(3,4)` then as before: 5 moves, longer.
+
+Another try:
+From `(4,0)` SOUTH `(3,4)` SOUTH `(0,3)` WEST `(0,4)` WEST `(1,2)` NORTH `(2,0)`: 
+1. `(4,0)` to `(3,4)`
+2. `(3,4)` to `(0,3)`
+3. `(0,3)` to `(0,4)`
+4. `(0,4)` to `(1,2)`
+5. `(1,2)` to `(2,0)`
+
+5 moves, longer.
+
+So the first path seems shortest.
+
+### Final Path
+
+The shortest path from `(4,0)` to `(2,0)` is:
+
+`(4,0)` SOUTH `(3,4)` SOUTH `(3,0)` NORTH `(1,4)` SOUTH `(2,0)`
+
+### Formatted Answer
+
+Here's the path formatted as requested:
+
+<PATH_START> (4,0) SOUTH (3,4) SOUTH (3,0) NORTH (1,4) SOUTH (2,0) <PATH_END>
+
+HUMAN VERIFICATION:

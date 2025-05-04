@@ -1,0 +1,79 @@
+INPUT:
+###########
+#       # #
+# ##### ###
+#S#   #   #
+# # # ### #
+# # # #   #
+# # # # ###
+# # # #   #
+# # ##### #
+#E#       #
+###########
+
+EXPECTED SOLUTION:
+###########
+#       # #
+# ##### ###
+#S#   #   #
+#X# # ### #
+#X# # #   #
+#X# # # ###
+#X# # #   #
+#X# ##### #
+#E#       #
+###########
+
+OUTPUT:
+To solve the given maze, we'll start at the origin `S` and find a path to the target `E`. Here's the step-by-step path:
+
+### Maze Representation:
+```
+###########
+#       # #
+# ##### ###
+#S#   #   #
+# # # ### #
+# # # #   #
+# # # # ###
+# # # #   #
+# # ##### #
+#E#       #
+###########
+```
+
+### Path from `S` to `E`:
+1. Start at `S` (Row 4, Column 2).
+2. Move **Down** to (Row 5, Column 2).
+3. Move **Down** to (Row 6, Column 2).
+4. Move **Down** to (Row 7, Column 2).
+5. Move **Down** to (Row 8, Column 2).
+6. Move **Down** to (Row 9, Column 2) — this is `E`.
+
+### Path:
+- Down (D)
+- Down (D)
+- Down (D)
+- Down (D)
+- Down (D)
+
+### Directions:
+DDDDD
+
+### Visualized Path:
+```
+###########
+#       # #
+# ##### ###
+#S#   #   #
+#D# # ### #
+#D# # #   #
+#D# # # ###
+#D# # #   #
+#D# ##### #
+#E#       #
+###########
+```
+The path is straightforward: just move down five times from `S` to reach `E`.
+
+HUMAN VERIFICATION:

@@ -1,0 +1,34 @@
+INPUT:
+<ADJLIST_START> ( 3 , 0 ) <--> SOUTH ( 3 , 2 ) <--> SOUTH ( 4 , 4 ) <--> NORTH ( 3 , 3 ) <--> WEST ( 3 , 4 ) <--> WEST ( 4 , 0 ) <--> EAST ( 4 , 2 ) <--> WEST ( 4 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 4 , 3 ) <ORIGIN_END> <TARGET_START> ( 3 , 2 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 4 , 3 ) EAST ( 4 , 4 ) NORTH ( 3 , 4 ) WEST ( 3 , 3 ) WEST ( 3 , 2 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (4, 3) to the target (3, 2) in the given maze, let's analyze the adjacency list and construct a valid path step by step.
+
+### Adjacency List Interpretation:
+- (3, 0) <--> SOUTH (3, 2)
+- (3, 2) <--> SOUTH (4, 4)
+- (4, 4) <--> NORTH (3, 3)
+- (3, 3) <--> WEST (3, 4)
+- (3, 4) <--> WEST (4, 0)
+- (4, 0) <--> EAST (4, 2)
+- (4, 2) <--> WEST (4, 3)
+- (4, 3) <--> EAST (4, 2)
+
+### Step-by-Step Path:
+1. Start at the origin: (4, 3).
+2. From (4, 3), move WEST to (4, 2) (since (4, 3) is connected to (4, 2) via EAST/WEST).
+3. From (4, 2), move EAST to (4, 0) (since (4, 2) is connected to (4, 0) via WEST/EAST).
+4. From (4, 0), move WEST to (3, 4) (since (4, 0) is connected to (3, 4) via EAST/WEST).
+5. From (3, 4), move WEST to (3, 3) (since (3, 4) is connected to (3, 3) via WEST/EAST).
+6. From (3, 3), move NORTH to (4, 4) (since (3, 3) is connected to (4, 4) via SOUTH/NORTH).
+7. From (4, 4), move SOUTH to (3, 2) (since (4, 4) is connected to (3, 2) via NORTH/SOUTH).
+
+### Final Path:
+(4, 3) WEST (4, 2) EAST (4, 0) WEST (3, 4) WEST (3, 3) NORTH (4, 4) SOUTH (3, 2)
+
+This path successfully navigates from the origin (4, 3) to the target (3, 2) using the given adjacency list.
+
+HUMAN VERIFICATION:

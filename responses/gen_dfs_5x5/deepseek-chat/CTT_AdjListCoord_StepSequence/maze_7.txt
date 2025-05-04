@@ -1,0 +1,16 @@
+INPUT:
+<ADJLIST_START> ( 0 , 0 ) <--> ( 1 , 0 ) ; ( 2 , 1 ) <--> ( 3 , 1 ) ; ( 4 , 1 ) <--> ( 4 , 2 ) ; ( 1 , 1 ) <--> ( 0 , 1 ) ; ( 3 , 0 ) <--> ( 2 , 0 ) ; ( 4 , 0 ) <--> ( 3 , 0 ) ; ( 3 , 1 ) <--> ( 4 , 1 ) ; ( 3 , 2 ) <--> ( 4 , 2 ) ; ( 1 , 1 ) <--> ( 2 , 1 ) ; ( 1 , 0 ) <--> ( 2 , 0 ) ; ( 0 , 0 ) <--> ( 0 , 1 ) ; <ADJLIST_END> <ORIGIN_START> ( 1 , 1 ) <ORIGIN_END> <TARGET_START> ( 2 , 1 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 1 ) ( 2 , 1 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1, 1) to the target (2, 1) in the given maze, we can follow these steps:
+
+1. From (1, 1), we can move to (0, 1) or (2, 1).
+2. (2, 1) is the target, so we can directly move there.
+
+Thus, the shortest path is:
+<PATH_START> (1, 1) (2, 1) <PATH_END>
+
+HUMAN VERIFICATION:

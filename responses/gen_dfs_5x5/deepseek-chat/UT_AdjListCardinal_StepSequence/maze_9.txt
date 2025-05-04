@@ -1,0 +1,62 @@
+INPUT:
+<ADJLIST_START> (1,1) <--> NORTH (0,2) <--> SOUTH (0,4) <--> SOUTH (1,3) <--> SOUTH (3,3) <--> NORTH (3,4) <--> NORTH (4,3) <--> NORTH (4,4) <--> NORTH (0,2) <--> EAST (0,3) <--> EAST (1,2) <--> WEST (1,4) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (2,4) <ORIGIN_END> <TARGET_START> (3,4) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (2,4) SOUTH (3,4) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (2,4) to the target (3,4) in the given maze, let's analyze the adjacency list step by step.
+
+### Adjacency List Analysis:
+1. (1,1) <--> NORTH (0,2)
+2. (0,2) <--> SOUTH (0,4)
+3. (0,4) <--> SOUTH (1,3)
+4. (1,3) <--> SOUTH (3,3)
+5. (3,3) <--> NORTH (3,4)
+6. (3,4) <--> NORTH (4,3)
+7. (4,3) <--> NORTH (4,4)
+8. (4,4) <--> NORTH (0,2)
+9. (0,2) <--> EAST (0,3)
+10. (0,3) <--> EAST (1,2)
+11. (1,2) <--> WEST (1,4)
+12. (1,4) <--> WEST (4,3)
+13. (4,3) <--> EAST
+
+### Observations:
+- The target is (3,4), which is connected to (3,3) via NORTH.
+- (3,3) is connected to (1,3) via SOUTH.
+- (1,3) is connected to (0,4) via SOUTH.
+- (0,4) is connected to (0,2) via SOUTH.
+- (0,2) is connected to (1,1) via NORTH and (0,3) via EAST.
+- (0,3) is connected to (1,2) via EAST.
+- (1,2) is connected to (1,4) via WEST.
+- (1,4) is connected to (4,3) via WEST.
+- (4,3) is connected to (3,4) via NORTH and (4,4) via NORTH.
+- (4,4) is connected to (0,2) via NORTH.
+
+### Path Construction:
+The origin is (2,4), but (2,4) is not directly in the adjacency list. The closest points are (1,4) and (3,4). Since (3,4) is the target, we can assume (2,4) is adjacent to (1,4) or (3,4). From the adjacency list, (1,4) is connected to (4,3), and (3,4) is connected to (3,3).
+
+A possible path is:
+1. From (2,4), move to (1,4) (assuming adjacency).
+2. From (1,4), move WEST to (4,3).
+3. From (4,3), move NORTH to (3,4), which is the target.
+
+However, this seems inefficient. Alternatively:
+1. From (2,4), move to (3,4) directly if adjacent (since (3,4) is the target).
+
+Since (2,4) is not in the adjacency list, the most plausible path is:
+(2,4) -> (3,4).
+
+### Final Path:
+(2,4) SOUTH (3,4)
+
+### Explanation:
+- The origin (2,4) is likely adjacent to the target (3,4) since no other connections are provided for (2,4). Thus, moving SOUTH from (2,4) reaches (3,4) directly. 
+
+If (2,4) is not adjacent to (3,4), the maze configuration would need to include (2,4)'s connections, which it does not. Therefore, the simplest path is a direct move from (2,4) to (3,4). 
+
+### Final Answer:
+<PATH_START> (2,4) SOUTH (3,4) <PATH_END>
+
+HUMAN VERIFICATION:

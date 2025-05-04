@@ -1,0 +1,38 @@
+INPUT:
+<ADJLIST_START> (4,0) <--> NORTH (3,1) <--> SOUTH (3,4) <--> SOUTH (3,0) <--> EAST (3,2) <--> EAST (3,4) <--> WEST (4,1) <--> EAST (4,3) <--> WEST (4,4) <--> WEST <ADJLIST_END> <ORIGIN_START> (3,3) <ORIGIN_END> <TARGET_START> (3,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (3,3) EAST (3,4) SOUTH (4,4) WEST (4,3) WEST (4,2) WEST (4,1) NORTH (3,1) WEST (3,0) <PATH_END>
+
+OUTPUT:
+To solve this maze, we need to find a path from the origin (3,3) to the target (3,0) using the given adjacency list. Let's break down the adjacency list to understand the connections between the points:
+
+### Adjacency List:
+- (4,0) <--> NORTH (3,1)
+- (3,1) <--> SOUTH (3,4)
+- (3,4) <--> SOUTH (3,0)
+- (3,0) <--> EAST (3,2)
+- (3,2) <--> EAST (3,4)
+- (3,4) <--> WEST (4,1)
+- (4,1) <--> EAST (4,3)
+- (4,3) <--> WEST (4,4)
+- (4,4) <--> WEST
+
+### Origin: (3,3)
+### Target: (3,0)
+
+### Step-by-Step Path:
+1. Start at the origin: (3,3).
+   - (3,3) is not directly in the adjacency list, but we can see that (4,3) is connected to (4,4) and (4,1). Since (3,3) is one unit north of (4,3), we can assume a connection, but it's not explicitly listed. This suggests that (3,3) might be isolated or the adjacency list is incomplete. However, since (3,3) is the origin, we must find a way to connect it to the rest of the maze.
+
+2. From (3,3), the closest point in the adjacency list is (3,4) or (3,2). However, (3,3) is not directly connected to either in the given list. This implies that the maze might have an incomplete adjacency list, or (3,3) is not connected to any other points, making it impossible to reach the target.
+
+3. Given the adjacency list, the only way to reach (3,0) is from (3,4) or (3,2). But since (3,3) is not connected to any other points, there is no valid path from (3,3) to (3,0) based on the provided adjacency list.
+
+### Conclusion:
+The given adjacency list does not provide any connections from the origin (3,3) to any other points in the maze. Therefore, it is impossible to find a valid path from (3,3) to (3,0) with the given information.
+
+### Final Answer:
+No valid path exists from (3,3) to (3,0) based on the provided adjacency list.
+
+HUMAN VERIFICATION:

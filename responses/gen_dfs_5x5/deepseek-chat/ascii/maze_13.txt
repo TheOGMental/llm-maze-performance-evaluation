@@ -1,0 +1,128 @@
+INPUT:
+###########
+# # #S    #
+##### ### #
+# # #E# # #
+##### ### #
+# # # # # #
+######### #
+# # #     #
+##### #####
+# # #     #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # #S    #
+#####X### #
+# # #E# # #
+##### ### #
+# # # # # #
+######### #
+# # #     #
+##### #####
+# # #     #
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin `S` (start) to the target `E` (end). Here's the maze for reference:
+
+```
+###########
+# # #S    #
+##### ### #
+# # #E# # #
+##### ### #
+# # # # # #
+######### #
+# # #     #
+##### #####
+# # #     #
+###########
+```
+
+### Step-by-Step Solution:
+
+1. **Identify Start (`S`) and End (`E`) Positions:**
+   - `S` is located at the 3rd column of the 2nd row.
+   - `E` is located at the 5th column of the 4th row.
+
+2. **Possible Moves:**
+   - From `S`, you can move `Right`, `Left`, `Up`, or `Down` as long as the path is not blocked by a wall (`#`).
+
+3. **Path Exploration:**
+   - From `S` (2nd row, 3rd column), the possible moves are:
+     - Right: 4th column is empty (valid).
+     - Left: 2nd column is a wall (blocked).
+     - Up: 1st row is a wall (blocked).
+     - Down: 3rd row, 3rd column is a wall (blocked).
+   - So, the only initial move is `Right` to (2nd row, 4th column).
+
+4. **Continue Moving Right:**
+   - From (2nd row, 4th column), you can continue moving `Right` until you hit a wall or reach `E`.
+   - Moves:
+     - Right to (2nd row, 5th column).
+     - Right to (2nd row, 6th column).
+     - Right to (2nd row, 7th column) — wall at (2nd row, 8th column), so cannot go further right.
+
+5. **From (2nd row, 7th column), Possible Moves:**
+   - Right: wall (blocked).
+   - Left: back to (2nd row, 6th column) — not helpful.
+   - Up: (1st row, 7th column) is a wall (blocked).
+   - Down: (3rd row, 7th column) is empty (valid).
+
+6. **Move Down to (3rd row, 7th column):**
+   - From here, `E` is at (4th row, 5th column), so we need to move left and down.
+   - Possible moves:
+     - Left to (3rd row, 6th column).
+     - Right to (3rd row, 8th column) — wall (blocked).
+     - Up: back to (2nd row, 7th column) — not helpful.
+     - Down: (4th row, 7th column) is empty (valid).
+
+7. **Move Down to (4th row, 7th column):**
+   - From here, `E` is at (4th row, 5th column), so we need to move left.
+   - Possible moves:
+     - Left to (4th row, 6th column).
+     - Left to (4th row, 5th column) — this is `E`.
+
+### Final Path:
+The path from `S` to `E` is:
+1. Right to (2, 4)
+2. Right to (2, 5)
+3. Right to (2, 6)
+4. Right to (2, 7)
+5. Down to (3, 7)
+6. Down to (4, 7)
+7. Left to (4, 6)
+8. Left to (4, 5) — `E`
+
+### Path in Coordinates (row, column):
+- (2, 3) → (2, 4) → (2, 5) → (2, 6) → (2, 7) → (3, 7) → (4, 7) → (4, 6) → (4, 5)
+
+### Visualized Path:
+```
+###########
+# # #S....#
+##### ###.#
+# # #E# #.#
+##### ###.#
+# # # # # #
+######### #
+# # #     #
+##### #####
+# # #     #
+###########
+```
+(Here, the path is marked with `.` for clarity, though the original maze does not show these.) 
+
+### Directions:
+- Right (to 2,4)
+- Right (to 2,5)
+- Right (to 2,6)
+- Right (to 2,7)
+- Down (to 3,7)
+- Down (to 4,7)
+- Left (to 4,6)
+- Left (to 4,5) — `E`
+
+HUMAN VERIFICATION:

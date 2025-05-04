@@ -1,0 +1,86 @@
+INPUT:
+<ADJLIST_START> (1,1) <--> NORTH (1,2) <--> NORTH (1,4) <--> NORTH (2,4) <--> NORTH (2,2) <--> SOUTH (3,0) <--> SOUTH (4,1) <--> NORTH (3,4) <--> SOUTH (0,2) <--> EAST (0,4) <--> WEST (1,2) <--> WEST (2,2) <--> EAST (2,4) <--> WEST (3,1) <--> WEST (3,2) <--> EAST (3,3) <--> EAST (4,2) <--> WEST (4,3) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (4,1) <ORIGIN_END> <TARGET_START> (0,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (4,1) EAST (4,2) EAST (4,3) EAST (4,4) NORTH (3,4) WEST (3,3) WEST (3,2) NORTH (2,2) EAST (2,3) EAST (2,4) NORTH (1,4) NORTH (0,4) WEST (0,3) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (4,1) to the target (0,3) in the given maze, let's analyze the adjacency list and construct a valid path step by step.
+
+### Adjacency List Analysis:
+Here are the connections extracted from the adjacency list:
+- (1,1) <--> NORTH (1,2)
+- (1,2) <--> NORTH (1,4)
+- (1,4) <--> NORTH (2,4)
+- (2,4) <--> NORTH (2,2)
+- (2,2) <--> SOUTH (3,0)
+- (3,0) <--> SOUTH (4,1)
+- (4,1) <--> NORTH (3,4)
+- (3,4) <--> SOUTH (0,2)
+- (0,2) <--> EAST (0,4)
+- (0,4) <--> WEST (1,2)
+- (1,2) <--> WEST (2,2)
+- (2,2) <--> EAST (2,4)
+- (2,4) <--> WEST (3,1)
+- (3,1) <--> WEST (3,2)
+- (3,2) <--> EAST (3,3)
+- (3,3) <--> EAST (4,2)
+- (4,2) <--> WEST (4,3)
+- (4,3) <--> WEST (4,3) (self-loop, likely a typo)
+
+### Target:
+The target is (0,3), but (0,3) is not explicitly listed in the adjacency list. The closest nodes to (0,3) are (0,2) and (0,4). Since (0,3) is not directly connected, we assume it is adjacent to (0,2) or (0,4) (though this is not specified). For this solution, we will assume (0,3) is reachable from (0,2).
+
+### Path Construction:
+Starting from the origin (4,1), we can traverse as follows:
+1. (4,1) is connected to (3,4) via NORTH.
+2. (3,4) is connected to (0,2) via SOUTH.
+3. From (0,2), we can move to (0,3) (assuming this is allowed, even though not explicitly listed).
+
+However, since (0,3) is not directly connected, let's try an alternative path:
+1. (4,1) is connected to (3,0) via NORTH (from (4,1)'s perspective, but (3,0) is SOUTH of (2,2)). Wait, this seems incorrect.
+
+Let me re-express the adjacency list more clearly:
+- (4,1) is connected to (3,4) via NORTH.
+- (3,4) is connected to (0,2) via SOUTH.
+- (0,2) is connected to (0,4) via EAST and (1,2) via WEST.
+- From (0,2), we cannot directly reach (0,3), so this path doesn't work.
+
+Alternative approach:
+From (4,1), go to (3,4):
+1. (4,1) -> NORTH -> (3,4)
+2. (3,4) -> SOUTH -> (0,2)
+3. (0,2) -> EAST -> (0,4)
+4. (0,4) -> WEST -> (1,2)
+5. (1,2) -> NORTH -> (1,4)
+6. (1,4) -> NORTH -> (2,4)
+7. (2,4) -> NORTH -> (2,2)
+8. (2,2) -> SOUTH -> (3,0)
+This seems to loop and not reach (0,3).
+
+Another attempt:
+From (4,1), go to (3,1) (but (3,1) is connected via (2,4) -> WEST):
+1. (4,1) -> NORTH -> (3,4)
+2. (3,4) -> WEST -> (2,4)
+3. (2,4) -> WEST -> (3,1)
+4. (3,1) -> WEST -> (3,2)
+5. (3,2) -> EAST -> (3,3)
+6. (3,3) -> EAST -> (4,2)
+This also doesn't help reach (0,3).
+
+Given the adjacency list, it seems impossible to reach (0,3) from (4,1) because (0,3) is not connected to any node in the list. 
+
+### Conclusion:
+The target (0,3) is not reachable from the origin (4,1) with the given adjacency list. There may be missing connections in the adjacency list, or (0,3) might be isolated. 
+
+If we assume (0,3) is connected to (0,2), then the path would be:
+1. (4,1) -> NORTH -> (3,4)
+2. (3,4) -> SOUTH -> (0,2)
+3. (0,2) -> EAST -> (0,3) (assuming this connection exists).
+
+But since (0,3) is not in the adjacency list, this is not valid. Thus, no valid path exists with the given information. 
+
+### Final Answer:
+No valid path exists from (4,1) to (0,3) with the given adjacency list. The target (0,3) is unreachable.
+
+HUMAN VERIFICATION:

@@ -1,0 +1,137 @@
+INPUT:
+###########
+#    S# # #
+# ### #####
+#   # # # #
+### # #####
+#   # # # #
+# ### #####
+# #E# # # #
+### # #####
+# #   # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#    S# # #
+# ###X#####
+#   #X# # #
+### #X#####
+#   #X# # #
+# ###X#####
+# #E#X# # #
+###X#X#####
+# #XXX# # #
+###########
+
+OUTPUT:
+To solve the given maze, we'll start at the origin (S) and find a path to the target (E). Here's the maze for reference:
+
+```
+###########
+#    S# # #
+# ### #####
+#   # # # #
+### # #####
+#   # # # #
+# ### #####
+# #E# # # #
+### # #####
+# #   # # #
+###########
+```
+
+### Step-by-Step Path:
+1. Start at `S` (position: row 1, column 5).
+2. Move **left** to (1,4).
+3. Move **left** to (1,3).
+4. Move **left** to (1,2).
+5. Move **down** to (2,2).
+6. Move **down** to (3,2).
+7. Move **right** to (3,3).
+8. Move **right** to (3,4).
+9. Move **down** to (4,4) — blocked by a wall, so this is invalid. Instead, from (3,4), move **down** is invalid, so we continue:
+10. From (3,4), move **down** is blocked, so move **left** back to (3,3).
+11. Move **down** to (4,3) — blocked by a wall. Instead, from (3,3), move **down** is invalid, so move **left** to (3,2).
+12. Move **down** to (4,2).
+13. Move **down** to (5,2).
+14. Move **right** to (5,3).
+15. Move **right** to (5,4).
+16. Move **down** to (6,4) — blocked by a wall. Instead, from (5,4), move **right** to (5,5) — blocked by a wall.
+17. From (5,4), move **up** to (4,4) — blocked. So backtrack to (5,2).
+18. From (5,2), move **down** to (6,2).
+19. Move **right** to (6,3).
+20. Move **right** to (6,4) — blocked by a wall. So move **down** to (7,3).
+21. Move **left** to (7,2) — blocked by a wall. So move **right** to (7,4).
+22. Move **up** to (6,4) — blocked. So move **down** to (8,4).
+23. Move **left** to (8,3).
+24. Move **left** to (8,2).
+25. Move **up** to (7,2) — blocked. So move **down** to (9,2).
+26. Move **right** to (9,3).
+27. Move **right** to (9,4).
+28. Move **up** to (8,4) — blocked. So move **right** to (9,5).
+29. Move **up** to (8,5) — blocked. So move **left** back to (9,4).
+30. From (9,4), move **up** to (8,4) — blocked. The only remaining move is to go back to (9,3) and then (9,2).
+31. From (9,2), move **left** to (9,1) — out of bounds. It seems we're stuck here, so let's try an alternative path earlier.
+
+### Corrected Path:
+From step 6 (position (3,2)):
+1. Move **right** to (3,3).
+2. Move **right** to (3,4).
+3. Move **down** to (4,4) — blocked, so instead move **left** to (3,3).
+4. Move **down** to (4,3) — blocked, so move **left** to (3,2).
+5. Move **down** to (4,2).
+6. Move **down** to (5,2).
+7. Move **right** to (5,3).
+8. Move **right** to (5,4).
+9. Move **down** to (6,4) — blocked, so move **left** to (5,3).
+10. Move **down** to (6,3).
+11. Move **down** to (7,3).
+12. Move **left** to (7,2) — blocked, so move **right** to (7,4).
+13. Move **down** to (8,4).
+14. Move **left** to (8,3).
+15. Move **left** to (8,2) — `E` is at (7,3), so we missed it. 
+
+### Final Path:
+The correct path is:
+1. Start at `S` (1,5).
+2. Move **left** to (1,4).
+3. Move **left** to (1,3).
+4. Move **left** to (1,2).
+5. Move **down** to (2,2).
+6. Move **down** to (3,2).
+7. Move **right** to (3,3).
+8. Move **down** to (4,3) — blocked, so move **right** to (3,4).
+9. Move **down** to (4,4) — blocked, so move **left** to (3,3).
+10. Move **down** to (4,3) — blocked, so move **left** to (3,2).
+11. Move **down** to (4,2).
+12. Move **down** to (5,2).
+13. Move **right** to (5,3).
+14. Move **down** to (6,3).
+15. Move **down** to (7,3) — reached `E`.
+
+### Path Coordinates:
+(1,5) → (1,4) → (1,3) → (1,2) → (2,2) → (3,2) → (3,3) → (3,2) → (4,2) → (5,2) → (5,3) → (6,3) → (7,3).
+
+### Directions:
+Left, Left, Left, Down, Down, Right, Left, Down, Down, Right, Down, Down. 
+
+However, this seems convoluted. Here's a simpler path:
+1. (1,5) → (1,4) → (1,3) → (1,2) → (2,2) → (3,2) → (4,2) → (5,2) → (5,3) → (6,3) → (7,3). 
+
+### Final Answer:
+The shortest path is:
+- Left (to 1,4)
+- Left (to 1,3)
+- Left (to 1,2)
+- Down (to 2,2)
+- Down (to 3,2)
+- Down (to 4,2)
+- Down (to 5,2)
+- Right (to 5,3)
+- Down (to 6,3)
+- Down (to 7,3) — reaching `E`. 
+
+This avoids unnecessary backtracking.
+
+HUMAN VERIFICATION:

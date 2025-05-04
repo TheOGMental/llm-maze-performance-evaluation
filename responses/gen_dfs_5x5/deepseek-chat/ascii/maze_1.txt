@@ -1,0 +1,94 @@
+INPUT:
+###########
+#         #
+# #########
+#        E#
+######### #
+#  S# #   #
+# ##### ###
+# #     # #
+# # #######
+#   # # # #
+###########
+
+EXPECTED SOLUTION:
+###########
+#         #
+# #########
+#        E#
+#########X#
+#XXS# #XXX#
+#X#####X###
+#X#XXXXX# #
+#X#X#######
+#XXX# # # #
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin `S` (start) to the target `E` (end). Here's the maze for reference:
+
+```
+###########
+#         #
+# #########
+#        E#
+######### #
+#  S# #   #
+# ##### ###
+# #     # #
+# # #######
+#   # # # #
+###########
+```
+
+### Step-by-Step Solution:
+
+1. **Locate Start (S) and End (E):**
+   - Start (`S`) is at the position (5, 3).
+   - End (`E`) is at the position (4, 9).
+
+2. **Possible Movements:**
+   - You can move up, down, left, or right, but not diagonally.
+   - You cannot pass through walls (`#`).
+
+3. **Path from S to E:**
+   - From `S` (5, 3), move **right** to (5, 4).
+   - Move **right** to (5, 5).
+   - Move **up** to (4, 5).
+   - Move **up** to (3, 5).
+   - Move **right** to (3, 6).
+   - Move **right** to (3, 7).
+   - Move **right** to (3, 8).
+   - Move **right** to (3, 9).
+   - Move **up** to (2, 9) — but this is a wall, so backtrack.
+   - From (3, 9), move **down** to (4, 9) — this is `E`.
+
+### Final Path:
+The path from `S` to `E` is:
+- Right (5, 3) → (5, 4)
+- Right (5, 4) → (5, 5)
+- Up (5, 5) → (4, 5)
+- Up (4, 5) → (3, 5)
+- Right (3, 5) → (3, 6)
+- Right (3, 6) → (3, 7)
+- Right (3, 7) → (3, 8)
+- Right (3, 8) → (3, 9)
+- Down (3, 9) → (4, 9) (`E`)
+
+### Visualized Path:
+```
+###########
+#         #
+# #########
+# .......E#
+#########.#
+#  S# #.  #
+# ##### ###
+# #     # #
+# # #######
+#   # # # #
+###########
+```
+(Here, the path is marked with `.` for clarity, though the actual maze does not show these markers.)
+
+HUMAN VERIFICATION:

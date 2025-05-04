@@ -1,0 +1,88 @@
+INPUT:
+<ADJLIST_START> (0,1) <--> SOUTH (1,3) <--> NORTH (1,4) <--> NORTH (1,1) <--> SOUTH (1,2) <--> SOUTH (1,4) <--> SOUTH (3,0) <--> NORTH (3,2) <--> NORTH (2,3) <--> SOUTH (4,0) <--> NORTH (4,1) <--> NORTH (3,3) <--> SOUTH (0,4) <--> WEST (1,2) <--> EAST (2,0) <--> EAST (2,3) <--> EAST (3,2) <--> WEST (4,0) <--> EAST (4,2) <--> EAST <ADJLIST_END> <ORIGIN_START> (0,1) <ORIGIN_END> <TARGET_START> (0,4) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,1) SOUTH (1,1) SOUTH (2,1) WEST (2,0) SOUTH (3,0) SOUTH (4,0) EAST (4,1) NORTH (3,1) EAST (3,2) NORTH (2,2) NORTH (1,2) EAST (1,3) NORTH (0,3) EAST (0,4) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (0,1) to the target (0,4) in the given maze, let's analyze the adjacency list and construct a valid path step by step.
+
+### Adjacency List Analysis:
+1. (0,1) is connected to: SOUTH (1,1)
+2. (1,1) is connected to: SOUTH (1,2), NORTH (0,1)
+3. (1,2) is connected to: SOUTH (1,4), EAST (2,2), NORTH (1,1)
+4. (1,4) is connected to: SOUTH (3,0), NORTH (1,2), NORTH (1,3)
+5. (1,3) is connected to: NORTH (0,1), NORTH (1,4)
+6. (2,2) is connected to: WEST (1,2)
+7. (2,3) is connected to: SOUTH (4,3), EAST (3,3), NORTH (1,3)
+8. (3,0) is connected to: NORTH (1,4), EAST (3,2)
+9. (3,2) is connected to: NORTH (2,3), WEST (3,0), EAST (4,2)
+10. (3,3) is connected to: SOUTH (4,3), WEST (2,3)
+11. (4,0) is connected to: NORTH (3,0), EAST (4,1)
+12. (4,1) is connected to: NORTH (3,3), WEST (4,0), EAST (4,2)
+13. (4,2) is connected to: WEST (3,2), EAST (4,1)
+14. (0,4) is connected to: WEST (1,4)
+
+### Path Construction:
+We start at (0,1) and aim to reach (0,4). Here's a possible path:
+
+1. From (0,1), go SOUTH to (1,1).
+2. From (1,1), go SOUTH to (1,2).
+3. From (1,2), go EAST to (2,2).
+4. From (2,2), go WEST back to (1,2) (this seems redundant, so let's try another route).
+   
+   Alternatively:
+   
+   From (1,2), go SOUTH to (1,4).
+   From (1,4), go NORTH to (1,3).
+   From (1,3), go NORTH to (0,1) (back to origin, not helpful).
+   
+   Another attempt:
+   
+   From (1,2), go SOUTH to (1,4).
+   From (1,4), the only other option is SOUTH to (3,0), which seems far from the target.
+
+   Let's try a different approach:
+
+1. From (0,1), go SOUTH to (1,1).
+2. From (1,1), go SOUTH to (1,2).
+3. From (1,2), go EAST to (2,2).
+4. From (2,2), the only connection is WEST back to (1,2). This is a dead end.
+
+   Another approach:
+
+1. From (0,1), go SOUTH to (1,1).
+2. From (1,1), go SOUTH to (1,2).
+3. From (1,2), go SOUTH to (1,4).
+4. From (1,4), go NORTH to (1,3).
+5. From (1,3), go NORTH to (0,1) (back to start).
+
+This seems like a loop. The only other connection from (1,4) is SOUTH to (3,0), which doesn't help.
+
+   Let's try:
+
+1. From (0,1), go SOUTH to (1,1).
+2. From (1,1), go SOUTH to (1,2).
+3. From (1,2), go SOUTH to (1,4).
+4. From (1,4), go SOUTH to (3,0).
+5. From (3,0), go EAST to (3,2).
+6. From (3,2), go NORTH to (2,3).
+7. From (2,3), go EAST to (3,3).
+8. From (3,3), go SOUTH to (4,3).
+   This seems to be moving away from the target.
+
+### Correct Path:
+After analyzing the connections, here's a valid path:
+
+1. From (0,1), go SOUTH to (1,1).
+2. From (1,1), go SOUTH to (1,2).
+3. From (1,2), go SOUTH to (1,4).
+4. From (1,4), go WEST to (0,4).
+
+This path is valid because:
+- (1,4) is connected to (0,4) via WEST.
+
+### Final Path:
+(0,1) SOUTH (1,1) SOUTH (1,2) SOUTH (1,4) WEST (0,4)
+
+HUMAN VERIFICATION:

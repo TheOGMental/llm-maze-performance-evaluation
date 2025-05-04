@@ -1,0 +1,83 @@
+INPUT:
+###########
+# # # # # #
+##### #####
+#S   E# # #
+# #########
+# #   # # #
+# # # #####
+#   #   # #
+####### ###
+#       # #
+###########
+
+EXPECTED SOLUTION:
+###########
+# # # # # #
+##### #####
+#SXXXE# # #
+# #########
+# #   # # #
+# # # #####
+#   #   # #
+####### ###
+#       # #
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin `S` (start) to the target `E` (end). Here's the maze for reference:
+
+```
+###########
+# # # # # #
+##### #####
+#S   E# # #
+# #########
+# #   # # #
+# # # #####
+#   #   # #
+####### ###
+#       # #
+###########
+```
+
+### Step-by-Step Solution:
+
+1. **Identify Start (`S`) and End (`E`) Positions:**
+   - `S` is located at the 4th row, 2nd column (assuming the top-left corner is (1,1)).
+   - `E` is located at the 4th row, 6th column.
+
+2. **Possible Moves:**
+   - From `S`, you can move right, left, up, or down as long as the path is not blocked by a wall (`#`).
+
+3. **Path Exploration:**
+   - From `S` (4,2), you can move right to (4,3), then right again to (4,4), and then right to (4,5). 
+   - At (4,5), you can move right to reach `E` at (4,6).
+
+This is a straightforward path since there are no obstructions between `S` and `E` on the same row.
+
+### Path:
+The path from `S` to `E` is: 
+- Right (from (4,2) to (4,3))
+- Right (from (4,3) to (4,4))
+- Right (from (4,4) to (4,5))
+- Right (from (4,5) to (4,6) where `E` is located).
+
+### Visual Representation of the Path:
+```
+###########
+# # # # # #
+##### #####
+#S>>>E# # #
+# #########
+# #   # # #
+# # # #####
+#   #   # #
+####### ###
+#       # #
+###########
+```
+
+The path is a straight line to the right from `S` to `E`.
+
+HUMAN VERIFICATION:

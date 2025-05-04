@@ -1,0 +1,58 @@
+INPUT:
+<ADJLIST_START> (1,2) <--> NORTH (1,0) <--> SOUTH (3,0) <--> NORTH (3,1) <--> NORTH (3,2) <--> NORTH (3,3) <--> SOUTH (1,0) <--> EAST (1,1) <--> EAST (2,2) <--> WEST (3,0) <--> EAST (3,3) <--> WEST (4,1) <--> WEST (4,2) <--> WEST (4,2) <--> EAST <ADJLIST_END> <ORIGIN_START> (1,0) <ORIGIN_END> <TARGET_START> (1,2) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,0) EAST (1,1) EAST (1,2) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1,0) to the target (1,2) in the given maze, let's analyze the adjacency list step by step.
+
+### Adjacency List Breakdown:
+1. (1,2) <--> NORTH (1,0)
+   - (1,2) is connected to (1,0) to the NORTH.
+2. (1,0) <--> SOUTH (3,0)
+   - (1,0) is connected to (3,0) to the SOUTH.
+3. (3,0) <--> NORTH (3,1)
+   - (3,0) is connected to (3,1) to the NORTH.
+4. (3,1) <--> NORTH (3,2)
+   - (3,1) is connected to (3,2) to the NORTH.
+5. (3,2) <--> NORTH (3,3)
+   - (3,2) is connected to (3,3) to the NORTH.
+6. (3,3) <--> SOUTH (1,0)
+   - (3,3) is connected to (1,0) to the SOUTH.
+7. (1,0) <--> EAST (1,1)
+   - (1,0) is connected to (1,1) to the EAST.
+8. (1,1) <--> EAST (2,2)
+   - (1,1) is connected to (2,2) to the EAST.
+9. (2,2) <--> WEST (3,0)
+   - (2,2) is connected to (3,0) to the WEST.
+10. (3,0) <--> EAST (3,3)
+    - (3,0) is connected to (3,3) to the EAST.
+11. (3,3) <--> WEST (4,1)
+    - (3,3) is connected to (4,1) to the WEST.
+12. (4,1) <--> WEST (4,2)
+    - (4,1) is connected to (4,2) to the WEST.
+13. (4,2) <--> WEST (4,2)
+    - (4,2) has a self-loop to the WEST (likely an error or redundant).
+14. (4,2) <--> EAST
+    - (4,2) has an EAST connection (incomplete or redundant).
+
+### Path from (1,0) to (1,2):
+From the adjacency list, we can see that (1,2) is directly connected to (1,0) to the NORTH. This means the shortest path is directly from (1,0) to (1,2) by moving NORTH.
+
+### Final Path:
+```
+(1,0) NORTH (1,2)
+```
+
+### Explanation:
+- Start at the origin: (1,0).
+- Move NORTH to reach the target: (1,2).
+- No other steps are needed since this is a direct connection.
+
+Thus, the path is:
+```
+(1,0) NORTH (1,2)
+```
+
+HUMAN VERIFICATION:

@@ -1,0 +1,121 @@
+INPUT:
+###########
+#S  # #  E#
+# # ### # #
+# #     # #
+######### #
+#       # #
+# ####### #
+#     # # #
+##### ### #
+# # #     #
+###########
+
+EXPECTED SOLUTION:
+###########
+#SXX# #XXE#
+# #X###X# #
+# #XXXXX# #
+######### #
+#       # #
+# ####### #
+#     # # #
+##### ### #
+# # #     #
+###########
+
+OUTPUT:
+To solve the given maze, we need to find a path from the origin `S` (Start) to the target `E` (End). Here's the maze for reference:
+
+```
+###########
+#S  # #  E#
+# # ### # #
+# #     # #
+######### #
+#       # #
+# ####### #
+#     # # #
+##### ### #
+# # #     #
+###########
+```
+
+### Step-by-Step Solution:
+
+1. **Start at `S` (Position: (1,1))**: 
+   - From `S`, you can move right or down. Moving right seems more promising as it leads towards the center of the maze.
+
+2. **Move Right to (1,2)**:
+   - From (1,2), you can continue right to (1,3) or move down to (2,2). Moving right to (1,3) is a dead end (surrounded by walls), so move down to (2,2).
+
+3. **Move Down to (2,2)**:
+   - From (2,2), you can move down to (3,2) or left to (2,1). Moving left to (2,1) is a dead end (blocked by a wall), so move down to (3,2).
+
+4. **Move Down to (3,2)**:
+   - From (3,2), you can move right to (3,3) or down to (4,2). Moving right to (3,3) leads to an open path.
+
+5. **Move Right to (3,3)**:
+   - From (3,3), you can move right to (3,4) or down to (4,3). Moving right to (3,4) is a dead end (blocked by a wall), so move down to (4,3).
+
+6. **Move Down to (4,3)**:
+   - From (4,3), you can move left to (4,2) or down to (5,3). Moving left to (4,2) is a dead end (blocked by a wall), so move down to (5,3).
+
+7. **Move Down to (5,3)**:
+   - From (5,3), you can move right to (5,4) or down to (6,3). Moving right to (5,4) leads to an open path.
+
+8. **Move Right to (5,4)**:
+   - From (5,4), you can move right to (5,5) or down to (6,4). Moving right to (5,5) is a dead end (blocked by a wall), so move down to (6,4).
+
+9. **Move Down to (6,4)**:
+   - From (6,4), you can move left to (6,3) or down to (7,4). Moving left to (6,3) is a dead end (blocked by a wall), so move down to (7,4).
+
+10. **Move Down to (7,4)**:
+    - From (7,4), you can move left to (7,3), right to (7,5), or down to (8,4). Moving right to (7,5) leads towards `E`.
+
+11. **Move Right to (7,5)**:
+    - From (7,5), you can move right to (7,6) or up to (6,5). Moving right to (7,6) is a dead end (blocked by a wall), so move up to (6,5).
+
+12. **Move Up to (6,5)**:
+    - From (6,5), you can move right to (6,6) or up to (5,5). Moving right to (6,6) is a dead end (blocked by a wall), so move up to (5,5).
+
+13. **Move Up to (5,5)**:
+    - From (5,5), you can move left to (5,4) or up to (4,5). Moving left to (5,4) is backtracking, so move up to (4,5).
+
+14. **Move Up to (4,5)**:
+    - From (4,5), you can move left to (4,4) or up to (3,5). Moving left to (4,4) is a dead end (blocked by a wall), so move up to (3,5).
+
+15. **Move Up to (3,5)**:
+    - From (3,5), you can move right to (3,6) or up to (2,5). Moving right to (3,6) leads towards `E`.
+
+16. **Move Right to (3,6)**:
+    - From (3,6), you can move right to (3,7) or up to (2,6). Moving right to (3,7) is the position of `E`.
+
+17. **Move Right to `E` (3,7)**:
+    - You have reached the target.
+
+### Final Path:
+The path from `S` to `E` is as follows (coordinates are in (row, column) format, starting from (1,1) at the top-left corner):
+
+1. (1,1) → (1,2) → (2,2) → (3,2) → (3,3) → (4,3) → (5,3) → (5,4) → (6,4) → (7,4) → (7,5) → (6,5) → (5,5) → (4,5) → (3,5) → (3,6) → (3,7)
+
+### Visual Representation of the Path:
+Here’s the maze with the path marked as `P`:
+
+```
+###########
+#SPP# #  E#
+#P# ### # #
+#P#     #P#
+#########P#
+#       #P#
+# #######P#
+#     # #P#
+##### ###P#
+# # #     #
+###########
+```
+
+The path moves right from `S`, then down, right, down, right, down, right, down, right, up, up, up, right, and finally right to `E`.
+
+HUMAN VERIFICATION:

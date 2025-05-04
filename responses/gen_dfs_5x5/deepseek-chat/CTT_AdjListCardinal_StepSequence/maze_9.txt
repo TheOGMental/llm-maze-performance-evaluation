@@ -1,0 +1,63 @@
+INPUT:
+<ADJLIST_START> ( 0 , 1 ) <--> SOUTH ( 1 , 2 ) <--> NORTH ( 1 , 4 ) <--> NORTH ( 1 , 3 ) <--> SOUTH ( 2 , 3 ) <--> SOUTH ( 3 , 4 ) <--> NORTH ( 3 , 3 ) <--> SOUTH ( 4 , 4 ) <--> NORTH ( 0 , 2 ) <--> EAST ( 0 , 4 ) <--> WEST ( 1 , 1 ) <--> EAST ( 1 , 4 ) <--> WEST ( 4 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 2 , 4 ) <ORIGIN_END> <TARGET_START> ( 3 , 4 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 2 , 4 ) SOUTH ( 3 , 4 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (2, 4) to the target (3, 4) in the given maze, let's analyze the adjacency list step by step.
+
+### Adjacency List:
+1. (0, 1) <--> SOUTH (1, 2)
+2. (1, 2) <--> NORTH (0, 1)
+3. (1, 4) <--> NORTH (1, 3)
+4. (1, 3) <--> SOUTH (1, 4)
+5. (2, 3) <--> SOUTH (3, 4)
+6. (3, 4) <--> NORTH (2, 3)
+7. (3, 3) <--> SOUTH (4, 4)
+8. (4, 4) <--> NORTH (3, 3)
+9. (0, 2) <--> EAST (0, 4)
+10. (0, 4) <--> WEST (0, 2)
+11. (1, 1) <--> EAST (1, 4)
+12. (1, 4) <--> WEST (1, 1)
+13. (4, 3) <--> EAST (this seems incomplete, but we can ignore it for now)
+
+### Observations:
+- The origin is (2, 4), but (2, 4) is not directly listed in the adjacency list. However, (3, 4) is connected to (2, 3) via SOUTH/NORTH.
+- The target is (3, 4), which is directly connected to (2, 3).
+
+Since (2, 4) is not directly connected to any other node in the adjacency list, it seems like the origin is isolated or there might be a missing connection. However, assuming the adjacency list is correct and complete, the only possible path is directly from (2, 3) to (3, 4).
+
+But since (2, 4) is not connected, we might need to assume that (2, 4) is connected to (2, 3) or another node. Given the adjacency list, the only plausible path is:
+
+### Path:
+1. From (2, 4), move SOUTH to (3, 4). 
+
+However, this assumes a direct connection between (2, 4) and (3, 4), which is not explicitly listed in the adjacency list. Given the adjacency list, the only connected path involving (3, 4) is:
+- (2, 3) <--> SOUTH (3, 4).
+
+Thus, if (2, 4) is connected to (2, 3), the path would be:
+1. (2, 4) -> (2, 3) (direction not specified in the adjacency list)
+2. (2, 3) SOUTH (3, 4).
+
+But since the adjacency list does not list (2, 4) at all, it's impossible to find a valid path from the given origin to the target with the provided adjacency list. 
+
+### Conclusion:
+The maze configuration does not provide enough information to find a valid path from (2, 4) to (3, 4) because (2, 4) is not connected to any other node in the adjacency list. 
+
+However, if we assume that (2, 4) is connected to (2, 3) (even though it's not listed), the path would be:
+- (2, 4) -> (2, 3) SOUTH (3, 4).
+
+But this is an assumption not supported by the given adjacency list. 
+
+### Final Answer:
+Given the provided adjacency list, there is no valid path from the origin (2, 4) to the target (3, 4) because (2, 4) is not connected to any other node in the maze. 
+
+If we assume (2, 4) is connected to (2, 3), the path would be:
+<PATH_START> (2, 4) SOUTH (2, 3) SOUTH (3, 4) <PATH_END>. 
+
+But this is not guaranteed by the given data. 
+
+Thus, the correct answer is that no valid path exists with the given adjacency list.
+
+HUMAN VERIFICATION:

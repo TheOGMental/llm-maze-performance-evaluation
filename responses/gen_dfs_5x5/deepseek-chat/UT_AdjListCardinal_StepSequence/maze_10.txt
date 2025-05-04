@@ -1,0 +1,40 @@
+INPUT:
+<ADJLIST_START> (0,3) <--> SOUTH (1,4) <--> NORTH (1,0) <--> SOUTH (2,4) <--> NORTH (2,1) <--> SOUTH (2,2) <--> SOUTH (3,3) <--> NORTH (3,4) <--> NORTH (3,1) <--> SOUTH (4,2) <--> NORTH (4,3) <--> NORTH (4,4) <--> NORTH (0,4) <--> WEST (1,1) <--> WEST (1,1) <--> EAST (1,3) <--> WEST (2,0) <--> EAST (4,2) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (1,3) <ORIGIN_END> <TARGET_START> (0,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,3) NORTH (0,3) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1,3) to the target (0,3) in the given maze, let's analyze the adjacency list and construct the path step by step.
+
+### Adjacency List Analysis:
+1. (0,3) is connected to: SOUTH (1,3)
+2. (1,4) is connected to: NORTH (0,3), SOUTH (2,4)
+3. (1,0) is connected to: SOUTH (2,0)
+4. (2,4) is connected to: NORTH (1,4), SOUTH (3,4)
+5. (2,1) is connected to: SOUTH (3,1)
+6. (2,2) is connected to: SOUTH (3,2)
+7. (3,3) is connected to: NORTH (2,3), SOUTH (4,3)
+8. (3,4) is connected to: NORTH (2,4), SOUTH (4,4)
+9. (3,1) is connected to: NORTH (2,1), SOUTH (4,1)
+10. (4,2) is connected to: NORTH (3,2), SOUTH (5,2)
+11. (4,3) is connected to: NORTH (3,3), SOUTH (5,3)
+12. (4,4) is connected to: NORTH (3,4), SOUTH (5,4)
+13. (0,4) is connected to: WEST (0,3)
+14. (1,1) is connected to: WEST (1,0), EAST (1,2)
+15. (1,3) is connected to: WEST (1,2), EAST (1,4)
+16. (2,0) is connected to: WEST (1,0), EAST (2,1)
+17. (4,2) is connected to: WEST (4,1), EAST (4,3)
+
+### Path Construction:
+Starting at the origin (1,3), we can move as follows:
+1. From (1,3), move EAST to (1,4).
+2. From (1,4), move NORTH to (0,4).
+3. From (0,4), move WEST to (0,3), which is the target.
+
+### Final Path:
+(1,3) EAST (1,4) NORTH (0,4) WEST (0,3)
+
+This path successfully goes from the origin (1,3) to the target (0,3).
+
+HUMAN VERIFICATION:

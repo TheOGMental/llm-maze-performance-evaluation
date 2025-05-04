@@ -1,0 +1,86 @@
+INPUT:
+###########
+# #S# #  E#
+### ### # #
+# # #   # #
+### # ### #
+#   # #   #
+# ### # ###
+# #   # # #
+# # ### ###
+#   #   # #
+###########
+
+EXPECTED SOLUTION:
+###########
+# #S# #XXE#
+###X###X# #
+# #X#XXX# #
+###X#X### #
+#XXX#X#   #
+#X###X# ###
+#X#XXX# # #
+#X#X### ###
+#XXX#   # #
+###########
+
+OUTPUT:
+To solve the given maze, we'll find a path from the origin `S` to the target `E`. Here's the maze for reference:
+
+```
+###########
+# #S# #  E#
+### ### # #
+# # #   # #
+### # ### #
+#   # #   #
+# ### # ###
+# #   # # #
+# # ### ###
+#   #   # #
+###########
+```
+
+### Step-by-Step Solution:
+1. **Start at `S` (Row 2, Column 3)**.
+2. **Move Right** to (Row 2, Column 5). 
+   - Path so far: Right.
+3. **Move Down** to (Row 3, Column 5).
+   - Path so far: Right, Down.
+4. **Move Down** to (Row 4, Column 5).
+   - Path so far: Right, Down, Down.
+5. **Move Right** to (Row 4, Column 7).
+   - Path so far: Right, Down, Down, Right.
+6. **Move Right** to (Row 4, Column 9).
+   - Path so far: Right, Down, Down, Right, Right.
+7. **Move Up** to (Row 2, Column 9) to reach `E`.
+   - Final path: Right, Down, Down, Right, Right, Up.
+
+### Directions:
+- Right (R)
+- Down (D)
+- Down (D)
+- Right (R)
+- Right (R)
+- Up (U)
+
+### Final Path:
+`R, D, D, R, R, U`
+
+### Visualized Path:
+```
+###########
+# #S# #..E#
+### ###.# #
+# # #  .# #
+### # ###.#
+#   # #  .#
+# ### # ###
+# #   # # #
+# # ### ###
+#   #   # #
+###########
+```
+(The path is marked with `.` for clarity.)
+
+HUMAN VERIFICATION:

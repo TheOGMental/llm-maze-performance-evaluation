@@ -1,0 +1,37 @@
+INPUT:
+<ADJLIST_START> ( 1 , 1 ) <--> ( 2 , 1 ) ; ( 2 , 4 ) <--> ( 1 , 4 ) ; ( 3 , 3 ) <--> ( 4 , 3 ) ; ( 1 , 2 ) <--> ( 1 , 3 ) ; ( 3 , 2 ) <--> ( 3 , 1 ) ; ( 1 , 2 ) <--> ( 2 , 2 ) ; ( 4 , 1 ) <--> ( 3 , 1 ) ; ( 4 , 1 ) <--> ( 4 , 0 ) ; ( 1 , 4 ) <--> ( 0 , 4 ) ; ( 2 , 3 ) <--> ( 3 , 3 ) ; ( 0 , 4 ) <--> ( 0 , 3 ) ; ( 4 , 3 ) <--> ( 4 , 2 ) ; ( 0 , 3 ) <--> ( 1 , 3 ) ; ( 2 , 1 ) <--> ( 2 , 0 ) ; ( 3 , 2 ) <--> ( 2 , 2 ) ; ( 3 , 0 ) <--> ( 4 , 0 ) ; ( 2 , 0 ) <--> ( 3 , 0 ) ; ( 0 , 1 ) <--> ( 1 , 1 ) ; ( 2 , 4 ) <--> ( 2 , 3 ) ; <ADJLIST_END> <ORIGIN_START> ( 0 , 1 ) <ORIGIN_END> <TARGET_START> ( 0 , 4 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 1 ) ( 1 , 1 ) ( 2 , 1 ) ( 2 , 0 ) ( 3 , 0 ) ( 4 , 0 ) ( 4 , 1 ) ( 3 , 1 ) ( 3 , 2 ) ( 2 , 2 ) ( 1 , 2 ) ( 1 , 3 ) ( 0 , 3 ) ( 0 , 4 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (0, 1) to the target (0, 4) in the given maze, we can follow these steps based on the adjacency list provided:
+
+1. Start at (0, 1).
+2. From (0, 1), the adjacent cell is (1, 1).
+3. From (1, 1), the adjacent cell is (2, 1).
+4. From (2, 1), the adjacent cell is (2, 0).
+5. From (2, 0), the adjacent cell is (3, 0).
+6. From (3, 0), the adjacent cell is (4, 0).
+7. From (4, 0), the adjacent cell is (4, 1).
+8. From (4, 1), the adjacent cell is (3, 1).
+9. From (3, 1), the adjacent cell is (3, 2).
+10. From (3, 2), the adjacent cell is (2, 2).
+11. From (2, 2), the adjacent cell is (1, 2).
+12. From (1, 2), the adjacent cell is (1, 3).
+13. From (1, 3), the adjacent cell is (0, 3).
+14. From (0, 3), the adjacent cell is (0, 4).
+
+Here is the path:
+(0, 1) → (1, 1) → (2, 1) → (2, 0) → (3, 0) → (4, 0) → (4, 1) → (3, 1) → (3, 2) → (2, 2) → (1, 2) → (1, 3) → (0, 3) → (0, 4)
+
+Alternatively, a shorter path can be found by exploring other connections:
+1. (0, 1) → (1, 1) → (1, 2) → (1, 3) → (0, 3) → (0, 4)
+
+Here is the shorter path:
+(0, 1) → (1, 1) → (1, 2) → (1, 3) → (0, 3) → (0, 4)
+
+Both paths are valid, but the second one is shorter. The shortest path is:
+<PATH_START> ( 0 , 1 ) ( 1 , 1 ) ( 1 , 2 ) ( 1 , 3 ) ( 0 , 3 ) ( 0 , 4 ) <PATH_END>
+
+HUMAN VERIFICATION:

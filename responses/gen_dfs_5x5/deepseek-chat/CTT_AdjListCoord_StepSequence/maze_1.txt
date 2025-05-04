@@ -1,0 +1,102 @@
+INPUT:
+<ADJLIST_START> ( 0 , 2 ) <--> ( 0 , 1 ) ; ( 2 , 0 ) <--> ( 2 , 1 ) ; ( 0 , 3 ) <--> ( 0 , 4 ) ; ( 1 , 4 ) <--> ( 1 , 3 ) ; ( 3 , 0 ) <--> ( 2 , 0 ) ; ( 4 , 1 ) <--> ( 3 , 1 ) ; ( 3 , 3 ) <--> ( 3 , 2 ) ; ( 1 , 2 ) <--> ( 1 , 1 ) ; ( 1 , 2 ) <--> ( 1 , 3 ) ; ( 2 , 3 ) <--> ( 3 , 3 ) ; ( 3 , 0 ) <--> ( 4 , 0 ) ; ( 1 , 1 ) <--> ( 1 , 0 ) ; ( 3 , 1 ) <--> ( 3 , 2 ) ; ( 2 , 4 ) <--> ( 2 , 3 ) ; ( 4 , 1 ) <--> ( 4 , 0 ) ; ( 0 , 3 ) <--> ( 0 , 2 ) ; ( 2 , 4 ) <--> ( 1 , 4 ) ; ( 0 , 0 ) <--> ( 1 , 0 ) ; ( 0 , 0 ) <--> ( 0 , 1 ) ; <ADJLIST_END> <ORIGIN_START> ( 2 , 1 ) <ORIGIN_END> <TARGET_START> ( 1 , 4 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 2 , 1 ) ( 2 , 0 ) ( 3 , 0 ) ( 4 , 0 ) ( 4 , 1 ) ( 3 , 1 ) ( 3 , 2 ) ( 3 , 3 ) ( 2 , 3 ) ( 2 , 4 ) ( 1 , 4 ) <PATH_END>
+
+OUTPUT:
+Alright, let's tackle this maze step by step. I'll start by understanding the maze's layout based on the adjacency list provided, then figure out how to get from the origin `(2, 1)` to the target `(1, 4)`.
+
+### Understanding the Maze Structure
+
+First, let's list out all the connections (edges) between the cells (nodes) in the maze. Each `(x, y) <--> (a, b)` means you can move directly between cell `(x, y)` and cell `(a, b)`.
+
+Here's the adjacency list broken down:
+
+1. `(0, 2) <--> (0, 1)`
+2. `(2, 0) <--> (2, 1)`
+3. `(0, 3) <--> (0, 4)`
+4. `(1, 4) <--> (1, 3)`
+5. `(3, 0) <--> (2, 0)`
+6. `(4, 1) <--> (3, 1)`
+7. `(3, 3) <--> (3, 2)`
+8. `(1, 2) <--> (1, 1)`
+9. `(1, 2) <--> (1, 3)`
+10. `(2, 3) <--> (3, 3)`
+11. `(3, 0) <--> (4, 0)`
+12. `(1, 1) <--> (1, 0)`
+13. `(3, 1) <--> (3, 2)`
+14. `(2, 4) <--> (2, 3)`
+15. `(4, 1) <--> (4, 0)`
+16. `(0, 3) <--> (0, 2)`
+17. `(2, 4) <--> (1, 4)`
+18. `(0, 0) <--> (1, 0)`
+19. `(0, 0) <--> (0, 1)`
+
+### Visualizing the Maze
+
+To better understand, let's try to visualize the connections. Imagine a grid where the first number in the tuple is the row (increasing downward) and the second is the column (increasing to the right).
+
+Here's how some cells are connected:
+
+- From `(2,1)` (origin), we can go to `(2,0)`.
+- From `(2,0)`, we can go to `(3,0)` or `(2,1)`.
+- From `(3,0)`, we can go to `(4,0)` or `(2,0)`.
+- From `(4,0)`, we can go to `(4,1)` or `(3,0)`.
+- From `(4,1)`, we can go to `(3,1)` or `(4,0)`.
+- From `(3,1)`, we can go to `(3,2)` or `(4,1)`.
+- From `(3,2)`, we can go to `(3,3)` or `(3,1)`.
+- From `(3,3)`, we can go to `(2,3)` or `(3,2)`.
+- From `(2,3)`, we can go to `(2,4)` or `(3,3)`.
+- From `(2,4)`, we can go to `(1,4)` (target) or `(2,3)`.
+
+This seems like a possible path. Let's see if we can trace it step by step.
+
+### Tracing the Path
+
+Starting at `(2,1)`:
+
+1. `(2,1)` → `(2,0)` (from adjacency 2)
+2. `(2,0)` → `(3,0)` (from adjacency 5)
+3. `(3,0)` → `(4,0)` (from adjacency 11)
+4. `(4,0)` → `(4,1)` (from adjacency 15)
+5. `(4,1)` → `(3,1)` (from adjacency 6)
+6. `(3,1)` → `(3,2)` (from adjacency 13)
+7. `(3,2)` → `(3,3)` (from adjacency 7)
+8. `(3,3)` → `(2,3)` (from adjacency 10)
+9. `(2,3)` → `(2,4)` (from adjacency 14)
+10. `(2,4)` → `(1,4)` (from adjacency 17) → Target reached!
+
+So, the path is:
+
+`(2,1) → (2,0) → (3,0) → (4,0) → (4,1) → (3,1) → (3,2) → (3,3) → (2,3) → (2,4) → (1,4)`
+
+### Verifying for Shorter Paths
+
+Is there a shorter path? Let's see if we can reach `(1,4)` without going all the way to `(4,0)`.
+
+Alternative path attempt:
+
+From `(2,1)`, can we go up or right? Adjacent to `(2,1)` is only `(2,0)` (from given adjacents), so no other immediate options.
+
+Wait, let me check if `(2,1)` is connected to anything else. Looking at the adjacency list, only `(2,0) <--> (2,1)` is present, so `(2,1)` is only connected to `(2,0)`. So, the initial path seems necessary unless there's another way.
+
+Is `(1,1)` connected to `(2,1)`? No, `(1,1)` is connected to `(1,0)`, `(1,2)`, and `(0,1)` is connected to `(0,0)` and `(0,2)`, but no direct link from `(2,1)` to `(1,1)`.
+
+Similarly, `(1,3)` is connected to `(1,2)` and `(1,4)`, but to reach `(1,3)`, we'd need to come from `(1,2)` or `(1,4)`. `(1,4)` is the target, so that's not helpful.
+
+Thus, the initial path seems to be the only viable path given the connections.
+
+### Final Path
+
+After verifying, the shortest path from `(2,1)` to `(1,4)` is:
+
+`(2,1) → (2,0) → (3,0) → (4,0) → (4,1) → (3,1) → (3,2) → (3,3) → (2,3) → (2,4) → (1,4)`
+
+### Representing the Path
+
+Here's the path formatted as requested:
+
+<PATH_START> ( 2 , 1 ) ( 2 , 0 ) ( 3 , 0 ) ( 4 , 0 ) ( 4 , 1 ) ( 3 , 1 ) ( 3 , 2 ) ( 3 , 3 ) ( 2 , 3 ) ( 2 , 4 ) ( 1 , 4 ) <PATH_END>
+
+HUMAN VERIFICATION:

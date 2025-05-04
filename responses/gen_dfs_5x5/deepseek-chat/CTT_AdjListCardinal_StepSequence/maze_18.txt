@@ -1,0 +1,38 @@
+INPUT:
+<ADJLIST_START> ( 0 , 0 ) <--> SOUTH ( 1 , 1 ) <--> NORTH ( 1 , 0 ) <--> SOUTH ( 1 , 4 ) <--> SOUTH ( 2 , 0 ) <--> SOUTH ( 3 , 1 ) <--> NORTH ( 3 , 3 ) <--> NORTH ( 2 , 4 ) <--> SOUTH ( 0 , 0 ) <--> EAST ( 1 , 3 ) <--> WEST ( 1 , 3 ) <--> EAST ( 2 , 2 ) <--> WEST ( 2 , 2 ) <--> EAST ( 3 , 1 ) <--> WEST ( 3 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 1 , 0 ) <ORIGIN_END> <TARGET_START> ( 1 , 1 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 0 ) NORTH ( 0 , 0 ) EAST ( 0 , 1 ) SOUTH ( 1 , 1 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1, 0) to the target (1, 1) in the given maze, let's analyze the adjacency list step by step.
+
+### Adjacency List:
+1. (0, 0) <--> SOUTH (1, 1)
+2. (1, 1) <--> NORTH (1, 0)
+3. (1, 0) <--> SOUTH (1, 4)
+4. (1, 4) <--> SOUTH (2, 0)
+5. (2, 0) <--> SOUTH (3, 1)
+6. (3, 1) <--> NORTH (3, 3)
+7. (3, 3) <--> NORTH (2, 4)
+8. (2, 4) <--> SOUTH (0, 0)
+9. (0, 0) <--> EAST (1, 3)
+10. (1, 3) <--> WEST (1, 3)
+11. (1, 3) <--> EAST (2, 2)
+12. (2, 2) <--> WEST (2, 2)
+13. (2, 2) <--> EAST (3, 1)
+14. (3, 1) <--> WEST (3, 3)
+15. (3, 3) <--> EAST
+
+### Path from (1, 0) to (1, 1):
+From the adjacency list, we can see that:
+- (1, 0) is directly connected to (1, 1) via the NORTH direction from (1, 1).
+
+Thus, the shortest path is:
+1. Start at (1, 0).
+2. Move NORTH to (1, 1).
+
+### Final Path:
+<PATH_START> (1, 0) NORTH (1, 1) <PATH_END>
+
+HUMAN VERIFICATION:

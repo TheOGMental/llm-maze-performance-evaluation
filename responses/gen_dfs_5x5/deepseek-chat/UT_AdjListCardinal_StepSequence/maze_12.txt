@@ -1,0 +1,44 @@
+INPUT:
+<ADJLIST_START> (4,0) <--> NORTH (4,2) <--> NORTH (4,4) <--> NORTH (3,3) <--> WEST (3,3) <--> EAST (4,1) <--> WEST (4,2) <--> WEST (4,3) <--> EAST <ADJLIST_END> <ORIGIN_START> (4,3) <ORIGIN_END> <TARGET_START> (3,2) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (4,3) EAST (4,4) NORTH (3,4) WEST (3,3) WEST (3,2) <PATH_END>
+
+OUTPUT:
+To solve this maze, we need to find a path from the origin (4,3) to the target (3,2) using the given adjacency list. Let's analyze the adjacency list first:
+
+### Adjacency List:
+- (4,0) <--> NORTH
+- (4,2) <--> NORTH
+- (4,4) <--> NORTH
+- (3,3) <--> WEST
+- (3,3) <--> EAST
+- (4,1) <--> WEST
+- (4,2) <--> WEST
+- (4,3) <--> EAST
+
+From this, we can infer the following connections:
+1. (4,0) is connected to the NORTH (but no cell is listed to its north, so this might be a dead end or boundary).
+2. (4,2) is connected to the NORTH (no cell listed to its north, so likely a dead end).
+3. (4,4) is connected to the NORTH (no cell listed to its north, so likely a dead end).
+4. (3,3) is connected to WEST and EAST. Since no other cell is listed as connected to (3,3), this seems like a loop or incomplete data.
+5. (4,1) is connected to WEST (no cell listed to its west, so likely a dead end).
+6. (4,2) is connected to WEST (no cell listed to its west, so likely a dead end).
+7. (4,3) is connected to EAST. 
+
+### Observations:
+- The origin is (4,3), which is connected to EAST. However, no cell is listed as connected to the east of (4,3), which suggests a dead end or missing data.
+- The target is (3,2), but (3,2) does not appear in the adjacency list at all, meaning it is not connected to any other cell in the maze. This makes it impossible to reach (3,2) from any other cell, including the origin (4,3).
+
+### Conclusion:
+Given the adjacency list, the target (3,2) is unreachable from the origin (4,3). The maze configuration does not provide any path to the target. 
+
+### Possible Path (if the adjacency list were complete or correct):
+If we assume that (3,3) is connected to (3,2) (even though it's not in the adjacency list), a hypothetical path might look like:
+1. (4,3) EAST (but no cell is listed to the east, so this is invalid).
+This further confirms that the target is unreachable.
+
+### Final Answer:
+The target (3,2) is unreachable from the origin (4,3) given the provided adjacency list. There is no valid path.
+
+HUMAN VERIFICATION:

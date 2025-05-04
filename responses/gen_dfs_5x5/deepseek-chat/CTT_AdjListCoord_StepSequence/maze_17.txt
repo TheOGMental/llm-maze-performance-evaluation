@@ -1,0 +1,34 @@
+INPUT:
+<ADJLIST_START> ( 2 , 1 ) <--> ( 3 , 1 ) ; ( 2 , 2 ) <--> ( 1 , 2 ) ; ( 0 , 2 ) <--> ( 0 , 3 ) ; ( 0 , 2 ) <--> ( 0 , 1 ) ; ( 3 , 4 ) <--> ( 2 , 4 ) ; ( 2 , 3 ) <--> ( 2 , 2 ) ; ( 1 , 3 ) <--> ( 1 , 4 ) ; ( 0 , 4 ) <--> ( 0 , 3 ) ; ( 1 , 1 ) <--> ( 2 , 1 ) ; ( 3 , 3 ) <--> ( 3 , 2 ) ; ( 4 , 1 ) <--> ( 3 , 1 ) ; ( 4 , 0 ) <--> ( 3 , 0 ) ; ( 1 , 2 ) <--> ( 1 , 3 ) ; ( 3 , 3 ) <--> ( 4 , 3 ) ; ( 4 , 4 ) <--> ( 4 , 3 ) ; ( 1 , 0 ) <--> ( 2 , 0 ) ; ( 1 , 4 ) <--> ( 0 , 4 ) ; ( 2 , 0 ) <--> ( 3 , 0 ) ; ( 3 , 4 ) <--> ( 4 , 4 ) ; ( 4 , 1 ) <--> ( 4 , 2 ) ; ( 1 , 0 ) <--> ( 1 , 1 ) ; ( 4 , 2 ) <--> ( 3 , 2 ) ; ( 2 , 3 ) <--> ( 2 , 4 ) ; <ADJLIST_END> <ORIGIN_START> ( 4 , 4 ) <ORIGIN_END> <TARGET_START> ( 4 , 2 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 4 , 4 ) ( 4 , 3 ) ( 3 , 3 ) ( 3 , 2 ) ( 4 , 2 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (4, 4) to the target (4, 2) in the given maze, let's analyze the adjacency list step by step.
+
+### Adjacency List Analysis:
+1. (4, 4) is connected to:
+   - (3, 4)
+   - (4, 3)
+
+2. From (4, 3), we can go to:
+   - (3, 3)
+   - (4, 4) (already visited)
+
+3. From (3, 3), we can go to:
+   - (3, 2)
+   - (4, 3) (already visited)
+
+4. From (3, 2), we can go to:
+   - (4, 2) (target)
+   - (3, 3) (already visited)
+
+### Path Construction:
+Starting from (4, 4):
+1. (4, 4) -> (4, 3) -> (3, 3) -> (3, 2) -> (4, 2)
+
+### Final Path:
+<PATH_START> (4, 4) (4, 3) (3, 3) (3, 2) (4, 2) <PATH_END>
+
+HUMAN VERIFICATION:

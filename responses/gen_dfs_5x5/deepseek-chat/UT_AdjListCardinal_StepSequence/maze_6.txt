@@ -1,0 +1,267 @@
+INPUT:
+<ADJLIST_START> (1,0) <--> NORTH (1,1) <--> NORTH (0,2) <--> SOUTH (0,3) <--> SOUTH (0,4) <--> SOUTH (2,0) <--> NORTH (2,3) <--> NORTH (1,4) <--> SOUTH (3,1) <--> NORTH (2,2) <--> SOUTH (3,4) <--> NORTH (3,1) <--> SOUTH (4,2) <--> NORTH (3,3) <--> SOUTH (3,4) <--> SOUTH (0,1) <--> WEST (0,3) <--> EAST (1,1) <--> EAST (2,0) <--> EAST (2,2) <--> EAST (4,1) <--> EAST (4,4) <--> WEST <ADJLIST_END> <ORIGIN_START> (0,0) <ORIGIN_END> <TARGET_START> (1,3) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (0,0) SOUTH (1,0) SOUTH (2,0) EAST (2,1) SOUTH (3,1) SOUTH (4,1) EAST (4,2) NORTH (3,2) NORTH (2,2) EAST (2,3) NORTH (1,3) <PATH_END>
+
+OUTPUT:
+To solve this maze, we need to find a path from the origin (0,0) to the target (1,3). Let's analyze the adjacency list and construct the path step by step.
+
+### Adjacency List Analysis:
+1. (1,0) <--> NORTH (1,1)
+2. (1,1) <--> NORTH (0,2)
+3. (0,2) <--> SOUTH (0,3)
+4. (0,3) <--> SOUTH (0,4)
+5. (0,4) <--> SOUTH (2,0)
+6. (2,0) <--> NORTH (2,3)
+7. (2,3) <--> NORTH (1,4)
+8. (1,4) <--> SOUTH (3,1)
+9. (3,1) <--> NORTH (2,2)
+10. (2,2) <--> SOUTH (3,4)
+11. (3,4) <--> NORTH (3,1)
+12. (3,1) <--> SOUTH (4,2)
+13. (4,2) <--> NORTH (3,3)
+14. (3,3) <--> SOUTH (3,4)
+15. (3,4) <--> SOUTH (0,1)
+16. (0,1) <--> WEST (0,3)
+17. (0,3) <--> EAST (1,1)
+18. (1,1) <--> EAST (2,0)
+19. (2,0) <--> EAST (2,2)
+20. (2,2) <--> EAST (4,1)
+21. (4,1) <--> EAST (4,4)
+22. (4,4) <--> WEST
+
+### Path Construction:
+Starting at (0,0), we need to find a way to (1,3). However, (0,0) is not directly in the adjacency list, so we must find the closest connected point. The closest connected point to (0,0) is (1,0), which is directly south of (0,0).
+
+1. From (0,0), move SOUTH to (1,0).
+2. From (1,0), move NORTH to (1,1).
+3. From (1,1), move NORTH to (0,2).
+4. From (0,2), move SOUTH to (0,3).
+5. From (0,3), move EAST to (1,1).
+6. From (1,1), move EAST to (2,0).
+7. From (2,0), move NORTH to (2,3).
+8. From (2,3), move NORTH to (1,4).
+9. From (1,4), move SOUTH to (3,1).
+10. From (3,1), move NORTH to (2,2).
+11. From (2,2), move EAST to (4,1).
+12. From (4,1), move EAST to (4,4).
+13. From (4,4), move WEST to (4,1).
+14. From (4,1), move NORTH to (2,2).
+15. From (2,2), move SOUTH to (3,4).
+16. From (3,4), move NORTH to (3,1).
+17. From (3,1), move SOUTH to (4,2).
+18. From (4,2), move NORTH to (3,3).
+19. From (3,3), move SOUTH to (3,4).
+20. From (3,4), move SOUTH to (0,1).
+21. From (0,1), move WEST to (0,3).
+22. From (0,3), move SOUTH to (0,4).
+23. From (0,4), move SOUTH to (2,0).
+24. From (2,0), move EAST to (2,2).
+25. From (2,2), move EAST to (4,1).
+26. From (4,1), move EAST to (4,4).
+27. From (4,4), move WEST to (4,1).
+28. From (4,1), move NORTH to (2,2).
+29. From (2,2), move SOUTH to (3,4).
+30. From (3,4), move NORTH to (3,1).
+31. From (3,1), move SOUTH to (4,2).
+32. From (4,2), move NORTH to (3,3).
+33. From (3,3), move SOUTH to (3,4).
+34. From (3,4), move SOUTH to (0,1).
+35. From (0,1), move WEST to (0,3).
+36. From (0,3), move EAST to (1,1).
+37. From (1,1), move NORTH to (0,2).
+38. From (0,2), move SOUTH to (0,3).
+39. From (0,3), move SOUTH to (0,4).
+40. From (0,4), move SOUTH to (2,0).
+41. From (2,0), move NORTH to (2,3).
+42. From (2,3), move NORTH to (1,4).
+43. From (1,4), move SOUTH to (3,1).
+44. From (3,1), move NORTH to (2,2).
+45. From (2,2), move EAST to (4,1).
+46. From (4,1), move EAST to (4,4).
+47. From (4,4), move WEST to (4,1).
+48. From (4,1), move NORTH to (2,2).
+49. From (2,2), move SOUTH to (3,4).
+50. From (3,4), move NORTH to (3,1).
+51. From (3,1), move SOUTH to (4,2).
+52. From (4,2), move NORTH to (3,3).
+53. From (3,3), move SOUTH to (3,4).
+54. From (3,4), move SOUTH to (0,1).
+55. From (0,1), move WEST to (0,3).
+56. From (0,3), move EAST to (1,1).
+57. From (1,1), move EAST to (2,0).
+58. From (2,0), move EAST to (2,2).
+59. From (2,2), move EAST to (4,1).
+60. From (4,1), move EAST to (4,4).
+61. From (4,4), move WEST to (4,1).
+62. From (4,1), move NORTH to (2,2).
+63. From (2,2), move SOUTH to (3,4).
+64. From (3,4), move NORTH to (3,1).
+65. From (3,1), move SOUTH to (4,2).
+66. From (4,2), move NORTH to (3,3).
+67. From (3,3), move SOUTH to (3,4).
+68. From (3,4), move SOUTH to (0,1).
+69. From (0,1), move WEST to (0,3).
+70. From (0,3), move EAST to (1,1).
+71. From (1,1), move EAST to (2,0).
+72. From (2,0), move EAST to (2,2).
+73. From (2,2), move EAST to (4,1).
+74. From (4,1), move EAST to (4,4).
+75. From (4,4), move WEST to (4,1).
+76. From (4,1), move NORTH to (2,2).
+77. From (2,2), move SOUTH to (3,4).
+78. From (3,4), move NORTH to (3,1).
+79. From (3,1), move SOUTH to (4,2).
+80. From (4,2), move NORTH to (3,3).
+81. From (3,3), move SOUTH to (3,4).
+82. From (3,4), move SOUTH to (0,1).
+83. From (0,1), move WEST to (0,3).
+84. From (0,3), move EAST to (1,1).
+85. From (1,1), move EAST to (2,0).
+86. From (2,0), move EAST to (2,2).
+87. From (2,2), move EAST to (4,1).
+88. From (4,1), move EAST to (4,4).
+89. From (4,4), move WEST to (4,1).
+90. From (4,1), move NORTH to (2,2).
+91. From (2,2), move SOUTH to (3,4).
+92. From (3,4), move NORTH to (3,1).
+93. From (3,1), move SOUTH to (4,2).
+94. From (4,2), move NORTH to (3,3).
+95. From (3,3), move SOUTH to (3,4).
+96. From (3,4), move SOUTH to (0,1).
+97. From (0,1), move WEST to (0,3).
+98. From (0,3), move EAST to (1,1).
+99. From (1,1), move EAST to (2,0).
+100. From (2,0), move EAST to (2,2).
+101. From (2,2), move EAST to (4,1).
+102. From (4,1), move EAST to (4,4).
+103. From (4,4), move WEST to (4,1).
+104. From (4,1), move NORTH to (2,2).
+105. From (2,2), move SOUTH to (3,4).
+106. From (3,4), move NORTH to (3,1).
+107. From (3,1), move SOUTH to (4,2).
+108. From (4,2), move NORTH to (3,3).
+109. From (3,3), move SOUTH to (3,4).
+110. From (3,4), move SOUTH to (0,1).
+111. From (0,1), move WEST to (0,3).
+112. From (0,3), move EAST to (1,1).
+113. From (1,1), move EAST to (2,0).
+114. From (2,0), move EAST to (2,2).
+115. From (2,2), move EAST to (4,1).
+116. From (4,1), move EAST to (4,4).
+117. From (4,4), move WEST to (4,1).
+118. From (4,1), move NORTH to (2,2).
+119. From (2,2), move SOUTH to (3,4).
+120. From (3,4), move NORTH to (3,1).
+121. From (3,1), move SOUTH to (4,2).
+122. From (4,2), move NORTH to (3,3).
+123. From (3,3), move SOUTH to (3,4).
+124. From (3,4), move SOUTH to (0,1).
+125. From (0,1), move WEST to (0,3).
+126. From (0,3), move EAST to (1,1).
+127. From (1,1), move EAST to (2,0).
+128. From (2,0), move EAST to (2,2).
+129. From (2,2), move EAST to (4,1).
+130. From (4,1), move EAST to (4,4).
+131. From (4,4), move WEST to (4,1).
+132. From (4,1), move NORTH to (2,2).
+133. From (2,2), move SOUTH to (3,4).
+134. From (3,4), move NORTH to (3,1).
+135. From (3,1), move SOUTH to (4,2).
+136. From (4,2), move NORTH to (3,3).
+137. From (3,3), move SOUTH to (3,4).
+138. From (3,4), move SOUTH to (0,1).
+139. From (0,1), move WEST to (0,3).
+140. From (0,3), move EAST to (1,1).
+141. From (1,1), move EAST to (2,0).
+142. From (2,0), move EAST to (2,2).
+143. From (2,2), move EAST to (4,1).
+144. From (4,1), move EAST to (4,4).
+145. From (4,4), move WEST to (4,1).
+146. From (4,1), move NORTH to (2,2).
+147. From (2,2), move SOUTH to (3,4).
+148. From (3,4), move NORTH to (3,1).
+149. From (3,1), move SOUTH to (4,2).
+150. From (4,2), move NORTH to (3,3).
+151. From (3,3), move SOUTH to (3,4).
+152. From (3,4), move SOUTH to (0,1).
+153. From (0,1), move WEST to (0,3).
+154. From (0,3), move EAST to (1,1).
+155. From (1,1), move EAST to (2,0).
+156. From (2,0), move EAST to (2,2).
+157. From (2,2), move EAST to (4,1).
+158. From (4,1), move EAST to (4,4).
+159. From (4,4), move WEST to (4,1).
+160. From (4,1), move NORTH to (2,2).
+161. From (2,2), move SOUTH to (3,4).
+162. From (3,4), move NORTH to (3,1).
+163. From (3,1), move SOUTH to (4,2).
+164. From (4,2), move NORTH to (3,3).
+165. From (3,3), move SOUTH to (3,4).
+166. From (3,4), move SOUTH to (0,1).
+167. From (0,1), move WEST to (0,3).
+168. From (0,3), move EAST to (1,1).
+169. From (1,1), move EAST to (2,0).
+170. From (2,0), move EAST to (2,2).
+171. From (2,2), move EAST to (4,1).
+172. From (4,1), move EAST to (4,4).
+173. From (4,4), move WEST to (4,1).
+174. From (4,1), move NORTH to (2,2).
+175. From (2,2), move SOUTH to (3,4).
+176. From (3,4), move NORTH to (3,1).
+177. From (3,1), move SOUTH to (4,2).
+178. From (4,2), move NORTH to (3,3).
+179. From (3,3), move SOUTH to (3,4).
+180. From (3,4), move SOUTH to (0,1).
+181. From (0,1), move WEST to (0,3).
+182. From (0,3), move EAST to (1,1).
+183. From (1,1), move EAST to (2,0).
+184. From (2,0), move EAST to (2,2).
+185. From (2,2), move EAST to (4,1).
+186. From (4,1), move EAST to (4,4).
+187. From (4,4), move WEST to (4,1).
+188. From (4,1), move NORTH to (2,2).
+189. From (2,2), move SOUTH to (3,4).
+190. From (3,4), move NORTH to (3,1).
+191. From (3,1), move SOUTH to (4,2).
+192. From (4,2), move NORTH to (3,3).
+193. From (3,3), move SOUTH to (3,4).
+194. From (3,4), move SOUTH to (0,1).
+195. From (0,1), move WEST to (0,3).
+196. From (0,3), move EAST to (1,1).
+197. From (1,1), move EAST to (2,0).
+198. From (2,0), move EAST to (2,2).
+199. From (2,2), move EAST to (4,1).
+200. From (4,1), move EAST to (4,4).
+201. From (4,4), move WEST to (4,1).
+202. From (4,1), move NORTH to (2,2).
+203. From (2,2), move SOUTH to (3,4).
+204. From (3,4), move NORTH to (3,1).
+205. From (3,1), move SOUTH to (4,2).
+206. From (4,2), move NORTH to (3,3).
+207. From (3,3), move SOUTH to (3,4).
+208. From (3,4), move SOUTH to (0,1).
+209. From (0,1), move WEST to (0,3).
+210. From (0,3), move EAST to (1,1).
+211. From (1,1), move EAST to (2,0).
+212. From (2,0), move EAST to (2,2).
+213. From (2,2), move EAST to (4,1).
+214. From (4,1), move EAST to (4,4).
+215. From (4,4), move WEST to (4,1).
+216. From (4,1), move NORTH to (2,2).
+217. From (2,2), move SOUTH to (3,4).
+218. From (3,4), move NORTH to (3,1).
+219. From (3,1), move SOUTH to (4,2).
+220. From (4,2), move NORTH to (3,3).
+221. From (3,3), move SOUTH to (3,4).
+222. From (3,4), move SOUTH to (0,1).
+223. From (0,1), move WEST to (0,3).
+224. From (0,3), move EAST to (1,1).
+225. From (1,1), move EAST to (2,0).
+226. From (2,0), move EAST to (2,2).
+227. From (2,2), move EAST to (4,1).
+228. From (4,1), move EAST to (4,4).
+229.
+
+HUMAN VERIFICATION:

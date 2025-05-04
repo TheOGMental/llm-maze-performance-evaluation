@@ -1,0 +1,43 @@
+INPUT:
+<ADJLIST_START> ( 1 , 1 ) <--> NORTH ( 0 , 4 ) <--> SOUTH ( 2 , 2 ) <--> NORTH ( 2 , 4 ) <--> NORTH ( 0 , 1 ) <--> WEST ( 0 , 3 ) <--> WEST ( 0 , 3 ) <--> EAST ( 1 , 1 ) <--> EAST ( 2 , 3 ) <--> WEST ( 2 , 3 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 2 , 3 ) <ORIGIN_END> <TARGET_START> ( 0 , 0 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 2 , 3 ) WEST ( 2 , 2 ) NORTH ( 1 , 2 ) WEST ( 1 , 1 ) NORTH ( 0 , 1 ) WEST ( 0 , 0 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (2, 3) to the target (0, 0) in the given maze, let's analyze the adjacency list step by step.
+
+### Adjacency List:
+1. (1, 1) <--> NORTH (0, 1)
+2. (0, 4) <--> SOUTH (1, 4)
+3. (2, 2) <--> NORTH (1, 2)
+4. (2, 4) <--> NORTH (1, 4)
+5. (0, 1) <--> WEST (0, 0)
+6. (0, 3) <--> WEST (0, 2)
+7. (0, 3) <--> EAST (0, 4)
+8. (1, 1) <--> EAST (1, 2)
+9. (2, 3) <--> WEST (2, 2)
+10. (2, 3) <--> EAST (2, 4)
+
+### Observations:
+- The target is (0, 0), which is connected to (0, 1) via WEST.
+- (0, 1) is connected to (1, 1) via NORTH.
+- (1, 1) is connected to (1, 2) via EAST.
+- (1, 2) is connected to (2, 2) via SOUTH.
+- (2, 2) is connected to (2, 3) via EAST.
+- (2, 3) is the origin.
+
+### Path Construction:
+Starting from the origin (2, 3):
+1. From (2, 3), move WEST to (2, 2).
+2. From (2, 2), move NORTH to (1, 2).
+3. From (1, 2), move WEST to (1, 1).
+4. From (1, 1), move NORTH to (0, 1).
+5. From (0, 1), move WEST to (0, 0).
+
+### Final Path:
+(2, 3) WEST (2, 2) NORTH (1, 2) WEST (1, 1) NORTH (0, 1) WEST (0, 0)
+
+This path successfully navigates from the origin (2, 3) to the target (0, 0).
+
+HUMAN VERIFICATION:

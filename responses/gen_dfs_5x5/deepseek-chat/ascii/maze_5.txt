@@ -1,0 +1,401 @@
+INPUT:
+###########
+# #   #   #
+### # # # #
+#   # # #E#
+##### # # #
+#   # # # #
+# # # # # #
+# #S  # # #
+# ####### #
+#         #
+###########
+
+EXPECTED SOLUTION:
+###########
+# #   #   #
+### # # # #
+#   # # #E#
+##### # #X#
+#XXX# # #X#
+#X#X# # #X#
+#X#S  # #X#
+#X#######X#
+#XXXXXXXXX#
+###########
+
+OUTPUT:
+Alright, let's tackle this maze step by step. I'll start by identifying the positions of the origin (S) and the target (E) in the maze. Then, I'll explore possible paths from S to E, keeping track of my movements to avoid retracing steps or hitting walls.
+
+### Understanding the Maze Layout
+
+First, let's represent the maze in a more readable grid format with rows and columns numbered for easier reference. Here's the given maze:
+
+```
+Row 1: ###########
+Row 2: # #   #   #
+Row 3: ### # # # #
+Row 4: #   # # #E#
+Row 5: ##### # # #
+Row 6: #   # # # #
+Row 7: # # # # # #
+Row 8: # #S  # # #
+Row 9: # ####### #
+Row 10:#         #
+Row 11:###########
+```
+
+- **Origin (S):** Located at Row 8, Column 4.
+- **Target (E):** Located at Row 4, Column 10.
+
+### Identifying Possible Moves
+
+From any position, we can move up, down, left, or right, but not diagonally. We cannot pass through walls (`#`), and we should stay within the maze boundaries.
+
+### Starting the Path from S (Row 8, Column 4)
+
+Let's begin at S and explore possible paths towards E.
+
+**Current Position:** (8,4)
+
+**Possible Moves from (8,4):**
+- Up (Row 7, Column 4): `#` (wall) → Can't go up.
+- Down (Row 9, Column 4): `#` (wall) → Can't go down.
+- Left (Row 8, Column 3): ` ` (empty) → Possible.
+- Right (Row 8, Column 5): ` ` (empty) → Possible.
+
+So, we can go left to (8,3) or right to (8,5). Let's explore both options to see which one leads us closer to E at (4,10).
+
+#### Option 1: Move Left to (8,3)
+
+**Path so far:** (8,4) → (8,3)
+
+**Current Position:** (8,3)
+
+**Possible Moves from (8,3):**
+- Up (7,3): `#` → Can't.
+- Down (9,3): `#` → Can't.
+- Left (8,2): `#` → Can't.
+- Right (8,4): Already came from here.
+
+Dead end. So, moving left first doesn't seem promising. Let's backtrack to (8,4) and try moving right.
+
+#### Option 2: Move Right to (8,5)
+
+**Path so far:** (8,4) → (8,5)
+
+**Current Position:** (8,5)
+
+**Possible Moves from (8,5):**
+- Up (7,5): `#` → Can't.
+- Down (9,5): `#` → Can't.
+- Left (8,4): Came from here.
+- Right (8,6): ` ` → Possible.
+
+Move right to (8,6).
+
+**Path:** (8,4) → (8,5) → (8,6)
+
+**Current Position:** (8,6)
+
+**Possible Moves from (8,6):**
+- Up (7,6): `#` → Can't.
+- Down (9,6): `#` → Can't.
+- Left (8,5): Came from here.
+- Right (8,7): ` ` → Possible.
+
+Move right to (8,7).
+
+**Path:** (8,4) → (8,5) → (8,6) → (8,7)
+
+**Current Position:** (8,7)
+
+**Possible Moves from (8,7):**
+- Up (7,7): `#` → Can't.
+- Down (9,7): `#` → Can't.
+- Left (8,6): Came from here.
+- Right (8,8): ` ` → Possible.
+
+Move right to (8,8).
+
+**Path:** (8,4) → (8,5) → (8,6) → (8,7) → (8,8)
+
+**Current Position:** (8,8)
+
+**Possible Moves from (8,8):**
+- Up (7,8): `#` → Can't.
+- Down (9,8): `#` → Can't.
+- Left (8,7): Came from here.
+- Right (8,9): ` ` → Possible.
+
+Move right to (8,9).
+
+**Path:** (8,4) → (8,5) → (8,6) → (8,7) → (8,8) → (8,9)
+
+**Current Position:** (8,9)
+
+**Possible Moves from (8,9):**
+- Up (7,9): `#` → Can't.
+- Down (9,9): ` ` → Possible.
+- Left (8,8): Came from here.
+- Right (8,10): ` ` → Possible.
+
+Let's try moving down to (9,9) first.
+
+**Move down to (9,9):**
+
+**Path:** ... → (8,9) → (9,9)
+
+**Current Position:** (9,9)
+
+**Possible Moves from (9,9):**
+- Up (8,9): Came from here.
+- Down (10,9): ` ` → Possible.
+- Left (9,8): `#` → Can't.
+- Right (9,10): ` ` → Possible.
+
+Move down to (10,9).
+
+**Path:** ... → (9,9) → (10,9)
+
+**Current Position:** (10,9)
+
+**Possible Moves from (10,9):**
+- Up (9,9): Came from here.
+- Down (11,9): `#` → Can't.
+- Left (10,8): ` ` → Possible.
+- Right (10,10): ` ` → Possible.
+
+Let's explore left to (10,8).
+
+**Move left to (10,8):**
+
+**Path:** ... → (10,9) → (10,8)
+
+**Current Position:** (10,8)
+
+**Possible Moves from (10,8):**
+- Up (9,8): `#` → Can't.
+- Down (11,8): `#` → Can't.
+- Left (10,7): ` ` → Possible.
+- Right (10,9): Came from here.
+
+Move left to (10,7).
+
+**Path:** ... → (10,8) → (10,7)
+
+**Current Position:** (10,7)
+
+**Possible Moves from (10,7):**
+- Up (9,7): `#` → Can't.
+- Down (11,7): `#` → Can't.
+- Left (10,6): ` ` → Possible.
+- Right (10,8): Came from here.
+
+Move left to (10,6).
+
+**Path:** ... → (10,7) → (10,6)
+
+**Current Position:** (10,6)
+
+**Possible Moves from (10,6):**
+- Up (9,6): `#` → Can't.
+- Down (11,6): `#` → Can't.
+- Left (10,5): ` ` → Possible.
+- Right (10,7): Came from here.
+
+Move left to (10,5).
+
+**Path:** ... → (10,6) → (10,5)
+
+**Current Position:** (10,5)
+
+**Possible Moves from (10,5):**
+- Up (9,5): `#` → Can't.
+- Down (11,5): `#` → Can't.
+- Left (10,4): ` ` → Possible.
+- Right (10,6): Came from here.
+
+Move left to (10,4).
+
+**Path:** ... → (10,5) → (10,4)
+
+**Current Position:** (10,4)
+
+**Possible Moves from (10,4):**
+- Up (9,4): `#` → Can't.
+- Down (11,4): `#` → Can't.
+- Left (10,3): ` ` → Possible.
+- Right (10,5): Came from here.
+
+Move left to (10,3).
+
+**Path:** ... → (10,4) → (10,3)
+
+**Current Position:** (10,3)
+
+**Possible Moves from (10,3):**
+- Up (9,3): `#` → Can't.
+- Down (11,3): `#` → Can't.
+- Left (10,2): ` ` → Possible.
+- Right (10,4): Came from here.
+
+Move left to (10,2).
+
+**Path:** ... → (10,3) → (10,2)
+
+**Current Position:** (10,2)
+
+**Possible Moves from (10,2):**
+- Up (9,2): ` ` → Possible.
+- Down (11,2): `#` → Can't.
+- Left (10,1): `#` → Can't.
+- Right (10,3): Came from here.
+
+Move up to (9,2).
+
+**Path:** ... → (10,2) → (9,2)
+
+**Current Position:** (9,2)
+
+**Possible Moves from (9,2):**
+- Up (8,2): `#` → Can't.
+- Down (10,2): Came from here.
+- Left (9,1): `#` → Can't.
+- Right (9,3): ` ` → Possible.
+
+Move right to (9,3).
+
+**Path:** ... → (9,2) → (9,3)
+
+**Current Position:** (9,3)
+
+**Possible Moves from (9,3):**
+- Up (8,3): ` ` → Possible.
+- Down (10,3): `#` → Can't.
+- Left (9,2): Came from here.
+- Right (9,4): `#` → Can't.
+
+Move up to (8,3).
+
+**Path:** ... → (9,3) → (8,3)
+
+**Current Position:** (8,3)
+
+**Possible Moves from (8,3):**
+- Up (7,3): `#` → Can't.
+- Down (9,3): Came from here.
+- Left (8,2): `#` → Can't.
+- Right (8,4): ` ` → Possible.
+
+Move right to (8,4).
+
+**Path:** ... → (8,3) → (8,4)
+
+Now we're back to the starting point, which means this path is looping without getting us closer to E. This suggests that moving right initially from S leads to a dead end or a loop. Let's backtrack and try a different approach after moving right to (8,9).
+
+### Alternative Path from (8,9)
+
+At (8,9), instead of moving down to (9,9), let's try moving right to (8,10).
+
+**Path:** (8,4) → (8,5) → (8,6) → (8,7) → (8,8) → (8,9) → (8,10)
+
+**Current Position:** (8,10)
+
+**Possible Moves from (8,10):**
+- Up (7,10): ` ` → Possible.
+- Down (9,10): ` ` → Possible.
+- Left (8,9): Came from here.
+- Right (8,11): Out of bounds.
+
+Let's try moving up to (7,10).
+
+**Move up to (7,10):**
+
+**Path:** ... → (8,10) → (7,10)
+
+**Current Position:** (7,10)
+
+**Possible Moves from (7,10):**
+- Up (6,10): ` ` → Possible.
+- Down (8,10): Came from here.
+- Left (7,9): `#` → Can't.
+- Right (7,11): Out of bounds.
+
+Move up to (6,10).
+
+**Path:** ... → (7,10) → (6,10)
+
+**Current Position:** (6,10)
+
+**Possible Moves from (6,10):**
+- Up (5,10): ` ` → Possible.
+- Down (7,10): Came from here.
+- Left (6,9): `#` → Can't.
+- Right (6,11): Out of bounds.
+
+Move up to (5,10).
+
+**Path:** ... → (6,10) → (5,10)
+
+**Current Position:** (5,10)
+
+**Possible Moves from (5,10):**
+- Up (4,10): `E` → Target reached!
+- Down (6,10): Came from here.
+- Left (5,9): ` ` → Possible.
+- Right (5,11): Out of bounds.
+
+Move up to (4,10) to reach E.
+
+**Final Path:**
+(8,4) → (8,5) → (8,6) → (8,7) → (8,8) → (8,9) → (8,10) → (7,10) → (6,10) → (5,10) → (4,10)
+
+### Verifying the Path
+
+Let's walk through the path to ensure it doesn't hit any walls:
+
+1. Start at S (8,4).
+2. Right to (8,5): empty.
+3. Right to (8,6): empty.
+4. Right to (8,7): empty.
+5. Right to (8,8): empty.
+6. Right to (8,9): empty.
+7. Right to (8,10): empty.
+8. Up to (7,10): empty.
+9. Up to (6,10): empty.
+10. Up to (5,10): empty.
+11. Up to (4,10): E.
+
+No walls are encountered, and the path successfully reaches E.
+
+### Alternative Shorter Path?
+
+Is there a shorter path? Let's see if we can find a more direct route.
+
+From S (8,4), moving right seems necessary because left leads to a dead end. After moving right to (8,5), is there a way to move up earlier?
+
+From (8,5), up is wall, down is wall, left is back, right is only option to (8,6), and so on until (8,10) where we can move up. So, the path seems optimal in terms of steps.
+
+### Final Answer
+
+The path from the origin (S) to the target (E) is as follows:
+
+Right, Right, Right, Right, Right, Right, Up, Up, Up, Up.
+
+Or, in coordinate steps:
+
+1. (8,4) → (8,5)
+2. (8,5) → (8,6)
+3. (8,6) → (8,7)
+4. (8,7) → (8,8)
+5. (8,8) → (8,9)
+6. (8,9) → (8,10)
+7. (8,10) → (7,10)
+8. (7,10) → (6,10)
+9. (6,10) → (5,10)
+10. (5,10) → (4,10) [E]
+
+This path successfully navigates from the start to the end of the maze without hitting any walls.
+
+HUMAN VERIFICATION:

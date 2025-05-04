@@ -1,0 +1,20 @@
+INPUT:
+<ADJLIST_START> (2,1) <--> (3,1) ; (3,0) <--> (2,0) ; (1,0) <--> (0,0) ; (4,1) <--> (3,1) ; (1,1) <--> (2,1) ; (4,2) <--> (4,1) ; (0,0) <--> (0,1) ; (3,0) <--> (4,0) ; (3,2) <--> (4,2) ; (0,1) <--> (1,1) ; (1,0) <--> (2,0) ; <ADJLIST_END> <ORIGIN_START> (1,1) <ORIGIN_END> <TARGET_START> (2,1) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (1,1) (2,1) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1,1) to the target (2,1) in the given maze, we can follow these steps:
+
+1. Start at the origin: (1,1)
+2. From (1,1), we can move to (0,1) or (2,1) based on the adjacency list.
+3. (2,1) is the target, so we can directly move there.
+
+Thus, the shortest path is:
+(1,1) -> (2,1)
+
+Here is the path:
+<PATH_START> (1,1) (2,1) <PATH_END>
+
+HUMAN VERIFICATION:

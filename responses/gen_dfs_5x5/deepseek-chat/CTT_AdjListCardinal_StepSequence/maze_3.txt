@@ -1,0 +1,151 @@
+INPUT:
+<ADJLIST_START> ( 0 , 1 ) <--> SOUTH ( 0 , 3 ) <--> SOUTH ( 0 , 4 ) <--> SOUTH ( 1 , 1 ) <--> SOUTH ( 1 , 2 ) <--> SOUTH ( 1 , 4 ) <--> SOUTH ( 2 , 0 ) <--> SOUTH ( 3 , 2 ) <--> NORTH ( 3 , 3 ) <--> NORTH ( 4 , 0 ) <--> NORTH ( 4 , 1 ) <--> NORTH ( 3 , 3 ) <--> SOUTH ( 0 , 4 ) <--> WEST ( 1 , 3 ) <--> WEST ( 2 , 0 ) <--> EAST ( 2 , 4 ) <--> WEST ( 3 , 2 ) <--> WEST ( 4 , 1 ) <--> WEST ( 4 , 2 ) <--> EAST <ADJLIST_END> <ORIGIN_START> ( 0 , 1 ) <ORIGIN_END> <TARGET_START> ( 0 , 4 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 0 , 1 ) SOUTH ( 1 , 1 ) SOUTH ( 2 , 1 ) WEST ( 2 , 0 ) SOUTH ( 3 , 0 ) SOUTH ( 4 , 0 ) EAST ( 4 , 1 ) NORTH ( 3 , 1 ) EAST ( 3 , 2 ) NORTH ( 2 , 2 ) NORTH ( 1 , 2 ) EAST ( 1 , 3 ) NORTH ( 0 , 3 ) EAST ( 0 , 4 ) <PATH_END>
+
+OUTPUT:
+Alright, let's tackle this maze problem step by step. I'm going to approach it methodically to find a path from the origin `(0, 1)` to the target `(0, 4)` using the given adjacency list that describes how the cells in the maze are connected.
+
+### Understanding the Maze Representation
+
+First, let's understand how the maze is represented. The maze is described by an adjacency list where each cell is connected to other cells in specific directions. Here's the given adjacency list broken down:
+
+```
+(0, 1) <--> SOUTH (0, 3)
+(0, 3) <--> SOUTH (0, 4)
+(0, 4) <--> SOUTH (1, 1)
+(1, 1) <--> SOUTH (1, 2)
+(1, 2) <--> SOUTH (1, 4)
+(1, 4) <--> SOUTH (2, 0)
+(2, 0) <--> SOUTH (3, 2)
+(3, 2) <--> NORTH (3, 3)
+(3, 3) <--> NORTH (4, 0)
+(4, 0) <--> NORTH (4, 1)
+(4, 1) <--> NORTH (3, 3)
+(3, 3) <--> SOUTH (0, 4)
+(0, 4) <--> WEST (1, 3)
+(1, 3) <--> WEST (2, 0)
+(2, 0) <--> EAST (2, 4)
+(2, 4) <--> WEST (3, 2)
+(3, 2) <--> WEST (4, 1)
+(4, 1) <--> WEST (4, 2)
+(4, 2) <--> EAST
+```
+
+From this, we can see how each cell is connected to others. For example, from `(0, 1)`, you can go SOUTH to `(0, 3)`. 
+
+### Origin and Target
+
+- **Origin (Start):** `(0, 1)`
+- **Target (End):** `(0, 4)`
+
+### Goal
+
+Find a sequence of moves (path) from `(0, 1)` to `(0, 4)` using the connections provided.
+
+### Approach to Find the Path
+
+To find a path from the origin to the target, I'll use a method similar to Depth-First Search (DFS), where I'll explore one path as far as possible before backtracking if I hit a dead end. Here's how I'll proceed:
+
+1. Start at the origin `(0, 1)`.
+2. Look at its connections and choose one direction to explore.
+3. From the next cell, again look at its connections and proceed.
+4. Keep track of visited cells to avoid cycles.
+5. If I reach the target, note the path.
+6. If a path doesn't lead to the target, backtrack and try another direction.
+
+### Step-by-Step Path Finding
+
+Let's start exploring:
+
+**Current Position:** `(0, 1)`
+
+From `(0, 1)`, the only direction is SOUTH to `(0, 3)`.
+
+1. `(0, 1)` → SOUTH → `(0, 3)`
+
+**Current Position:** `(0, 3)`
+
+From `(0, 3)`, the only direction is SOUTH to `(0, 4)`.
+
+2. `(0, 3)` → SOUTH → `(0, 4)`
+
+**Current Position:** `(0, 4)`
+
+We've reached the target `(0, 4)`! 
+
+But let's check if this is correct. The path so far is:
+
+- `(0, 1)` → SOUTH → `(0, 3)` → SOUTH → `(0, 4)`
+
+However, looking back at the adjacency list, `(0, 4)` is connected to `(1, 1)` via SOUTH and also has a WEST connection to `(1, 3)`. But since we're already at `(0, 4)` and it's our target, we can stop here.
+
+But wait, the initial path seems too short. Maybe I missed something. Let me verify the connections to ensure that `(0, 3)` indeed connects to `(0, 4)` via SOUTH.
+
+Looking at the adjacency list:
+
+```
+(0, 3) <--> SOUTH (0, 4)
+```
+
+Yes, that's correct. So the direct path is:
+
+1. `(0, 1)` → SOUTH → `(0, 3)`
+2. `(0, 3)` → SOUTH → `(0, 4)`
+
+But let me see if there are other possible paths to ensure this is the only or the shortest one.
+
+Alternative Paths:
+
+From `(0, 1)`, only SOUTH to `(0, 3)` is possible.
+
+From `(0, 3)`, only SOUTH to `(0, 4)` is possible.
+
+From `(0, 4)`, it connects to `(1, 1)` via SOUTH and `(1, 3)` via WEST, but since we're already at the target, we don't need to go further.
+
+Therefore, the only path is the one above.
+
+But looking at the adjacency list again, `(0, 4)` is connected to `(1, 1)` via SOUTH and `(1, 3)` via WEST. Maybe the intended path involves going further and coming back, but that would be longer than necessary. The shortest path is indeed the direct one.
+
+However, let me check if `(0, 4)` is correctly the target. The target is `(0, 4)`, and we reach it directly in two steps. Maybe the maze is designed such that the only way to `(0, 4)` is via `(0, 3)` from `(0, 1)`.
+
+### Verifying Other Possibilities
+
+Is there any other way to reach `(0, 4)` from `(0, 1)`?
+
+Looking at the adjacency list, the only connection from `(0, 1)` is to `(0, 3)`. From `(0, 3)`, only to `(0, 4)`. From `(0, 4)`, you can go to `(1, 1)` or `(1, 3)`, but that's away from the target.
+
+Similarly, other cells don't seem to provide an alternative path back to `(0, 4)` without going through `(0, 3)` first.
+
+Therefore, the only path is:
+
+1. `(0, 1)` → SOUTH → `(0, 3)`
+2. `(0, 3)` → SOUTH → `(0, 4)`
+
+### Final Path
+
+Thus, the path from the origin `(0, 1)` to the target `(0, 4)` is:
+
+```
+(0, 1) SOUTH (0, 3) SOUTH (0, 4)
+```
+
+### Checking Against the Solved Example
+
+Looking back at the solved example provided, the path was a sequence of moves from origin to target. Similarly, here, the path is straightforward with two moves.
+
+### Potential Missteps
+
+Initially, I wondered if there might be a longer path that circles around to `(0, 4)`, but upon checking, the direct path is the only one. It's essential to verify all possible connections to ensure no alternative paths exist, especially in more complex mazes.
+
+### Conclusion
+
+After carefully examining all possible connections and ensuring that no shorter or alternative paths exist, the correct path from `(0, 1)` to `(0, 4)` is:
+
+**Path:**
+```
+(0, 1) SOUTH (0, 3) SOUTH (0, 4)
+```
+
+HUMAN VERIFICATION:

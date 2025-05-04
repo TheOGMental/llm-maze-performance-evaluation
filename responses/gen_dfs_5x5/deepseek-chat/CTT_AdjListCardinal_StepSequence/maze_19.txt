@@ -1,0 +1,53 @@
+INPUT:
+<ADJLIST_START> ( 1 , 0 ) <--> NORTH ( 0 , 3 ) <--> SOUTH ( 2 , 0 ) <--> NORTH ( 1 , 1 ) <--> SOUTH ( 1 , 2 ) <--> SOUTH ( 1 , 4 ) <--> SOUTH ( 2 , 0 ) <--> SOUTH ( 2 , 1 ) <--> SOUTH ( 2 , 2 ) <--> SOUTH ( 3 , 3 ) <--> NORTH ( 4 , 0 ) <--> NORTH ( 3 , 1 ) <--> SOUTH ( 3 , 4 ) <--> SOUTH ( 0 , 1 ) <--> WEST ( 0 , 1 ) <--> EAST ( 0 , 3 ) <--> WEST ( 1 , 2 ) <--> WEST ( 1 , 4 ) <--> WEST ( 2 , 3 ) <--> EAST ( 3 , 4 ) <--> WEST ( 4 , 2 ) <--> WEST ( 4 , 3 ) <--> WEST ( 4 , 4 ) <--> WEST <ADJLIST_END> <ORIGIN_START> ( 1 , 0 ) <ORIGIN_END> <TARGET_START> ( 4 , 0 ) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> ( 1 , 0 ) SOUTH ( 2 , 0 ) SOUTH ( 3 , 0 ) SOUTH ( 4 , 0 ) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (1, 0) to the target (4, 0) in the given maze, we can follow these steps:
+
+1. From (1, 0), the only available direction is NORTH to (0, 0). However, (0, 0) is not listed in the adjacency list, so this seems invalid. Checking the adjacency list again, (1, 0) is connected to NORTH (0, 0) which isn't present, so this seems like a dead end. Alternatively, (1, 0) is connected to NORTH (0, 3), which is present.
+
+   Wait, looking back at the adjacency list, (1, 0) is connected to NORTH (0, 3). So we can go from (1, 0) NORTH to (0, 3).
+
+2. From (0, 3), the possible directions are SOUTH (back to (1, 0)), WEST (to (0, 1)), and EAST (to (1, 3), but (1, 3) isn't in the list). So we can go WEST to (0, 1).
+
+3. From (0, 1), the possible directions are WEST (to (0, 0), not in the list) and EAST (to (0, 3)). Going EAST would take us back to (0, 3), so this seems like a loop. Maybe we need to backtrack.
+
+   Alternatively, from (0, 3), we can go SOUTH to (1, 0), but that's backtracking. 
+
+   Maybe another path: from (1, 0), we can go NORTH to (0, 3), then WEST to (0, 1), but then we're stuck. 
+
+   Let me try another approach: from (1, 0), perhaps there's another connection. The adjacency list shows (1, 0) is connected to NORTH (0, 3) and also to SOUTH (2, 0). So we can go SOUTH to (2, 0).
+
+4. From (2, 0), the possible directions are NORTH (back to (1, 0)) and SOUTH (to (3, 0), but (3, 0) isn't in the list). Wait, the adjacency list shows (2, 0) is connected to NORTH (1, 0) and SOUTH (3, 0), but (3, 0) isn't in the list, so this seems invalid. Alternatively, (2, 0) is connected to SOUTH (2, 1). 
+
+   So from (2, 0), we can go SOUTH to (2, 1).
+
+5. From (2, 1), the possible direction is SOUTH to (2, 2).
+
+6. From (2, 2), the possible direction is SOUTH to (3, 3).
+
+7. From (3, 3), the possible directions are NORTH (to (2, 3)) and SOUTH (to (4, 3)). 
+
+   Let's go NORTH to (2, 3).
+
+8. From (2, 3), the possible direction is EAST to (3, 4).
+
+9. From (3, 4), the possible directions are SOUTH (to (4, 4)) and WEST (to (2, 3)). 
+
+   Let's go SOUTH to (4, 4).
+
+10. From (4, 4), the possible direction is WEST to (4, 3).
+
+11. From (4, 3), the possible direction is WEST to (4, 2).
+
+12. From (4, 2), the possible direction is WEST to (4, 0).
+
+Now we've reached the target (4, 0).
+
+Here is the path:
+(1, 0) SOUTH (2, 0) SOUTH (2, 1) SOUTH (2, 2) SOUTH (3, 3) NORTH (2, 3) EAST (3, 4) SOUTH (4, 4) WEST (4, 3) WEST (4, 2) WEST (4, 0)
+
+HUMAN VERIFICATION:

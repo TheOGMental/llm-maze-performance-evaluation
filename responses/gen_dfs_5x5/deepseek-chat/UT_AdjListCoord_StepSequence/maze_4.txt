@@ -1,0 +1,62 @@
+INPUT:
+<ADJLIST_START> (0,3) <--> (0,4) ; (1,1) <--> (0,1) ; (0,0) <--> (0,1) ; (1,1) <--> (1,2) ; (1,2) <--> (2,2) ; (0,3) <--> (0,2) ; (1,4) <--> (2,4) ; (2,3) <--> (2,2) ; (2,4) <--> (2,3) ; (1,4) <--> (0,4) ; <ADJLIST_END> <ORIGIN_START> (2,3) <ORIGIN_END> <TARGET_START> (0,0) <TARGET_END> 
+
+EXPECTED SOLUTION:
+<PATH_START> (2,3) (2,2) (1,2) (1,1) (0,1) (0,0) <PATH_END>
+
+OUTPUT:
+To find a path from the origin (2,3) to the target (0,0) in the given maze, let's analyze the adjacency list step by step.
+
+### Adjacency List:
+1. (0,3) <--> (0,4)
+2. (1,1) <--> (0,1)
+3. (0,0) <--> (0,1)
+4. (1,1) <--> (1,2)
+5. (1,2) <--> (2,2)
+6. (0,3) <--> (0,2)
+7. (1,4) <--> (2,4)
+8. (2,3) <--> (2,2)
+9. (2,4) <--> (2,3)
+10. (1,4) <--> (0,4)
+
+### Goal:
+- **Origin**: (2,3)
+- **Target**: (0,0)
+
+### Step-by-Step Path:
+1. Start at (2,3).
+   - From (2,3), we can go to (2,2) or (2,4) (from adjacencies 8 and 9).
+   - Let's choose (2,2) for a more direct path.
+
+2. Move to (2,2).
+   - From (2,2), we can go to (1,2) or back to (2,3) (from adjacencies 5 and 8).
+   - Choose (1,2) to move closer to the target.
+
+3. Move to (1,2).
+   - From (1,2), we can go to (1,1) or back to (2,2) (from adjacencies 4 and 5).
+   - Choose (1,1) to move closer to the target.
+
+4. Move to (1,1).
+   - From (1,1), we can go to (0,1) or back to (1,2) (from adjacencies 2 and 4).
+   - Choose (0,1) to move closer to the target.
+
+5. Move to (0,1).
+   - From (0,1), we can go to (0,0) or back to (1,1) (from adjacencies 2 and 3).
+   - Choose (0,0), which is the target.
+
+### Final Path:
+(2,3) -> (2,2) -> (1,2) -> (1,1) -> (0,1) -> (0,0)
+
+### Verification:
+- (2,3) -> (2,2): Valid (adjacency 8).
+- (2,2) -> (1,2): Valid (adjacency 5).
+- (1,2) -> (1,1): Valid (adjacency 4).
+- (1,1) -> (0,1): Valid (adjacency 2).
+- (0,1) -> (0,0): Valid (adjacency 3).
+
+No backtracking or invalid moves are present, and the path reaches the target. 
+
+### Answer:
+<PATH_START> (2,3) (2,2) (1,2) (1,1) (0,1) (0,0) <PATH_END>
+
+HUMAN VERIFICATION:
